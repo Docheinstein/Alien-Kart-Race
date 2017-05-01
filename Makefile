@@ -15,13 +15,26 @@ WARNING_FLAG = -Wall
 DEPENDENCIES_FILE = $(TRASH_PATH)dependencies
 
 # Retrieve the subdir of src folder
-INCLUDE_DIRS = $(shell find $(SRC_PATH) -type d)
+ifeq ($(OS),Windows_NT)
+# On WIN
+	INCLUDE_DIRS = $(shell dir $(SRC_PATH) /a:d /s /b | sort)
+else
+# On LINUX
+	INCLUDE_DIRS = $(shell find $(SRC_PATH) -type d)
+endif
+
 
 # Prepend -I to subdirs
 INCLUDE_PARAMS = $(foreach d, $(INCLUDE_DIRS), -I$d)
 
 # Retrieve the cc files
-SRC_FILES = $(shell find $(SRC_PATH) | grep "\.cc")
+ifeq ($(OS),Windows_NT)
+# On WIN
+		SRC_FILES = $(shelldir *.cc /b/s)
+else
+# On LINUX
+		SRC_FILES = $(shell find $(SRC_PATH) | grep "\.cc")
+endif
 
 # Assume that foreach cc files there is an object file to generate
 # Do this by replacing .cc with .o
