@@ -2,7 +2,9 @@
 #define MAP_H
 
 #include <list>
+#include <string>
 #include <SFML/Graphics.hpp>
+#include "game.h"
 
 class Map {
 public:
@@ -10,10 +12,10 @@ public:
 		FirstMap
 	};
 
-	static const int MINI_MAP_X = 320;
-	static const int MINI_MAP_Y = 240;
-	static const int MINI_MAP_WIDTH = 200;
-	static const int MINI_MAP_HEIGHT = 200;
+	static const int MINI_MAP_X = Game::WINDOW_WIDTH / 2;
+	static const int MINI_MAP_Y = 10;
+	static const int MINI_MAP_WIDTH = Game::WINDOW_WIDTH / 4;
+	static const int MINI_MAP_HEIGHT = Game::WINDOW_HEIGHT / 4;
 
 	Map();
 	~Map();
@@ -27,10 +29,15 @@ public:
 	int rowCount();
 
 private:
+	enum MapTile {
+		Empty = 0,
+		Street = 1,
+		Empty2 = 3
+	};
+
 	struct PerspectiveMatrixTile {
-		sf::VertexArray mVertices; // VertexArray
-		int mColFromCenter; // Distance of matrix cols from the center ( WIDTH / 2)
-		int mRowFromBaseline; // Distance of matrix rows from the baseline ( HEIGHT )
+		MapTile tile;
+		sf::VertexArray vertices; // VertexArray
 	} typedef PerspectiveMatrixTile;
 
 	int **mMatrix;
@@ -39,10 +46,13 @@ private:
 	sf::Image *mMapGrid;
 	sf::Image *mMiniMap;
 	std::list<PerspectiveMatrixTile> mPerspectiveTiles;
+	PerspectiveMatrixTile aTile;
 
-	static const char * getMapFilePath(MapType mapType);
+	std::string getMapFilePath(MapType mapType);
 	void createMapGrid();
 	void createMiniMap();
+
+	void drawMapGrid();
 };
 
 #endif // MAP_H

@@ -3,12 +3,12 @@
 #include "kart.h"
 
 Level::Level() {
-	mMap = new Map();
-	mMap->loadMap(Map::MapType::FirstMap);
-
 	mKart = new Kart();
 	mKart->setCol((double)50);
 	mKart->setRow((double)50);
+
+	mMap = new Map();
+	mMap->loadMap(Map::MapType::FirstMap);
 }
 
 Level::~Level() {
@@ -31,5 +31,6 @@ void Level::update() {
 void Level::render() {
 	mMap->drawMap();
 	mMap->drawMiniMap();
+	//mKart->draw();
 	mKart->drawOnMiniMap();
 }

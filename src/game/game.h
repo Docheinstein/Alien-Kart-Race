@@ -11,8 +11,8 @@ class Level;
 class Game {
 public:
 	static Game & instance();
-	static const int WINDOW_WIDTH = 640;
-	static const int WINDOW_HEIGHT = 480;
+	static const int WINDOW_WIDTH = 320;
+	static const int WINDOW_HEIGHT = 240;
 
 	void start();
 	Level *level();
