@@ -3,6 +3,7 @@
 #include "game.h"
 #include "level.h"
 #include "log.h"
+#include "map.h"
 
 using namespace sf;
 
@@ -23,6 +24,8 @@ Game::~Game() {
 }
 
 void Game::start() {
+	Map::generatePerspectiveSystemCache();
+
 	// Game loop
 	Clock clock;
     while (mWindow->isOpen()) {
@@ -34,19 +37,25 @@ void Game::start() {
 
 		long cycleMillis = clock.getElapsedTime().asMilliseconds();
 
+		double cycleConsumedMillisPercentage = (double) cycleMillis / TARGET_UPDATE_MS * 100;
+		// benchmark("Millis used for the cycle ", cycleMillis);
+		// benchmark("Maximum amount of millis available per cycle: ", TARGET_UPDATE_MS);
+		benchmark("Cycle is taking ", cycleMillis, "ms; ", cycleConsumedMillisPercentage, "% of the available time.");
 		// There is enough time to sleep
 		if (cycleMillis < TARGET_UPDATE_MS) {
 			sleep(sf::milliseconds(TARGET_UPDATE_MS - cycleMillis));
+
 		}
 		else {
-			//w("Skipping frames!");
+			int skippedFrames = 0;
 			while (cycleMillis > TARGET_UPDATE_MS) {
+				skippedFrames++;
 				clock.restart();
 				pollEvents();
 				update();
 				cycleMillis = clock.getElapsedTime().asMilliseconds();
 			}
-			//i("Frames skip ended");
+			// benchmark("Skipped ", skippedFrames, " frames");
 		}
     }
 }

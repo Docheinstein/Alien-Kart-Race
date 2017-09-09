@@ -5,9 +5,13 @@
 #include <string>
 #include <SFML/Graphics.hpp>
 #include "game.h"
+#include "geometryutil.h"
 
 class Map {
 public:
+	// Test
+	static void generatePerspectiveSystemCache();
+
 	enum MapType {
 		FirstMap
 	};
@@ -28,17 +32,23 @@ public:
 	int colCount();
 	int rowCount();
 
+	// DEBUG
+	int getTile(int row, int col);
 private:
 	enum MapTile {
 		Empty = 0,
 		Street = 1,
-		Empty2 = 3
+		Empty2 = 3,
+		Event = 4
 	};
 
 	struct PerspectiveMatrixTile {
 		MapTile tile;
 		sf::VertexArray vertices; // VertexArray
 	} typedef PerspectiveMatrixTile;
+
+
+	static IPoint * sCachedPerspectivePoints;
 
 	int **mMatrix;
 	int mColCount;
@@ -48,8 +58,26 @@ private:
 	std::list<PerspectiveMatrixTile> mPerspectiveTiles;
 	PerspectiveMatrixTile aTile;
 
+	static IPoint getCachedMapPerspectivePoint(
+		int matrixRowIndex,
+		int matrixColIndex,
+		int tileInternalRowIndex,
+		int tileInternalColIndex,
+		int dirIndex
+	);
+
+	static void setCachedMapPerspectivePoint(
+		int matrixRowIndex,
+		int matrixColIndex,
+		int tileInternalRowIndex,
+		int tileInternalColIndex,
+		int dirIndex,
+		const IPoint &p
+	);
+
 	std::string getMapFilePath(MapType mapType);
 	void createMapGrid();
+	void createMapGridOnDemand();
 	void createMiniMap();
 
 	void drawMapGrid();

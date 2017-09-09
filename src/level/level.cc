@@ -31,6 +31,6 @@ void Level::update() {
 void Level::render() {
 	mMap->drawMap();
 	mMap->drawMiniMap();
-	//mKart->draw();
+	mKart->draw();
 	mKart->drawOnMiniMap();
 }

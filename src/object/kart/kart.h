@@ -11,6 +11,8 @@ namespace sf {
 
 class Kart : public MapObject {
 public:
+	static const int MARGIN_FROM_BOTTOM = 20;
+
 	Kart();
 	~Kart();
 	double col();

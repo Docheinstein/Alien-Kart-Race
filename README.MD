@@ -1,11 +1,21 @@
-**Repository URL for git** 
-https://Docheinstein@bitbucket.org/Docheinstein/crace.git
+# Alien Kart Race
+---
+## Requirements
 
-**Commit**
-git commit -am "Commit message"
+** SFML **
+* Install SFML library:
+```
+sudo apt-get install libsfml-dev
+```
 
-**Push**
-git push https://Docheinstein@bitbucket.org/Docheinstein/crace.git master
+## Compile
+Open a terminal in the project directory and type:
+```
+make
+```
 
-**Pull** 
-git pull https://Docheinstein@bitbucket.org/Docheinstein/crace.git master
+## Run
+Open a terminal in the project directory and type:
+```
+make run
+```

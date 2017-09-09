@@ -3,57 +3,62 @@
 
 #include <iostream>
 
+#define DEBUG 0
+#define BENCHMARK 1
+
 #define FLUSH 1
-#define DEBUG 1
+
+extern const char * DEBUG_TAG;
+extern const char * BENCHMARK_TAG;
+
 inline
-/*
-void w() {
-	std::cerr << std::endl;
-
-	#if FLUSH
-		std::cerr << std::flush;
-	#endif
-}
-*/
-void d() {
-#if DEBUG
-	std::cout << std::endl;
-
-	#if FLUSH
-		std::cout << std::flush;
-	#endif
-#endif
-}
-/*
-void i() {
+void d_internal() {
 	std::cout << std::endl;
 
 	#if FLUSH
 		std::cout << std::flush;
 	#endif
 }
-*/
+
+template<typename FirstType, typename ...OtherTypes>
+inline
+void d_internal(FirstType && first, OtherTypes && ...other) {
+	std::cout << first;
+	d_internal(other...);
+}
+
 template<typename FirstType, typename ...OtherTypes>
 inline
 void d(FirstType && first, OtherTypes && ...other) {
 #if DEBUG
-	std::cout << first;
-	d(other...);
+	std::cout << DEBUG_TAG << first;
+	d_internal(other...);
 #endif
 }
-/*
-template<typename FirstType, typename ...OtherTypes>
+
 inline
-void i(FirstType && first, OtherTypes && ...other) {
-	std::cerr << first;
-	i(other...);
+void benchmark_internal() {
+	std::cout << std::endl;
+
+	#if FLUSH
+		std::cout << std::flush;
+	#endif
 }
 
 template<typename FirstType, typename ...OtherTypes>
 inline
-void w(FirstType && first, OtherTypes && ...other) {
+void benchmark_internal(FirstType && first, OtherTypes && ...other) {
 	std::cout << first;
-	w(other...);
+	benchmark_internal(other...);
 }
-*/
+
+template<typename FirstType, typename ...OtherTypes>
+inline
+void benchmark(FirstType && first, OtherTypes && ...other) {
+#if BENCHMARK
+	std::cout << BENCHMARK_TAG << first;
+	benchmark_internal(other...);
+#endif
+}
+
 #endif

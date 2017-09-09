@@ -11,6 +11,8 @@ DEBUGGER = nemiver
 DEBUG_FLAG = -g
 WARNING_FLAG = -Wall
 
+STD_11_FLAG = -std=c++11
+
 # Dependencies file location
 DEPENDENCIES_FILE = $(TRASH_PATH)dependencies
 
@@ -23,24 +25,23 @@ else
 	INCLUDE_DIRS = $(shell find $(SRC_PATH) -type d)
 endif
 
-
 # Prepend -I to subdirs
 INCLUDE_PARAMS = $(foreach d, $(INCLUDE_DIRS), -I$d)
 
 # Retrieve the cc files
 ifeq ($(OS),Windows_NT)
 # On WIN
-		SRC_FILES = $(shelldir *.cc /b/s)
+	SRC_FILES = $(shelldir *.cc /b/s)
 else
 # On LINUX
-		SRC_FILES = $(shell find $(SRC_PATH) | grep "\.cc")
+	SRC_FILES = $(shell find $(SRC_PATH) | grep "\.cc")
 endif
 
 # Assume that foreach cc files there is an object file to generate
 # Do this by replacing .cc with .o
 OBJS = $(SRC_FILES:.cc=.o)
 
-CXXFLAGS = $(INCLUDE_PARAMS) $(DEBUG_FLAG) $(WARNING_FLAG)
+CXXFLAGS = $(STD_11_FLAG) $(INCLUDE_PARAMS) $(DEBUG_FLAG) $(WARNING_FLAG)
 
 #OBJS = \
 #	$(SRC_PATH)main.o\
@@ -74,9 +75,12 @@ main:	$(OBJS)
 	 -l$(SFML_GRAPHICS_NAME) -l$(SFML_WINDOW_NAME) -l$(SFML_SYSTEM_NAME)\
 	 $(DEBUG_FLAG) $(WARNING_FLAG)
 
+DEPS = $(OBJS:.o=.d)
+-include $(DEPS)
+
 .PHONY: clean run run-release run-debug
 clean:
-	find . -name '*.o' -delete
+	find . -name '*.o' -o -name '*.d' -delete
 
 # Helper for run in release mode
 run: run-release
@@ -90,4 +94,5 @@ run-debug:
 	$(DEBUGGER) $(BIN_PATH)main
 
 %.o: %.cc
-	g++ $(CXXFLAGS) -c $< -o $@
+	g++ $(CXXFLAGS) -c $< -o $@ -MMD -MF $(@:.o=.d)
+# -MMD -MF $(@:.o=.d) Creates the dependency file (.d) for each .o, in its subfolder

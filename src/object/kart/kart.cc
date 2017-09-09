@@ -1,4 +1,5 @@
 #include <SFML/Graphics.hpp>
+#include <SFML/Window.hpp>
 #include <cmath>
 #include <iostream>
 #include "game.h"
@@ -6,11 +7,12 @@
 #include "map.h"
 #include "kart.h"
 #include "resourceutil.h"
+#include "log.h"
 
 const int MINI_MAP_KART_SIZE = 2;
 
 Kart::Kart() {
-	mDirection = (double)1 / (1 << 8);
+	mDirection = (double) 1 / (1 << 8);
 	initSprite();
 }
 
@@ -59,7 +61,9 @@ void Kart::drawOnMiniMap() {
 }
 
 void Kart::update() {
-	const double RADIUS_INCREMENT_PER_CYCLE = (double) 1 / (double) (1 << 7);
+	// 1 / 1 << 4 = 0.06 radians => 50 different angles
+	// 1 / 1 << 3 = 0.06 radians => 25 different angles
+	const double RADIUS_INCREMENT_PER_CYCLE = (double) 1 / (double) (1 << 4);
 	const double SPEED = (double) 1 / (double) (1 << 3);
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Up)) {
@@ -84,16 +88,22 @@ void Kart::update() {
 	std::cout << "ROW\t: " << mRow << std::endl;
 	std::cout << "Dir\t: " << mDirection << std::endl << std::endl;
 */
+	// d("Kart [ROW: ", mRow, ", COL: ", mCol, "]");
+	Map *m = Game::instance().level()->map();
+	// if (m->getTile(mRow, mCol) == 4) {
+	// 	d("Over an event tile");
+	// }
 }
 
 // PRIVATE
 
 void Kart::initSprite() {
+	d("Initializing sprite");
 	mTextures = new sf::Texture[1];
 	mSprites = new sf::Sprite[1];
 	mTextures[0].loadFromFile(ResourceUtil::image("alien_center.png"));
 	mSprites[0].setTexture(mTextures[0]);
 	mSprites[0].setPosition(
 		(Game::WINDOW_WIDTH - mSprites[0].getLocalBounds().width) / 2,
-		Game::WINDOW_HEIGHT - 100);
+		Game::WINDOW_HEIGHT - MARGIN_FROM_BOTTOM -mSprites[0].getLocalBounds().height);
 }
