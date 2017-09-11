@@ -24,7 +24,9 @@ Game::~Game() {
 }
 
 void Game::start() {
-	Map::generatePerspectiveSystemCache();
+	const int CYCLE_TO_PERFORM_FOR_NOTIFY_AVG_TIME = 1000;
+	int performedCycles = 0;
+	long cyclesMillisSum = 0;
 
 	// Game loop
 	Clock clock;
@@ -36,11 +38,11 @@ void Game::start() {
 		render();
 
 		long cycleMillis = clock.getElapsedTime().asMilliseconds();
-
+		cyclesMillisSum += cycleMillis;
 		double cycleConsumedMillisPercentage = (double) cycleMillis / TARGET_UPDATE_MS * 100;
 		// benchmark("Millis used for the cycle ", cycleMillis);
 		// benchmark("Maximum amount of millis available per cycle: ", TARGET_UPDATE_MS);
-		benchmark("Cycle is taking ", cycleMillis, "ms; ", cycleConsumedMillisPercentage, "% of the available time.");
+		// benchmark("Cycle is taking ", cycleMillis, "ms; ", cycleConsumedMillisPercentage, "% of the available time.");
 		// There is enough time to sleep
 		if (cycleMillis < TARGET_UPDATE_MS) {
 			sleep(sf::milliseconds(TARGET_UPDATE_MS - cycleMillis));
@@ -57,6 +59,18 @@ void Game::start() {
 			}
 			// benchmark("Skipped ", skippedFrames, " frames");
 		}
+
+		performedCycles++;
+		if (performedCycles >= CYCLE_TO_PERFORM_FOR_NOTIFY_AVG_TIME) {
+			const double avgMillis = cyclesMillisSum / (double) performedCycles;
+			double avgMillisPercentage = (double) avgMillis / TARGET_UPDATE_MS * 100;
+			benchmark(
+			 "Avarage ms taken by lasts ", CYCLE_TO_PERFORM_FOR_NOTIFY_AVG_TIME,
+			 " cycles: ", avgMillis,
+			 "ms; ", avgMillisPercentage, "% of the available time.");
+			performedCycles = 0;
+			cyclesMillisSum = 0;
+		}
     }
 }
 
@@ -72,7 +86,14 @@ sf::RenderWindow* Game::window() {
 void Game::pollEvents() {
 	Event event;
 	while (mWindow->pollEvent(event)) {
-		handleEvent(event);
+		// handleEvent(event);
+		switch (event.type) {
+		case sf::Event::Closed:
+			mWindow->close();
+			break;
+		default:
+			break;
+		}
 	}
 }
 
@@ -97,11 +118,5 @@ void Game::init() {
 
 void Game::handleEvent(const sf::Event &event) {
 	// std::cout << "New SFML event" << std::endl;
-	switch (event.type) {
-	case sf::Event::Closed:
-		mWindow->close();
-		break;
-	default:
-		break;
-	}
+
 }

@@ -10,50 +10,39 @@
 #include "geometryutil.h"
 #include "log.h"
 
-const int DIRECTIONS_CALCULATED = 80;
-const int MATRIX_RENDERED_TILES_RADIUS = 20;
-const int POINTS_CALCULATED_REDUCE_FACTOR = 3;
-
-const int TILE_SIZE = 48;
-
-const int MATRIX_RENDERED_TILES_DIAMETER = MATRIX_RENDERED_TILES_RADIUS * 2 + 1;
-
-const double HORIZON_LINE_Y = Game::WINDOW_HEIGHT / 2;
-
-const int POINTS_CALCULATED_PER_TILE_DIMENSION = TILE_SIZE / POINTS_CALCULATED_REDUCE_FACTOR;
-
-// [DIRS][INTERNAL][INTERNAL][MATRIX_RENDERED][MATRIX_RENDERED]
-// const int ARRAY_FACTOR_MATRIX_RENDERED_TILES_COL = 1;
-
-const int ARRAY_FACTOR_MATRIX_RENDERED_TILES_ROW = MATRIX_RENDERED_TILES_DIAMETER;
-
-const int ARRAY_FACTOR_INTERNAL_TILE_COL_ARRAY_FACTOR =
-	ARRAY_FACTOR_MATRIX_RENDERED_TILES_ROW * MATRIX_RENDERED_TILES_DIAMETER;
-
-const int ARRAY_FACTOR_INTERNAL_TILE_ROW_ARRAY_FACTOR =
-	ARRAY_FACTOR_INTERNAL_TILE_COL_ARRAY_FACTOR * POINTS_CALCULATED_PER_TILE_DIMENSION;
-
-const int ARRAY_FACTOR_DIRECTION_ARRAY_FACTOR =
-	ARRAY_FACTOR_INTERNAL_TILE_ROW_ARRAY_FACTOR * POINTS_CALCULATED_PER_TILE_DIMENSION;
-
-const int SIZE_OF_PERSPECTIVE_CACHE =
-	DIRECTIONS_CALCULATED *
-	POINTS_CALCULATED_PER_TILE_DIMENSION *
-	POINTS_CALCULATED_PER_TILE_DIMENSION *
-	MATRIX_RENDERED_TILES_DIAMETER *
-	MATRIX_RENDERED_TILES_DIAMETER;
-
-IPoint* Map::sCachedPerspectivePoints = new IPoint[SIZE_OF_PERSPECTIVE_CACHE];
+sf:: Texture invalidTexture;
 
 sf:: Texture greenSolidTexture;
-sf:: Texture streetSolidTexture;
 sf:: Texture redSolidTexture;
+
+sf:: Texture streetSolidTexture;
+
+sf:: Texture earthHorizonBackgroundTexture;
+
+const double Map::HORIZON_LINE_Y = Game::WINDOW_HEIGHT / 2;
 
 Map::Map() {
 	mMatrix = NULL;
+	earthHorizonBackgroundTexture.loadFromFile(ResourceUtil::image("earth_horizon_background_no_ground.png"));
 	greenSolidTexture.loadFromFile(ResourceUtil::image("green_solid.png"));
-	graySolidTexture.loadFromFile(ResourceUtil::image("gray_solid.png"));
+	streetSolidTexture.loadFromFile(ResourceUtil::image("street_solid.png"));
 	redSolidTexture.loadFromFile(ResourceUtil::image("red_solid.png"));
+
+	invalidTexture.loadFromFile(ResourceUtil::image("invalid.png"));
+
+	mEarthStreet1Texture.loadFromFile(ResourceUtil::image("earth_street_1.png"));
+	mEarthStreet2Texture.loadFromFile(ResourceUtil::image("earth_street_2.png"));
+	mEarthStreet3Texture.loadFromFile(ResourceUtil::image("earth_street_3.png"));
+	mEarthStreet4Texture.loadFromFile(ResourceUtil::image("earth_street_4.png"));
+	mEarthStreet5Texture.loadFromFile(ResourceUtil::image("earth_street_5.png"));
+	mEarthStreet6Texture.loadFromFile(ResourceUtil::image("earth_street_6.png"));
+
+	mEarthGrass1Texture.loadFromFile(ResourceUtil::image("earth_grass_1.png"));
+	mEarthGrass2Texture.loadFromFile(ResourceUtil::image("earth_grass_2.png"));
+	mEarthGrass3Texture.loadFromFile(ResourceUtil::image("earth_grass_3.png"));
+
+	mHorizonBackgroundSprite.setTexture(earthHorizonBackgroundTexture);
+	mHorizonBackgroundSprite.setPosition(0, HORIZON_LINE_Y - 87);
 }
 
 Map::~Map() {
@@ -64,8 +53,7 @@ void Map::loadMap(MapType mapType) {
 	MatrixUtil::deleteMatrix(mMatrix, mRowCount);
 
 	std::string mapPath = Map::getMapFilePath(mapType);
-	mColCount = FileUtil::getIntCountInFirstRow(mapPath.c_str());
-	mRowCount = FileUtil::getConsecutiveRowCount(mapPath.c_str());
+	FileUtil::getIntMatrixSize(mapPath.c_str(), mRowCount, mColCount);
 
 	std::cout << "Map file path: " << mapPath << std::endl;
 	std::cout << "Map cols: " << mColCount << std::endl;
@@ -83,94 +71,7 @@ int Map::getTile(int row, int col) {
 }
 
 void Map::update() {
-	#if 0
-	// Update the perspective tile system
-	for (std::list<PerspectiveMatrixTile>::iterator iter = mPerspectiveTiles.begin();
-		iter != mPerspectiveTiles.end();
-		iter++
-	) {
-		Kart *k = Game::instance().level()->kart();
-
-		double rowOrientedOffset;
-		double colOrientedOffset;
-		double kartDirection = k->direction();
-		//std::cout << "DIR: " << kartDirection << std::endl;
-		/*
-		if (kartDirection < 3.1415 / 2 && kartDirection > -3.1415 / 2) {
-			std::cout << "Going up" << std::endl;
-			rowOrientedOffset = (*iter).rowFromBaseline;
-			colOrientedOffset = (*iter).colFromCenter;
-		}
-		else {
-			std::cout << "Going down" << std::endl;
-			rowOrientedOffset = - (*iter).rowFromBaseline;
-			colOrientedOffset = - (*iter).colFromCenter;
-		}
-		*/
-
-
-		colOrientedOffset = (*iter).colFromCenter * cos(kartDirection ) -
-							(*iter).rowFromBaseline	* sin(kartDirection) ;
-		rowOrientedOffset = (*iter).rowFromBaseline * cos(kartDirection ) +
-						 	(*iter).colFromCenter	* sin(kartDirection) ;
-
-		int interpolatedMatrixRow = k->row() + rowOrientedOffset;
-		int interpolatedMatrixCol = k->col() + colOrientedOffset;
-		if (mMatrix[interpolatedMatrixRow][interpolatedMatrixCol] == Street) {
-			(*iter).tile = Street;
-
-			/*
-			(*iter).vertices[0].color = sf::Color::Red;
-			(*iter).vertices[1].color = sf::Color::Red;
-			(*iter).vertices[2].color = sf::Color::Red;
-			(*iter).vertices[3].color = sf::Color::Red;
-			*/
-
-			(*iter).vertices[0].texCoords = sf::Vector2f(31, 31);
-			(*iter).vertices[1].texCoords = sf::Vector2f(0, 31);
-			(*iter).vertices[2].texCoords = sf::Vector2f(0, 0);
-			(*iter).vertices[3].texCoords = sf::Vector2f(31, 0);
-
-
-		}
-		else
-			//(*iter).tile = Empty;
-			{
-				(*iter).tile = Empty;
-
-				/*
-				(*iter).vertices[0].color = sf::Color::Red;
-				(*iter).vertices[1].color = sf::Color::Red;
-				(*iter).vertices[2].color = sf::Color::Red;
-				(*iter).vertices[3].color = sf::Color::Red;
-				*/
-
-				(*iter).vertices[0].texCoords = sf::Vector2f(31, 31);
-				(*iter).vertices[1].texCoords = sf::Vector2f(0, 31);
-				(*iter).vertices[2].texCoords = sf::Vector2f(0, 0);
-				(*iter).vertices[3].texCoords = sf::Vector2f(31, 0);
-			}
-		/*
-		if (mMatrix[interpolatedMatrixRow][interpolatedMatrixCol] == Empty) {
-			(*iter).tile = Empty;
-			(*iter).vertices[0].color = sf::Color::Black;
-			(*iter).vertices[1].color = sf::Color::Black;
-			(*iter).vertices[2].color = sf::Color::Black;
-			(*iter).vertices[3].color = sf::Color::Black;
-		}
-		if (mMatrix[interpolatedMatrixRow][interpolatedMatrixCol] == Empty2) {
-			(*iter).tile = Empty;
-			(*iter).vertices[0].color = sf::Color::Green;
-			(*iter).vertices[1].color = sf::Color::Green;
-			(*iter).vertices[2].color = sf::Color::Green;
-			(*iter).vertices[3].color = sf::Color::Green;
-		}
-		*/
-	}
-	#endif
-
 	// createMapGrid();
-	createMapGridOnDemand();
 }
 
 void Map::drawMapGrid() {
@@ -184,23 +85,71 @@ void Map::drawMapGrid() {
 }
 
 void Map::drawMap() {
+	createMapGrid();
+
 	drawMapGrid();
+
+
 
 	for (std::list<PerspectiveMatrixTile>::const_iterator iter = mPerspectiveTiles.begin();
 		iter != mPerspectiveTiles.end();
 		iter++
 	) {
 
-		if ((*iter).tile == Empty || (*iter).tile == Empty2) {
-			Game::instance().window()->draw((*iter).vertices, &greenSolidTexture);
+		//d("mEarthStreet1Texture", &mEarthStreet1Texture);
+		//d("textureRef", textureRef);
+		//std::cout << textureRef;
+/*
+		if ((*iter).tile == Empty) {
+
 		}
-		else if ((*iter).tile == Street) {
+		else if ((*iter).tile == EarthStreet1)
 			Game::instance().window()->draw((*iter).vertices, &streetSolidTexture);
-		}
 		else if ((*iter).tile == Event) {
 			Game::instance().window()->draw((*iter).vertices, &redSolidTexture);
 		}
+*/
+		const sf::Texture * textureRef = textureForTileType((*iter).tile);
+		Game::instance().window()->draw((*iter).vertices, textureRef);
 	}
+
+	drawHorizonBackground();
+}
+
+sf::Texture * Map::textureForTileType(MapTileType type) {
+	if (type == Invalid)
+		return &invalidTexture;
+	if (type == Empty)
+		return &greenSolidTexture;
+	if (type == Fulfilled)
+		return &streetSolidTexture;
+	if (type == Event)
+		return &redSolidTexture;
+
+	if (type == EarthStreet1)
+		return &mEarthStreet1Texture;
+	if (type == EarthStreet2)
+		return &mEarthStreet2Texture;
+	if (type == EarthStreet3)
+		return &mEarthStreet3Texture;
+	if (type == EarthStreet4)
+		return &mEarthStreet4Texture;
+	if (type == EarthStreet5)
+		return &mEarthStreet5Texture;
+	if (type == EarthStreet6)
+		return &mEarthStreet6Texture;
+
+	if (type == EarthGrass1)
+		return &mEarthGrass1Texture;
+	if (type == EarthGrass2)
+		return &mEarthGrass2Texture;
+	if (type == EarthGrass3)
+		return &mEarthGrass3Texture;
+	return &greenSolidTexture;
+}
+
+void Map::drawHorizonBackground() {
+	Game::instance().window()->draw(mHorizonBackgroundSprite);
 }
 
 void Map::drawMiniMap() {
@@ -229,176 +178,40 @@ int Map::rowCount() {
 std::string Map::getMapFilePath(MapType mapType) {
 	switch (mapType) {
 	case FirstMap:
-		return ResourceUtil::map("map.txt");
+		return ResourceUtil::map("earth.txt");
 	}
 	return "";
 }
 
-
-void Map::generatePerspectiveSystemCache() {
-	return;
-	sf::Clock clock;
-
-	d("Generating perspective system cache, array dimension: ", SIZE_OF_PERSPECTIVE_CACHE);
-	d("Total structure size: ", SIZE_OF_PERSPECTIVE_CACHE * sizeof(IPoint) / (1000), " KB");
-	// d("Using array location factors of");
-	//
-	// d("ARRAY_FACTOR_MATRIX_RENDERED_TILES_ROW ", ARRAY_FACTOR_MATRIX_RENDERED_TILES_ROW);
-	// d("ARRAY_FACTOR_INTERNAL_TILE_COL_ARRAY_FACTOR ", ARRAY_FACTOR_INTERNAL_TILE_COL_ARRAY_FACTOR);
-	// d("ARRAY_FACTOR_INTERNAL_TILE_ROW_ARRAY_FACTOR  ", ARRAY_FACTOR_INTERNAL_TILE_ROW_ARRAY_FACTOR);
-	// d("ARRAY_FACTOR_DIRECTION_ARRAY_FACTOR ", ARRAY_FACTOR_DIRECTION_ARRAY_FACTOR);
-
-	clock.restart();
-
-	int calculatedPoints = 0;
+void Map::createMapGrid() {
 	const int WIDTH = Game::WINDOW_WIDTH;
 	const int HEIGHT = Game::WINDOW_HEIGHT;
+	// Number of tiles that will be rendered in each direction.
+	const int MATRIX_RENDERED_TILES_RADIUS = 40;
 
-	const double BASE_POINT_Y = HEIGHT - Kart::MARGIN_FROM_BOTTOM;
-	const double BASE_POINT_X = WIDTH / 2;
-	const Point bp = Point { BASE_POINT_X, BASE_POINT_Y };
+	// Amount of pixel a single tile will occupy.
+	const int TILE_SIZE = 72;
 
-	// Calculated the radians of the directions only once
-	const double RADIANS_OFFSET_BETWEEN_DIRECTIONS = M_PI * 2 / DIRECTIONS_CALCULATED;
-	const double SMALL_DOUBLE = (double) 1 / (1 << 7);
-	double *directionsPrecalculatedRadians = new double[DIRECTIONS_CALCULATED];
-	for (int i = 0; i < DIRECTIONS_CALCULATED; i++) {
-		directionsPrecalculatedRadians[i] = RADIANS_OFFSET_BETWEEN_DIRECTIONS * i + SMALL_DOUBLE;
-		d("directionsPrecalculatedRadians [", i, "]: ",  directionsPrecalculatedRadians[i]);
-	}
+	// Y coordinate of the horizon line.
+	// const double HORIZON_LINE_Y = Game::WINDOW_HEIGHT / 2;
 
-	// Variables, defined out of the scope for performance reasons
-	double vanishPoint1x, vanishPoint2x;
+	// Total amount of tiles rendered per axis.
+	const int MATRIX_RENDERED_TILES_DIAMETER = MATRIX_RENDERED_TILES_RADIUS * 2 + 1;
 
-	Point vp1 {0, HORIZON_LINE_Y};
-	Point vp2 {0, HORIZON_LINE_Y};
+ 	Kart *k = Game::instance().level()->kart();
 
-	double tilePointR, tilePointC;
-	double rowOffset, colOffset;
-	double matrixCenterRelativeOffsettedRow, matrixCenterRelativeOffsettedCol;
-
-	for (int iDir = 0; iDir < DIRECTIONS_CALCULATED; iDir++) {
-		const double currentDir = directionsPrecalculatedRadians[iDir];
-		vanishPoint1x =
-			BASE_POINT_X -
-			tan(M_PI / 2 - currentDir)
-			* (BASE_POINT_Y - HORIZON_LINE_Y);
-
-		vanishPoint2x =
-			BASE_POINT_X +
-			tan(currentDir)
-			* (BASE_POINT_Y - HORIZON_LINE_Y);
-
-		for (int iInternalTilePointR = 0; iInternalTilePointR < POINTS_CALCULATED_PER_TILE_DIMENSION; iInternalTilePointR ++) {
-		for (int iInternalTilePointC = 0; iInternalTilePointC < POINTS_CALCULATED_PER_TILE_DIMENSION; iInternalTilePointC ++) {
-
-		vp1.x = vanishPoint1x;
-		vp2.x = vanishPoint2x;
-
-		// tilePointR = iInternalTilePointR * POINTS_CALCULATED_REDUCE_FACTOR;
-		// tilePointC = iInternalTilePointC * POINTS_CALCULATED_REDUCE_FACTOR;
-
-		tilePointR = (iInternalTilePointR == 0 ? 0 : (double) iInternalTilePointR / POINTS_CALCULATED_PER_TILE_DIMENSION);
-		tilePointC = (iInternalTilePointC == 0 ? 0 : (double) iInternalTilePointC / POINTS_CALCULATED_PER_TILE_DIMENSION);
-
-		// matrixCenterRelativeOffsettedRow = tilePointR + MATRIX_RENDERED_TILES_RADIUS;
-
-		for (int r = 0; r < MATRIX_RENDERED_TILES_DIAMETER; r++, matrixCenterRelativeOffsettedRow--) {
-			// matrixCenterRelativeOffsettedCol = tilePointC + MATRIX_RENDERED_TILES_RADIUS;
-
-		for (int c = 0; c < MATRIX_RENDERED_TILES_DIAMETER; c++, matrixCenterRelativeOffsettedCol--) {
-
-			matrixCenterRelativeOffsettedRow = tilePointR + MATRIX_RENDERED_TILES_RADIUS - r;
-			matrixCenterRelativeOffsettedCol = tilePointC + MATRIX_RENDERED_TILES_RADIUS - c;
-
-			rowOffset = (matrixCenterRelativeOffsettedRow) / sin (currentDir); //cos (M_PI / 2 - currentDir);
-			colOffset = (matrixCenterRelativeOffsettedCol) / cos (currentDir);
-
-			Point pr = { bp.x + rowOffset * TILE_SIZE, bp.y };
-			Point pc = { bp.x - colOffset * TILE_SIZE, bp.y };
-
-			Line pr_vp1 = GeometryUtil::lineForTwoPoints(pr, vp1);
-			Line pc_vp2 = GeometryUtil::lineForTwoPoints(pc, vp2);
-
-			Point pp = GeometryUtil::intersectionForTwoLines(pr_vp1, pc_vp2);
-
-			// d("\nCalculated a point: ", calculatedPoints++, " of ", SIZE_OF_PERSPECTIVE_CACHE);
-			// d("For params: iDir: ", iDir, " internalR: ",  iInternalTilePointR, " internalC: ", iInternalTilePointC, " r: ", r, " c: ", c);
-			//
-			// d("matrixCenterRelativeOffsettedRow ", matrixCenterRelativeOffsettedRow);
-			// d("matrixCenterRelativeOffsettedCol ", matrixCenterRelativeOffsettedCol);
-			// d("rowOffset ", rowOffset);
-			// d("colOffset ", colOffset);
-			// d("pp ", pp);
-
-			setCachedMapPerspectivePoint(r, c, iInternalTilePointR, iInternalTilePointC, iDir, GeometryUtil::toIPoint(pp));
-		}
-		}
-	}
-	}
-	}
-
-	long generationMillis = clock.getElapsedTime().asMilliseconds();
-	d("Millis taken for map cache generation: ", generationMillis);
-}
-
-IPoint Map::getCachedMapPerspectivePoint(int matrixRowIndex, int matrixColIndex,
-										int tileInternalRowIndex, int tileInternalColIndex,
-										int dirIndex) {
-		const int i =
-			dirIndex * ARRAY_FACTOR_DIRECTION_ARRAY_FACTOR +
-			tileInternalRowIndex * ARRAY_FACTOR_INTERNAL_TILE_ROW_ARRAY_FACTOR +
-			tileInternalColIndex * ARRAY_FACTOR_INTERNAL_TILE_COL_ARRAY_FACTOR +
-			matrixRowIndex * ARRAY_FACTOR_MATRIX_RENDERED_TILES_ROW +
-			matrixColIndex /* * 1 */;
-		// d("Getting pp at ", i);
-		return Map::sCachedPerspectivePoints[i];
-}
-
-void Map::setCachedMapPerspectivePoint(	int matrixRowIndex,	int matrixColIndex,
-										int tileInternalRowIndex, int tileInternalColIndex,
-										int dirIndex, const IPoint &p) {
-	const int i =
-		dirIndex * ARRAY_FACTOR_DIRECTION_ARRAY_FACTOR +
-		tileInternalRowIndex * ARRAY_FACTOR_INTERNAL_TILE_ROW_ARRAY_FACTOR +
-		tileInternalColIndex * ARRAY_FACTOR_INTERNAL_TILE_COL_ARRAY_FACTOR +
-		matrixRowIndex * ARRAY_FACTOR_MATRIX_RENDERED_TILES_ROW +
-		matrixColIndex /* * 1 */;
-
-	// d("Setting perspective point in cache at ", i);
-	// d("dirIndex * ARRAY_FACTOR_DIRECTION_ARRAY_FACTOR ", dirIndex * ARRAY_FACTOR_DIRECTION_ARRAY_FACTOR);
-	// d("tileInternalRowIndex * ARRAY_FACTOR_INTERNAL_TILE_ROW_ARRAY_FACTOR ", tileInternalRowIndex * ARRAY_FACTOR_INTERNAL_TILE_ROW_ARRAY_FACTOR);
-	// d("tileInternalColIndex * ARRAY_FACTOR_INTERNAL_TILE_COL_ARRAY_FACTOR ", tileInternalColIndex * ARRAY_FACTOR_INTERNAL_TILE_COL_ARRAY_FACTOR);
-	// d("matrixRowIndex * ARRAY_FACTOR_MATRIX_RENDERED_TILES_ROW ", matrixRowIndex * ARRAY_FACTOR_MATRIX_RENDERED_TILES_ROW);
-	// d("matrixColIndex ", matrixColIndex);
-
-	Map::sCachedPerspectivePoints[i] = p;
-}
-
-void Map::createMapGridOnDemand() {
-	int WIDTH = Game::WINDOW_WIDTH;
-	int HEIGHT = Game::WINDOW_HEIGHT;
-
-	Kart *k = Game::instance().level()->kart();
-	double ANGLE = k->direction(); //1.10;
+	// Angle between 0 and 6.28 representing the direction of the kart.
+	const double ANGLE = k->direction();
 
 	mMapGrid = new sf::Image();
 	mMapGrid->create(WIDTH, HEIGHT, sf::Color(255, 255, 255));
 	mPerspectiveTiles.clear();
 
-	const int MATRIX_RENDERED_TILES_RADIUS = 8;
-	const int TILE_SIZE = 48;
-	//Point center { m}
-	const int iCOL = k->col();
-	const int iROW = k->row();
-	// Point matrixCenter { k->col(), k->row() };
-	// Rotate, Scale, Translate
-
-	double HORIZON_LINE_Y = HEIGHT / 2;
+	const int INT_COL = k->col();
+	const int INT_ROW = k->row();
 
 	// Basepoint
-	//double BASE_POINT_Y = HEIGHT  * 4 / 3;
-	double BASE_POINT_Y = HEIGHT - Kart::MARGIN_FROM_BOTTOM;
+	double BASE_POINT_Y = HEIGHT /* - Kart::MARGIN_FROM_BOTTOM */;
 	double BASE_POINT_X = WIDTH / 2;
 
 	// Vanish points
@@ -409,224 +222,124 @@ void Map::createMapGridOnDemand() {
 	Point vp1 = Point { VANISH_POINT_1_X, HORIZON_LINE_Y };
 	Point vp2 = Point { VANISH_POINT_2_X, HORIZON_LINE_Y };
 
-	for (int r = 0; r < MATRIX_RENDERED_TILES_RADIUS * 2 + 1; r++) {
-		for (int c = 0; c < MATRIX_RENDERED_TILES_RADIUS * 2 + 1; c++) {
-			int matrixOffsetCOL = iCOL - MATRIX_RENDERED_TILES_RADIUS + c;
-				int matrixOffsetROW = iROW - MATRIX_RENDERED_TILES_RADIUS + r;
+	// Calculate the perspective points since tiles shares contact points.
+	Point perspectivePoints[MATRIX_RENDERED_TILES_DIAMETER + 1][MATRIX_RENDERED_TILES_DIAMETER + 1];
 
-				const double mdCOL = k->col() - matrixOffsetCOL;
-				const double mdROW = k->row() - matrixOffsetROW;
+	// d("\n");
+	for (int r = 0; r < MATRIX_RENDERED_TILES_DIAMETER + 1; r++) {
+		for (int c = 0; c < MATRIX_RENDERED_TILES_DIAMETER + 1; c++) {
+			// Indexes of the considered tile (absolute).
+			const int absoluteMatrixIndexCol = INT_COL - MATRIX_RENDERED_TILES_RADIUS + c;
+			const int absoluteMatrixIndexRow = INT_ROW - MATRIX_RENDERED_TILES_RADIUS + r;
 
-				struct MatrixOffsets {
-					double rowOffset;
-					double colOffset;
-				} typedef MatrixOffsets;
+			// Offset that the considered tile has respect to the kart tile (relative).
+			const double relativeToCenterCol = k->col() - absoluteMatrixIndexCol;
+			const double relativeToCenterRow = k->row() - absoluteMatrixIndexRow;
 
-				MatrixOffsets centerOffset[4];
-				const int UL = 0;
-				const int UR = 1;
-				const int DR = 2;
-				const int DL = 3;
+			// Offsets of the projected points on the baseline relative to the center.
+			const double colOffset = (relativeToCenterCol) / cos (ANGLE);
+			const double rowOffset = (relativeToCenterRow) / cos(M_PI / 2 - ANGLE);
 
-				centerOffset[UL].colOffset = (mdCOL) / cos (ANGLE);
-				centerOffset[UL].rowOffset = (mdROW) / cos(M_PI / 2 - ANGLE);
+			Point pc = { bp.x - colOffset * TILE_SIZE, bp.y };
+			Point pr = { bp.x + rowOffset * TILE_SIZE, bp.y };
 
-				centerOffset[UR].colOffset = (mdCOL - 1) / cos (ANGLE);
-				centerOffset[UR].rowOffset = (mdROW) / cos(M_PI / 2 - ANGLE);
+			// Line that join projected points on the baseline to the vanish points.
+			Line pc_vp2 = GeometryUtil::lineForTwoPoints(pc, vp2);
+			Line pr_vp1 = GeometryUtil::lineForTwoPoints(pr, vp1);
 
-				centerOffset[DR].colOffset = (mdCOL - 1) / cos (ANGLE);
-				centerOffset[DR].rowOffset = (mdROW - 1) / cos(M_PI / 2 - ANGLE);
+			// Definitive perspective points
+			Point pp = GeometryUtil::intersectionForTwoLines(pc_vp2, pr_vp1);
 
-				centerOffset[DL].colOffset = (mdCOL) / cos (ANGLE);
-				centerOffset[DL].rowOffset = (mdROW - 1) / cos(M_PI / 2 - ANGLE);
-
-				Point pcUL = { bp.x - centerOffset[UL].colOffset * TILE_SIZE, bp.y };
-				Point prUL = { bp.x + centerOffset[UL].rowOffset * TILE_SIZE, bp.y };
-				Point pcDR = { bp.x - centerOffset[DR].colOffset * TILE_SIZE, bp.y };
-				Point prDR = { bp.x + centerOffset[DR].rowOffset * TILE_SIZE, bp.y };
-
-
-				Line pcUL_vp2 = GeometryUtil::lineForTwoPoints(
-						pcUL, vp2);
-				Line prUL_vp1 = GeometryUtil::lineForTwoPoints(
-						prUL, vp1);
-				Line pcDR_vp2 = GeometryUtil::lineForTwoPoints(
-						pcDR, vp2);
-				Line prDR_vp1 = GeometryUtil::lineForTwoPoints(
-						prDR, vp1);
-
-				Point ppUL = GeometryUtil::intersectionForTwoLines(
-								pcUL_vp2, prUL_vp1);
-				Point ppUR = GeometryUtil::intersectionForTwoLines(
-								pcDR_vp2, prUL_vp1);
-				Point ppDR = GeometryUtil::intersectionForTwoLines(
-								pcDR_vp2, prDR_vp1);
-				Point ppDL = GeometryUtil::intersectionForTwoLines(
-								pcUL_vp2, prDR_vp1);
-
-				PerspectiveMatrixTile matrixTile;
-
-				matrixTile.tile = static_cast<MapTile>(
-					mMatrix[matrixOffsetROW][matrixOffsetCOL]
-				);
-
-				matrixTile.vertices.setPrimitiveType(sf::Quads);
-				matrixTile.vertices.clear();
-				matrixTile.vertices.append(
-					sf::Vertex( sf::Vector2f(	ppUL.x,
-												ppUL.y))
-				);
-				matrixTile.vertices.append(
-					sf::Vertex( sf::Vector2f(	ppUR.x,
-												ppUR.y))
-				);
-				matrixTile.vertices.append(
-					sf::Vertex( sf::Vector2f(	ppDR.x,
-												ppDR.y))
-				);
-				matrixTile.vertices.append(
-					sf::Vertex( sf::Vector2f(	ppDL.x,
-												ppDL.y))
-				);
-
-				matrixTile.vertices[0].texCoords = sf::Vector2f(0, 0);
-				matrixTile.vertices[1].texCoords = sf::Vector2f(15, 0);
-				matrixTile.vertices[2].texCoords = sf::Vector2f(15, 15);
-				matrixTile.vertices[3].texCoords = sf::Vector2f(0, 15);
-
-				if (ppUL.y > HORIZON_LINE_Y &&
-					ppUR.y > HORIZON_LINE_Y &&
-					ppDR.y > HORIZON_LINE_Y &&
-					ppDL.y > HORIZON_LINE_Y) {
-						/*
-						drawPoint(mMapGrid, ppUL, sf::Color::Red, 3);
-						drawPoint(mMapGrid, ppUR, sf::Color::Red, 3);
-						drawPoint(mMapGrid, ppDR, sf::Color::Red, 3);
-						drawPoint(mMapGrid, ppDL, sf::Color::Red, 3);
-						*/
-						mPerspectiveTiles.push_front(matrixTile);
-					}
+			perspectivePoints[r][c] = pp;
+			// d("Perspective point at (", r, ", ", c, "): ", pp);
 		}
 	}
-}
-
-void Map::createMapGrid() {
-	Kart *k = Game::instance().level()->kart();
-
-	const int INT_ROW = k->row();
-	const int INT_COL = k->col();
-	const double ANGLE = k->direction();
-
-	const double internalRowOffset = k->row() - INT_ROW;
-	const double internalColOffset = k->col() - INT_COL;
-
-	const int APPROSSIMATED_INTERNAL_TILE_POSITION_ROW =
-		internalRowOffset * POINTS_CALCULATED_PER_TILE_DIMENSION;
-
-	const int APPROSSIMATED_INTERNAL_TILE_POSITION_COL =
-			internalColOffset * POINTS_CALCULATED_PER_TILE_DIMENSION;
-
-	const int APPROSSIMATED_DIRECTION_INDEX =
-		static_cast<int>((ANGLE * DIRECTIONS_CALCULATED) / (M_PI * 2));
-
-	mMapGrid = new sf::Image();
-	mMapGrid->create(Game::WINDOW_WIDTH, Game::WINDOW_HEIGHT, sf::Color(255, 255, 255));
-	mPerspectiveTiles.clear();
-
-	for (int r = 0; r < MATRIX_RENDERED_TILES_DIAMETER - 1; r++) {
-		for (int c = 0; c < MATRIX_RENDERED_TILES_DIAMETER - 1; c++) {
-			// d("\nReal ANGLE: ", ANGLE);
-			// d("APPROSSIMATED_DIRECTION_INDEX: ", APPROSSIMATED_DIRECTION_INDEX);
-			//
-			// d("k->row(): ", k->row());
-			// d("APPROSSIMATED_INTERNAL_TILE_POSITION_ROW: ", APPROSSIMATED_INTERNAL_TILE_POSITION_ROW);
-			//
-			// d("k->col(): ", k->col());
-			// d("APPROSSIMATED_INTERNAL_TILE_POSITION_COL: ", APPROSSIMATED_INTERNAL_TILE_POSITION_COL);
-
-			// d("Asking perspective points");
 
 
-			IPoint ippUL = getCachedMapPerspectivePoint(r, c,
-				APPROSSIMATED_INTERNAL_TILE_POSITION_ROW,
-				APPROSSIMATED_INTERNAL_TILE_POSITION_COL,
-				APPROSSIMATED_DIRECTION_INDEX
-			);
-
-
-			IPoint ippUR = getCachedMapPerspectivePoint(r, c + 1,
-				APPROSSIMATED_INTERNAL_TILE_POSITION_ROW,
-				APPROSSIMATED_INTERNAL_TILE_POSITION_COL,
-				APPROSSIMATED_DIRECTION_INDEX
-			);
-
-			IPoint ippDL = getCachedMapPerspectivePoint(r + 1, c,
-				APPROSSIMATED_INTERNAL_TILE_POSITION_ROW,
-				APPROSSIMATED_INTERNAL_TILE_POSITION_COL,
-				APPROSSIMATED_DIRECTION_INDEX
-			);
-
-			IPoint ippDR = getCachedMapPerspectivePoint(r + 1, c + 1,
-				APPROSSIMATED_INTERNAL_TILE_POSITION_ROW,
-				APPROSSIMATED_INTERNAL_TILE_POSITION_COL,
-				APPROSSIMATED_DIRECTION_INDEX
-			);
-
-			Point ppUL { ippUL.x, ippUL.y };
-			Point ppUR { ippUR.x, ippUR.y };
-			Point ppDR { ippDR.x, ippDR.y };
-			Point ppDL { ippDL.x, ippDL.y };
-
-			int matrixOffsetCol = INT_COL - MATRIX_RENDERED_TILES_RADIUS + c;
-			int matrixOffsetRow = INT_ROW - MATRIX_RENDERED_TILES_RADIUS + r;
+	for (int r = 0; r < MATRIX_RENDERED_TILES_DIAMETER; r++) {
+		for (int c = 0; c < MATRIX_RENDERED_TILES_DIAMETER; c++) {
+			// Indexes of the considered tile (absolute).
+			const int absoluteMatrixIndexCol = INT_COL - MATRIX_RENDERED_TILES_RADIUS + c;
+			const int absoluteMatrixIndexRow = INT_ROW - MATRIX_RENDERED_TILES_RADIUS + r;
 
 			PerspectiveMatrixTile matrixTile;
 
-			matrixTile.tile = static_cast<MapTile>(
-				mMatrix[matrixOffsetRow][matrixOffsetCol]
-			);
+			if (absoluteMatrixIndexCol >= 0 && absoluteMatrixIndexCol < mColCount &&
+				absoluteMatrixIndexRow >= 0 && absoluteMatrixIndexRow < mRowCount) {
+					matrixTile.tile = static_cast<MapTileType>(
+						mMatrix[absoluteMatrixIndexRow][absoluteMatrixIndexCol]
+					);
+			}
+			else {
+				// w("Trying to access out of the matrix");
+				// w("MATRIX_RENDERED_TILES_RADIUS: ", MATRIX_RENDERED_TILES_RADIUS);
+				// w("absoluteMatrixIndexRow: ", absoluteMatrixIndexRow);
+				// w("absoluteMatrixIndexCol: ", absoluteMatrixIndexCol);
+				// w("k-row(): ", k->row());
+				// w("k->col(): ", k->col());
+				// w("INT_ROW: ", INT_ROW);
+				// w("INT_COL: ", INT_COL);
+				// w("r: ", r);
+				// w("c: ", c);
+
+				matrixTile.tile = Empty;
+			}
+
+			Point ppUL = perspectivePoints[r][c];
+			Point ppUR = perspectivePoints[r][c + 1];
+			Point ppDL = perspectivePoints[r + 1][c];
+			Point ppDR = perspectivePoints[r + 1][c + 1];
 
 			matrixTile.vertices.setPrimitiveType(sf::Quads);
 			matrixTile.vertices.clear();
-			matrixTile.vertices.append(
-				sf::Vertex( sf::Vector2f(	ppUL.x,
-											ppUL.y))
-			);
-			matrixTile.vertices.append(
-				sf::Vertex( sf::Vector2f(	ppUR.x,
-											ppUR.y))
-			);
-			matrixTile.vertices.append(
-				sf::Vertex( sf::Vector2f(	ppDR.x,
-											ppDR.y))
-			);
-			matrixTile.vertices.append(
-				sf::Vertex( sf::Vector2f(	ppDL.x,
-											ppDL.y))
-			);
+			matrixTile.vertices.append(sf::Vertex(sf::Vector2f(ppUL.x, ppUL.y)));
+			matrixTile.vertices.append(sf::Vertex(sf::Vector2f(ppUR.x, ppUR.y)));
+			matrixTile.vertices.append(sf::Vertex(sf::Vector2f(ppDR.x, ppDR.y)));
+			matrixTile.vertices.append(sf::Vertex(sf::Vector2f(ppDL.x, ppDL.y)));
 
 			matrixTile.vertices[0].texCoords = sf::Vector2f(0, 0);
 			matrixTile.vertices[1].texCoords = sf::Vector2f(15, 0);
 			matrixTile.vertices[2].texCoords = sf::Vector2f(15, 15);
 			matrixTile.vertices[3].texCoords = sf::Vector2f(0, 15);
 
-			if (ppUL.y > HORIZON_LINE_Y &&
+			const bool insideScreenHeight =
+				(ppUL.y < HEIGHT ||
+				ppUR.y < HEIGHT ||
+				ppDL.y < HEIGHT ||
+				ppDR.y < HEIGHT);
+
+			const bool underHorizonLine =
+				(ppUL.y > HORIZON_LINE_Y &&
 				ppUR.y > HORIZON_LINE_Y &&
 				ppDR.y > HORIZON_LINE_Y &&
-				ppDL.y > HORIZON_LINE_Y) {
+				ppDL.y > HORIZON_LINE_Y);
+
+			const bool insideScreenWidth =
+				// Ensure the points are right to left border
+				(ppUL.x > 0 ||
+				ppUR.x > 0 ||
+				ppDL.x > 0 ||
+				ppDR.x > 0)
+				 	&&
+				// Ensure the points are left to right border
+				(ppUL.x < WIDTH ||
+				ppUR.x < WIDTH ||
+				ppDL.x < WIDTH ||
+				ppDR.x < WIDTH);
+
+			if  (underHorizonLine) {
+
 					// drawPoint(mMapGrid, ppUL, sf::Color::Red, 3);
 					// drawPoint(mMapGrid, ppUR, sf::Color::Red, 3);
 					// drawPoint(mMapGrid, ppDR, sf::Color::Red, 3);
 					// drawPoint(mMapGrid, ppDL, sf::Color::Red, 3);
 
-					// d("ppUL: ", ppUL);
-					// d("ppUR ", ppUR);
-					// d("ppDR: ", ppDR);
-					// d("ppDL ", ppDL, "\n");
-
 					mPerspectiveTiles.push_front(matrixTile);
-				}
-
+					// d("Will render perspective tile at (", r, ", ", c, "): ");
+			}
+			// else {
+			// 	d("WON'T render perspective tile at (", r, ", ", c, "). Points are: ", ppUL, ppUR, ppDR, ppDL);
+			// }
 		}
 	}
 }
@@ -637,7 +350,9 @@ void Map::createMiniMap() {
 
 	for (int y = 0; y < mRowCount; y++) {
 		for (int x = 0; x < mColCount; x++) {
-			if (mMatrix[y][x] == Street)
+			d("Requiring at ", x, ", ", y);
+			// Do some time of general detection for the street types
+			if (mMatrix[y][x] > 10 && mMatrix[y][x] < 20)
 				mMiniMap->setPixel(x, y, sf::Color(128, 128, 128));
 			//else
 			//	mMiniMap->setPixel(x, y, sf::Color(0, 0, 0));
@@ -645,8 +360,7 @@ void Map::createMiniMap() {
 	}
 }
 
-
-void drawPoint(sf::Image * map, const Point &p, sf::Color color, int size = 7) {
+void Map::drawPoint(sf::Image * map, const Point &p, sf::Color color, int size = 7) {
 	if (p.x < 0 || p.x >= Game::WINDOW_WIDTH || p.y < 0 || p.y >= Game::WINDOW_HEIGHT)
 		return;
 	for (int x = - size / 2; x <= size / 2; x++) {
@@ -656,7 +370,7 @@ void drawPoint(sf::Image * map, const Point &p, sf::Color color, int size = 7) {
 	}
 }
 
-void drawPoint(sf::Image * map, const IPoint &p, sf::Color color, int size = 7) {
+void Map::drawPoint(sf::Image * map, const IPoint &p, sf::Color color, int size = 7) {
 	if (p.x < 0 || p.x >= Game::WINDOW_WIDTH || p.y < 0 || p.y >= Game::WINDOW_HEIGHT)
 		return;
 	for (int x = - size / 2; x <= size / 2; x++) {
@@ -666,7 +380,7 @@ void drawPoint(sf::Image * map, const IPoint &p, sf::Color color, int size = 7) 
 	}
 }
 
-void drawLine(double x1, double y1, double x2, double y2) {
+void Map::drawLine(double x1, double y1, double x2, double y2) {
 	sf::VertexArray lineThick(sf::Quads, 4);
 
 	lineThick[0].position = sf::Vector2f(10, 10);

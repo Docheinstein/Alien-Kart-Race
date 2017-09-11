@@ -1,9 +1,9 @@
 #include "level.h"
 #include "map.h"
-#include "kart.h"
+#include "venusian.h"
 
 Level::Level() {
-	mKart = new Kart();
+	mKart = new Venusian();
 	mKart->setCol((double)50);
 	mKart->setRow((double)50);
 

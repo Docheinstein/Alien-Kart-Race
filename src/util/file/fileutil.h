@@ -3,8 +3,7 @@
 
 class FileUtil {
 public:
-	static int getIntCountInFirstRow(const char *fileName);
-	static int getConsecutiveRowCount(const char *fileName);
+	static void getIntMatrixSize(const char *fileName, int &rowCount, int &colCount);
 	static void loadIntMatrix(const char *fileName, int **&matrix,
 							  int rowCount, int colCount);
 };

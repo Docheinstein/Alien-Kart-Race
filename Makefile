@@ -11,7 +11,9 @@ DEBUGGER = nemiver
 DEBUG_FLAG = -g
 WARNING_FLAG = -Wall
 
-STD_11_FLAG = -std=c++11
+STD_11_FLAG = -std=c++11 -D_GLIBCXX_USE_CXX11_ABI=0
+# STD 11 let use variadic templates for logger
+# However SFMl is compiled without c++11, so disable the compiler ABI is needed
 
 # Dependencies file location
 DEPENDENCIES_FILE = $(TRASH_PATH)dependencies
@@ -80,7 +82,8 @@ DEPS = $(OBJS:.o=.d)
 
 .PHONY: clean run run-release run-debug
 clean:
-	find . -name '*.o' -o -name '*.d' -delete
+	find . -name '*.o' -delete
+	find . -name '*.d' -delete
 
 # Helper for run in release mode
 run: run-release

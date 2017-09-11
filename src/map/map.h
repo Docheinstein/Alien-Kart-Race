@@ -9,8 +9,6 @@
 
 class Map {
 public:
-	// Test
-	static void generatePerspectiveSystemCache();
 
 	enum MapType {
 		FirstMap
@@ -35,20 +33,32 @@ public:
 	// DEBUG
 	int getTile(int row, int col);
 private:
-	enum MapTile {
+	// Y coordinate of the horizon line.
+	static const double HORIZON_LINE_Y;
+
+	enum MapTileType {
+		Invalid = -1,
 		Empty = 0,
-		Street = 1,
-		Empty2 = 3,
-		Event = 4
+		Fulfilled = 1,
+		Event = 4,
+
+
+		EarthStreet1 = 11,
+		EarthStreet2 = 12,
+		EarthStreet3 = 13,
+		EarthStreet4 = 14,
+		EarthStreet5 = 15,
+		EarthStreet6 = 16,
+
+		EarthGrass1 = 21,
+		EarthGrass2 = 22,
+		EarthGrass3 = 23,
 	};
 
 	struct PerspectiveMatrixTile {
-		MapTile tile;
+		MapTileType tile;
 		sf::VertexArray vertices; // VertexArray
 	} typedef PerspectiveMatrixTile;
-
-
-	static IPoint * sCachedPerspectivePoints;
 
 	int **mMatrix;
 	int mColCount;
@@ -58,29 +68,30 @@ private:
 	std::list<PerspectiveMatrixTile> mPerspectiveTiles;
 	PerspectiveMatrixTile aTile;
 
-	static IPoint getCachedMapPerspectivePoint(
-		int matrixRowIndex,
-		int matrixColIndex,
-		int tileInternalRowIndex,
-		int tileInternalColIndex,
-		int dirIndex
-	);
-
-	static void setCachedMapPerspectivePoint(
-		int matrixRowIndex,
-		int matrixColIndex,
-		int tileInternalRowIndex,
-		int tileInternalColIndex,
-		int dirIndex,
-		const IPoint &p
-	);
-
 	std::string getMapFilePath(MapType mapType);
 	void createMapGrid();
-	void createMapGridOnDemand();
 	void createMiniMap();
 
 	void drawMapGrid();
+	void drawHorizonBackground();
+	void drawPoint(sf::Image * map, const Point &p, sf::Color color, int size);
+	void drawPoint(sf::Image * map, const IPoint &p, sf::Color color, int size);
+	void drawLine(double x1, double y1, double x2, double y2);
+
+	sf::Texture * textureForTileType(MapTileType MapTileType);
+
+	sf::Texture mEarthGrass1Texture;
+	sf::Texture mEarthGrass2Texture;
+	sf::Texture mEarthGrass3Texture;
+
+	sf::Texture mEarthStreet1Texture;
+	sf::Texture mEarthStreet2Texture;
+	sf::Texture mEarthStreet3Texture;
+	sf::Texture mEarthStreet4Texture;
+	sf::Texture mEarthStreet5Texture;
+	sf::Texture mEarthStreet6Texture;
+
+	sf::Sprite mHorizonBackgroundSprite;
 };
 
 #endif // MAP_H
