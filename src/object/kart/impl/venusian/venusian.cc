@@ -20,10 +20,13 @@ void Venusian::initSprite() {
     mTextures[2].loadFromFile(ResourceUtil::image("venusian_dx.png"));
 
     for (int i = 0; i < SPRITE_COUNT; i ++) {
+        const float SCALE_FACTOR = 1.2;
         mSprites[i].setTexture(mTextures[i]);
+        mSprites[i].setScale(SCALE_FACTOR, SCALE_FACTOR);
         mSprites[i].setPosition(
-            (Game::WINDOW_WIDTH - mSprites[i].getLocalBounds().width) / 2,
-            Game::WINDOW_HEIGHT - MARGIN_FROM_BOTTOM -mSprites[i].getLocalBounds().height);
+            (Game::WINDOW_WIDTH - mSprites[i].getGlobalBounds().width) / 2,
+            Game::WINDOW_HEIGHT - MARGIN_FROM_BOTTOM -mSprites[i].getGlobalBounds().height);
+
     }
 }
 
@@ -43,8 +46,6 @@ void Venusian::initParameters() {
 
     mSteeringWheelTurningFactor = 0.05;
 	mSteeringWheelReturnFactor = 0.04;
-
-	mDirection = 0.05;
 
     mWheelTurning = 0.05;
 

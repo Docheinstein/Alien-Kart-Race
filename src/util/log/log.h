@@ -3,7 +3,7 @@
 
 #include <iostream>
 
-#define DEBUG 0
+#define DEBUG 1
 #define WARN 1
 #define BENCHMARK 1
 

@@ -39,6 +39,10 @@ void Kart::setRow(double row) {
 	mRow = row;
 }
 
+void Kart::setDirection(double dir) {
+	mDirection = dir;
+}
+
 void Kart::draw() {
 	if (mWheelTurning < 0) {
 		Game::instance().window()->draw(mSprites[0]);

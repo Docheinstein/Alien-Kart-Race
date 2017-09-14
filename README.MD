@@ -4,8 +4,8 @@
 
 ##### SFML
 
-The game uses SFML 2.4.2 as graphics library. <br>
-Please download and install it from [here](https://www.sfml-dev.org/download/sfml/2.4.2/]) and follows the instructions on the site.
+The game uses SFML 2.4.2 as graphics library.  
+Please download and install it from [here](https://www.sfml-dev.org/download/sfml/2.4.2/) and follows the instructions on the site.
 
 
 ## Compile

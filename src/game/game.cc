@@ -39,7 +39,7 @@ void Game::start() {
 
 		long cycleMillis = clock.getElapsedTime().asMilliseconds();
 		cyclesMillisSum += cycleMillis;
-		double cycleConsumedMillisPercentage = (double) cycleMillis / TARGET_UPDATE_MS * 100;
+		// double cycleConsumedMillisPercentage = (double) cycleMillis / TARGET_UPDATE_MS * 100;
 		// benchmark("Millis used for the cycle ", cycleMillis);
 		// benchmark("Maximum amount of millis available per cycle: ", TARGET_UPDATE_MS);
 		// benchmark("Cycle is taking ", cycleMillis, "ms; ", cycleConsumedMillisPercentage, "% of the available time.");

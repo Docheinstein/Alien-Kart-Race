@@ -4,8 +4,9 @@
 
 Level::Level() {
 	mKart = new Venusian();
-	mKart->setCol((double)50);
-	mKart->setRow((double)50);
+	mKart->setCol((double)30);
+	mKart->setRow((double)30);
+	mKart->setDirection(5);
 
 	mMap = new Map();
 	mMap->loadMap(Map::MapType::FirstMap);

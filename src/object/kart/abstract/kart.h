@@ -22,6 +22,7 @@ public:
 
 	void setCol(double mapCol);
 	void setRow(double mapRow);
+	void setDirection(double dir);
 
 	void update();
 	void draw();
