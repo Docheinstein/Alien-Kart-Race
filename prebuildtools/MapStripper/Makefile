@@ -3,7 +3,7 @@ CXXFLAGS = $(STD_11_FLAG)
 
 .PHONY: clean
 
-mapcreator: mapstripper.o
+mapstripper: mapstripper.o
 	g++ $(CXXFLAGS) mapstripper.o -o mapstripper -lsfml-graphics
 
 clean:

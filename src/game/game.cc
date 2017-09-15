@@ -24,7 +24,7 @@ Game::~Game() {
 }
 
 void Game::start() {
-	const int CYCLE_TO_PERFORM_FOR_NOTIFY_AVG_TIME = 1000;
+	const int CYCLE_TO_PERFORM_FOR_NOTIFY_AVG_TIME = 300;
 	int performedCycles = 0;
 	long cyclesMillisSum = 0;
 

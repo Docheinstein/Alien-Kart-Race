@@ -42,32 +42,3 @@ void FileUtil::getIntMatrixSize(const char *fileName,
 	rowCount = rows;
 	colCount = maximumColCount;
 }
-
-void FileUtil::loadIntMatrix(const char *fileName,
-							 int **&matrix,
-							 int rowCount,
-							 int colCount) {
-	ifstream inFile(fileName);
-	if (!inFile)
-		return;
-
-	matrix = new int*[rowCount];
-
-	int r = -1;
-	int c = colCount;
-
-	do {
-		// End of line reached
-		if (c == colCount) {
-			c = 0;
-			r++;
-			if (r < rowCount)
-				matrix[r] = new int[colCount];
-		}
-		if (r < rowCount) {
-			inFile >> matrix[r][c];
-			c++;
-		}
-
-	} while (inFile && r < rowCount);
-}

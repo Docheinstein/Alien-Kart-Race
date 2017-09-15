@@ -7,12 +7,24 @@ public:
 		int col;
 		int row;
 	};
-	static void printMatrix(int **matrix, int rowCount, int colCount);
-	static void deleteMatrix(int **&matrix, int rowCount);
-	static void findValuesCoordinates(
-		int valuesToFind[], // [in]
-		MatrixCoordinate valuesCoordinates[] // [out]
-	);
+
+	template<typename T>
+	static void deleteMatrix(T **&matrix, int rowCount) {
+		if (matrix != NULL) {
+			for (int r = 0; r < rowCount; r++)
+				delete [] matrix[r];
+			delete [] matrix;
+			matrix = NULL;
+		}
+	}
+
+	template<typename T>
+	static void initMatrix(	T **&matrix, int rowCount, int colCount) {
+		matrix = new T*[rowCount];
+		for (int r = 0; r < rowCount; r++)
+			matrix[r] = new T[colCount];
+	}
+
 };
 
 #endif // MATRIX_UTIL_H

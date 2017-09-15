@@ -58,8 +58,8 @@ OPTIONAL \n\
  the specified one, doesn't create an image for that cell and instead associated it with the given int. \n\
   More than an int can be passed as parameter, in that case, the cell will be assocaited with\
  an int taken at random between the specified ones. \n\
-  (e.g. ff3ab5 12) \n\
-  (e.g. ff3ab5 12 13 15 17) \n\n\
+  (e.g. -bind ff3ab5 12) \n\
+  (e.g. -bind ff3ab5 12 13 15 17) \n\n\
 -no-duplicate \n\
   If a parsed cell image is equals to a previosuly created image, doesn't create the image and instead\
   use the int associated with the old cell for this cell too. (Can slow down the process, but the result is optimized). \n\
@@ -287,6 +287,8 @@ int main(int argc, char *argv[]) {
 
     int incrementalIndex = startFrom;
 
+    const int pixelArrayLength = gridSize * gridSize * 4;
+
     for (int row = 0; row < ROWS; row++) {
         for (int col = 0; col < COLS; col++) {
             int rowPixel = row * gridSize;
@@ -344,26 +346,8 @@ int main(int argc, char *argv[]) {
                         const unsigned char * alreadyCreatedImagePixels = (*iter).image->getPixelsPtr();
                         const unsigned char * imageToCreatePixels = outImage->getPixelsPtr();
 
-                        const sf::Vector2u imageSize = (*iter).image->getSize();
-                        const int pixelArrayLength = imageSize.x * imageSize.y * 4;
-
-                        /*
-                        cout << "alreadyCreatedImagePixels address" << alreadyCreatedImagePixels << endl;
-                        cout << "imageToCreatePixels address " << imageToCreatePixels << endl;
-                        if (alreadyCreatedImagePixels == imageToCreatePixels) {
-                            cout << "Same pixel ptr addr" << endl;
-                        }
-                        else {
-                            cout << "Different pixel ptr addr" << endl;
-                        }
-                        */
-
-                        for (int i = 0; i < pixelArrayLength && imagesAreEqual; i++) {
-                            // cout << "For component " << i << endl;
-                            // cout << "Already created image component: " << static_cast<int>(alreadyCreatedImagePixels[i]) << endl;
-                            // cout << "New image component: " << static_cast<int>(imageToCreatePixels[i]) << endl;
+                        for (int i = 0; i < pixelArrayLength && imagesAreEqual; i++)
                             imagesAreEqual = alreadyCreatedImagePixels[i] == imageToCreatePixels[i];
-                        }
 
                         // Found an image equals to the new, avoid creation and bind
                         // it with the int used for that image
