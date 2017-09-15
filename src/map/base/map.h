@@ -85,6 +85,9 @@ private:
 	sf::Image *mMapGrid;
 	sf::Image *mMiniMap;
 
+	sf::VertexArray mMapRenderedTiles;
+	MapTileType mMapRenderedTilesType;
+
 	void loadMapMatrix(const char *fileName);
 	void loadMiniMapMatrix(const char *fileName);
 

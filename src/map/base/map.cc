@@ -60,6 +60,17 @@ Map::Map() {
 
 	mHorizonBackgroundSprite.setTexture(earthHorizonBackgroundTexture);
 	mHorizonBackgroundSprite.setPosition(0, HORIZON_LINE_Y - 87);
+
+	/*
+	for (int i = 0; i < PERSPECTIVE_TILE_ARRAY_LENGTH; i++) {
+		PerspectiveMatrixTile perspectiveTile;
+		perspectiveTile.tile = Invalid;
+		mPerspectiveTileArray[i] = perspectiveTile;
+	}
+	*/
+
+	mMapRenderedTiles.setPrimitiveType(sf::Quads);
+    mMapRenderedTiles.resize(65 * 65 * 4);
 }
 
 sf::Texture * Map::textureForTileType(MapTileType type) {
@@ -117,7 +128,7 @@ void Map::loadMap(MapType mapType) {
 	MatrixUtil::deleteMatrix<MapMatrixTile>(mMatrix, mRowCount);
 
 	std::string mapPath = ResourceUtil::map("earth.txt");
-	FileUtil::getIntMatrixSize(mapPath.c_str(), mRowCount, mColCount);
+	FileUtil::getMatrixSize<int>(mapPath.c_str(), mRowCount, mColCount);
 
 	d("Map file path: ", mapPath);
 	d("Map size: ", mRowCount, "x", mColCount);
@@ -152,6 +163,9 @@ void Map::drawMapGrid() {
 
 void Map::drawMap() {
 	createMapGrid();
+
+	const sf::Texture * textureRef = textureForTileType(EarthStreet4);
+	Game::instance().window()->draw(mMapRenderedTiles, textureRef);
 
 	// drawMapGrid();
 
@@ -285,12 +299,13 @@ void Map::createMapGrid() {
 	}
 
 
+	int i = 0;
 	for (int r = 0; r < MATRIX_RENDERED_TILES_DIAMETER; r++) {
 		for (int c = 0; c < MATRIX_RENDERED_TILES_DIAMETER; c++) {
 			// Indexes of the considered tile (absolute).
 			const int absoluteMatrixIndexCol = INT_COL - MATRIX_RENDERED_TILES_RADIUS + c;
 			const int absoluteMatrixIndexRow = INT_ROW - MATRIX_RENDERED_TILES_RADIUS + r;
-
+/*
 			MapTileType tileType;
 			sf::VertexArray vertices;
 			// PerspectiveMatrixTile & perspectiveTile = mPerspectiveTileArray[i];
@@ -315,7 +330,7 @@ void Map::createMapGrid() {
 
 				tileType = OutOfMap;
 			}
-
+*/
 			Point ppUL = perspectivePoints[r][c];
 			Point ppUR = perspectivePoints[r][c + 1];
 			Point ppDL = perspectivePoints[r + 1][c];
@@ -347,7 +362,25 @@ void Map::createMapGrid() {
 				ppDL.y > HORIZON_LINE_Y);
 
 			if  (insideScreenHeight && insideScreenWidth && underHorizonLine) {
+				const int tileIndex = i * 4;
+				// sf::Vertex* quad = &mMapRenderedTiles[(i) * 4];
+
+				mMapRenderedTiles[tileIndex].position = sf::Vector2f(ppUL.x, ppUL.y);
+				mMapRenderedTiles[tileIndex].texCoords = sf::Vector2f(0, 0);
+
+				mMapRenderedTiles[tileIndex + 1].position = sf::Vector2f(ppUR.x, ppUR.y);
+				mMapRenderedTiles[tileIndex + 1].texCoords = sf::Vector2f(15, 0);
+
+				mMapRenderedTiles[tileIndex + 2].position = sf::Vector2f(ppDR.x, ppDR.y);
+				mMapRenderedTiles[tileIndex + 2].texCoords = sf::Vector2f(15, 15);
+
+				mMapRenderedTiles[tileIndex + 3].position = sf::Vector2f(ppDL.x, ppDL.y);
+				mMapRenderedTiles[tileIndex + 3].texCoords = sf::Vector2f(0, 15);
+
+
+				/*
 				vertices.setPrimitiveType(sf::Quads);
+				// vertices.clear();
 				vertices.append(sf::Vertex(sf::Vector2f(ppUL.x, ppUL.y)));
 				vertices.append(sf::Vertex(sf::Vector2f(ppUR.x, ppUR.y)));
 				vertices.append(sf::Vertex(sf::Vector2f(ppDR.x, ppDR.y)));
@@ -357,18 +390,21 @@ void Map::createMapGrid() {
 				vertices[1].texCoords = sf::Vector2f(15, 0);
 				vertices[2].texCoords = sf::Vector2f(15, 15);
 				vertices[3].texCoords = sf::Vector2f(0, 15);
-
+*/
 
 				// drawPoint(mMapGrid, ppUL, sf::Color::Red, 3);
 				// drawPoint(mMapGrid, ppUR, sf::Color::Red, 3);
 				// drawPoint(mMapGrid, ppDR, sf::Color::Red, 3);
 				// drawPoint(mMapGrid, ppDL, sf::Color::Red, 3);
 
-
+				// mPerspectiveTiles.push_back(perspectiveTile);
+/*
 				const sf::Texture * textureRef = textureForTileType(tileType);
 				Game::instance().window()->draw(vertices, textureRef);
-
+*/
 			}
+
+			i++;
 		}
 	}
 }

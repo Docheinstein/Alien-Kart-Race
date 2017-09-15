@@ -28,6 +28,7 @@ const char * PARAMETER_NO_DUPLICATE = "-no-duplicate";
 const char * PARAMETER_OUT_IMAGES_DIR_NAME = "-out-images-dir";
 const char * PARAMETER_OUT_IMAGES_PREFIX = "-out-images-prefix";
 const char * PARAMETER_OUT_IMAGES_START_FROM = "-out-images-from";
+const char * PARAMETER_TILESET = "-tileset"
 
 const char * MESSAGE_INPUT_FILE_NOT_FOUND = "Error: input file not found.";
 const char * MESSAGE_WRONG_PARAMETER_NUMBER = "Error: every mandatory parameter should be specified.";
@@ -74,6 +75,17 @@ OPTIONAL \n\
   The enumeration of the created images will start from the specified int instead of from 0. \n\
   (e.g. -out-images-from 21)";
 
+/*
+\n\n\
+-tileset <width> <height>\n\
+Creates an unique tileset of the specified size instead of single images.
+The size of the tileset should be a multiple of the grid size.
+The tileset is filled starting from the first row, in horizontal;\
+when the first row is filled, the second will be used, and so on...\n\
+If this
+(e.g. tileset 512 512)"
+
+*/
 const int INVALID_PARAMETER_INDEX = -1;
 
 const char OUT_TXT_SEPARATOR = ' ';
@@ -109,7 +121,8 @@ int main(int argc, char *argv[]) {
 
     int startFromIndex = INVALID_PARAMETER_INDEX;
 
-    int noDuplicate = false;
+    bool noDuplicate = false;
+    bool createTileset = false;
 
     std::list<Bound> boundList;
 
@@ -191,6 +204,9 @@ int main(int argc, char *argv[]) {
         }
         else if (strcmp(argv[i], PARAMETER_NO_DUPLICATE) == 0) {
             noDuplicate = true;
+        }
+        else if (strcmp(argv[i], PARAMETER_TILESET) == 0) {
+            createTileset = true;
         }
         else if (strcmp(argv[i], PARAMETER_OUT_IMAGES_START_FROM) == 0) {
             if (++i < argc)

@@ -14,6 +14,7 @@ Level::Level() {
 
 Level::~Level() {
 	delete mKart;
+	delete mMap;
 }
 
 Kart * Level::kart() {

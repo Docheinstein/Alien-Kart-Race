@@ -9,6 +9,7 @@ using namespace sf;
 
 const int TARGET_UPDATES_PER_SECOND = 60;
 const int TARGET_UPDATE_MS = 1000 / TARGET_UPDATES_PER_SECOND;
+const char * GAME_TITLE = "Alien Kart Race";
 
 Game & Game::instance() {
 	static Game instance;
@@ -57,7 +58,7 @@ void Game::start() {
 				update();
 				cycleMillis = clock.getElapsedTime().asMilliseconds();
 			}
-			// benchmark("Skipped ", skippedFrames, " frames");
+			benchmark("Skipped ", skippedFrames, " frames");
 		}
 
 		performedCycles++;
@@ -112,7 +113,7 @@ void Game::render() {
 
 // Private
 void Game::init() {
-    mWindow = new RenderWindow(VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT), "Alien Kart Race");
+    mWindow = new RenderWindow(VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT), GAME_TITLE);
 	mLevel = new Level();
 }
 

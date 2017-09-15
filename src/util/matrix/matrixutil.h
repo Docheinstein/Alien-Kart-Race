@@ -19,7 +19,7 @@ public:
 	}
 
 	template<typename T>
-	static void initMatrix(	T **&matrix, int rowCount, int colCount) {
+	static void initMatrix(T **&matrix, int rowCount, int colCount) {
 		matrix = new T*[rowCount];
 		for (int r = 0; r < rowCount; r++)
 			matrix[r] = new T[colCount];
