@@ -75,17 +75,6 @@ OPTIONAL \n\
   The enumeration of the created images will start from the specified int instead of from 0. \n\
   (e.g. -out-images-from 21)";
 
-/*
-\n\n\
--tileset <width> <height>\n\
-Creates an unique tileset of the specified size instead of single images.
-The size of the tileset should be a multiple of the grid size.
-The tileset is filled starting from the first row, in horizontal;\
-when the first row is filled, the second will be used, and so on...\n\
-If this
-(e.g. tileset 512 512)"
-
-*/
 const int INVALID_PARAMETER_INDEX = -1;
 
 const char OUT_TXT_SEPARATOR = ' ';

@@ -104,7 +104,7 @@ void Game::update() {
 
 void Game::render() {
 	// Draw
-	mWindow->clear();
+	mWindow->clear(sf::Color::White);
 
 	mLevel->render();
 
