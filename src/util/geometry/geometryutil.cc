@@ -1,6 +1,6 @@
 #include <cmath>
 #include "geometryutil.h"
-#include "log.h"
+#include "logger.h"
 
 using namespace std;
 
@@ -41,6 +41,19 @@ Point GeometryUtil::intersectionForTwoLines(const Line &l1, const Line &l2) {
 		"on point: (", intersection.x, ", ", intersection.y, ")");
 */
   	return intersection;
+}
+
+double GeometryUtil::distanceBetweenTwoPoints(const Point &p1, const Point &p2) {
+	double xDiff = p2.x - p1.x;
+	double yDiff = p2.y - p1.y;
+	return sqrt(xDiff * xDiff + yDiff * yDiff);
+}
+
+// Between 0 and 2 M_PI
+double GeometryUtil::angleBetweenTwoPoints(const Point &p1, const Point &p2) {
+	double xDiff = p2.x - p1.x;
+	double yDiff = -p2.y - (-p1.y);
+	return fmod(atan2(xDiff, yDiff) + M_PI * 2, M_PI * 2);
 }
 
 Point GeometryUtil::rotatePoint(const Point &p, const Point &c, const double radians) {

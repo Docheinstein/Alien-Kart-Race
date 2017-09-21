@@ -1,13 +1,14 @@
 #include "resourceutil.h"
-#include "log.h"
+#include "logger.h"
+#include <string>
 
 const std::string ResourceUtil::IMG_PATH = "./res/img/";
-const std::string ResourceUtil::MAP_PATH = "./res/raw/";
+const std::string ResourceUtil::RAW_PATH = "./res/raw/";
 
-std::string ResourceUtil::image(std::string imageName) {
-	return IMG_PATH + imageName;
+const char * ResourceUtil::image(const char * imageName) {
+	return (IMG_PATH + std::string(imageName)).c_str();
 }
 
-std::string ResourceUtil::map(std::string mapName) {
-	return MAP_PATH + mapName;
+const char * ResourceUtil::raw(const char * rawName) {
+	return (RAW_PATH + std::string(rawName)).c_str();
 }

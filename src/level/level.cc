@@ -1,24 +1,35 @@
 #include "level.h"
-#include "map.h"
-#include "venusian.h"
+#include "earth.h"
+#include "playervenusian.h"
+#include "aivenusian.h"
+#include "minimap.h"
+#include "resourceutil.h"
 
 Level::Level() {
-	mKart = new Venusian();
-	mKart->setCol((double)30);
-	mKart->setRow((double)30);
-	mKart->setDirection(5);
+	mPlayerKart = new PlayerVenusian();
+	mPlayerKart->setCol((double)55);
+	mPlayerKart->setRow((double)96.5);
 
-	mMap = new Map();
-	mMap->loadMap(Map::MapType::FirstMap);
+	mAIKarts = {new AIVenusian()};
+	mAIKarts[0].setRow(/*98.5*/75);
+	mAIKarts[0].setCol(/*50*/99);
+
+
+	mMap = new Earth();
+	mMap->loadMap();
+
+	mMinimap = new Minimap();
+
+	mMinimap->loadFromFile(ResourceUtil::raw("earth_minimap.txt"));
 }
 
 Level::~Level() {
-	delete mKart;
+	delete mPlayerKart;
 	delete mMap;
 }
 
-Kart * Level::kart() {
-	return mKart;
+PlayerKart * Level::playerKart() {
+	return mPlayerKart;
 }
 
 Map * Level::map() {
@@ -26,13 +37,30 @@ Map * Level::map() {
 }
 
 void Level::update() {
-	mKart->update();
+	mPlayerKart->update();
 	mMap->update();
+
+	for (int i = 0; i < AI_KART_COUNT; i++) {
+		mAIKarts[i].update();
+	}
 }
 
 void Level::render() {
-	mMap->drawMap();
-	mMap->drawMiniMap();
-	mKart->draw();
-	mKart->drawOnMiniMap();
+	mMap->draw();
+
+	mMinimap->draw();
+
+	mPlayerKart->draw();
+
+	mMinimap->drawPoint(
+		mPlayerKart->row(), mPlayerKart->col(),
+		mPlayerKart->minimapSize(), mPlayerKart->minimapColor()
+	);
+
+	for (int i = 0; i < AI_KART_COUNT; i++) {
+		mMinimap->drawPoint(
+			mAIKarts[i].row(), mAIKarts[i].col(),
+			mAIKarts[i].minimapSize(), mAIKarts[i].minimapColor()
+		);
+	}
 }

@@ -6,6 +6,7 @@
 #include <list>
 #include <cstdlib>
 #include <ctime>
+#include <cmath>
 
 using namespace std;
 
@@ -44,7 +45,9 @@ const char * MESSAGE_HELP =
 "--- Welcome to MapTilesetGenerator! ---\n\n\
 MapTilesetGenerator is a tool for: \n\
 1. Create a tileset by stripping the original image for the specified grid size.\n\
-2. Create a raw map that contains the coordinate of the tile relative to the position on the tileset.\n\n\
+2. Create a raw map that contains the coordinate of the tile relative to the position on the tileset.\n\
+ The created map has n rows and 2n cols, in which a cell is identified by a pair (row and col) that specifies\
+ the position in pixel of the tile for the sub-image in the tileset.\n\n\
 Valid parameters:\n\n\
 MANDATORY \n\
 -in <filename> \n\
@@ -455,5 +458,12 @@ int main(int argc, char *argv[]) {
 
     tilesetImage.saveToFile(outTilesetFilename);
 
+    // Estimate the most appropriate tileset dimension by checking how many space is left unused.
+    int currentTilesetArea = tilesetSize * tilesetSize;
+    int usedArea = tilesetCurrentRowPixel * tilesetSize + tilesetCurrentColPixel * gridSize;
+    int bestUsedTilesetSize = ceil(sqrt(usedArea) / gridSize) * gridSize;
+
     cout << "Process completed. Tiles: " << tilesetImageList.size() << endl;
+    if (bestUsedTilesetSize != tilesetSize)
+        cout << "Info: the best tileset size would have been " << bestUsedTilesetSize << " pixel" << endl;
 }

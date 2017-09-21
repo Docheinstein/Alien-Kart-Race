@@ -2,21 +2,27 @@
 #define LEVEL_H
 
 class Map;
-class Kart;
+class Minimap;
+class PlayerKart;
+class AIKart;
 
 class Level {
 public:
 	Level();
 	~Level();
 
-	Kart *kart();
+	PlayerKart *playerKart();
 	Map *map();
 	void update();
 	void render();
 
 private:
-	Kart *mKart;
+	const int AI_KART_COUNT = 1;
+
+	PlayerKart *mPlayerKart;
+	AIKart *mAIKarts;
 	Map *mMap;
+	Minimap *mMinimap;
 };
 
 #endif // LEVEL_H

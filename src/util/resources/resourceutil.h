@@ -7,11 +7,10 @@
 class ResourceUtil {
 public:
 	static const std::string IMG_PATH;
-	static const std::string MAP_PATH;
+	static const std::string RAW_PATH;
 
-	static std::string image(std::string imageName);
-	static std::string map(std::string mapName);
-
+	static const char * image(const char * imageName);
+	static const char * raw(const char * rawName);
 };
 
 #endif

@@ -2,8 +2,11 @@
 #include <iostream>
 #include "game.h"
 #include "level.h"
-#include "log.h"
+#include "logger.h"
 #include "map.h"
+
+#define CAN_LOG 1
+#define LOG_TAG "{Game} "
 
 using namespace sf;
 
@@ -38,16 +41,15 @@ void Game::start() {
 		update();
 		render();
 
-		long cycleMillis = clock.getElapsedTime().asMilliseconds();
+		int cycleMillis = static_cast<int>(clock.getElapsedTime().asMilliseconds());
 		cyclesMillisSum += cycleMillis;
 		// double cycleConsumedMillisPercentage = (double) cycleMillis / TARGET_UPDATE_MS * 100;
 		// benchmark("Millis used for the cycle ", cycleMillis);
 		// benchmark("Maximum amount of millis available per cycle: ", TARGET_UPDATE_MS);
 		// benchmark("Cycle is taking ", cycleMillis, "ms; ", cycleConsumedMillisPercentage, "% of the available time.");
 		// There is enough time to sleep
-		if (cycleMillis < TARGET_UPDATE_MS) {
+		if (cycleMillis <= TARGET_UPDATE_MS) {
 			sleep(sf::milliseconds(TARGET_UPDATE_MS - cycleMillis));
-
 		}
 		else {
 			int skippedFrames = 0;
@@ -56,16 +58,16 @@ void Game::start() {
 				clock.restart();
 				pollEvents();
 				update();
-				cycleMillis = clock.getElapsedTime().asMilliseconds();
+				cycleMillis = static_cast<int>(clock.getElapsedTime().asMilliseconds());
 			}
-			benchmark("Skipped ", skippedFrames, " frames");
+			bench("Skipped ", skippedFrames, " frames");
 		}
 
 		performedCycles++;
 		if (performedCycles >= CYCLE_TO_PERFORM_FOR_NOTIFY_AVG_TIME) {
 			const double avgMillis = cyclesMillisSum / (double) performedCycles;
 			double avgMillisPercentage = (double) avgMillis / TARGET_UPDATE_MS * 100;
-			benchmark(
+			bench(
 			 "Avarage ms taken by lasts ", CYCLE_TO_PERFORM_FOR_NOTIFY_AVG_TIME,
 			 " cycles: ", avgMillis,
 			 "ms; ", avgMillisPercentage, "% of the available time.");
@@ -120,4 +122,12 @@ void Game::init() {
 void Game::handleEvent(const sf::Event &event) {
 	// std::cout << "New SFML event" << std::endl;
 
+}
+
+const char * Game::logTag() {
+	return LOG_TAG;
+}
+
+bool Game::canLog() {
+	return CAN_LOG;
 }

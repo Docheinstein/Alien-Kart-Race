@@ -1,0 +1,3 @@
+./aipathgenerator -in earth_ai_path_1.png -size 15 -path earth_ai_path_1.txt ff7b7b ef4f4f e12929
+rm ../../res/raw/earth_ai_path_1.txt
+cp earth_ai_path_1.txt ../../res/raw

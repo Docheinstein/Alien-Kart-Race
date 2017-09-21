@@ -1,0 +1,1 @@
+./mapreplacer -in ../Maps/earth_map.png -out earth_full.png -in-images-dir in -grid-size 15 -replace 3a3a3a street1.png street2.png street3.png street4.png street5.png street6.png -replace e3e3e3 grass1.png grass2.png grass3.png -replace d1ad66 left.png -replace 6666d1 right.png -replace 8cbdcb above.png -replace 93cb8c below.png -replace c600ff earth_bound_block.png

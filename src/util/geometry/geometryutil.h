@@ -22,6 +22,8 @@ class GeometryUtil {
 public:
 	static Line lineForTwoPoints(const Point &p1, const Point &p2);
 	static Point intersectionForTwoLines(const Line &l1, const Line &l2);
+	static double distanceBetweenTwoPoints(const Point &p1, const Point &p2);
+	static double angleBetweenTwoPoints(const Point &p1, const Point &p2);
 	static Point rotatePoint(const Point &p, const Point &c, const double radians);
 	static Point scalePoint(const Point &p, const double scaleFactor);
 	static double hypot(const double d1, const double d2);
