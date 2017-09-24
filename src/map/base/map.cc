@@ -10,10 +10,12 @@
 #include "matrixutil.h"
 #include "resourceutil.h"
 #include "geometryutil.h"
+#include "perspectiveutil.h"
+#include "viewutil.h"
 #include "logger.h"
 
+#define LOG_TAG "{Map} ";
 #define CAN_LOG 1
-#define LOG_TAG "{Map} "
 
 // Number of tiles that will be rendered in each direction.
 const int MATRIX_RENDERED_TILES_RADIUS = 32;
@@ -108,13 +110,13 @@ void Map::draw() {
 	// Game::instance().window()->draw(mWheelBoundSprite);
 
 
-	// sf::Texture mapGridTexture;
-	// mapGridTexture.loadFromImage(mDebugGridImage);
-	//
-	// sf::Sprite mapGridSprite;
-	// mapGridSprite.setTexture(mapGridTexture);
-	//
-	// Game::instance().window()->draw(mapGridSprite);
+	sf::Texture mapGridTexture;
+	mapGridTexture.loadFromImage(mDebugGridImage);
+
+	sf::Sprite mapGridSprite;
+	mapGridSprite.setTexture(mapGridTexture);
+
+	Game::instance().window()->draw(mapGridSprite);
 }
 
 int Map::colCount() {
@@ -296,92 +298,42 @@ void Map::drawMapObjects() {
 */
 
 void Map::updateRenderedTiles() {
-	const int WIDTH = Game::WINDOW_WIDTH;
-	const int HEIGHT = Game::WINDOW_HEIGHT;
+ 	PlayerKart *playerKart = Game::instance().level()->playerKart();
 
-	// Y coordinate of the horizon line.
-	const int HORIZON_LINE_Y = HEIGHT / 2 + 20;
+	IPoint intKartPosition = GeometryUtil::toIPoint(playerKart->position());
 
-	// Amount of pixel a single tile will occupy.
-	const int RENDERED_TILE_SIZE = 75 * WIDTH / 320;
+	Point vp1, vp2;
+	PerspectiveUtil::calculateVanishPointsForAngle(
+		playerKart->direction(), ViewUtil::HORIZON_LINE_Y, ViewUtil::BASE_POINT, vp1, vp2
+    );
+
+	drawPoint(&mDebugGridImage, vp1, sf::Color::Magenta, 7);
+	drawPoint(&mDebugGridImage, vp2, sf::Color::Green, 7);
 
 	// Size of the tile in the tileset.
 	const int TILE_SIZE = 15;
-
- 	PlayerKart *k = Game::instance().level()->playerKart();
-
-	// Angle between 0 and 6.28 representing the direction of the kart.
-	const double ANGLE = k->direction();
-
-	// The camera is 1 unit behind the kart
-	const int CAMERA_TILE_BEHIND_PLAYER_COUNT = 1;
-	const double cameraRow = k->row() + cos(ANGLE) * CAMERA_TILE_BEHIND_PLAYER_COUNT;
-	const double cameraCol = k->col() - sin(ANGLE) * CAMERA_TILE_BEHIND_PLAYER_COUNT;
-
-	const int INT_COL = cameraCol;
-	const int INT_ROW = cameraRow;
-
-	// Basepoint
-	const double BASE_POINT_Y = HEIGHT + 20/* - Kart::MARGIN_FROM_BOTTOM */;
-	const double BASE_POINT_X = WIDTH / 2;
-
-	// Vanish points
- 	const double VANISH_POINT_1_X = BASE_POINT_X - tan(M_PI / 2 + ANGLE) * (BASE_POINT_Y - HORIZON_LINE_Y);
-	const double VANISH_POINT_2_X = BASE_POINT_X + tan(-ANGLE) * (BASE_POINT_Y - HORIZON_LINE_Y);
-
-	const Point bp = Point { BASE_POINT_X, BASE_POINT_Y };
-	const Point vp1 = Point { VANISH_POINT_1_X, HORIZON_LINE_Y };
-	const Point vp2 = Point { VANISH_POINT_2_X, HORIZON_LINE_Y };
-
-	// d("bp ", bp);
-	// d("vp1 ", vp1);
-	// d("vp2 ", vp2);
-	// d("ANGLE ", ANGLE);
-	// d("k->col() ", k->col());
-	// d("k->row() ", k->row());
-	// d("");
 
 	// Calculate the perspective points since tiles shares contact points.
 	Point perspectivePoints[MATRIX_RENDERED_TILES_DIAMETER + 1][MATRIX_RENDERED_TILES_DIAMETER + 1];
 
 	for (int r = 0; r < MATRIX_RENDERED_TILES_DIAMETER + 1; r++) {
 		for (int c = 0; c < MATRIX_RENDERED_TILES_DIAMETER + 1; c++) {
-			// Indexes of the considered tile (absolute).
-			const int absoluteMatrixIndexCol = INT_COL - MATRIX_RENDERED_TILES_RADIUS + c;
-			const int absoluteMatrixIndexRow = INT_ROW - MATRIX_RENDERED_TILES_RADIUS + r;
+			// Point of the considered tile (absolute coordinate system).
+			IPoint renderedTilePoint = {
+				intKartPosition.x - MATRIX_RENDERED_TILES_RADIUS + c,
+				intKartPosition.y - MATRIX_RENDERED_TILES_RADIUS + r
+			};
 
-			// Offset that the considered tile has respect to the kart tile (relative).
-			const double relativeToCenterCol = cameraCol - absoluteMatrixIndexCol;
-			const double relativeToCenterRow = cameraRow - absoluteMatrixIndexRow;
-
-			// Offsets of the projected points on the baseline relative to the center.
-			const double colOffset = (relativeToCenterCol) / cos (-ANGLE);
-			const double rowOffset = (relativeToCenterRow) / cos(M_PI / 2 + ANGLE);
-
-			const Point pc = { bp.x - colOffset * RENDERED_TILE_SIZE, bp.y };
-			const Point pr = { bp.x + rowOffset * RENDERED_TILE_SIZE, bp.y };
-
-			// Line that join projected points on the baseline to the vanish points.
-			const Line pc_vp2 = GeometryUtil::lineForTwoPoints(pc, vp2);
-			const Line pr_vp1 = GeometryUtil::lineForTwoPoints(pr, vp1);
-
-			// Definitive perspective points
-			const Point pp = GeometryUtil::intersectionForTwoLines(pc_vp2, pr_vp1);
-
-			perspectivePoints[r][c] = pp;
-
-			// d("Perspective point at (", r, ", ", c, "): ", pp);
-			// d("absoluteMatrixIndexRow ", absoluteMatrixIndexRow);
-			// d("absoluteMatrixIndexCol ", absoluteMatrixIndexCol);
-			// d("relativeToCenterRow ", relativeToCenterRow);
-			// d("relativeToCenterCol ", relativeToCenterCol);
-			// d("rowOffset ", rowOffset);
-			// d("colOffset ", colOffset);
-			// d("pc ", pc);
-			// d("pr ", pr);
-			// d("pc_vp2 ", pc_vp2);
-			// d("pr_vp1 ", pr_vp1);
-			// d("");
+			perspectivePoints[r][c] = PerspectiveUtil::perspectivePoint(
+		        renderedTilePoint,
+		        ViewUtil::cameraPoint(playerKart->vector()),
+		        ViewUtil::BASE_POINT,
+		        playerKart->direction(),
+		        ViewUtil::HORIZON_LINE_Y,
+		        ViewUtil::RENDERED_TILE_SIZE,
+		        vp1,
+		        vp2
+		    );
 			// if (r == 0) {
 			// 	drawPoint(&mDebugGridImage, pp, sf::Color::Red, 5);
 			// }
@@ -400,79 +352,65 @@ void Map::updateRenderedTiles() {
 	for (int r = 0; r < MATRIX_RENDERED_TILES_DIAMETER; r++) {
 		for (int c = 0; c < MATRIX_RENDERED_TILES_DIAMETER; c++) {
 
-			// Indexes of the considered tile (absolute).
-			const int absoluteMatrixIndexCol = INT_COL - MATRIX_RENDERED_TILES_RADIUS + c;
-			const int absoluteMatrixIndexRow = INT_ROW - MATRIX_RENDERED_TILES_RADIUS + r;
+			// Point of the considered tile (absolute coordinate system).
+			IPoint renderedTilePoint = {
+				intKartPosition.x - MATRIX_RENDERED_TILES_RADIUS + c,
+				intKartPosition.y - MATRIX_RENDERED_TILES_RADIUS + r
+			};
 
-			const Point ppUL = perspectivePoints[r][c];
-			const Point ppUR = perspectivePoints[r][c + 1];
-			const Point ppDL = perspectivePoints[r + 1][c];
-			const Point ppDR = perspectivePoints[r + 1][c + 1];
+			const double tilesetX = mMatrix[renderedTilePoint.y][renderedTilePoint.x].tilesetX;
+			const double tilesetY = mMatrix[renderedTilePoint.y][renderedTilePoint.x].tilesetY;
 
-			const bool insideScreenHeight =
-				(ppUL.y < HEIGHT ||
-				ppUR.y < HEIGHT ||
-				ppDL.y < HEIGHT ||
-				ppDR.y < HEIGHT);
+			const Point & ppUL = perspectivePoints[r][c];
+			const Point & ppUR = perspectivePoints[r][c + 1];
+			const Point & ppDL = perspectivePoints[r + 1][c];
+			const Point & ppDR = perspectivePoints[r + 1][c + 1];
 
-			const bool insideScreenWidth =
-				// Ensure the points are right to left border
-				(ppUL.x > 0 ||
-				ppUR.x > 0 ||
-				ppDL.x > 0 ||
-				ppDR.x > 0)
-				 	&&
-				// Ensure the points are left to right border
-				(ppUL.x < WIDTH ||
-				ppUR.x < WIDTH ||
-				ppDL.x < WIDTH ||
-				ppDR.x < WIDTH);
+			if (
+				(
+					!ViewUtil::isOnScreen(ppUL) &&
+					!ViewUtil::isOnScreen(ppUR) &&
+					!ViewUtil::isOnScreen(ppDL) &&
+					!ViewUtil::isOnScreen(ppDR)
+				)
+					||
+				(
+					!ViewUtil::isUnderHorizon(ppUL) ||
+					!ViewUtil::isUnderHorizon(ppUR) ||
+					!ViewUtil::isUnderHorizon(ppDL) ||
+					!ViewUtil::isUnderHorizon(ppDR)
+				)
+					||
+				(
+					renderedTilePoint.x < 0 || renderedTilePoint.x >= mColCount ||
+					renderedTilePoint.y < 0 || renderedTilePoint.y >= mRowCount
+				)
+			)
+				continue;
 
-			const bool underHorizonLine =
-				(ppUL.y > HORIZON_LINE_Y &&
-				ppUR.y > HORIZON_LINE_Y &&
-				ppDR.y > HORIZON_LINE_Y &&
-				ppDL.y > HORIZON_LINE_Y);
+			mRenderedTiles.append(sf::Vertex(
+				sf::Vector2f(ppUL.x, ppUL.y),
+				sf::Vector2f(tilesetX, tilesetY)
+			));
+			mRenderedTiles.append(sf::Vertex(
+				sf::Vector2f(ppUR.x, ppUR.y),
+				sf::Vector2f(tilesetX + TILE_SIZE, tilesetY)
+			));
+			mRenderedTiles.append(sf::Vertex(
+				sf::Vector2f(ppDR.x, ppDR.y),
+				sf::Vector2f(tilesetX + TILE_SIZE, tilesetY + TILE_SIZE)
+			));
+			mRenderedTiles.append(sf::Vertex(
+				sf::Vector2f(ppDL.x, ppDL.y),
+				sf::Vector2f(tilesetX, tilesetY + TILE_SIZE)
+			));
 
-			if (insideScreenHeight && insideScreenWidth && underHorizonLine &&
-				absoluteMatrixIndexCol >= 0 && absoluteMatrixIndexCol < mColCount &&
-				absoluteMatrixIndexRow >= 0 && absoluteMatrixIndexRow < mRowCount) {
+			inScreenTiles++;
 
-				int tilesetY = mMatrix[absoluteMatrixIndexRow][absoluteMatrixIndexCol].tilesetY;
-				int tilesetX = mMatrix[absoluteMatrixIndexRow][absoluteMatrixIndexCol].tilesetX;
-
-				mRenderedTiles.append(sf::Vertex(
-					sf::Vector2f(ppUL.x, ppUL.y),
-					sf::Vector2f(tilesetX, tilesetY)
-				));
-				mRenderedTiles.append(sf::Vertex(
-					sf::Vector2f(ppUR.x, ppUR.y),
-					sf::Vector2f(tilesetX + TILE_SIZE, tilesetY)
-				));
-				mRenderedTiles.append(sf::Vertex(
-					sf::Vector2f(ppDR.x, ppDR.y),
-					sf::Vector2f(tilesetX + TILE_SIZE, tilesetY + TILE_SIZE)
-				));
-				mRenderedTiles.append(sf::Vertex(
-					sf::Vector2f(ppDL.x, ppDL.y),
-					sf::Vector2f(tilesetX, tilesetY + TILE_SIZE)
-				));
-
-				inScreenTiles++;
-
-
-				drawPoint(&mDebugGridImage, ppUL, sf::Color::Blue, 1);
-				drawPoint(&mDebugGridImage, ppUR, sf::Color::Blue, 1);
-				drawPoint(&mDebugGridImage, ppDR, sf::Color::Blue, 1);
-				drawPoint(&mDebugGridImage, ppDL, sf::Color::Blue, 1);
-			}
-			// else {
-			// 	d("Drawing out of screen point at rc: (", r, ", ", c, "), abs matrix index(", absoluteMatrixIndexRow , ", ", absoluteMatrixIndexCol, ")");
-			// 	drawPoint(&mDebugGridImage, ppUL, sf::Color::Blue, 3);
-			// 	drawPoint(&mDebugGridImage, ppUR, sf::Color::Blue, 3);
-			// 	drawPoint(&mDebugGridImage, ppDR, sf::Color::Blue, 3);
-			// 	drawPoint(&mDebugGridImage, ppDL, sf::Color::Blue, 3);
-			// }
+			// drawPoint(&mDebugGridImage, ppUL, sf::Color::Red, 5);
+			// drawPoint(&mDebugGridImage, ppUR, sf::Color::Red, 5);
+			// drawPoint(&mDebugGridImage, ppDR, sf::Color::Red, 5);
+			// drawPoint(&mDebugGridImage, ppDL, sf::Color::Red, 5);
 		}
 	}
 
@@ -513,6 +451,7 @@ void Map::drawLine(double x1, double y1, double x2, double y2, double thickness)
 	lineThick[3].color = sf::Color::Red;
 	Game::instance().window()->draw(lineThick);
 }
+
 
 const char * Map::logTag() {
 	return LOG_TAG;

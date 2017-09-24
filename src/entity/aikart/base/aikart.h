@@ -5,8 +5,8 @@
 
 namespace sf {
 	// class RenderWindow;
-	// class Texture;
-	// class Sprite;
+	class Texture;
+	class Sprite;
 	class Color;
 }
 
@@ -16,7 +16,7 @@ class AIKart : public Kart {
 public:
 
 	AIKart();
-	~AIKart();
+	virtual ~AIKart();
 
     virtual void update();
     virtual void draw();

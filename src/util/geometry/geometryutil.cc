@@ -4,8 +4,8 @@
 
 using namespace std;
 
-ostream& operator << (ostream &o, const IPoint &p) {
-	o << "(x: " << p.x << ", y: " << p.y << ")";
+ostream& operator << (ostream &o, const IPoint &ip) {
+	o << "(x: " << ip.x << ", y: " << ip.y << ")";
 	return o;
 }
 
@@ -18,6 +18,137 @@ ostream& operator << (ostream &o, const Line &l) {
 	o << "(m: " << l.m << ", q: " << l.q << ")";
 	return o;
 }
+
+ostream& operator << (ostream &o, const Angle &a) {
+	o << a.rad << "rad";
+	return o;
+}
+
+ostream& operator << (ostream &o, const Vector &v) {
+	o << "<pos: " << v.position << ", " << "ang: " << v.direction << ">";
+	return o;
+}
+// Line
+
+// Line::Line(const Vector &v) {
+// 	q = v.position.y;
+// }
+
+// End line
+
+// Angle
+
+Angle::Angle(double angleRad) : rad(MathUtil::mod(angleRad, 2 * M_PI)) {}
+
+
+Angle & Angle::operator+=(const Angle &a) {
+    rad = MathUtil::mod(rad + a.rad, 2 * M_PI);
+    return *this;
+}
+
+Angle & Angle::operator+=(double rad) {
+    Angle a = { rad };
+    *this += a;
+    return *this;
+}
+
+Angle & Angle::operator-=(Angle a) {
+    a.rad = -a.rad;
+    *this += a;
+    return *this;
+}
+
+Angle & Angle::operator-=(double rad) {
+	Angle a = { -rad };
+    *this += a;
+    return *this;
+}
+
+
+Angle operator +(Angle a1, const Angle &a2) {
+    a1 += a2;
+    return a1;
+}
+
+Angle operator +(Angle a1, double rad) {
+    a1 += rad;
+    return a1;
+}
+
+Angle operator -(Angle a1, const Angle &a2) {
+    a1 -= a2;
+    return a1;
+}
+
+Angle operator -(Angle a1, double rad) {
+    a1 -= rad;
+    return a1;
+}
+
+// End Angle
+
+// Vector
+
+Vector::Vector(const Point &pStart, const Point &pEnd) {
+	position = Point (pStart);
+	double xDiff = pEnd.x - pStart.x;
+	double yDiff = -pEnd.y - (-pStart.y);
+	direction = Angle {atan2(xDiff, yDiff) };
+}
+
+Vector::Vector(const Point &p, const Angle &a) : position(p), direction(a) {}
+
+Vector& Vector::operator+=(const Angle &a) {
+	direction += a;
+	return *this;
+}
+
+Vector& Vector::operator+=(double rad) {
+	Angle a { rad };
+	*this += a;
+	return *this;
+}
+
+Vector& Vector::operator-=(Angle a) {
+	a.rad = -a.rad;
+	direction += a;
+	return *this;
+}
+
+Vector& Vector::operator-=(double rad) {
+	Angle a { -rad };
+	*this += a;
+	return *this;
+}
+
+Vector operator+(Vector v1, const Angle &angle) {
+	v1 += angle;
+	return v1;
+}
+
+Vector operator+(Vector v1, double angleRad) {
+	v1 += angleRad;
+	return v1;
+}
+
+Vector operator-(Vector v1, const Angle &angle) {
+	v1 -= angle;
+	return v1;
+}
+
+Vector operator-(Vector v1, double angleRad) {
+	v1 -= angleRad;
+	return v1;
+}
+
+void Vector::advance(double length) {
+	position.y -= cos(direction.rad) * length;
+	position.x += sin(direction.rad) * length;
+}
+
+// End vector
+
+
 
 Line  GeometryUtil::lineForTwoPoints(const Point &p1, const Point &p2) {
   	Line l { 0, 0 };
@@ -54,6 +185,14 @@ double GeometryUtil::angleBetweenTwoPoints(const Point &p1, const Point &p2) {
 	double xDiff = p2.x - p1.x;
 	double yDiff = -p2.y - (-p1.y);
 	return fmod(atan2(xDiff, yDiff) + M_PI * 2, M_PI * 2);
+}
+
+Angle GeometryUtil::angleDifference(const Vector &v, const Point &p) {
+	Vector vDiff = Vector {v.position, p};
+	debug(1,"\n\t v: ", v,
+			"\n\t p; ", p,
+			"\n\t vDiff: ", vDiff);
+	return vDiff.direction - v.direction;
 }
 
 Point GeometryUtil::rotatePoint(const Point &p, const Point &c, const double radians) {

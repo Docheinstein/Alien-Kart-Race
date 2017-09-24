@@ -6,6 +6,7 @@
 namespace sf {
 	class RenderWindow;
 	class Event;
+	class Sprite;
 }
 
 class Level;
@@ -20,6 +21,8 @@ public:
 	void start();
 	Level *level();
 	sf::RenderWindow * window();
+
+
 
 private:
 	Game();

@@ -1,9 +1,10 @@
 #include <SFML/Graphics.hpp>
 #include "resourceutil.h"
 #include "playervenusian.h"
+#include "level.h"
 #include "game.h"
 #include "minimap.h"
-#include "kartparamsfactory.h"
+#include "kartfactory.h"
 
 PlayerVenusian::PlayerVenusian() {
     initSprites();
@@ -16,57 +17,31 @@ sf::Color PlayerVenusian::minimapColor() {
 
 // PRIVATE
 void PlayerVenusian::initSprites() {
-    const int GAS_SPRITE_COUNT = _GasSpriteTypeCount;
-    const int SPRITE_COUNT = _PlayerKartSpriteTypeCount;
-    const float SCALE_FACTOR = 1.1 * Game::WINDOW_WIDTH / 320;
+    mSpriteCount = KartFactory::sprites(KartFactory::KartType::Venusian, mSprites);
+    mSkidGasSpriteCount = KartFactory::skidGasSprites(KartFactory::KartType::Venusian, mSkidGasSprites);
 
-	mTextures = new sf::Texture[SPRITE_COUNT];
-	mSprites = new sf::Sprite[SPRITE_COUNT];
+    float kartScaleFactor = KartFactory::scaleFactor(KartFactory::KartType::Venusian);
+    float scaleFactor  = PLAYER_KART_PERSPECTIVE_SCALE * kartScaleFactor;
+    d("Venusian scale factor:", scaleFactor);
+    for (int i = 0; i < mSpriteCount; i ++)
+        mSprites[i].setScale(scaleFactor, scaleFactor);
 
-	mTextures[Left3].loadFromFile(ResourceUtil::image("venusian_left_3.png"));
-	mTextures[Left2].loadFromFile(ResourceUtil::image("venusian_left_2.png"));
-	mTextures[Left1].loadFromFile(ResourceUtil::image("venusian_left_1.png"));
-	mTextures[Center].loadFromFile(ResourceUtil::image("venusian_center.png"));
-	mTextures[Right1].loadFromFile(ResourceUtil::image("venusian_right_1.png"));
-	mTextures[Right2].loadFromFile(ResourceUtil::image("venusian_right_2.png"));
-	mTextures[Right3].loadFromFile(ResourceUtil::image("venusian_right_3.png"));
+    for (int i = 0; i < mSkidGasSpriteCount; i ++)
+        mSkidGasSprites[i].setScale(scaleFactor, scaleFactor);
 
-    mGasTex[GasLeft].loadFromFile(ResourceUtil::image("venusian_skid_left_gas.png"));
-    mGasTex[GasRight].loadFromFile(ResourceUtil::image("venusian_skid_right_gas.png"));
-
-    for (int i = 0; i < SPRITE_COUNT; i ++) {
-
-        mSprites[i].setTexture(mTextures[i]);
-        mSprites[i].setScale(SCALE_FACTOR, SCALE_FACTOR);
-        mSprites[i].setPosition(
-            (Game::WINDOW_WIDTH - mSprites[i].getGlobalBounds().width) / 2,
-            Game::WINDOW_HEIGHT - PlayerKart::MARGIN_FROM_BOTTOM - mSprites[i].getGlobalBounds().height);
-
-    }
-
-    for (int i = 0; i < GAS_SPRITE_COUNT; i ++) {
-
-        mGasSprite[i].setTexture(mGasTex[i]);
-        mGasSprite[i].setScale(SCALE_FACTOR, SCALE_FACTOR);
-        mGasSprite[i].setPosition(
-            (Game::WINDOW_WIDTH - mGasSprite[i].getGlobalBounds().width) / 2,
-            Game::WINDOW_HEIGHT - MARGIN_FROM_BOTTOM - 6);
-
-    }
+    PlayerKart::initSprites();
 }
 
 void PlayerVenusian::draw() {
     PlayerKart::draw();
     if (isSkidding()) {
-        GasSpriteType spriteType;
-        if (mWheelTurning < 0)
-            spriteType = GasLeft;
-        else
-            spriteType = GasRight;
-    	Game::instance().window()->draw(mGasSprite[spriteType]);
+        int spriteType =  (mWheelTurning < 0 ? 0 : 1);
+    	//Game::instance().window()->draw(mSkidGasSprites[spriteType]);
+        Game::instance().level()->pushSprite(&mSkidGasSprites[spriteType]);
     }
 }
 
 void PlayerVenusian::initParameters() {
-    mParams = KartParamsFactory::params(KartParamsFactory::KartType::Venusian);
+    mParams = KartFactory::params(KartFactory::KartType::Venusian);
+    initRenderTurningRanges();
 }

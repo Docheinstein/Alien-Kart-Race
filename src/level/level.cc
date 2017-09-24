@@ -6,20 +6,26 @@
 #include "resourceutil.h"
 
 Level::Level() {
-	mPlayerKart = new PlayerVenusian();
-	mPlayerKart->setCol((double)55);
-	mPlayerKart->setRow((double)96.5);
-
-	mAIKarts = {new AIVenusian()};
-	mAIKarts[0].setRow(/*98.5*/75);
-	mAIKarts[0].setCol(/*50*/99);
-
-
 	mMap = new Earth();
 	mMap->loadMap();
 
-	mMinimap = new Minimap();
+	mPlayerKart = new PlayerVenusian();
+	mPlayerKart->setPosition(mMap->startingPointForRacePosition(mMap->lastRacePosition()));
 
+	mAIKarts.push_back(new AIVenusian());
+	// mAIKarts.push_back(new AIVenusian());
+	// mAIKarts.push_back(new AIVenusian());
+	// mAIKarts.push_back(new AIVenusian());
+	// mAIKarts.push_back(new AIVenusian());
+	// mAIKarts.push_back(new AIVenusian());
+
+	int racePosition = 2;
+    for (std::vector<AIKart *>::iterator aiIter = mAIKarts.begin();
+        aiIter != mAIKarts.end();
+        aiIter++, racePosition ++)
+			(*aiIter)->setPosition(mMap->startingPointForRacePosition(racePosition));
+
+	mMinimap = new Minimap();
 	mMinimap->loadFromFile(ResourceUtil::raw("earth_minimap.txt"));
 }
 
@@ -40,27 +46,56 @@ void Level::update() {
 	mPlayerKart->update();
 	mMap->update();
 
-	for (int i = 0; i < AI_KART_COUNT; i++) {
-		mAIKarts[i].update();
-	}
+    for (std::vector<AIKart *>::iterator aiIter = mAIKarts.begin();
+        aiIter != mAIKarts.end();
+        aiIter++)
+			(*aiIter)->update();
 }
 
 void Level::render() {
+	mDepthSprites.clear();
+
 	mMap->draw();
 
 	mMinimap->draw();
 
+    for (std::vector<AIKart *>::iterator aiIter = mAIKarts.begin();
+        aiIter != mAIKarts.end();
+        aiIter++)
+			(*aiIter)->draw();
+
 	mPlayerKart->draw();
 
 	mMinimap->drawPoint(
-		mPlayerKart->row(), mPlayerKart->col(),
+		mPlayerKart->position().y, mPlayerKart->position().x,
 		mPlayerKart->minimapSize(), mPlayerKart->minimapColor()
 	);
 
-	for (int i = 0; i < AI_KART_COUNT; i++) {
-		mMinimap->drawPoint(
-			mAIKarts[i].row(), mAIKarts[i].col(),
-			mAIKarts[i].minimapSize(), mAIKarts[i].minimapColor()
-		);
-	}
+    for (std::vector<AIKart *>::iterator aiIter = mAIKarts.begin();
+        aiIter != mAIKarts.end();
+        aiIter++)
+			mMinimap->drawPoint(
+				(*aiIter)->position().y, (*aiIter)->position().x,
+				(*aiIter)->minimapSize(), (*aiIter)->minimapColor()
+			);
+
+	renderSpritesForDepth();
+
+}
+
+void Level::pushSprite(sf::Sprite *sprite) {
+	mDepthSprites.push_back(sprite);
+}
+
+bool Level::spriteDepthCompareFunction(sf::Sprite *s1, sf::Sprite *s2) {
+	return s1->getPosition().y < s2->getPosition().y;
+}
+
+void Level::renderSpritesForDepth() {
+	std::sort(mDepthSprites.begin(), mDepthSprites.end(), spriteDepthCompareFunction);
+
+    for (std::vector<sf::Sprite *>::iterator spriteIter = mDepthSprites.begin();
+        spriteIter != mDepthSprites.end();
+        spriteIter++)
+        Game::instance().window()->draw(*(*spriteIter));
 }

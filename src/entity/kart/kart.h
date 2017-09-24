@@ -1,7 +1,7 @@
 #ifndef KART_H
 #define KART_H
 
-#include "mapentity.h"
+#include "mapmovingentity.h"
 #include "loggerinterface.h"
 
 namespace sf {
@@ -11,7 +11,7 @@ namespace sf {
 	class Color;
 }
 
-class Kart : public MapEntity, public LoggerInterface {
+class Kart : public MapMovingEntity, public LoggerInterface {
 public:
 
     struct KartParams {
@@ -54,15 +54,14 @@ public:
     };
 
 	Kart();
-	~Kart();
+	virtual ~Kart();
 
-	double col();
-	double row();
-	double direction();
+	Point position();
+	Angle direction();
+	Vector vector();
 
-	void setCol(double mapCol);
-	void setRow(double mapRow);
-	void setDirection(double dir);
+	void setPosition(Point p);
+	void setDirection(Angle a);
 	void update(bool goForward, bool goBackward, bool goLeft, bool goRight);
 
 	virtual void update() = 0;
@@ -80,23 +79,23 @@ protected:
 	bool isSkidding();
 	void advanceInCurrentDirection();
 
+	Vector mVector;
+
 	KartParams mParams;
+
+	sf::Sprite *mSprites;
+	int mSpriteCount;
 
 	// Current angle of the steering wheel.
 	double mWheelTurning; // Radians
-
-	// Current angle of the car.
-	double mDirection; // Radians
 
 	// Current speed.
 	double mSpeed; // Tile / cycle
 
 	bool mBouncing = false;
+
 	// Do with timer...
 	int mBounceCurrentTicks;
-
-	sf::Sprite *mSprites;
-	sf::Texture *mTextures;
 };
 
 #endif // KART_H

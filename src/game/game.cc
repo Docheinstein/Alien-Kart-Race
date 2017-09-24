@@ -5,8 +5,8 @@
 #include "logger.h"
 #include "map.h"
 
-#define CAN_LOG 1
 #define LOG_TAG "{Game} "
+#define CAN_LOG 1
 
 using namespace sf;
 

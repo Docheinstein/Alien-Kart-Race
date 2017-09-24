@@ -17,9 +17,11 @@ public:
 	};
 
 	Map();
-	~Map();
+	virtual ~Map();
 
  	virtual void loadMap() = 0;
+	virtual Point startingPointForRacePosition(int racePosition) = 0;
+	virtual int lastRacePosition() = 0;
 
 	void update();
 	void draw();

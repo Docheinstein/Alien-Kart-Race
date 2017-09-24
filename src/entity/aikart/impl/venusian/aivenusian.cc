@@ -1,7 +1,7 @@
 #include <SFML/Graphics.hpp>
 #include "aivenusian.h"
 #include "resourceutil.h"
-#include "kartparamsfactory.h"
+#include "kartfactory.h"
 
 AIVenusian::AIVenusian() {
     mPathFilename = ResourceUtil::raw("earth_ai_path_1.txt");
@@ -16,9 +16,9 @@ sf::Color AIVenusian::minimapColor() {
 
 // PRIVATE
 void AIVenusian::initSprites() {
-
+    mSpriteCount = KartFactory::sprites(KartFactory::KartType::Venusian, mSprites);
 }
 
 void AIVenusian::initParameters() {
-    mParams = KartParamsFactory::params(KartParamsFactory::KartType::Venusian);
+    mParams = KartFactory::params(KartFactory::KartType::Venusian);
 }

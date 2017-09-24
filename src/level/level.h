@@ -1,10 +1,16 @@
 #ifndef LEVEL_H
 #define LEVEL_H
 
+#include <vector>
+
 class Map;
 class Minimap;
 class PlayerKart;
 class AIKart;
+
+namespace sf {
+	class Sprite;
+}
 
 class Level {
 public:
@@ -16,13 +22,18 @@ public:
 	void update();
 	void render();
 
-private:
-	const int AI_KART_COUNT = 1;
+	void pushSprite(sf::Sprite *sprite);
 
+private:
 	PlayerKart *mPlayerKart;
-	AIKart *mAIKarts;
+	std::vector<AIKart*> mAIKarts;
 	Map *mMap;
 	Minimap *mMinimap;
+
+	std::vector<sf::Sprite*> mDepthSprites;
+
+	bool static spriteDepthCompareFunction(sf::Sprite *s1, sf::Sprite *s2);
+	void renderSpritesForDepth();
 };
 
 #endif // LEVEL_H

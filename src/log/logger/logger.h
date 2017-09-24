@@ -13,7 +13,7 @@
 | (1 << 1) \
 )
 
-#define FLUSH_ON_OUTPUT 1
+#define FLUSH_ON_OUTPUT 0
 
 extern const char * DEBUG_TAG;
 extern const char * WARN_TAG;

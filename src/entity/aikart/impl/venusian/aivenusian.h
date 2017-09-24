@@ -14,7 +14,6 @@ class AIVenusian : public AIKart {
 public:
 
 	AIVenusian();
-	~AIVenusian();
 
 
 	// double col();
