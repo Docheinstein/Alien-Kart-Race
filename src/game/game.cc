@@ -10,8 +10,7 @@
 
 using namespace sf;
 
-const int TARGET_UPDATES_PER_SECOND = 60;
-const int TARGET_UPDATE_MS = 1000 / TARGET_UPDATES_PER_SECOND;
+const int TARGET_UPDATE_MS = 1000 / Game::TARGET_UPDATES_PER_SECOND;
 const char * GAME_TITLE = "Alien Kart Race";
 
 Game & Game::instance() {

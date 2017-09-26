@@ -17,6 +17,7 @@ public:
 
 	static const int WINDOW_WIDTH = 640;//1280;
 	static const int WINDOW_HEIGHT = 480;//960;
+	static const int TARGET_UPDATES_PER_SECOND = 60;
 
 	void start();
 	Level *level();

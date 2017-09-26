@@ -117,7 +117,7 @@ sf::Texture ** KartFactory::skidGasTextures() {
 int KartFactory::spriteCount(KartType type) {
     switch (type) {
     case Venusian:
-        return 32;
+        return 72;
     default:
         return 0;
     }
@@ -137,7 +137,7 @@ std::string KartFactory::spriteFilename(KartType type, int index) {
 Point KartFactory::spriteOrigin(KartType type, int index) {
     switch (type) {
     case Venusian:
-        return Point { 24, 38 };
+        return Point { 24, 36 };
     default:
         return Point { 0, 0 };
     }

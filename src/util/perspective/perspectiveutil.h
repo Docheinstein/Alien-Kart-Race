@@ -64,6 +64,12 @@ public:
         const Point &constructionPoint
     );
 
+    static double angleAdjustmentForPerspectivePoint(
+        double xLeft, double xRight,
+        double yTop, double yBottom, 
+        const Point &p
+    );
+
 private:
     static Point perspectivePointInternal(
                             const Point &mapPoint,

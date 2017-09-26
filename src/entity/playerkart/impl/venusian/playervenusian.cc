@@ -6,7 +6,7 @@
 #include "minimap.h"
 #include "kartfactory.h"
 
-PlayerVenusian::PlayerVenusian() {
+PlayerVenusian::PlayerVenusian(const char *kartName) : PlayerKart(kartName) {
     initSprites();
     initParameters();
 }

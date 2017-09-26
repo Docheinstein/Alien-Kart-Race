@@ -3,6 +3,7 @@
 
 #include "mapmovingentity.h"
 #include "loggerinterface.h"
+#include "gametimer.h"
 
 namespace sf {
 	class RenderWindow;
@@ -53,16 +54,19 @@ public:
 		double bounceDecellerationFactor;
     };
 
-	Kart();
+	Kart(const char *kartName);
 	virtual ~Kart();
 
 	Point position();
 	Angle direction();
 	Vector vector();
+	const char *name();
 
 	void setPosition(Point p);
 	void setDirection(Angle a);
 	void update(bool goForward, bool goBackward, bool goLeft, bool goRight);
+
+	void bounceTimeFinished();
 
 	virtual void update() = 0;
 	virtual void draw() = 0;
@@ -94,8 +98,9 @@ protected:
 
 	bool mBouncing = false;
 
-	// Do with timer...
-	int mBounceCurrentTicks;
+	const char *mName;
+
+	GameTimer<Kart> mBounceTimer;
 };
 
 #endif // KART_H

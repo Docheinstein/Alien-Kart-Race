@@ -10,8 +10,9 @@ class PlayerKart : public Kart {
 public:
 	static const Point PLAYER_KART_PERSPECTIVE_POINT;
 	static const float PLAYER_KART_PERSPECTIVE_SCALE;
-	static const int TURNING_RANGE_COUNT = 7;
+	static const int TURNING_RANGE_COUNT = 11;
 
+	PlayerKart(const char *kartName);
     virtual void update();
     virtual void draw();
 

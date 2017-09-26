@@ -3,7 +3,7 @@
 #include "resourceutil.h"
 #include "kartfactory.h"
 
-AIVenusian::AIVenusian() {
+AIVenusian::AIVenusian(const char *kartName) : AIKart(kartName) {
     mPathFilename = ResourceUtil::raw("earth_ai_path_1.txt");
     initSprites();
     initParameters();

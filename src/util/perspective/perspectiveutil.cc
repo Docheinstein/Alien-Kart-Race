@@ -1,6 +1,7 @@
 #include <cmath>
 #include "perspectiveutil.h"
 #include "logger.h"
+#include "game.h"
 
 #define DBG 0
 
@@ -288,4 +289,26 @@ double PerspectiveUtil::scaleForPerspectivePoint(const Point &perspectivePoint, 
     //     "\nconstructionPoint\t", constructionPoint,
     //     "\n--\t-- SCALE: ", perspectiveScale);
     return perspectiveScale;
+}
+
+double PerspectiveUtil::angleAdjustmentForPerspectivePoint(
+    double xLeft, double xRight, double yTop, double yBottom, const Point &pp) {
+
+    // Adjust angle diff
+    const double HORIZONTAL_CAMERA_ANGLE_ADJUSTMENT = 35 * M_PI / 180;
+    const double BASELINE_ADJUSTMENT_FACTOR = 1;
+    const double VERTICAL_CAMERA_ANGLE_ADJUSTMENT_FACTOR = 2;
+
+    double horizontalAdjustmentRad = MathUtil::changeRange(
+        MathUtil::Range {xLeft, xRight },
+        MathUtil::Range {-HORIZONTAL_CAMERA_ANGLE_ADJUSTMENT, HORIZONTAL_CAMERA_ANGLE_ADJUSTMENT },
+        pp.x);
+
+    double verticalAjustmentFactor = MathUtil::changeRange(
+        MathUtil::Range {yTop, yBottom },
+        MathUtil::Range {VERTICAL_CAMERA_ANGLE_ADJUSTMENT_FACTOR, BASELINE_ADJUSTMENT_FACTOR},
+        pp.y
+    );
+
+    return verticalAjustmentFactor * horizontalAdjustmentRad;
 }

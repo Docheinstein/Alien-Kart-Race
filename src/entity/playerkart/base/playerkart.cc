@@ -22,6 +22,8 @@ const float PlayerKart::PLAYER_KART_PERSPECTIVE_SCALE = PerspectiveUtil::scaleFo
         ViewUtil::BASE_POINT
     );
 
+PlayerKart::PlayerKart(const char * kartName) : Kart(kartName) {}
+
 int PlayerKart::minimapSize() {
     return Minimap::MINIMAP_SIZE / 64;
 }
@@ -51,38 +53,58 @@ void PlayerKart::initRenderTurningRanges() {
     mRenderTurningRanges[i++] = {
             std::numeric_limits<double>::lowest(),
             -mParams.wheelTurningSkidPoint,
-            mSpriteCount - 3
-        };
+            mSpriteCount - 5
+    };
     mRenderTurningRanges[i++] = {
             -mParams.wheelTurningSkidPoint,
-            -mParams.wheelTurningSkidPoint / 2,
+            -mParams.wheelTurningSkidPoint * 0.75,
+            mSpriteCount - 4
+    };
+    mRenderTurningRanges[i++] = {
+            -mParams.wheelTurningSkidPoint * 0.75,
+            -mParams.wheelTurningSkidPoint * 0.55,
+            mSpriteCount - 3
+    };
+    mRenderTurningRanges[i++] = {
+            -mParams.wheelTurningSkidPoint * 0.55,
+            -mParams.wheelTurningSkidPoint * 0.35,
             mSpriteCount - 2
-        };
+    };
     mRenderTurningRanges[i++] = {
-            -mParams.wheelTurningSkidPoint / 2,
-            -mParams.wheelTurningSkidPoint / 4,
+            -mParams.wheelTurningSkidPoint * 0.35,
+            -mParams.wheelTurningSkidPoint * 0.15,
             mSpriteCount - 1
-        };
+    };
     mRenderTurningRanges[i++] = {
-            -mParams.wheelTurningSkidPoint / 4,
-            mParams.wheelTurningSkidPoint / 4,
+            -mParams.wheelTurningSkidPoint * 0.15,
+            mParams.wheelTurningSkidPoint * 0.15,
             0
-        };
+    };
     mRenderTurningRanges[i++] = {
-            mParams.wheelTurningSkidPoint / 4,
-            mParams.wheelTurningSkidPoint / 2,
+            mParams.wheelTurningSkidPoint * 0.15,
+            mParams.wheelTurningSkidPoint * 0.35,
             1
-        };
+    };
     mRenderTurningRanges[i++] = {
-            mParams.wheelTurningSkidPoint / 2,
-            mParams.wheelTurningSkidPoint,
+            mParams.wheelTurningSkidPoint * 0.35,
+            mParams.wheelTurningSkidPoint * 0.55,
             2
-        };
+    };
+    mRenderTurningRanges[i++] = {
+            mParams.wheelTurningSkidPoint * 0.55,
+            mParams.wheelTurningSkidPoint * 0.75,
+            3
+    };
+    mRenderTurningRanges[i++] = {
+            mParams.wheelTurningSkidPoint * 0.75,
+            mParams.wheelTurningSkidPoint,
+            4
+    };
     mRenderTurningRanges[i++] = {
             mParams.wheelTurningSkidPoint,
             std::numeric_limits<double>::max(),
-            3
-        };
+            5
+    };
 }
 
 void PlayerKart::initSprites() {

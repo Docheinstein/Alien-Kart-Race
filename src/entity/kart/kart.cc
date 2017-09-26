@@ -11,14 +11,21 @@
 #define LOG_TAG "{Kart} "
 #define CAN_LOG 1
 
-const int MINI_MAP_KART_SIZE = 2;
-const int BOUNCE_TICKS = 16;
+#define FLIGHT_MODE 0
 
-Kart::Kart() {
+const int MINI_MAP_KART_SIZE = 2;
+const int BOUNCE_TIME_MS = 250;
+
+Kart::Kart(const char *kartName) {
+	mName = kartName;
+
 	mVector.position = Point {0, 0};
 	mVector.direction = Angle {(double)1 / (1 << 5)};
 	mSpeed = 0;
 	mWheelTurning = 0;
+
+	void (Kart::*eventFunc)() = &Kart::bounceTimeFinished;
+	mBounceTimer.initialize(BOUNCE_TIME_MS, this, eventFunc);
 }
 
 Kart::~Kart() {
@@ -36,6 +43,11 @@ Angle Kart::direction() {
 Vector Kart::vector() {
 	return mVector;
 }
+
+const char * Kart::name() {
+	return mName;
+}
+
 void Kart::setPosition(const Point p) {
 	mVector.position = Point(p);
 }
@@ -45,7 +57,23 @@ void Kart::setDirection(const Angle a) {
 }
 
 void Kart::update(bool goForward, bool goBackward, bool goLeft, bool goRight) {
+#if FLIGHT_MODE
+	double turning = 0;
+	double speed = 0;
 
+	if (goForward)
+		speed = mParams.maxSpeed;
+	else if (goBackward)
+		speed = -mParams.maxSpeed;
+
+	if (goLeft)
+		turning = -0.01;
+	else if (goRight)
+		turning = 0.01;
+
+	mVector.direction += turning;
+	mVector.advance(speed);
+#else
 	if (mBouncing) {
 		bounce();
 		return;
@@ -142,12 +170,12 @@ void Kart::update(bool goForward, bool goBackward, bool goLeft, bool goRight) {
 			mVector.position.y,
 			mVector.position.x);
 
-	// if (nextTileEvent == Map::TileEvent::Unpassable) {
-	// 	mSpeed = previousSpeed;
-	// 	mVector.position.y = previousRow;
-	// 	mVector.position.x = previousCol;
-	// 	bounce();
-	// }
+	if (nextTileEvent == Map::TileEvent::Unpassable) {
+		mSpeed = previousSpeed;
+		mVector.position.y = previousRow;
+		mVector.position.x = previousCol;
+		bounce();
+	}
 
 	// Ensure direction is not 0, just in case (not a good number for division and
 	// trigonometric function)
@@ -164,10 +192,10 @@ void Kart::update(bool goForward, bool goBackward, bool goLeft, bool goRight) {
 	// if (m->getTile(mPosition.y, mPosition.x) == 4) {
 	// 	d("Over an event tile");
 	// }
-
+#endif
 
 	// d("\n");
-	// d("Direction: \t", mDirection);
+	d("Direction: \t", direction().rad * 180 / M_PI, " deg");
 	// d("Speed:\t\t", mSpeed);
 	// d("MAX SPEED\t", mMaxSpeed);
 	// d("Wheel turning:\t", mWheelTurning);
@@ -185,17 +213,11 @@ void Kart::bounce() {
 	if (!mBouncing) {
 		mSpeed = (mSpeed < 0 ? 1 : -1 /* opposite of sign */) * mParams.bounceSpeedInitialSpeed;
 		mBouncing = true;
-		mBounceCurrentTicks = 0;
+		mBounceTimer.reset();
 		d("Will bounce");
 	}
 
-	if (mBounceCurrentTicks >= BOUNCE_TICKS) {
-		mBouncing = false;
-		d("Finished bouncing with speed: ", mSpeed);
-		return;
-	}
-
-	mBounceCurrentTicks++;
+	mBounceTimer.update();
 
 	if (mSpeed > 0) {
 		mSpeed -= mParams.bounceDecellerationFactor;
@@ -216,6 +238,12 @@ void Kart::bounce() {
 
 	d("Go forward for bounce");
 	advanceInCurrentDirection();
+
+}
+
+void Kart::bounceTimeFinished() {
+	d("Finished bouncing with speed: ", mSpeed);
+	mBouncing = false;
 }
 
 bool Kart::isSkidding() {

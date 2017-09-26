@@ -58,13 +58,14 @@ struct Vector {
 	Vector& operator+=(double rad);
 	Vector& operator-=(Angle a);
 	Vector& operator-=(double rad);
-
 } typedef Vector;
 
 Vector operator+(Vector v1, const Angle &angle);
 Vector operator+(Vector v1, double angleRad);
 Vector operator-(Vector v1, const Angle &angle);
 Vector operator-(Vector v1, double angleRad);
+
+Angle operator-(Vector v1, const Point &p);
 
 class GeometryUtil {
 public:

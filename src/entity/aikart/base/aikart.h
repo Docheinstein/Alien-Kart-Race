@@ -15,7 +15,7 @@ class Point;
 class AIKart : public Kart {
 public:
 
-	AIKart();
+	AIKart(const char *kartName);
 	virtual ~AIKart();
 
     virtual void update();

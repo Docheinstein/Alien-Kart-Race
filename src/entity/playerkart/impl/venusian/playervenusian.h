@@ -10,7 +10,7 @@ namespace sf {
 
 class PlayerVenusian : public PlayerKart {
 public:
-    PlayerVenusian();
+    PlayerVenusian(const char *kartName);
     sf::Color minimapColor();
     void draw();
 protected:

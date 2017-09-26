@@ -141,6 +141,11 @@ Vector operator-(Vector v1, double angleRad) {
 	return v1;
 }
 
+Angle operator-(Vector v1, const Point &p) {
+	Vector vectToPoint = Vector {v1.position, p};
+	return  vectToPoint.direction - v1.direction;
+}
+
 void Vector::advance(double length) {
 	position.y -= cos(direction.rad) * length;
 	position.x += sin(direction.rad) * length;

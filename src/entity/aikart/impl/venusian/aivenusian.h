@@ -13,7 +13,7 @@ namespace sf {
 class AIVenusian : public AIKart {
 public:
 
-	AIVenusian();
+	AIVenusian(const char *kartName);
 
 
 	// double col();
