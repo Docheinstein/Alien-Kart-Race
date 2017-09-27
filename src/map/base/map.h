@@ -32,14 +32,32 @@ public:
 	TileEvent getTileEvent(int row, int col);
 
 protected:
-	 void loadMap(const char * rawFilename, const char *tilesetFilename);
-
+	 void loadMap(const char *mapFilename);
+	 void loadEvents(const char *eventsFilename);
+ 	 void loadTileset(const char *tilesetFilename);
+  	 void loadSectors(const char *sectorsFilename);
 private:
 	struct Tile {
 		int tilesetY;
 		int tilesetX;
 		TileEvent event;
 	} typedef Tile;
+
+	enum SectorDirectionType {
+		UpLeft,
+		UpRight,
+		RightUp,
+		RightDown,
+		DownRight,
+		DownLeft,
+		LeftUp,
+		LeftDown
+	};
+
+	struct Sector {
+		Quad quad;
+		SectorDirectionType type;
+	} typedef Sector;
 
 	Tile **mMatrix;
 
@@ -54,8 +72,7 @@ private:
 	sf::VertexArray mRenderedTiles;
 	sf::Texture mTileset;
 
-	// sf::Texture mWheelBoundTex;
-	// sf::Sprite mWheelBoundSprite;
+	 std::vector<Sector> mSectors;
 
 	void updateRenderedTiles();
 	void drawMapObjects();
@@ -65,6 +82,7 @@ private:
 	void drawLine(double x1, double y1, double x2, double y2, double thickness);
 	void mapMatrixFillFunction(int readVal, int fileRow, int fileCol);
 	void eventsMatrixFillFunction(int readVal, int fileRow, int fileCol);
+	void sectorsFillFunction(int readVal, int fileRow, int fileCol);
 
     const char *logTag();
     bool canLog();

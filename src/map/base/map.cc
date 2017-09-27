@@ -17,11 +17,19 @@
 #define LOG_TAG "{Map} ";
 #define CAN_LOG 1
 
+#define SECTORS_FILE_FIELD_INDEX_UL 0
+#define SECTORS_FILE_FIELD_INDEX_UR 1
+#define SECTORS_FILE_FIELD_INDEX_DR 2
+#define SECTORS_FILE_FIELD_INDEX_DL 3
+#define SECTORS_FILE_FIELD_INDEX_TYPE 4
+
 // Number of tiles that will be rendered in each direction.
 const int MATRIX_RENDERED_TILES_RADIUS = 32;
 
 // Total amount of tiles rendered per axis.
 const int MATRIX_RENDERED_TILES_DIAMETER = MATRIX_RENDERED_TILES_RADIUS * 2 + 1;
+
+
 
 Map::Map() {
 	mMatrix = NULL;
@@ -62,11 +70,27 @@ void Map::eventsMatrixFillFunction(int readValue, int row, int col) {
 	mMatrix[row][col].event = static_cast<TileEvent>(readValue);
 }
 
-void Map::loadMap(const char *mapFilename, const char *tilesetFilename) {
+void Map::sectorsFillFunction(int readValue, int row, int col) {
+	if (col == SECTORS_FILE_FIELD_INDEX_TYPE)
+		mSectors[row].type = static_cast<int>(readValue);
+	else {
+		Quad &q = mSectors[row].quad;
+
+		if (col == SECTORS_FILE_FIELD_INDEX_UL)
+			q.ul = readValue;
+		else if (col == SECTORS_FILE_FIELD_INDEX_UR)
+			q.ur = readValue;
+		else if (col == SECTORS_FILE_FIELD_INDEX_DR)
+			q.dr = readValue;
+		else if (col == SECTORS_FILE_FIELD_INDEX_DL)
+			q.dl = readValue;
+	}
+}
+
+void Map::loadMap(const char *mapFilename) {
 	MatrixUtil::deleteMatrix<Tile>(mMatrix, mRowCount);
 
 	// Map
-	mTileset.loadFromFile(ResourceUtil::image(tilesetFilename));
 	int fileRowCount, fileColCount;
 
 	const char * mapPath = ResourceUtil::raw(mapFilename);
@@ -77,21 +101,38 @@ void Map::loadMap(const char *mapFilename, const char *tilesetFilename) {
 
 	MatrixUtil::initMatrix<Tile>(mMatrix, mRowCount, mColCount);
 
-    void (Map::*mapMatrixFillFunctionPtr)(int, int, int) = &Map::mapMatrixFillFunction;
+	void (Map::*mapMatrixFillFunctionPtr)(int, int, int) = &Map::mapMatrixFillFunction;
 
 	FileUtil::loadStructureFromFileKnowningSize<int, Map>(
-		mapPath, fileRowCount, fileColCount, this, mapMatrixFillFunctionPtr);
+	 mapPath, fileRowCount, fileColCount, this, mapMatrixFillFunctionPtr);
 
 	d("Loaded map at path: ", mapPath, " of size: ", mRowCount, "x", mColCount);
+}
 
+void Map::loadEvents(const char *eventsFilename) {
 	// Map events
-	const char * eventsMapPath = ResourceUtil::raw("earth_events.txt");
+	const char * eventsMapPath = ResourceUtil::raw(eventsFilename);
 
 	void (Map::*eventsMatrixFillFunctionPtr)(int, int, int) = &Map::eventsMatrixFillFunction;
 
 	FileUtil::loadStructureFromFileKnowningSize<int, Map>(
 			eventsMapPath, mRowCount, mColCount, this, eventsMatrixFillFunctionPtr);
 	d("Loaded events at path: ", eventsMapPath, " of size: ", mRowCount, "x", mColCount);
+}
+
+void Map::loadTileset(const char *tilesetFilename) {
+ 	mTileset.loadFromFile(ResourceUtil::image(tilesetFilename));
+}
+
+void Map::loadSectors(const char *sectorsFilename) {
+ 	// Map sectors
+ 	const char * sectorsMapPath = ResourceUtil::raw(sectorsFilename);
+
+	void (Map::*sectorsFillFunctionPtr)(int, int, int) = &Map::sectorsFillFunction;
+
+	FileUtil::loadStructureFromFileKnowningSize<int, Map>(
+			sectorsMapPath, mRowCount, mColCount, this, sectorsFillFunctionPtr);
+ 	d("Loaded sectors at path: ", eventsMapPath, " of size: ", mRowCount, "x", mColCount);
 }
 
 void Map::update() {

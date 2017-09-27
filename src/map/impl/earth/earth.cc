@@ -10,7 +10,7 @@ Earth::Earth() {
 }
 
 void Earth::loadMap() {
-    Map::loadMap("earth.txt", "earth_tileset.png");
+    Map::loadMap("earth.txt", "earth_tileset.png", "earth_sectors.txt");
 }
 
 Point Earth::startingPointForRacePosition(int racePosition) {

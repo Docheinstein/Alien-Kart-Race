@@ -18,11 +18,17 @@ struct IPoint {
 } typedef IPoint;
 
 struct Line {
-	// Line(const Vector &v);
 	double m;
 	double q;
 
 } typedef Line;
+
+struct Quad {
+	Point ul;
+	Point ur;
+	Point dr;
+	Point dl;
+} typedef Quad;
 
 // Angle
 
@@ -66,6 +72,8 @@ Vector operator-(Vector v1, const Angle &angle);
 Vector operator-(Vector v1, double angleRad);
 
 Angle operator-(Vector v1, const Point &p);
+
+// End vector
 
 class GeometryUtil {
 public:
