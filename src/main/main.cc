@@ -1,25 +1,23 @@
 #include "game.h"
 #include "perspectiveutil.h"
 #include "geometryutil.h"
+#include <cmath>
+#include <iostream>
 
 int main() {
-	Game::instance().start();
-
-    Point pcForKart, prForKart, vp1ForKart, vp2ForKart;
-	Point camera { 7.2, 2.5 };
-	Point dummypp = PerspectiveUtil::perspectivePoint(
-        Point {camera.x - 2.4, camera.y - 0.8},
-        camera,
-        Point {7.2, 4.5},
-        -0.453786,
-        2.5,
-        1,
-        pcForKart,
-        prForKart,
-        vp1ForKart,
-        vp2ForKart
-		,0.523599 //Rotation
-    );
-
+	Game game;
+	game.start();
+	// Vector v1;
+	// v1.direction = 0;
+	// v1.magnitude = 1;
+	//
+	// Vector v2;
+	// v2.direction = M_PI / 2;
+	// v2.magnitude = 1;
+	//
+	// v1 += v2;
+	// std::cout << v1;
+	// Launcher launcher;
+	// launcher
     return 0;
 }

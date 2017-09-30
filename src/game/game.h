@@ -5,40 +5,30 @@
 
 namespace sf {
 	class RenderWindow;
-	class Event;
 	class Sprite;
 }
 
-class Level;
+class KeyboardManager;
+class ScreenManager;
 
 class Game : public LoggerInterface {
 public:
-	static Game & instance();
-
-	static const int WINDOW_WIDTH = 640;//1280;
-	static const int WINDOW_HEIGHT = 480;//960;
-	static const int TARGET_UPDATES_PER_SECOND = 60;
-
-	void start();
-	Level *level();
-	sf::RenderWindow * window();
-
-
-
-private:
 	Game();
 	~Game();
-	Game(Game const &);
-	void operator = (Game const &);
+	void start();
 
+	sf::RenderWindow * window();
+	KeyboardManager * keysManager();
+
+private:
 	sf::RenderWindow *mWindow;
-	Level *mLevel;
+	KeyboardManager *mAsyncKeyboardManager;
+	ScreenManager *mScreenManager;
 
 	void init();
 	void pollEvents();
 	void update();
 	void render();
-	void handleEvent(const sf::Event &event);
 
     const char *logTag();
     bool canLog();

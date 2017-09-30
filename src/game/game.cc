@@ -1,38 +1,37 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include "game.h"
-#include "level.h"
 #include "logger.h"
-#include "map.h"
+#include "keyboardmanager.h"
+#include "screenmanager.h"
+#include "launcher.h"
+#include "const.h"
 
 #define LOG_TAG "{Game} "
 #define CAN_LOG 1
 
-using namespace sf;
-
-const int TARGET_UPDATE_MS = 1000 / Game::TARGET_UPDATES_PER_SECOND;
-const char * GAME_TITLE = "Alien Kart Race";
-
-Game & Game::instance() {
-	static Game instance;
-	return instance;
-}
+#define GAME_TITLE "Alien Kart Race"
 
 Game::Game() {
 	init();
 }
 
 Game::~Game() {
-	delete mLevel;
+	delete mScreenManager;
+	delete mAsyncKeyboardManager;
+	delete mWindow;
 }
 
 void Game::start() {
+	const int TARGET_UPDATE_MS = 1000 / Const::TARGET_UPDATES_PER_SECOND;
 	const int CYCLE_TO_PERFORM_FOR_NOTIFY_AVG_TIME = 300;
+
+
 	int performedCycles = 0;
 	long cyclesMillisSum = 0;
 
 	// Game loop
-	Clock clock;
+	sf::Clock clock;
     while (mWindow->isOpen()) {
 		clock.restart();
 
@@ -47,9 +46,8 @@ void Game::start() {
 		// benchmark("Maximum amount of millis available per cycle: ", TARGET_UPDATE_MS);
 		// benchmark("Cycle is taking ", cycleMillis, "ms; ", cycleConsumedMillisPercentage, "% of the available time.");
 		// There is enough time to sleep
-		if (cycleMillis <= TARGET_UPDATE_MS) {
+		if (cycleMillis <= TARGET_UPDATE_MS)
 			sleep(sf::milliseconds(TARGET_UPDATE_MS - cycleMillis));
-		}
 		else {
 			int skippedFrames = 0;
 			while (cycleMillis > TARGET_UPDATE_MS) {
@@ -76,22 +74,24 @@ void Game::start() {
     }
 }
 
-Level * Game::level() {
-	return mLevel;
-}
-
 sf::RenderWindow* Game::window() {
 	return mWindow;
 }
 
+KeyboardManager * Game::keysManager() {
+	return mAsyncKeyboardManager;
+}
+
 // Private
 void Game::pollEvents() {
-	Event event;
+	sf::Event event;
 	while (mWindow->pollEvent(event)) {
-		// handleEvent(event);
 		switch (event.type) {
 		case sf::Event::Closed:
 			mWindow->close();
+			break;
+		case sf::Event::KeyPressed:
+			mAsyncKeyboardManager->notifyKeyPressed(event.key.code);
 			break;
 		default:
 			break;
@@ -100,27 +100,28 @@ void Game::pollEvents() {
 }
 
 void Game::update() {
-	mLevel->update();
+	// mLevel->update();
+	mScreenManager->update();
 }
 
 void Game::render() {
 	// Draw
 	mWindow->clear(sf::Color::White);
 
-	mLevel->render();
+	// mLevel->render();
+	mScreenManager->render();
 
 	mWindow->display();
 }
 
 // Private
 void Game::init() {
-    mWindow = new RenderWindow(VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT), GAME_TITLE);
-	mLevel = new Level();
-}
-
-void Game::handleEvent(const sf::Event &event) {
-	// std::cout << "New SFML event" << std::endl;
-
+    mWindow = new sf::RenderWindow(sf::VideoMode(
+		Const::WINDOW_WIDTH, Const::WINDOW_HEIGHT), GAME_TITLE);
+	mAsyncKeyboardManager = new KeyboardManager();
+	//mLevel = new Level(this);
+	mScreenManager = new ScreenManager(this);
+	mScreenManager->setScreen(new Launcher(mWindow, mAsyncKeyboardManager));
 }
 
 const char * Game::logTag() {

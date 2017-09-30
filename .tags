@@ -24,8 +24,8 @@ benchmark	/home/stefano/Documents/Develop/AlienKartRace/src/util/log/logger.h	/^
 GAME_H	/home/stefano/Documents/Develop/AlienKartRace/src/game/game.h	/^#define GAME_H$/;"	macro	line:2
 sf	/home/stefano/Documents/Develop/AlienKartRace/src/game/game.h	/^namespace sf {$/;"	namespace	line:4
 Game	/home/stefano/Documents/Develop/AlienKartRace/src/game/game.h	/^class Game {$/;"	class	line:11
-WINDOW_WIDTH	/home/stefano/Documents/Develop/AlienKartRace/src/game/game.h	/^	static const int WINDOW_WIDTH = 320;$/;"	member	line:14	class:Game
-WINDOW_HEIGHT	/home/stefano/Documents/Develop/AlienKartRace/src/game/game.h	/^	static const int WINDOW_HEIGHT = 240;$/;"	member	line:15	class:Game
+WIDTH	/home/stefano/Documents/Develop/AlienKartRace/src/game/game.h	/^	static const int WIDTH = 320;$/;"	member	line:14	class:Game
+HEIGHT	/home/stefano/Documents/Develop/AlienKartRace/src/game/game.h	/^	static const int HEIGHT = 240;$/;"	member	line:15	class:Game
 mWindow	/home/stefano/Documents/Develop/AlienKartRace/src/game/game.h	/^	sf::RenderWindow *mWindow;$/;"	member	line:27	class:Game
 mLevel	/home/stefano/Documents/Develop/AlienKartRace/src/game/game.h	/^	Level *mLevel;$/;"	member	line:28	class:Game
 MAP_OBJECT_H	/home/stefano/Documents/Develop/AlienKartRace/src/object/mapobject.h	/^#define MAP_OBJECT_H$/;"	macro	line:2
@@ -1799,10 +1799,10 @@ update	/home/stefano/Documents/Develop/AlienKartRace/src/level/level.cc	/^void L
 render	/home/stefano/Documents/Develop/AlienKartRace/src/level/level.cc	/^void Level::render() {$/;"	function	line:39	class:Level	signature:()
 COLOR_FULL	/home/stefano/Documents/Develop/AlienKartRace/src/minimap/minimap.cc	/^const sf::Color COLOR_FULL = sf::Color(128, 128, 128, 164);$/;"	variable	line:7
 COLOR_EMPTY	/home/stefano/Documents/Develop/AlienKartRace/src/minimap/minimap.cc	/^const sf::Color COLOR_EMPTY = sf::Color::White;$/;"	variable	line:8
-MINI_MAP_X	/home/stefano/Documents/Develop/AlienKartRace/src/minimap/minimap.cc	/^const int MINI_MAP_X = Game::WINDOW_WIDTH * 0.6;$/;"	variable	line:10
-MINI_MAP_Y	/home/stefano/Documents/Develop/AlienKartRace/src/minimap/minimap.cc	/^const int MINI_MAP_Y = Game::WINDOW_WIDTH * 0.1;$/;"	variable	line:11
-MINI_MAP_WIDTH	/home/stefano/Documents/Develop/AlienKartRace/src/minimap/minimap.cc	/^const int MINI_MAP_WIDTH = Game::WINDOW_WIDTH * 0.4;$/;"	variable	line:12
-MINI_MAP_HEIGHT	/home/stefano/Documents/Develop/AlienKartRace/src/minimap/minimap.cc	/^const int MINI_MAP_HEIGHT = Game::WINDOW_HEIGHT * 0.4;$/;"	variable	line:13
+MINI_MAP_X	/home/stefano/Documents/Develop/AlienKartRace/src/minimap/minimap.cc	/^const int MINI_MAP_X = Game::WIDTH * 0.6;$/;"	variable	line:10
+MINI_MAP_Y	/home/stefano/Documents/Develop/AlienKartRace/src/minimap/minimap.cc	/^const int MINI_MAP_Y = Game::WIDTH * 0.1;$/;"	variable	line:11
+MINI_MAP_WIDTH	/home/stefano/Documents/Develop/AlienKartRace/src/minimap/minimap.cc	/^const int MINI_MAP_WIDTH = Game::WIDTH * 0.4;$/;"	variable	line:12
+MINI_MAP_HEIGHT	/home/stefano/Documents/Develop/AlienKartRace/src/minimap/minimap.cc	/^const int MINI_MAP_HEIGHT = Game::HEIGHT * 0.4;$/;"	variable	line:13
 Minimap	/home/stefano/Documents/Develop/AlienKartRace/src/minimap/minimap.cc	/^Minimap::Minimap() {$/;"	function	line:15	class:Minimap	signature:()
 ~Minimap	/home/stefano/Documents/Develop/AlienKartRace/src/minimap/minimap.cc	/^Minimap::~Minimap() {$/;"	function	line:19	class:Minimap	signature:()
 drawPoint	/home/stefano/Documents/Develop/AlienKartRace/src/minimap/minimap.cc	/^void Minimap::drawPoint(double row, double col, int size, sf::Color color) {$/;"	function	line:24	class:Minimap	signature:(double row, double col, int size, sf::Color color)

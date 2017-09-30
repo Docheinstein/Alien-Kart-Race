@@ -7,9 +7,11 @@ double MathUtil::changeRange(const Range &r1, const Range &r2, double r1Val) {
 }
 
 int MathUtil::changeRangeToInt(const Range &r1, const Range &r2, double r1Val) {
-    double d = changeRange(r1, r2, r1Val);
-    debug(1, "Double range: ", d);
-    return nearbyint (d);
+    return nearbyint(changeRange(r1, r2, r1Val));
+}
+
+bool MathUtil::isInRange(const Range &r, double val) {
+    return (val >= r.low && val < r.high);
 }
 
 double MathUtil::rangeBelongingTo(const BoundRange ranges[], int rangeCount, double val) {

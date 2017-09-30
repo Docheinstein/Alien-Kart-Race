@@ -1,26 +1,28 @@
 #ifndef MINIMAP_H
 #define MINIMAP_H
 
-#include "game.h"
+#include "mapfactory.h"
 
 namespace sf {
+    class RenderWindow;
     class Image;
     class Color;
 }
 
 class Minimap {
 public:
-    static const int MINIMAP_SIZE = Game::WINDOW_WIDTH * 0.4;
-    Minimap();
+    static const int MINIMAP_SIZE;
+    Minimap(sf::RenderWindow *window, MapFactory::MapType mapType);
     ~Minimap();
 
-    void loadFromFile(const char *minimapFilename);
     void draw();
 
     void drawPoint(double row, double col, int size, sf::Color color);
-private:
-    void loadMatrixFromFile(const char*minimapFilename);
 
+private:
+    void loadFromFile(const char *minimapFilename);
+
+    sf::RenderWindow *mWindow;
     sf::Texture *mMinimapTexture;
     sf::Sprite *mMinimapSprite;
 

@@ -1,16 +1,23 @@
 #include <SFML/Graphics.hpp>
+#include "level.h"
 #include "resourceutil.h"
 #include "earth.h"
 #include "logger.h"
 
 static const Point POLE_POSITION {55, 96.5};
 
-Earth::Earth() {
-    // initParameters();
-}
+#define EARTH_MAP_FILENAME "earth.txt"
+#define EARTH_EVENTS_FILENAME "earth_events.txt"
+#define EARTH_SECTORS_FILENAME "earth_sectors.txt"
+#define EARTH_TILESET_FILENAME "earth_tileset.png"
+
+Earth::Earth(sf::RenderWindow *window, Level *level) : Map(window, level) {}
 
 void Earth::loadMap() {
-    Map::loadMap("earth.txt", "earth_tileset.png", "earth_sectors.txt");
+    Map::loadMap(EARTH_MAP_FILENAME);
+    Map::loadEvents(EARTH_EVENTS_FILENAME);
+    Map::loadTileset(EARTH_TILESET_FILENAME);
+    Map::loadSectors(EARTH_SECTORS_FILENAME);
 }
 
 Point Earth::startingPointForRacePosition(int racePosition) {

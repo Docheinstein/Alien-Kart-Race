@@ -1,17 +1,20 @@
 #include <SFML/Graphics.hpp>
 #include <fstream>
 #include "minimap.h"
-#include "game.h"
+#include "const.h"
 #include "fileutil.h"
+#include "resourceutil.h"
 
 const sf::Color COLOR_FULL = sf::Color(128, 128, 128, 164);
 const sf::Color COLOR_EMPTY = sf::Color::Transparent;
 
-const int MINIMAP_X = Game::WINDOW_WIDTH * 0.5;
+const int Minimap::MINIMAP_SIZE = Const::WINDOW_WIDTH * 0.4;
+const int MINIMAP_X = Const::WINDOW_WIDTH * 0.6;
 const int MINIMAP_Y = 0;
 
-Minimap::Minimap() {
-
+Minimap::Minimap(sf::RenderWindow *window, MapFactory::MapType mapType) {
+    mWindow = window;
+    loadFromFile(ResourceUtil::raw(MapFactory::minimapFilename(mapType)).c_str());
 }
 
 Minimap::~Minimap() {
@@ -28,7 +31,7 @@ void Minimap::drawPoint(double row, double col, int size, sf::Color color) {
 		MINIMAP_Y + (double) MINIMAP_SIZE / mRowCount * row - size / 2
 	);
 
-	Game::instance().window()->draw(circlePoint);
+	mWindow->draw(circlePoint);
 
 }
 
@@ -59,5 +62,5 @@ void Minimap::loadFromFile(const char *minimapFilename) {
 }
 
 void Minimap::draw() {
-	Game::instance().window()->draw(*mMinimapSprite);
+	mWindow->draw(*mMinimapSprite);
 }

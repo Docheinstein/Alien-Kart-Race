@@ -1,0 +1,3 @@
+./mapsectorsgenerator -in ../Maps/earth_sectors.png -out earth_sectors.txt -size 15 -bind 0018ff 1 -bind dd77de 2 -bind 00ff90 2 -bind cedb77 2 -bind ff0000 2 -bind 00ff54 1 -bind 0ecf4d 1 -bind 00edea 1 -bind 195453 1 -bind 3c7f2c 2 -bind 6ec78d 3 -bind 5d6988 3 -bind 39445f 3 -bind 6e87c7 4 -bind b89c2e 5 -bind b86f2e 7 -bind b8452e 5 -bind 2eb85f 5 -bind 866767 4 -bind 541717 4 -bind 4f5417 4 -bind 20831b 5 -bind 1b8378 6 -bind 491b83 6 -bind 6b5aa8 7 -bind 71dc88 7 -bind 71dcd6 6 -bind 36e73f 0 -bind dca871 6 -bind 87af84 1
+rm ../../res/raw/earth_sectors.txt
+cp earth_sectors.txt ../../res/raw

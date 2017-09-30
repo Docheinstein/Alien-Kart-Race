@@ -6,7 +6,7 @@
 class Earth : public Map {
 public:
     static const int STARTING_BLOCK_COUNT = 8;
-    Earth();
+    Earth(sf::RenderWindow *window, Level *level);
     void loadMap();
     Point startingPointForRacePosition(int racePosition);
     int lastRacePosition();

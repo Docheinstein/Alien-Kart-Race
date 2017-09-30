@@ -9,7 +9,9 @@ class FontFactory {
 public:
 
     enum FontType {
-        Main,
+        Plain,
+        Semibold,
+        Fancy,
         _FontTypeCount
     };
 

@@ -10,9 +10,9 @@ public:
 	static const std::string RAW_PATH;
 	static const std::string FONT_PATH;
 
-	static const char * image(const char * imageName);
-	static const char * raw(const char * rawName);
-	static const char * font(const char * fontName);
+	static std::string image(const char * imageName);
+	static std::string raw(const char * rawName);
+	static std::string font(const char * fontName);
 };
 
 #endif

@@ -13,11 +13,17 @@ public:
         reset();
     }
 
-    void initialize(
-                int totalTimeMS,
+    GameTimer(  int totalTimeMS,
                 FuncOwner *instance = NULL,
                 void (FuncOwner::*eventFunc)() = NULL,
                 int eventTimeMS = EVENT_ON_TIMER_FINISH) {
+        initialize(totalTimeMS, instance, eventFunc, eventTimeMS);
+    }
+
+    void initialize(int totalTimeMS,
+                    FuncOwner *instance = NULL,
+                    void (FuncOwner::*eventFunc)() = NULL,
+                    int eventTimeMS = EVENT_ON_TIMER_FINISH) {
         // Converts millis to game updates
 
         mTotalTicks = TimeUtil::millisToUpdates(totalTimeMS);
@@ -37,22 +43,35 @@ public:
     void reset() {
         mCurrentTotalTicks = 0;
         mCurrentEventTicks = 0;
+        mRunning = false;;
+    }
+
+    void start() {
+        mRunning = true;
+    }
+
+    void stop() {
+        mRunning = false;
     }
 
     int update() {
-        if (mCurrentTotalTicks < mTotalTicks) {
-            mCurrentTotalTicks++;
-            if (mCurrentTotalTicks % mEventTicks == 0 &&
-                mEventFuncOwnerInstance != NULL &&
-                mEventFunc != NULL) {
-                (mEventFuncOwnerInstance->*mEventFunc)();
+        if (isRunning()) {
+            if (mCurrentTotalTicks < mTotalTicks) {
+                mCurrentTotalTicks++;
+                if (mCurrentTotalTicks % mEventTicks == 0 &&
+                    mEventFuncOwnerInstance != NULL &&
+                    mEventFunc != NULL) {
+                    (mEventFuncOwnerInstance->*mEventFunc)();
+                }
             }
+            else
+                stop();
         }
         return mCurrentTotalTicks;
     }
 
     bool isRunning() {
-        return mCurrentTotalTicks < mTotalTicks;
+        return mRunning;
     }
 
     int currentTicks() {
@@ -65,6 +84,8 @@ private:
 
     int mCurrentTotalTicks;
     int mCurrentEventTicks;
+
+    bool mRunning;
 
     FuncOwner *mEventFuncOwnerInstance;
     void (FuncOwner::*mEventFunc)();

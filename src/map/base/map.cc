@@ -2,26 +2,31 @@
 #include <cmath>
 #include <cstring>
 #include <fstream>
-#include "game.h"
+#include "map.h"
+#include "const.h"
 #include "level.h"
 #include "playerkart.h"
-#include "map.h"
 #include "fileutil.h"
 #include "matrixutil.h"
 #include "resourceutil.h"
 #include "geometryutil.h"
 #include "perspectiveutil.h"
 #include "viewutil.h"
-#include "logger.h"
 
 #define LOG_TAG "{Map} ";
 #define CAN_LOG 1
 
-#define SECTORS_FILE_FIELD_INDEX_UL 0
-#define SECTORS_FILE_FIELD_INDEX_UR 1
-#define SECTORS_FILE_FIELD_INDEX_DR 2
-#define SECTORS_FILE_FIELD_INDEX_DL 3
-#define SECTORS_FILE_FIELD_INDEX_TYPE 4
+enum SectorsFileFieldIndex {
+	ULy,
+	ULx,
+	URy,
+	URx,
+	DRy,
+	DRx,
+	DLy,
+	DLx,
+	Type
+};
 
 // Number of tiles that will be rendered in each direction.
 const int MATRIX_RENDERED_TILES_RADIUS = 32;
@@ -29,33 +34,47 @@ const int MATRIX_RENDERED_TILES_RADIUS = 32;
 // Total amount of tiles rendered per axis.
 const int MATRIX_RENDERED_TILES_DIAMETER = MATRIX_RENDERED_TILES_RADIUS * 2 + 1;
 
+Map::Map(sf::RenderWindow *window, Level *level) {
+	mWindow = window;
+	mLevel = level;
 
-
-Map::Map() {
 	mMatrix = NULL;
 
 	const double OUT_OF_SCREEN_TILES_ESTIMATED_PERCENTAGE = 0.5;
 	mRenderedTiles.setPrimitiveType(sf::Quads);
-    mRenderedTiles.resize(static_cast<int>(MATRIX_RENDERED_TILES_DIAMETER * MATRIX_RENDERED_TILES_DIAMETER * 4 * OUT_OF_SCREEN_TILES_ESTIMATED_PERCENTAGE));
-
-	/*
-	mWheelBoundTex.loadFromFile(ResourceUtil::image("earth_wheel_bound.png"));
-    mWheelBoundSprite.setTexture(mWheelBoundTex);
-    mWheelBoundSprite.setPosition(100, 100);
-	*/
-
-	mMapTexture.loadFromFile(ResourceUtil::image("earth_full.png"));
+    mRenderedTiles.resize(static_cast<int>(
+		MATRIX_RENDERED_TILES_DIAMETER * MATRIX_RENDERED_TILES_DIAMETER * 4 *
+		OUT_OF_SCREEN_TILES_ESTIMATED_PERCENTAGE));
 }
 
 Map::~Map() {
 	MatrixUtil::deleteMatrix<Tile>(mMatrix, mRowCount);
 }
 
-Map::TileEvent Map::getTileEvent(int row, int col) {
+Map::TileEvent Map::tileEvent(const Point &p) {
+	int row = p.y;
+	int col = p.x;
 	// d("Asking row", row, " col", col);
 	if (row >= 0 && row < mRowCount && col >= 0 && col < mColCount)
 		return mMatrix[row][col].event;
 	return Unpassable;
+}
+
+Map::Sector Map::sector(const Point &p) {
+	int index = 0;
+    for (std::vector<Sector>::iterator sectIter = mSectors.begin();
+        sectIter != mSectors.end();
+        sectIter++, index++) {
+			if ((*sectIter).quad.contains(p))
+				return (*sectIter);
+	}
+	Sector sectNotFound;
+	sectNotFound.index = -1;
+	return sectNotFound;
+}
+
+int Map::sectorCount() {
+	return mSectors.size();
 }
 
 void Map::mapMatrixFillFunction(int readValue, int row, int col) {
@@ -71,19 +90,43 @@ void Map::eventsMatrixFillFunction(int readValue, int row, int col) {
 }
 
 void Map::sectorsFillFunction(int readValue, int row, int col) {
-	if (col == SECTORS_FILE_FIELD_INDEX_TYPE)
-		mSectors[row].type = static_cast<int>(readValue);
-	else {
-		Quad &q = mSectors[row].quad;
+	if (col == 0) {
+		Sector s;
+		s.index = sectorCount();
+		mSectors.push_back(s);
+	}
 
-		if (col == SECTORS_FILE_FIELD_INDEX_UL)
-			q.ul = readValue;
-		else if (col == SECTORS_FILE_FIELD_INDEX_UR)
-			q.ur = readValue;
-		else if (col == SECTORS_FILE_FIELD_INDEX_DR)
-			q.dr = readValue;
-		else if (col == SECTORS_FILE_FIELD_INDEX_DL)
-			q.dl = readValue;
+	SectorsFileFieldIndex readField = static_cast<SectorsFileFieldIndex>(col);
+	Quad &q = mSectors[row].quad;
+
+	switch(readField) {
+	case ULy:
+		q.ul.y = readValue;
+		break;
+	case ULx:
+		q.ul.x = readValue;
+		break;
+	case URy:
+		q.ur.y = readValue;
+		break;
+	case URx:
+		q.ur.x = readValue + 1;
+		break;
+	case DRy:
+		q.dr.y = readValue + 1;
+		break;
+	case DRx:
+		q.dr.x = readValue + 1;
+		break;
+	case DLy:
+		q.dl.y = readValue + 1;
+		break;
+	case DLx:
+		q.dl.x = readValue;
+		break;
+	case Type:
+		mSectors[row].type = static_cast<SectorDirectionType>(readValue);
+		break;
 	}
 }
 
@@ -93,7 +136,9 @@ void Map::loadMap(const char *mapFilename) {
 	// Map
 	int fileRowCount, fileColCount;
 
-	const char * mapPath = ResourceUtil::raw(mapFilename);
+	std::string fileStr = ResourceUtil::raw(mapFilename);
+	const char * mapPath = fileStr.c_str();
+
 	FileUtil::getMatrixSize<int>(mapPath, fileRowCount, fileColCount);
 
 	mRowCount = fileRowCount;
@@ -111,7 +156,8 @@ void Map::loadMap(const char *mapFilename) {
 
 void Map::loadEvents(const char *eventsFilename) {
 	// Map events
-	const char * eventsMapPath = ResourceUtil::raw(eventsFilename);
+	std::string fileStr = ResourceUtil::raw(eventsFilename);
+	const char * eventsMapPath = fileStr.c_str();
 
 	void (Map::*eventsMatrixFillFunctionPtr)(int, int, int) = &Map::eventsMatrixFillFunction;
 
@@ -121,18 +167,27 @@ void Map::loadEvents(const char *eventsFilename) {
 }
 
 void Map::loadTileset(const char *tilesetFilename) {
- 	mTileset.loadFromFile(ResourceUtil::image(tilesetFilename));
+ 	mTileset.loadFromFile(ResourceUtil::image(tilesetFilename).c_str());
 }
 
 void Map::loadSectors(const char *sectorsFilename) {
  	// Map sectors
- 	const char * sectorsMapPath = ResourceUtil::raw(sectorsFilename);
+	int fileRowCount, fileColCount;
+	std::string fileStr = ResourceUtil::raw(sectorsFilename);
+	const char * sectorsMapPath = fileStr.c_str();
+	FileUtil::getMatrixSize<int>(sectorsMapPath, fileRowCount, fileColCount);
 
 	void (Map::*sectorsFillFunctionPtr)(int, int, int) = &Map::sectorsFillFunction;
 
 	FileUtil::loadStructureFromFileKnowningSize<int, Map>(
-			sectorsMapPath, mRowCount, mColCount, this, sectorsFillFunctionPtr);
- 	d("Loaded sectors at path: ", eventsMapPath, " of size: ", mRowCount, "x", mColCount);
+			sectorsMapPath, fileRowCount, fileColCount, this, sectorsFillFunctionPtr);
+ 	d("Loaded sectors at path: ", sectorsMapPath, " of size: ", fileRowCount, "x", fileColCount);
+
+    for (std::vector<Sector>::iterator sectIter = mSectors.begin();
+        sectIter != mSectors.end();
+        sectIter++)  {
+		d("Sector:", (*sectIter).quad);
+	}
 }
 
 void Map::update() {
@@ -141,15 +196,13 @@ void Map::update() {
 
 void Map::draw() {
 
-	mDebugGridImage.create(Game::WINDOW_WIDTH, Game::WINDOW_HEIGHT, sf::Color(255, 255, 255, 0));
+	mDebugGridImage.create(Const::WINDOW_WIDTH, Const::WINDOW_HEIGHT, sf::Color(255, 255, 255, 0));
 
 	updateRenderedTiles();
 
-	Game::instance().window()->draw(mRenderedTiles, &mTileset);
+	mWindow->draw(mRenderedTiles, &mTileset);
 
 	// drawMapObjects();
-	// Game::instance().window()->draw(mWheelBoundSprite);
-
 
 	sf::Texture mapGridTexture;
 	mapGridTexture.loadFromImage(mDebugGridImage);
@@ -157,7 +210,7 @@ void Map::draw() {
 	sf::Sprite mapGridSprite;
 	mapGridSprite.setTexture(mapGridTexture);
 
-	Game::instance().window()->draw(mapGridSprite);
+	mWindow->draw(mapGridSprite);
 }
 
 int Map::colCount() {
@@ -170,8 +223,8 @@ int Map::rowCount() {
 /*
 void Map::drawMapObjects() {
 	return;
-		const int WIDTH = Game::WINDOW_WIDTH;
-		const int HEIGHT = Game::WINDOW_HEIGHT;
+		const int WIDTH = Const::WINDOW_WIDTH;
+		const int HEIGHT = Const::WINDOW_HEIGHT;
 
 		// Y coordinate of the horizon line.
 		const int HORIZON_LINE_Y = HEIGHT / 2;
@@ -339,7 +392,7 @@ void Map::drawMapObjects() {
 */
 
 void Map::updateRenderedTiles() {
- 	PlayerKart *playerKart = Game::instance().level()->playerKart();
+ 	Kart *playerKart = mLevel->playerKart();
 
 	IPoint intKartPosition = GeometryUtil::toIPoint(playerKart->position());
 
@@ -367,7 +420,7 @@ void Map::updateRenderedTiles() {
 
 			perspectivePoints[r][c] = PerspectiveUtil::perspectivePoint(
 		        renderedTilePoint,
-		        ViewUtil::cameraPoint(playerKart->vector()),
+		        ViewUtil::cameraPoint(playerKart->directionalPoint()),
 		        ViewUtil::BASE_POINT,
 		        playerKart->direction(),
 		        ViewUtil::HORIZON_LINE_Y,
@@ -458,7 +511,7 @@ void Map::updateRenderedTiles() {
 	// d("In screen tiles:", inScreenTiles);
 }
 void Map::drawPoint(sf::Image * map, const Point &p, sf::Color color, int size = 7) {
-	if (p.x < 0 + size / 2 || p.x >= Game::WINDOW_WIDTH - size / 2 || p.y < 0 + size / 2 || p.y >= Game::WINDOW_HEIGHT - size / 2)
+	if (p.x < 0 + size / 2 || p.x >= Const::WINDOW_WIDTH - size / 2 || p.y < 0 + size / 2 || p.y >= Const::WINDOW_HEIGHT - size / 2)
 		return;
 	for (int x = - size / 2; x <= size / 2; x++) {
 		for (int y = - size / 2; y <= size / 2; y++) {
@@ -469,7 +522,7 @@ void Map::drawPoint(sf::Image * map, const Point &p, sf::Color color, int size =
 }
 
 void Map::drawPoint(sf::Image * map, const IPoint &p, sf::Color color, int size = 7) {
-	if (p.x < 0 + size / 2 || p.x >= Game::WINDOW_WIDTH - size / 2 || p.y < 0 + size / 2 || p.y >= Game::WINDOW_HEIGHT - size / 2)
+	if (p.x < 0 + size / 2 || p.x >= Const::WINDOW_WIDTH - size / 2 || p.y < 0 + size / 2 || p.y >= Const::WINDOW_HEIGHT - size / 2)
 		return;
 	for (int x = - size / 2; x <= size / 2; x++) {
 		for (int y = - size / 2; y <= size / 2; y++) {
@@ -490,7 +543,7 @@ void Map::drawLine(double x1, double y1, double x2, double y2, double thickness)
 	lineThick[1].color = sf::Color::Red;
 	lineThick[2].color = sf::Color::Red;
 	lineThick[3].color = sf::Color::Red;
-	Game::instance().window()->draw(lineThick);
+	mWindow->draw(lineThick);
 }
 
 

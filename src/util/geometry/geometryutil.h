@@ -28,6 +28,9 @@ struct Quad {
 	Point ur;
 	Point dr;
 	Point dl;
+
+	bool contains(const Point &p) const;
+	bool intersects(const Quad &q) const;
 } typedef Quad;
 
 // Angle
@@ -51,29 +54,45 @@ Angle operator -(Angle a1, double rad);
 
 // End Angle
 
+// Vector
+
 struct Vector {
-	Vector() {}
-	Vector(const Point &pStart, const Point &pEnd);
-	Vector(const Point &p, const Angle &a);
+	Angle direction;
+	double magnitude;
+
+	Vector& operator+=(const Vector &v);
+} typedef Vector;
+Vector operator+(Vector v1, const Vector &v2);
+
+// End Vector
+
+struct DirectionalPoint {
+	DirectionalPoint() {}
+	DirectionalPoint(const Point &pStart, const Point &pEnd);
+	DirectionalPoint(const Point &p, const Angle &a);
 	Point position;
 	Angle direction;
 
-	void advance(double length);
+	void advance(double magnitude);
+	void advance(const Vector &v);
+	void advance(double ang, double magnitude);
 
-	Vector& operator+=(const Angle &a);
-	Vector& operator+=(double rad);
-	Vector& operator-=(Angle a);
-	Vector& operator-=(double rad);
-} typedef Vector;
+	DirectionalPoint& operator+=(const Angle &a);
+	DirectionalPoint& operator+=(double rad);
+	DirectionalPoint& operator-=(Angle a);
+	DirectionalPoint& operator-=(double rad);
+} typedef DirectionalPoint;
 
-Vector operator+(Vector v1, const Angle &angle);
-Vector operator+(Vector v1, double angleRad);
-Vector operator-(Vector v1, const Angle &angle);
-Vector operator-(Vector v1, double angleRad);
+DirectionalPoint operator+(DirectionalPoint v1, const Angle &angle);
+DirectionalPoint operator+(DirectionalPoint v1, double angleRad);
+DirectionalPoint operator-(DirectionalPoint v1, const Angle &angle);
+DirectionalPoint operator-(DirectionalPoint v1, double angleRad);
 
-Angle operator-(Vector v1, const Point &p);
+Angle operator-(DirectionalPoint v1, const Point &p);
 
-// End vector
+// End DirectionalPoint
+
+
 
 class GeometryUtil {
 public:
@@ -82,7 +101,7 @@ public:
 	static double distanceBetweenTwoPoints(const Point &p1, const Point &p2);
 
 	static double angleBetweenTwoPoints(const Point &p1, const Point &p2);
-	static Angle angleDifference(const Vector &v1, const Point &p1);
+	static Angle angleDifference(const DirectionalPoint &v1, const Point &p1);
 
 	static Point rotatePoint(const Point &p, const Point &c, const double radians);
 	static Point scalePoint(const Point &p, const double scaleFactor);
@@ -94,6 +113,8 @@ public:
 std::ostream& operator << (std::ostream &o, const IPoint &ip);
 std::ostream& operator << (std::ostream &o, const Point &p);
 std::ostream& operator << (std::ostream &o, const Line &l);
+std::ostream& operator << (std::ostream &o, const Quad &q);
 std::ostream& operator << (std::ostream &o, const Angle &a);
 std::ostream& operator << (std::ostream &o, const Vector &v);
+std::ostream& operator << (std::ostream &o, const DirectionalPoint &v);
 #endif // GEOMETRY_UTIL_H
