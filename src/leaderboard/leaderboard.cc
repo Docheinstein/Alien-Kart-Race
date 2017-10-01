@@ -9,7 +9,7 @@
 #include <cstring>
 
 #define LOG_TAG "{Leaderboard} ";
-#define CAN_LOG 1
+#define CAN_LOG 0
 
 #define RANKING_HEADER "Ranking"
 
@@ -89,10 +89,10 @@ void Leaderboard::update() {
 	std::sort(mKarts.begin(), mKarts.end(), racingKartCompareFunction);
 }
 
-void Leaderboard::draw(bool levelFinished) {
+void Leaderboard::draw(bool levelRunning) {
 	int xOffset = 0;
 	int yOffset = 0;
-	if (levelFinished) {
+	if (!levelRunning) {
 		xOffset = mRankingFrameSprite->getPosition().x + LEADERBOARD_RANKING_PADDING_LEFT;
 		yOffset = mRankingFrameSprite->getPosition().y + LEADERBOARD_RANKING_PADDING_TOP;
         mWindow->draw(*mRankingFrameSprite);
@@ -108,7 +108,7 @@ void Leaderboard::draw(bool levelFinished) {
 		int rowMarginLeft = LEADERBOARD_MARGIN_LEFT + xOffset;
 
 		// Ensure that the row is within the frame
-		if (levelFinished && rowMarginTop + LEADERBOARD_FONT_SIZE >=
+		if (!levelRunning && rowMarginTop + LEADERBOARD_FONT_SIZE >=
 				mRankingFrameSprite->getPosition().y +
 					mRankingFrameSprite->getGlobalBounds().height -
 					LEADERBOARD_RANKING_FRAME_SIZE)

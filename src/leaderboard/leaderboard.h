@@ -23,7 +23,7 @@ public:
     void clearKarts();
 
     void update();
-    void draw(bool levelFinished);
+    void draw(bool levelRunning);
 private:
     struct LeaderboardKart {
         LevelNS::RacingKart *rk;

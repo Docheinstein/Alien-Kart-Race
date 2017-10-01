@@ -57,11 +57,16 @@ public:
 
 	int sectorCount();
 
+	int aiPathCount();
+	const char *aiPath(unsigned int index);
+	const char *randomAIPath();
+
 protected:
 	 void loadMap(const char *mapFilename);
 	 void loadEvents(const char *eventsFilename);
  	 void loadTileset(const char *tilesetFilename);
   	 void loadSectors(const char *sectorsFilename);
+	 void addAIPath(const char *aiPathFilename);
 
 private:
 	struct Tile {
@@ -85,7 +90,9 @@ private:
 	sf::VertexArray mRenderedTiles;
 	sf::Texture mTileset;
 
-	 std::vector<Sector> mSectors;
+	std::vector<Sector> mSectors;
+
+	std::vector<const char *> mAIPathsFilename;
 
 	void updateRenderedTiles();
 	void drawMapObjects();

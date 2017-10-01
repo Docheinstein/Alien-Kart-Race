@@ -1,0 +1,7 @@
+<map id="src/minimap/minimap.h" name="src/minimap/minimap.h">
+<area shape="rect" id="node2" href="$aikart_8cc.html" title="src/entity/kart/aikart\l/base/aikart.cc" alt="" coords="5,80,144,121"/>
+<area shape="rect" id="node3" href="$playerkart_8cc.html" title="src/entity/kart/playerkart\l/base/playerkart.cc" alt="" coords="168,80,331,121"/>
+<area shape="rect" id="node4" href="$playervenusian_8cc.html" title="src/entity/kart/playerkart\l/impl/venusian/playervenusian.cc" alt="" coords="355,80,570,121"/>
+<area shape="rect" id="node5" href="$level_8cc.html" title="src/level/level.cc" alt="" coords="595,87,715,114"/>
+<area shape="rect" id="node6" href="$minimap_8cc.html" title="src/minimap/minimap.cc" alt="" coords="739,87,903,114"/>
+</map>

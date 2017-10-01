@@ -1,3 +1,17 @@
+./aipathgenerator -in earth_ai_path_0.png -size 15 -path earth_ai_path_0.txt ff7b7b ef4f4f e12929
 ./aipathgenerator -in earth_ai_path_1.png -size 15 -path earth_ai_path_1.txt ff7b7b ef4f4f e12929
+./aipathgenerator -in earth_ai_path_2.png -size 15 -path earth_ai_path_2.txt ff7b7b ef4f4f e12929
+./aipathgenerator -in earth_ai_path_3.png -size 15 -path earth_ai_path_3.txt ff7b7b ef4f4f e12929
+./aipathgenerator -in earth_ai_path_4.png -size 15 -path earth_ai_path_4.txt ff7b7b ef4f4f e12929
+
+rm ../../res/raw/earth_ai_path_0.txt
 rm ../../res/raw/earth_ai_path_1.txt
+rm ../../res/raw/earth_ai_path_2.txt
+rm ../../res/raw/earth_ai_path_3.txt
+rm ../../res/raw/earth_ai_path_4.txt
+
+cp earth_ai_path_0.txt ../../res/raw
 cp earth_ai_path_1.txt ../../res/raw
+cp earth_ai_path_2.txt ../../res/raw
+cp earth_ai_path_3.txt ../../res/raw
+cp earth_ai_path_4.txt ../../res/raw

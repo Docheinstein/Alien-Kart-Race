@@ -40,10 +40,10 @@ void FadeScreen::render() {
     if (!isFading())
         return;
 
-    int fadeDuration;
     int currentFadeTicks;
-    int alphaFrom;
-    int alphaTo;
+    double fadeDuration;
+    double alphaFrom;
+    double alphaTo;
 
     if (mFadeInTimer.isRunning()) {
         fadeDuration = mFadeInDuration;
@@ -59,13 +59,18 @@ void FadeScreen::render() {
     }
 
 	int alphaValueForCurrentUpdate = MathUtil::changeRange(
-		MathUtil::Range {0, fadeDuration},
-		MathUtil::Range {alphaFrom, alphaTo},
+		Range {0, fadeDuration},
+		Range {alphaFrom, alphaTo},
 		TimeUtil::updatesToMillis(currentFadeTicks)
 	);
 
 	mOverlaySprite->setColor(sf::Color(0, 0, 0, alphaValueForCurrentUpdate));
 	mWindow->draw(*mOverlaySprite);
+}
+
+void FadeScreen::fadeIn() {
+    mFadeInTimer.initialize(mFadeInDuration, this, &FadeScreen::fadeInFinished);
+    mFadeInTimer.start();
 }
 
 void FadeScreen::fadeOut() {

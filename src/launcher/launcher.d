@@ -6,6 +6,8 @@ src/launcher/launcher.o: src/launcher/launcher.cc \
  src/map/mapfactory/mapfactory.h \
  src/entity/kart/kartfactory/kartfactory.h src/entity/kart/base/kart.h \
  src/entity/base/mapmovingentity.h src/entity/base/mapentity.h \
- src/util/geometry/geometryutil.h src/util/math/mathutil.h \
+ src/util/geometry/geometryentities.h \
  src/log/loggerinterface/loggerinterface.h src/log/logger/logger.h \
+ src/util/geometry/geometryutil.h src/util/geometry/geometryentities.h \
+ src/util/math/mathutil.h src/util/math/mathentities.h \
  src/keyboard/listener/keyboardlistener.h

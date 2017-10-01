@@ -4,18 +4,9 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.9~svn20110310	//
-MINI_MAP_KART_SIZE	/home/stefano/Documents/Develop/AlienKartRace/src/object/kart/base/kart.cc	/^const int MINI_MAP_KART_SIZE = 2;$/;"	variable	line:11
-BOUNCE_TICKS	/home/stefano/Documents/Develop/AlienKartRace/src/object/kart/base/kart.cc	/^const int BOUNCE_TICKS = 16;$/;"	variable	line:12
-Kart	/home/stefano/Documents/Develop/AlienKartRace/src/object/kart/base/kart.cc	/^Kart::Kart() {$/;"	function	line:14	class:Kart	signature:()
-~Kart	/home/stefano/Documents/Develop/AlienKartRace/src/object/kart/base/kart.cc	/^Kart::~Kart() {$/;"	function	line:18	class:Kart	signature:()
-col	/home/stefano/Documents/Develop/AlienKartRace/src/object/kart/base/kart.cc	/^double Kart::col() {$/;"	function	line:23	class:Kart	signature:()
-row	/home/stefano/Documents/Develop/AlienKartRace/src/object/kart/base/kart.cc	/^double Kart::row() {$/;"	function	line:27	class:Kart	signature:()
-direction	/home/stefano/Documents/Develop/AlienKartRace/src/object/kart/base/kart.cc	/^double Kart::direction() {$/;"	function	line:31	class:Kart	signature:()
-setCol	/home/stefano/Documents/Develop/AlienKartRace/src/object/kart/base/kart.cc	/^void Kart::setCol(double col) {$/;"	function	line:35	class:Kart	signature:(double col)
-setRow	/home/stefano/Documents/Develop/AlienKartRace/src/object/kart/base/kart.cc	/^void Kart::setRow(double row) {$/;"	function	line:39	class:Kart	signature:(double row)
-setDirection	/home/stefano/Documents/Develop/AlienKartRace/src/object/kart/base/kart.cc	/^void Kart::setDirection(double dir) {$/;"	function	line:43	class:Kart	signature:(double dir)
-draw	/home/stefano/Documents/Develop/AlienKartRace/src/object/kart/base/kart.cc	/^void Kart::draw() {$/;"	function	line:47	class:Kart	signature:()
-update	/home/stefano/Documents/Develop/AlienKartRace/src/object/kart/base/kart.cc	/^void Kart::update() {$/;"	function	line:66	class:Kart	signature:()
-bounce	/home/stefano/Documents/Develop/AlienKartRace/src/object/kart/base/kart.cc	/^void Kart::bounce() {$/;"	function	line:210	class:Kart	signature:()
-isSkidding	/home/stefano/Documents/Develop/AlienKartRace/src/object/kart/base/kart.cc	/^bool Kart::isSkidding() {$/;"	function	line:247	class:Kart	signature:()
-goForward	/home/stefano/Documents/Develop/AlienKartRace/src/object/kart/base/kart.cc	/^void Kart::goForward() {$/;"	function	line:251	class:Kart	signature:()
+changeRange	/home/stefano/Documents/Develop/AlienKartRace/src/util/math/mathtutil.cc	/^double MathUtil::changeRange(const Range &r1, const Range &r2, double r1Val) {$/;"	function	line:5	class:MathUtil	signature:(const Range &r1, const Range &r2, double r1Val)
+changeRangeToInt	/home/stefano/Documents/Develop/AlienKartRace/src/util/math/mathtutil.cc	/^int MathUtil::changeRangeToInt(const Range &r1, const Range &r2, double r1Val) {$/;"	function	line:9	class:MathUtil	signature:(const Range &r1, const Range &r2, double r1Val)
+isInRange	/home/stefano/Documents/Develop/AlienKartRace/src/util/math/mathtutil.cc	/^bool MathUtil::isInRange(const Range &r, double val) {$/;"	function	line:13	class:MathUtil	signature:(const Range &r, double val)
+rangeBelongingTo	/home/stefano/Documents/Develop/AlienKartRace/src/util/math/mathtutil.cc	/^double MathUtil::rangeBelongingTo(const BoundRange ranges[], int rangeCount, double val) {$/;"	function	line:17	class:MathUtil	signature:(const BoundRange ranges[], int rangeCount, double val)
+mod	/home/stefano/Documents/Develop/AlienKartRace/src/util/math/mathtutil.cc	/^double MathUtil::mod(double d1, double d2) {$/;"	function	line:25	class:MathUtil	signature:(double d1, double d2)
+random	/home/stefano/Documents/Develop/AlienKartRace/src/util/math/mathtutil.cc	/^double MathUtil::random(const Range &r) {$/;"	function	line:34	class:MathUtil	signature:(const Range &r)

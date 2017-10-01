@@ -1,0 +1,3 @@
+<map id="MapMovingEntity" name="MapMovingEntity">
+<area shape="rect" id="node2" href="$classMapEntity.html" title="Represents an abstract entity placed into a map. " alt="" coords="26,5,107,32"/>
+</map>

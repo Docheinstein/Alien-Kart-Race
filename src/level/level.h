@@ -45,6 +45,10 @@ public:
 
 	void onKeyPressed(int keyCode);
 
+protected:
+	void fadeInFinished();
+	void fadeOutFinished();
+
 private:
 	struct MenuOption {
 		sf::Text *text;
@@ -57,12 +61,21 @@ private:
 		bool opened;
 	} typedef Menu;
 
+	enum LevelState {
+		Running,
+		Finished,
+		Retrying,
+		Quitting
+	};
+
 	MenuOption mOptionContinue;
   	MenuOption mOptionRetry;
   	MenuOption mOptionQuit;
 
 	Menu mMenuInGame;
 	Menu mMenuLevelFinished;
+
+ 	LevelState mLevelState;
 
 	KartFactory::KartType mPlayerKartType;
 	MapFactory::MapType   mMapType;
@@ -85,9 +98,10 @@ private:
 	sf::Texture *mLevelFinishedMenuFrameTexture;
 	sf::Sprite *mLevelFinishedMenuFrameSprite;
 
-	std::vector<sf::Sprite*> mDepthSprites;
+	sf::Texture *mLevelRunningMenuFrameTexture;
+	sf::Sprite *mLevelRunningMenuFrameSprite;
 
-	bool mLevelFinished;
+	std::vector<sf::Sprite*> mDepthSprites;
 
 	int mMenuSelectedOptionCurrentAlpha;
 	int mMenuSelectedOptionCurrentAlphaIncrementSign;
@@ -95,7 +109,7 @@ private:
 	static Menu inGameMenu();
 	static Menu levelFinishedMenu();
 
-	static LevelNS::RacingKart getInitialRacingKart(Kart *k);
+	static LevelNS::RacingKart initialRacingKart(Kart *k);
 	static sf::Text *optionText(const char *title);
 
 	static bool spriteDepthCompareFunction(sf::Sprite *s1, sf::Sprite *s2);
@@ -110,13 +124,17 @@ private:
 
 	void handleKartsCrash();
 
-	void drawMenuOptions(Menu &m, int frameCenterX, int frameTopY);
+	void drawMenuOptions(Menu &m, int frameCenterX, int frameTopY, int frameBottomY);
+
+	void drawInGameMenu();
 	void drawLevelFinishedMenu();
 
 	bool levelFinishedByAKart();
 
 	void updateMenu(Menu &m, int keyCode);
-	
+	void updateLapText();
+	void updateStartTimeText();
+
 	void retryFunc();
 	void continueFunc();
 	void quitFunc();

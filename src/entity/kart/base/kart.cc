@@ -12,12 +12,13 @@
 
 #define FLIGHT_MODE 0
 
-const double CRASH_REDUCTION_FACTOR = (double)1 / (1 << 9);
-const double CRASH_FACTOR = 0.2;
+const double COLLISION_BOUNCE_FACTOR = 0.7;
+const double COLLISION_BOUNCE_REDUCTION_FACTOR = (double)1 / 120;
 
+const double COLLISION_CRASH_FACTOR = 0.2;
+const double COLLISION_CRASH_REDUCTION_FACTOR = (double)1 / (1 << 9);
 
 const int MINI_MAP_KART_SIZE = 2;
-const int BOUNCE_TIME_MS = 250;
 
 Kart::Kart(Level * level, const char *kartName, sf::Color *kartColor) {
 	mLevel = level;
@@ -28,9 +29,6 @@ Kart::Kart(Level * level, const char *kartName, sf::Color *kartColor) {
 	mDirectionalPoint.direction = Angle {(double)1 / (1 << 5)};
 	mSpeed = 0;
 	mWheelTurning = 0;
-
-	void (Kart::*eventFunc)() = &Kart::bounceTimeFinished;
-	mBounceTimer.initialize(BOUNCE_TIME_MS, this, eventFunc);
 }
 
 Kart::~Kart() {
@@ -38,6 +36,8 @@ Kart::~Kart() {
 	delete mLeaderboardSprite;
 	delete mColor;
 }
+
+// PUBLIC
 
 Point Kart::position() {
 	return mDirectionalPoint.position;
@@ -64,11 +64,11 @@ sf::Sprite *Kart::leadeboardSprite() {
 }
 
 void Kart::setPosition(const Point p) {
-	mDirectionalPoint.position = Point(p);
+	mDirectionalPoint.position = p;
 }
 
 void Kart::setDirection(const Angle a) {
-	mDirectionalPoint.direction = Angle(a);
+	mDirectionalPoint.direction = a;
 }
 
 void Kart::update(bool goForward, bool goBackward, bool goLeft, bool goRight) {
@@ -89,38 +89,47 @@ void Kart::update(bool goForward, bool goBackward, bool goLeft, bool goRight) {
 	mDirectionalPoint.direction += turning;
 	mDirectionalPoint.advance(speed);
 #else
-	if (mBouncing) {
-		bounce();
-		return;
+	Map::TileEvent nextTileEvent = mLevel->map()->tileEvent(position());
+	bool skidding = isSkidding();
+
+	double maxWheelTurning = mParams.maxWheelTurning;
+	double maxSpeed = mParams.maxSpeed;
+	double minSpeed = mParams.minSpeed;
+	double accelerationFactor = mParams.accelerationFactor;
+	double backAccelerationFactor = mParams.backwardAccelerationFactor;
+	double turningFactor = skidding ?
+		mParams.steeringWheelTurningFactorSkidding :
+		mParams.steeringWheelTurningFactor;
+	double returnFactor = mParams.steeringWheelReturnFactor;
+
+	if (nextTileEvent == Map::TileEvent::Slow) {
+		maxWheelTurning *= mParams.slownessFactor;
+		maxSpeed *= mParams.slownessFactor;
+		minSpeed *= mParams.slownessFactor;
+		accelerationFactor *= mParams.slownessFactor;
+		backAccelerationFactor *= mParams.slownessFactor;
+		turningFactor *= mParams.slownessFactor;
+		returnFactor *= mParams.slownessFactor;
 	}
 
 	// Left / Right
 	// Ensure the wheer angle is under the maximum
-
-	double turningFactor = mParams.steeringWheelTurningFactor;
-	bool skidding = isSkidding();
-
-	turningFactor = skidding ?
-		mParams.steeringWheelTurningFactorSkidding :
-		mParams.steeringWheelTurningFactor;
-
 	if (goRight) {
 		mWheelTurning += turningFactor;
-		mWheelTurning = std::min(mWheelTurning, mParams.maxWheelTurning);
-
+		mWheelTurning = std::min(mWheelTurning, maxWheelTurning);
 	}
 	else if (goLeft) {
 		mWheelTurning -= turningFactor;
-		mWheelTurning = std::max(mWheelTurning, -mParams.maxWheelTurning);
+		mWheelTurning = std::max(mWheelTurning, -maxWheelTurning);
 	}
 	else {
 		if (mWheelTurning != 0) {
 			if (mWheelTurning > 0) {
-				mWheelTurning -= mParams.steeringWheelReturnFactor;
+				mWheelTurning -= returnFactor;
 				mWheelTurning = std::max(mWheelTurning, (double) 0);
 			}
 			else {
-				mWheelTurning += mParams.steeringWheelReturnFactor;
+				mWheelTurning += returnFactor;
 				mWheelTurning = std::min(mWheelTurning, (double) 0);
 			}
 		}
@@ -136,9 +145,13 @@ void Kart::update(bool goForward, bool goBackward, bool goLeft, bool goRight) {
 
 	if (goForward) {
 		// Accellerating
-		mSpeed += mParams.accelerationFactor;
 
-		mSpeed = std::min(mParams.maxSpeed, mSpeed);
+		// Was going faster than max speed (was on the road and is going to the grass)
+		if (mSpeed > maxSpeed)
+			mSpeed -= mParams.decelerationFactor;
+		// Can go faster
+		else if (mSpeed + accelerationFactor < maxSpeed)
+			mSpeed += accelerationFactor;
 	}
 	else if (goBackward) {
 		// Was going forward => brake
@@ -148,10 +161,13 @@ void Kart::update(bool goForward, bool goBackward, bool goLeft, bool goRight) {
 		}
 		// Was stationary => go backward
 		else {
-			mSpeed -= mParams.backwardAccelerationFactor;
-			mSpeed = std::max(mParams.minSpeed, mSpeed);
+			// Was going faster than max speed (was on the road and is going to the grass)
+			if (mSpeed < minSpeed)
+				mSpeed += mParams.decelerationFactor;
+			// Can go faster
+			else if (mSpeed - backAccelerationFactor > minSpeed)
+				mSpeed -= backAccelerationFactor;
 		}
-
 	}
 	else {
 		// Decellerating
@@ -180,8 +196,6 @@ void Kart::update(bool goForward, bool goBackward, bool goLeft, bool goRight) {
 	mDirectionalPoint += angularIncrement;
 
 	advanceInCurrentDirection();
-
-	Map::TileEvent nextTileEvent = mLevel->map()->tileEvent(position());
 
 	if (nextTileEvent == Map::TileEvent::Unpassable) {
 		mSpeed = previousSpeed;
@@ -227,69 +241,66 @@ void Kart::crash(Kart *k) {
 
 	bool notCrashingWithThatKart = true;
 
-    for (std::list<KartCrashVector>::iterator i = mCrashForces.begin();
-        i != mCrashForces.end() && notCrashingWithThatKart;
+    for (std::list<CollisionVector>::iterator i = mCollisionForces.begin();
+        i != mCollisionForces.end() && notCrashingWithThatKart;
 		i++) {
 		notCrashingWithThatKart &= ((*i).k != k);
 	}
 
 	if (notCrashingWithThatKart)
-
-		mCrashForces.push_back(
-			KartCrashVector {
+		mCollisionForces.push_back(
+			CollisionVector {
+				Crash,
 				k,
-			 	Vector  {k->direction(), k->mSpeed * k->mParams.weight * CRASH_FACTOR / mParams.weight}
-
+			 	Vector  {k->direction(), k->mSpeed * k->mParams.weight *
+										COLLISION_CRASH_FACTOR / mParams.weight}
 			}
 		);
 
-		mCrashForces.push_back(
-			KartCrashVector {
-				k,
-			 	Vector  {kartsDirPoint.direction, k->mSpeed * k->mParams.weight  * CRASH_FACTOR / mParams.weight}
-			}
-		);
+	mCollisionForces.push_back(
+		CollisionVector {
+			Crash,
+			k,
+		 	Vector  {kartsDirPoint.direction, k->mSpeed * k->mParams.weight  *
+											COLLISION_CRASH_FACTOR / mParams.weight}
+		}
+	);
 }
 
 void Kart::bounce() {
-	if (!mBouncing) {
-		mSpeed = (mSpeed < 0 ? 1 : -1 /* opposite of sign */) * mParams.bounceSpeedInitialSpeed;
-		mBouncing = true;
-		mBounceTimer.reset();
-		d("Will bounce");
+	if (!isBouncing()) {
+		d2("New bounce!");
+
+		DirectionalPoint oppositeDirPoint(position(), Angle {(direction().rad + M_PI) });
+		double bounceMagnitude = mSpeed * COLLISION_BOUNCE_FACTOR / mParams.weight;
+		Vector oppositeVector {oppositeDirPoint.direction, bounceMagnitude};
+
+		while (mLevel->map()->tileEvent(position()) == Map::TileEvent::Unpassable)
+			mDirectionalPoint.advance(oppositeVector);
+
+		mSpeed = 0;
+		mCollisionForces.push_back(
+			CollisionVector {
+				Bounce,
+				NULL,
+			 	oppositeVector
+			}
+		);
 	}
-
-	mBounceTimer.update();
-
-	if (mSpeed > 0) {
-		mSpeed -= mParams.bounceDecellerationFactor;
-		// Ensure the speed is not below 0
-		mSpeed = std::max(mSpeed, (double) 0);
-	}
-	else {
-		mSpeed += mParams.bounceDecellerationFactor;
-		// Ensure the speed is not above 0
-		mSpeed = std::min(mSpeed, (double) 0);
-	}
-
-	if (mSpeed == 0) {
-		mBouncing = false;
-		d("Finished bouncing due null speed");
-		return;
-	}
-
-	d("Go forward for bounce");
-	advanceInCurrentDirection();
-
-}
-
-void Kart::bounceTimeFinished() {
-	d("Finished bouncing with speed: ", mSpeed);
-	mBouncing = false;
 }
 
 bool Kart::isSkidding() {
 	return fabs(mWheelTurning) > fabs(mParams.wheelTurningSkidPoint);
+}
+
+bool Kart::isBouncing() {
+	bool bouncing = false;
+    for (std::list<CollisionVector>::iterator i = mCollisionForces.begin();
+        i != mCollisionForces.end() && !bouncing;
+		i++) {
+		bouncing |= ((*i).type == Bounce);
+	}
+	return bouncing;
 }
 
 void Kart::advanceInCurrentDirection() {
@@ -320,31 +331,33 @@ void Kart::advanceInCurrentDirection() {
 	finalForce.direction = direction();
 	finalForce.magnitude = realSpeed;
 
-    for (std::list<KartCrashVector>::iterator crashIter = mCrashForces.begin();
-        crashIter != mCrashForces.end();
+    for (std::list<CollisionVector>::iterator collisionIter = mCollisionForces.begin();
+        collisionIter != mCollisionForces.end();
 		/* Do not increment by default */) {
 
-		d2("Force: ", (*crashIter).v, " will contribuite to final force");
-		finalForce += (*crashIter).v;
+		// d2("Force: ", (*collisionIter).v, " will contribuite to final force");
+		finalForce += (*collisionIter).v;
 
-		double forceDecrement = mParams.weight * CRASH_REDUCTION_FACTOR;
+		double forceDecrement = mParams.weight;
 
-		bool sign = (*crashIter).v.magnitude > 0;
-		(*crashIter).v.magnitude +=
-			((*crashIter).v.magnitude < 0 ? 1 : -1 ) * forceDecrement;
-		bool newSign = (*crashIter).v.magnitude > 0;
+		if ((*collisionIter).type == Bounce)
+			forceDecrement *= COLLISION_BOUNCE_REDUCTION_FACTOR;
+		else if ((*collisionIter).type == Crash)
+			forceDecrement *= COLLISION_CRASH_REDUCTION_FACTOR;
 
-		if (sign != newSign || (*crashIter).v.magnitude == 0) {
-			d2("Erasing force: ", (*crashIter).v);
-			crashIter = mCrashForces.erase(crashIter);
+		bool sign = (*collisionIter).v.magnitude > 0;
+		(*collisionIter).v.magnitude +=
+			((*collisionIter).v.magnitude < 0 ? 1 : -1 ) * forceDecrement;
+		bool newSign = (*collisionIter).v.magnitude > 0;
+
+		if (sign != newSign || (*collisionIter).v.magnitude == 0) {
+			// d2("Erasing force: ", (*collisionIter).v);
+			collisionIter = mCollisionForces.erase(collisionIter);
 		}
 		else {
-			crashIter++;
+			collisionIter++;
 		}
 	}
-
-	// if (mExtraForces.empty())
-	// 	mCrashing = false;
 
 	mDirectionalPoint.advance(finalForce);
 }

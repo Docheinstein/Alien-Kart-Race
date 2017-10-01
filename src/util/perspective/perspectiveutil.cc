@@ -300,13 +300,13 @@ double PerspectiveUtil::angleAdjustmentForPerspectivePoint(
     const double VERTICAL_CAMERA_ANGLE_ADJUSTMENT_FACTOR = 2;
 
     double horizontalAdjustmentRad = MathUtil::changeRange(
-        MathUtil::Range {xLeft, xRight },
-        MathUtil::Range {-HORIZONTAL_CAMERA_ANGLE_ADJUSTMENT, HORIZONTAL_CAMERA_ANGLE_ADJUSTMENT },
+        Range {xLeft, xRight },
+        Range {-HORIZONTAL_CAMERA_ANGLE_ADJUSTMENT, HORIZONTAL_CAMERA_ANGLE_ADJUSTMENT },
         pp.x);
 
     double verticalAjustmentFactor = MathUtil::changeRange(
-        MathUtil::Range {yTop, yBottom },
-        MathUtil::Range {VERTICAL_CAMERA_ANGLE_ADJUSTMENT_FACTOR, BASELINE_ADJUSTMENT_FACTOR},
+        Range {yTop, yBottom },
+        Range {VERTICAL_CAMERA_ANGLE_ADJUSTMENT_FACTOR, BASELINE_ADJUSTMENT_FACTOR},
         pp.y
     );
 

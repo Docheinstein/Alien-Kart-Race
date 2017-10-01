@@ -2,6 +2,7 @@
 #include <cmath>
 #include <cstring>
 #include <fstream>
+#include <cstdlib>
 #include "map.h"
 #include "const.h"
 #include "level.h"
@@ -75,6 +76,21 @@ Map::Sector Map::sector(const Point &p) {
 
 int Map::sectorCount() {
 	return mSectors.size();
+}
+
+int Map::aiPathCount() {
+	return mAIPathsFilename.size();
+}
+
+const char *Map::aiPath(unsigned int index) {
+	if (index < mAIPathsFilename.size())
+		return mAIPathsFilename[index];
+	return randomAIPath();
+}
+
+const char *Map::randomAIPath() {
+	int randomIndex = rand() % mAIPathsFilename.size();
+	return mAIPathsFilename[randomIndex];
 }
 
 void Map::mapMatrixFillFunction(int readValue, int row, int col) {
@@ -190,19 +206,18 @@ void Map::loadSectors(const char *sectorsFilename) {
 	}
 }
 
+void Map::addAIPath(const char *pathFilename) {
+	mAIPathsFilename.push_back(pathFilename);
+}
+
 void Map::update() {
 
 }
 
 void Map::draw() {
 
-	mDebugGridImage.create(Const::WINDOW_WIDTH, Const::WINDOW_HEIGHT, sf::Color(255, 255, 255, 0));
+	mDebugGridImage.create(Const::WINDOW_WIDTH, Const::WINDOW_HEIGHT, sf::Color(50, 156, 206, 255));
 
-	updateRenderedTiles();
-
-	mWindow->draw(mRenderedTiles, &mTileset);
-
-	// drawMapObjects();
 
 	sf::Texture mapGridTexture;
 	mapGridTexture.loadFromImage(mDebugGridImage);
@@ -211,6 +226,13 @@ void Map::draw() {
 	mapGridSprite.setTexture(mapGridTexture);
 
 	mWindow->draw(mapGridSprite);
+
+	updateRenderedTiles();
+
+	mWindow->draw(mRenderedTiles, &mTileset);
+
+	// drawMapObjects();
+
 }
 
 int Map::colCount() {
@@ -401,8 +423,8 @@ void Map::updateRenderedTiles() {
 		playerKart->direction(), ViewUtil::HORIZON_LINE_Y, ViewUtil::BASE_POINT, vp1, vp2
     );
 
-	drawPoint(&mDebugGridImage, vp1, sf::Color::Magenta, 7);
-	drawPoint(&mDebugGridImage, vp2, sf::Color::Green, 7);
+	// drawPoint(&mDebugGridImage, vp1, sf::Color::Magenta, 7);
+	// drawPoint(&mDebugGridImage, vp2, sf::Color::Green, 7);
 
 	// Size of the tile in the tileset.
 	const int TILE_SIZE = 15;

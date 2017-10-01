@@ -8,7 +8,7 @@
 #include "level.h"
 
 
-const Point PlayerKart::PLAYER_KART_PERSPECTIVE_POINT = PerspectiveUtil::perspectivePoint(
+const Point PlayerKart::PERSPECTIVE_POINT = PerspectiveUtil::perspectivePoint(
     ViewUtil::BASE_POINT,
     ViewUtil::cameraPoint(DirectionalPoint {ViewUtil::BASE_POINT, Angle {(double) 1 / (1 << 8)}}),
     ViewUtil::BASE_POINT,
@@ -17,8 +17,8 @@ const Point PlayerKart::PLAYER_KART_PERSPECTIVE_POINT = PerspectiveUtil::perspec
     ViewUtil::RENDERED_TILE_SIZE
 );
 
-const float PlayerKart::PLAYER_KART_PERSPECTIVE_SCALE = PerspectiveUtil::scaleForPerspectivePoint(
-    Point {ViewUtil::BASE_POINT.x, PLAYER_KART_PERSPECTIVE_POINT.y },
+const float PlayerKart::PERSPECTIVE_SCALE = PerspectiveUtil::scaleForPerspectivePoint(
+    Point {ViewUtil::BASE_POINT.x, PERSPECTIVE_POINT.y },
     Point {ViewUtil::BASE_POINT.x, ViewUtil::HORIZON_LINE_Y},
     ViewUtil::BASE_POINT
 );
@@ -108,13 +108,13 @@ void PlayerKart::initRenderTurningRanges() {
 void PlayerKart::initSprites() {
     for (int i = 0; i < mSpriteCount; i ++) {
         mSprites[i].setPosition(
-            PLAYER_KART_PERSPECTIVE_POINT.x,
-            PLAYER_KART_PERSPECTIVE_POINT.y);
+            PERSPECTIVE_POINT.x,
+            PERSPECTIVE_POINT.y);
     }
     for (int i = 0; i < mSkidGasSpriteCount; i ++) {
         mSkidGasSprites[i].setPosition(
-            PLAYER_KART_PERSPECTIVE_POINT.x,
-            PLAYER_KART_PERSPECTIVE_POINT.y
+            PERSPECTIVE_POINT.x,
+            PERSPECTIVE_POINT.y
         );
     }
 }

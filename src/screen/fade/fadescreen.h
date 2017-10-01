@@ -22,6 +22,7 @@ public:
     void update();
     void render();
 
+    void fadeIn();
     void fadeOut();
 
 protected:

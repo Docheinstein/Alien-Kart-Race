@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Programmazione II Game: Map Class Reference</title>
+<title>Alien Kart Race: Map Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -23,7 +23,8 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">Programmazione II Game
+   <div id="projectname">Alien Kart Race
+   &#160;<span id="projectnumber">1.0</span>
    </div>
   </td>
  </tr>
@@ -38,6 +39,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -62,6 +64,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
+      <li><a href="inherits.html"><span>Class&#160;Hierarchy</span></a></li>
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
@@ -82,54 +85,280 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="classMap-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">Map Class Reference</div>  </div>
+<div class="title">Map Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
 
 <p><code>#include &lt;<a class="el" href="map_8h_source.html">map.h</a>&gt;</code></p>
+<div class="dynheader">
+Inheritance diagram for Map:</div>
+<div class="dyncontent">
+<div class="center"><img src="classMap__inherit__graph.png" border="0" usemap="#Map_inherit__map" alt="Inheritance graph"/></div>
+<map name="Map_inherit__map" id="Map_inherit__map">
+<area shape="rect" id="node3" href="classEarth.html" title="Earth" alt="" coords="35,155,88,181"/>
+<area shape="rect" id="node2" href="classLoggerInterface.html" title="LoggerInterface" alt="" coords="5,5,117,32"/>
+</map>
+<center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
+<div class="dynheader">
+Collaboration diagram for Map:</div>
+<div class="dyncontent">
+<div class="center"><img src="classMap__coll__graph.png" border="0" usemap="#Map_coll__map" alt="Collaboration graph"/></div>
+<map name="Map_coll__map" id="Map_coll__map">
+<area shape="rect" id="node2" href="classLoggerInterface.html" title="LoggerInterface" alt="" coords="5,5,117,32"/>
+</map>
+<center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structMap_1_1Sector.html">Sector</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a8005c60a26103aad605e66390efdf857"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMap.html#a8005c60a26103aad605e66390efdf857">MapType</a> { <a class="el" href="classMap.html#a8005c60a26103aad605e66390efdf857acc6ada1d1f3beb3d9b86e36411fcb744">FirstMap</a>
+<tr class="memitem:abd420aa9ad08bbadb79cf83ee2999383"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMap.html#abd420aa9ad08bbadb79cf83ee2999383">SectorDirectionType</a> { <br />
+&#160;&#160;<a class="el" href="classMap.html#abd420aa9ad08bbadb79cf83ee2999383a6e290eaf6ee626da1d34a5c97435d0d2">UpLeft</a>, 
+<a class="el" href="classMap.html#abd420aa9ad08bbadb79cf83ee2999383a849dbfd6fdeeff40f46c63516dd27837">UpRight</a>, 
+<a class="el" href="classMap.html#abd420aa9ad08bbadb79cf83ee2999383af7db30365c413c0585a0b599a420cc24">RightUp</a>, 
+<a class="el" href="classMap.html#abd420aa9ad08bbadb79cf83ee2999383a8f4807e04a78249ef45906e57b88dd7f">RightDown</a>, 
+<br />
+&#160;&#160;<a class="el" href="classMap.html#abd420aa9ad08bbadb79cf83ee2999383a713f19bafde392927acbd5dbd197d8ac">DownRight</a>, 
+<a class="el" href="classMap.html#abd420aa9ad08bbadb79cf83ee2999383ac1537ac6d3b913f1161d3072aec43195">DownLeft</a>, 
+<a class="el" href="classMap.html#abd420aa9ad08bbadb79cf83ee2999383ac7cb353fe1967a37667bd0c478937b54">LeftUp</a>, 
+<a class="el" href="classMap.html#abd420aa9ad08bbadb79cf83ee2999383a8f4430cdfbdbabbb6ea7f27ab94edc4f">LeftDown</a>
+<br />
  }</td></tr>
-<tr class="separator:a8005c60a26103aad605e66390efdf857"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:abd420aa9ad08bbadb79cf83ee2999383"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7b5cf31600224c078f4393dbeccccdad"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMap.html#a7b5cf31600224c078f4393dbeccccdad">TileEvent</a> { <a class="el" href="classMap.html#a7b5cf31600224c078f4393dbeccccdada6cb64aaced1ac0a46e878b6eee4ce6d9">Unpassable</a> = 0, 
+<a class="el" href="classMap.html#a7b5cf31600224c078f4393dbeccccdadafffc6e5a5fe17cdd51d466d9a921cd3a">Passable</a> = 1, 
+<a class="el" href="classMap.html#a7b5cf31600224c078f4393dbeccccdada18f6a3fe6ebc3205159ab7e9688be532">Slow</a> = 2, 
+<a class="el" href="classMap.html#a7b5cf31600224c078f4393dbeccccdada8f9ba6c491c53fe13afd3d460b78eed4">LapFinished</a> = 3
+ }</td></tr>
+<tr class="separator:a7b5cf31600224c078f4393dbeccccdad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a0f5ad0fd4563497b4214038cbca8b582"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMap.html#a0f5ad0fd4563497b4214038cbca8b582">Map</a> ()</td></tr>
-<tr class="separator:a0f5ad0fd4563497b4214038cbca8b582"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a56feaffd0bb8fa55caa315b78945c6d0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMap.html#a56feaffd0bb8fa55caa315b78945c6d0">loadMap</a> (<a class="el" href="classMap.html#a8005c60a26103aad605e66390efdf857">MapType</a> mapType)</td></tr>
-<tr class="memdesc:a56feaffd0bb8fa55caa315b78945c6d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads the map.  <a href="#a56feaffd0bb8fa55caa315b78945c6d0">More...</a><br /></td></tr>
-<tr class="separator:a56feaffd0bb8fa55caa315b78945c6d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab332b6563e4f108e328f742ee9fda3be"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMap.html#ab332b6563e4f108e328f742ee9fda3be">Map</a> (sf::RenderWindow *window, <a class="el" href="classLevel.html">Level</a> *level)</td></tr>
+<tr class="separator:ab332b6563e4f108e328f742ee9fda3be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa403fbe09394ccf39747588f5168e3b2"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMap.html#aa403fbe09394ccf39747588f5168e3b2">~Map</a> ()</td></tr>
+<tr class="separator:aa403fbe09394ccf39747588f5168e3b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0e50295b181204823f04f97b862fc51b"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMap.html#a0e50295b181204823f04f97b862fc51b">loadMap</a> ()=0</td></tr>
+<tr class="separator:a0e50295b181204823f04f97b862fc51b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac4709d0bf0ea0e1cd7fef016464fbf7a"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="structPoint.html">Point</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMap.html#ac4709d0bf0ea0e1cd7fef016464fbf7a">startingPointForRacePosition</a> (int racePosition)=0</td></tr>
+<tr class="separator:ac4709d0bf0ea0e1cd7fef016464fbf7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5dec82ab659b3fb7a56c0830b1222792"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMap.html#a5dec82ab659b3fb7a56c0830b1222792">lastRacePosition</a> ()=0</td></tr>
+<tr class="separator:a5dec82ab659b3fb7a56c0830b1222792"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab12643cc3a8d5e48f566c1abb571e9bf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMap.html#ab12643cc3a8d5e48f566c1abb571e9bf">update</a> ()</td></tr>
+<tr class="separator:ab12643cc3a8d5e48f566c1abb571e9bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6a40755f8541eece2fa48e9e24a588f8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMap.html#a6a40755f8541eece2fa48e9e24a588f8">draw</a> ()</td></tr>
+<tr class="separator:a6a40755f8541eece2fa48e9e24a588f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac3a2f5b5e6faa910b80ef1f3c1bac00b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMap.html#ac3a2f5b5e6faa910b80ef1f3c1bac00b">colCount</a> ()</td></tr>
+<tr class="separator:ac3a2f5b5e6faa910b80ef1f3c1bac00b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a292737d780fbba4df5f77ea16998119b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMap.html#a292737d780fbba4df5f77ea16998119b">rowCount</a> ()</td></tr>
+<tr class="separator:a292737d780fbba4df5f77ea16998119b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a638bc2068d611eb95924c6d4a22fc8d3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classMap.html#a7b5cf31600224c078f4393dbeccccdad">TileEvent</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMap.html#a638bc2068d611eb95924c6d4a22fc8d3">tileEvent</a> (const <a class="el" href="structPoint.html">Point</a> &amp;p)</td></tr>
+<tr class="separator:a638bc2068d611eb95924c6d4a22fc8d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a57ce9c8d8d8a0a03543422bc16ac6076"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structMap_1_1Sector.html">Sector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMap.html#a57ce9c8d8d8a0a03543422bc16ac6076">sector</a> (const <a class="el" href="structPoint.html">Point</a> &amp;p)</td></tr>
+<tr class="separator:a57ce9c8d8d8a0a03543422bc16ac6076"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a90d425b60e68f243009e2f59882e4035"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMap.html#a90d425b60e68f243009e2f59882e4035">sectorCount</a> ()</td></tr>
+<tr class="separator:a90d425b60e68f243009e2f59882e4035"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f31bfd434371783768854a2ed9b9289"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMap.html#a0f31bfd434371783768854a2ed9b9289">aiPathCount</a> ()</td></tr>
+<tr class="separator:a0f31bfd434371783768854a2ed9b9289"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a08fdb70e9e48af7bafab24aba0d175c1"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMap.html#a08fdb70e9e48af7bafab24aba0d175c1">aiPath</a> (unsigned int index)</td></tr>
+<tr class="separator:a08fdb70e9e48af7bafab24aba0d175c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af22bbddff7e2af26f9b5fa6111dc6329"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMap.html#af22bbddff7e2af26f9b5fa6111dc6329">randomAIPath</a> ()</td></tr>
+<tr class="separator:af22bbddff7e2af26f9b5fa6111dc6329"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_classLoggerInterface"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classLoggerInterface')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classLoggerInterface.html">LoggerInterface</a></td></tr>
+<tr class="memitem:a70c3e450fcc106112ac7bae9133b5068 inherit pub_methods_classLoggerInterface"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLoggerInterface.html#a70c3e450fcc106112ac7bae9133b5068">~LoggerInterface</a> ()</td></tr>
+<tr class="separator:a70c3e450fcc106112ac7bae9133b5068 inherit pub_methods_classLoggerInterface"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:a03b457393af2916f0ff9b3d880e27471"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMap.html#a03b457393af2916f0ff9b3d880e27471">loadMap</a> (const char *mapFilename)</td></tr>
+<tr class="separator:a03b457393af2916f0ff9b3d880e27471"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a201f745ce1c53800e4f7918e20b199c0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMap.html#a201f745ce1c53800e4f7918e20b199c0">loadEvents</a> (const char *eventsFilename)</td></tr>
+<tr class="separator:a201f745ce1c53800e4f7918e20b199c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af6a50bc4f67e6532164da0aed294df9f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMap.html#af6a50bc4f67e6532164da0aed294df9f">loadTileset</a> (const char *tilesetFilename)</td></tr>
+<tr class="separator:af6a50bc4f67e6532164da0aed294df9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a64153c5e8cbf27afebd1a539ff8f2a37"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMap.html#a64153c5e8cbf27afebd1a539ff8f2a37">loadSectors</a> (const char *sectorsFilename)</td></tr>
+<tr class="separator:a64153c5e8cbf27afebd1a539ff8f2a37"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a603c62bdf7f1ac7acddcf0902984d234"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMap.html#a603c62bdf7f1ac7acddcf0902984d234">addAIPath</a> (const char *aiPathFilename)</td></tr>
+<tr class="separator:a603c62bdf7f1ac7acddcf0902984d234"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pro_methods_classLoggerInterface"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_classLoggerInterface')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="classLoggerInterface.html">LoggerInterface</a></td></tr>
+<tr class="memitem:aca9f8dc7ea5ea76ad8390b52f2561a15 inherit pro_methods_classLoggerInterface"><td class="memTemplParams" colspan="2">template&lt;typename FirstType , typename... OtherTypes&gt; </td></tr>
+<tr class="memitem:aca9f8dc7ea5ea76ad8390b52f2561a15 inherit pro_methods_classLoggerInterface"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classLoggerInterface.html#aca9f8dc7ea5ea76ad8390b52f2561a15">d_level</a> (unsigned int level, FirstType &amp;&amp;first, OtherTypes &amp;&amp;...other)</td></tr>
+<tr class="separator:aca9f8dc7ea5ea76ad8390b52f2561a15 inherit pro_methods_classLoggerInterface"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a34dc1c7975aa06f977707bf4bacc1a9d inherit pro_methods_classLoggerInterface"><td class="memTemplParams" colspan="2">template&lt;typename FirstType , typename... OtherTypes&gt; </td></tr>
+<tr class="memitem:a34dc1c7975aa06f977707bf4bacc1a9d inherit pro_methods_classLoggerInterface"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classLoggerInterface.html#a34dc1c7975aa06f977707bf4bacc1a9d">d</a> (FirstType &amp;&amp;first, OtherTypes &amp;&amp;...other)</td></tr>
+<tr class="separator:a34dc1c7975aa06f977707bf4bacc1a9d inherit pro_methods_classLoggerInterface"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae7ea7fb18f9288b616d6226745bc7605 inherit pro_methods_classLoggerInterface"><td class="memTemplParams" colspan="2">template&lt;typename FirstType , typename... OtherTypes&gt; </td></tr>
+<tr class="memitem:ae7ea7fb18f9288b616d6226745bc7605 inherit pro_methods_classLoggerInterface"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classLoggerInterface.html#ae7ea7fb18f9288b616d6226745bc7605">d1</a> (FirstType &amp;&amp;first, OtherTypes &amp;&amp;...other)</td></tr>
+<tr class="separator:ae7ea7fb18f9288b616d6226745bc7605 inherit pro_methods_classLoggerInterface"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab2b05c5c566965cc37a906d145b20cec inherit pro_methods_classLoggerInterface"><td class="memTemplParams" colspan="2">template&lt;typename FirstType , typename... OtherTypes&gt; </td></tr>
+<tr class="memitem:ab2b05c5c566965cc37a906d145b20cec inherit pro_methods_classLoggerInterface"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classLoggerInterface.html#ab2b05c5c566965cc37a906d145b20cec">d2</a> (FirstType &amp;&amp;first, OtherTypes &amp;&amp;...other)</td></tr>
+<tr class="separator:ab2b05c5c566965cc37a906d145b20cec inherit pro_methods_classLoggerInterface"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8b715cb6b4616496e78a71a628225b8b inherit pro_methods_classLoggerInterface"><td class="memTemplParams" colspan="2">template&lt;typename FirstType , typename... OtherTypes&gt; </td></tr>
+<tr class="memitem:a8b715cb6b4616496e78a71a628225b8b inherit pro_methods_classLoggerInterface"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classLoggerInterface.html#a8b715cb6b4616496e78a71a628225b8b">w</a> (FirstType &amp;&amp;first, OtherTypes &amp;&amp;...other)</td></tr>
+<tr class="separator:a8b715cb6b4616496e78a71a628225b8b inherit pro_methods_classLoggerInterface"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb381df73e55b1423be07e8f09ee0123 inherit pro_methods_classLoggerInterface"><td class="memTemplParams" colspan="2">template&lt;typename FirstType , typename... OtherTypes&gt; </td></tr>
+<tr class="memitem:afb381df73e55b1423be07e8f09ee0123 inherit pro_methods_classLoggerInterface"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classLoggerInterface.html#afb381df73e55b1423be07e8f09ee0123">bench</a> (FirstType &amp;&amp;first, OtherTypes &amp;&amp;...other)</td></tr>
+<tr class="separator:afb381df73e55b1423be07e8f09ee0123 inherit pro_methods_classLoggerInterface"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Enumeration Documentation</h2>
-<a class="anchor" id="a8005c60a26103aad605e66390efdf857"></a>
+<a class="anchor" id="abd420aa9ad08bbadb79cf83ee2999383"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">enum <a class="el" href="classMap.html#a8005c60a26103aad605e66390efdf857">Map::MapType</a></td>
+          <td class="memname">enum <a class="el" href="classMap.html#abd420aa9ad08bbadb79cf83ee2999383">Map::SectorDirectionType</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a class="anchor" id="a8005c60a26103aad605e66390efdf857acc6ada1d1f3beb3d9b86e36411fcb744"></a>FirstMap&#160;</td><td class="fielddoc">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a class="anchor" id="abd420aa9ad08bbadb79cf83ee2999383a6e290eaf6ee626da1d34a5c97435d0d2"></a>UpLeft&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="abd420aa9ad08bbadb79cf83ee2999383a849dbfd6fdeeff40f46c63516dd27837"></a>UpRight&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="abd420aa9ad08bbadb79cf83ee2999383af7db30365c413c0585a0b599a420cc24"></a>RightUp&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="abd420aa9ad08bbadb79cf83ee2999383a8f4807e04a78249ef45906e57b88dd7f"></a>RightDown&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="abd420aa9ad08bbadb79cf83ee2999383a713f19bafde392927acbd5dbd197d8ac"></a>DownRight&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="abd420aa9ad08bbadb79cf83ee2999383ac1537ac6d3b913f1161d3072aec43195"></a>DownLeft&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="abd420aa9ad08bbadb79cf83ee2999383ac7cb353fe1967a37667bd0c478937b54"></a>LeftUp&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="abd420aa9ad08bbadb79cf83ee2999383a8f4430cdfbdbabbb6ea7f27ab94edc4f"></a>LeftDown&#160;</td><td class="fielddoc">
+</td></tr>
+</table>
+
+</div>
+</div>
+<a class="anchor" id="a7b5cf31600224c078f4393dbeccccdad"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="classMap.html#a7b5cf31600224c078f4393dbeccccdad">Map::TileEvent</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a class="anchor" id="a7b5cf31600224c078f4393dbeccccdada6cb64aaced1ac0a46e878b6eee4ce6d9"></a>Unpassable&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a7b5cf31600224c078f4393dbeccccdadafffc6e5a5fe17cdd51d466d9a921cd3a"></a>Passable&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a7b5cf31600224c078f4393dbeccccdada18f6a3fe6ebc3205159ab7e9688be532"></a>Slow&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a7b5cf31600224c078f4393dbeccccdada8f9ba6c491c53fe13afd3d460b78eed4"></a>LapFinished&#160;</td><td class="fielddoc">
 </td></tr>
 </table>
 
 </div>
 </div>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a0f5ad0fd4563497b4214038cbca8b582"></a>
+<a class="anchor" id="ab332b6563e4f108e328f742ee9fda3be"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">Map::Map </td>
+          <td>(</td>
+          <td class="paramtype">sf::RenderWindow *&#160;</td>
+          <td class="paramname"><em>window</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classLevel.html">Level</a> *&#160;</td>
+          <td class="paramname"><em>level</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="aa403fbe09394ccf39747588f5168e3b2"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Map::~Map </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a603c62bdf7f1ac7acddcf0902984d234"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Map::addAIPath </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>aiPathFilename</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a08fdb70e9e48af7bafab24aba0d175c1"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const char * Map::aiPath </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>index</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a0f31bfd434371783768854a2ed9b9289"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Map::aiPathCount </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -139,34 +368,303 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a56feaffd0bb8fa55caa315b78945c6d0"></a>
+<a class="anchor" id="ac3a2f5b5e6faa910b80ef1f3c1bac00b"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void Map::loadMap </td>
+          <td class="memname">int Map::colCount </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classMap.html#a8005c60a26103aad605e66390efdf857">MapType</a>&#160;</td>
-          <td class="paramname"><em>mapType</em></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Loads the map. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">the</td><td>mapType </td></tr>
-  </table>
-  </dd>
-</dl>
+</div>
+</div>
+<a class="anchor" id="a6a40755f8541eece2fa48e9e24a588f8"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Map::draw </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a5dec82ab659b3fb7a56c0830b1222792"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual int Map::lastRacePosition </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="classEarth.html#a2ed8a2cebd0d02e125ee2a3a0a982a16">Earth</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a201f745ce1c53800e4f7918e20b199c0"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Map::loadEvents </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>eventsFilename</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a0e50295b181204823f04f97b862fc51b"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Map::loadMap </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="classEarth.html#a440517ac091cd770bbc3abb9d32216a7">Earth</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a03b457393af2916f0ff9b3d880e27471"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Map::loadMap </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>mapFilename</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a64153c5e8cbf27afebd1a539ff8f2a37"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Map::loadSectors </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>sectorsFilename</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="af6a50bc4f67e6532164da0aed294df9f"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Map::loadTileset </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>tilesetFilename</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="af22bbddff7e2af26f9b5fa6111dc6329"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const char * Map::randomAIPath </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a292737d780fbba4df5f77ea16998119b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Map::rowCount </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a57ce9c8d8d8a0a03543422bc16ac6076"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structMap_1_1Sector.html">Map::Sector</a> Map::sector </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structPoint.html">Point</a> &amp;&#160;</td>
+          <td class="paramname"><em>p</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a90d425b60e68f243009e2f59882e4035"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Map::sectorCount </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ac4709d0bf0ea0e1cd7fef016464fbf7a"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="structPoint.html">Point</a> Map::startingPointForRacePosition </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>racePosition</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="classEarth.html#a4ababa809abaf2cb86ca2096fe88567d">Earth</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a638bc2068d611eb95924c6d4a22fc8d3"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classMap.html#a7b5cf31600224c078f4393dbeccccdad">Map::TileEvent</a> Map::tileEvent </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structPoint.html">Point</a> &amp;&#160;</td>
+          <td class="paramname"><em>p</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ab12643cc3a8d5e48f566c1abb571e9bf"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Map::update </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>src/<a class="el" href="map_8h_source.html">map.h</a></li>
-<li>src/<a class="el" href="map_8cc.html">map.cc</a></li>
+<li>src/map/base/<a class="el" href="map_8h_source.html">map.h</a></li>
+<li>src/map/base/<a class="el" href="map_8cc.html">map.cc</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

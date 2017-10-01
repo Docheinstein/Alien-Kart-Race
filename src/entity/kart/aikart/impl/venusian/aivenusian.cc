@@ -1,19 +1,18 @@
 #include <SFML/Graphics.hpp>
 #include "aivenusian.h"
 #include "resourceutil.h"
+#include "mathutil.h"
 #include "kartfactory.h"
 #include "level.h"
 
-AIVenusian::AIVenusian( Level * level, const char *kartName,  sf::Color *kartColor)
-                        : AIKart(level, kartName, kartColor) {
-    mPathFilename = ResourceUtil::raw("earth_ai_path_1.txt");
+#define PARAM_RANDOMNESS_FACTOR (1.0 / 20)
+
+AIVenusian::AIVenusian( Level * level, const char *kartName,
+                        sf::Color *kartColor, const char *pathName)
+                        : AIKart(level, kartName, kartColor, pathName) {
     initSprites();
     initParameters();
     initAIPath();
-}
-
-sf::Color AIVenusian::minimapColor() {
-    return sf::Color::Red;
 }
 
 // PRIVATE
@@ -23,5 +22,5 @@ void AIVenusian::initSprites() {
 }
 
 void AIVenusian::initParameters() {
-    mParams = KartFactory::params(KartFactory::KartType::VenusianType);
+    mParams = KartFactory::params(KartFactory::KartType::VenusianType, PARAM_RANDOMNESS_FACTOR);
 }

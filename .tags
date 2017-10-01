@@ -21,13 +21,6 @@ w	/home/stefano/Documents/Develop/AlienKartRace/src/util/log/logger.h	/^void w(F
 benchmark_internal	/home/stefano/Documents/Develop/AlienKartRace/src/util/log/logger.h	/^void benchmark_internal() {$/;"	function	line:73	signature:()
 benchmark_internal	/home/stefano/Documents/Develop/AlienKartRace/src/util/log/logger.h	/^void benchmark_internal(FirstType && first, OtherTypes && ...other) {$/;"	function	line:83	signature:(FirstType && first, OtherTypes && ...other)
 benchmark	/home/stefano/Documents/Develop/AlienKartRace/src/util/log/logger.h	/^void benchmark(FirstType && first, OtherTypes && ...other) {$/;"	function	line:90	signature:(FirstType && first, OtherTypes && ...other)
-GAME_H	/home/stefano/Documents/Develop/AlienKartRace/src/game/game.h	/^#define GAME_H$/;"	macro	line:2
-sf	/home/stefano/Documents/Develop/AlienKartRace/src/game/game.h	/^namespace sf {$/;"	namespace	line:4
-Game	/home/stefano/Documents/Develop/AlienKartRace/src/game/game.h	/^class Game {$/;"	class	line:11
-WIDTH	/home/stefano/Documents/Develop/AlienKartRace/src/game/game.h	/^	static const int WIDTH = 320;$/;"	member	line:14	class:Game
-HEIGHT	/home/stefano/Documents/Develop/AlienKartRace/src/game/game.h	/^	static const int HEIGHT = 240;$/;"	member	line:15	class:Game
-mWindow	/home/stefano/Documents/Develop/AlienKartRace/src/game/game.h	/^	sf::RenderWindow *mWindow;$/;"	member	line:27	class:Game
-mLevel	/home/stefano/Documents/Develop/AlienKartRace/src/game/game.h	/^	Level *mLevel;$/;"	member	line:28	class:Game
 MAP_OBJECT_H	/home/stefano/Documents/Develop/AlienKartRace/src/object/mapobject.h	/^#define MAP_OBJECT_H$/;"	macro	line:2
 MapObject	/home/stefano/Documents/Develop/AlienKartRace/src/object/mapobject.h	/^class MapObject {$/;"	class	line:4
 mCol	/home/stefano/Documents/Develop/AlienKartRace/src/object/mapobject.h	/^	double mCol;$/;"	member	line:6	class:MapObject
@@ -1728,27 +1721,6 @@ loadMatrixKnowningSize	/home/stefano/Documents/Develop/AlienKartRace/src/util/fi
 loadMatrixKnowningSize	/home/stefano/Documents/Develop/AlienKartRace/src/util/file/fileutil.h	/^	static void loadMatrixKnowningSize(	const char *fileName, MatrixT **&matrix,$/;"	function	line:78	class:FileUtil	signature:( const char *fileName, MatrixT **&matrix, int knownRowCount, int knownColCount, void (FuncOwner::*matrixFillFunc)(FileT readValue, int row, int col), FuncOwner &instance)
 loadMatrix	/home/stefano/Documents/Develop/AlienKartRace/src/util/file/fileutil.h	/^	static void loadMatrix(const char *fileName, T **&matrix, int &rowCount, int &colCount) {$/;"	function	line:105	class:FileUtil	signature:(const char *fileName, T **&matrix, int &rowCount, int &colCount)
 Earth	/home/stefano/Documents/Develop/AlienKartRace/src/map/impl/earth/earth.h	/^class Earth : public Map {$/;"	class	line:3
-Earth	/home/stefano/Documents/Develop/AlienKartRace/src/map/impl/earth/earth.cc	/^Earth::Earth() {$/;"	function	line:6	class:Earth	signature:()
-loadMap	/home/stefano/Documents/Develop/AlienKartRace/src/map/impl/earth/earth.cc	/^void Earth::loadMap() {$/;"	function	line:10	class:Earth	signature:()
-TARGET_UPDATES_PER_SECOND	/home/stefano/Documents/Develop/AlienKartRace/src/game/game.cc	/^const int TARGET_UPDATES_PER_SECOND = 60;$/;"	variable	line:10
-TARGET_UPDATE_MS	/home/stefano/Documents/Develop/AlienKartRace/src/game/game.cc	/^const int TARGET_UPDATE_MS = 1000 \/ TARGET_UPDATES_PER_SECOND;$/;"	variable	line:11
-GAME_TITLE	/home/stefano/Documents/Develop/AlienKartRace/src/game/game.cc	/^const char * GAME_TITLE = "Alien Kart Race";$/;"	variable	line:12
-instance	/home/stefano/Documents/Develop/AlienKartRace/src/game/game.cc	/^Game & Game::instance() {$/;"	function	line:14	class:Game	signature:()
-Game	/home/stefano/Documents/Develop/AlienKartRace/src/game/game.cc	/^Game::Game() {$/;"	function	line:19	class:Game	signature:()
-~Game	/home/stefano/Documents/Develop/AlienKartRace/src/game/game.cc	/^Game::~Game() {$/;"	function	line:23	class:Game	signature:()
-start	/home/stefano/Documents/Develop/AlienKartRace/src/game/game.cc	/^void Game::start() {$/;"	function	line:27	class:Game	signature:()
-level	/home/stefano/Documents/Develop/AlienKartRace/src/game/game.cc	/^Level * Game::level() {$/;"	function	line:77	class:Game	signature:()
-window	/home/stefano/Documents/Develop/AlienKartRace/src/game/game.cc	/^sf::RenderWindow* Game::window() {$/;"	function	line:81	class:Game	signature:()
-pollEvents	/home/stefano/Documents/Develop/AlienKartRace/src/game/game.cc	/^void Game::pollEvents() {$/;"	function	line:86	class:Game	signature:()
-update	/home/stefano/Documents/Develop/AlienKartRace/src/game/game.cc	/^void Game::update() {$/;"	function	line:100	class:Game	signature:()
-render	/home/stefano/Documents/Develop/AlienKartRace/src/game/game.cc	/^void Game::render() {$/;"	function	line:104	class:Game	signature:()
-init	/home/stefano/Documents/Develop/AlienKartRace/src/game/game.cc	/^void Game::init() {$/;"	function	line:114	class:Game	signature:()
-handleEvent	/home/stefano/Documents/Develop/AlienKartRace/src/game/game.cc	/^void Game::handleEvent(const sf::Event &event) {$/;"	function	line:119	class:Game	signature:(const sf::Event &event)
-LEVEL_H	/home/stefano/Documents/Develop/AlienKartRace/src/level/level.h	/^#define LEVEL_H$/;"	macro	line:2
-Level	/home/stefano/Documents/Develop/AlienKartRace/src/level/level.h	/^class Level {$/;"	class	line:8
-mKart	/home/stefano/Documents/Develop/AlienKartRace/src/level/level.h	/^	Kart *mKart;$/;"	member	line:19	class:Level
-mMap	/home/stefano/Documents/Develop/AlienKartRace/src/level/level.h	/^	Map *mMap;$/;"	member	line:20	class:Level
-mMinimap	/home/stefano/Documents/Develop/AlienKartRace/src/level/level.h	/^	Minimap *mMinimap;$/;"	member	line:21	class:Level
 RESOURCE_UTIL_H	/home/stefano/Documents/Develop/AlienKartRace/src/util/resources/resourceutil.h	/^#define RESOURCE_UTIL_H$/;"	macro	line:2
 ResourceUtil	/home/stefano/Documents/Develop/AlienKartRace/src/util/resources/resourceutil.h	/^class ResourceUtil {$/;"	class	line:7
 IMG_PATH	/home/stefano/Documents/Develop/AlienKartRace/src/util/resources/resourceutil.h	/^	static const std::string IMG_PATH;$/;"	member	line:9	class:ResourceUtil
@@ -1767,36 +1739,6 @@ mMinimapTexture	/home/stefano/Documents/Develop/AlienKartRace/src/minimap/minima
 mMinimapSprite	/home/stefano/Documents/Develop/AlienKartRace/src/minimap/minimap.h	/^    sf::Sprite *mMinimapSprite;$/;"	member	line:20	class:Minimap
 mRowCount	/home/stefano/Documents/Develop/AlienKartRace/src/minimap/minimap.h	/^    int mRowCount;$/;"	member	line:22	class:Minimap
 mColCount	/home/stefano/Documents/Develop/AlienKartRace/src/minimap/minimap.h	/^    int mColCount;$/;"	member	line:23	class:Minimap
-GEOMETRY_UTIL_H	/home/stefano/Documents/Develop/AlienKartRace/src/util/geometry/geometryutil.h	/^#define GEOMETRY_UTIL_H$/;"	macro	line:2
-Point	/home/stefano/Documents/Develop/AlienKartRace/src/util/geometry/geometryutil.h	/^struct Point {$/;"	struct	line:6
-x	/home/stefano/Documents/Develop/AlienKartRace/src/util/geometry/geometryutil.h	/^	double x;$/;"	member	line:7	struct:Point
-y	/home/stefano/Documents/Develop/AlienKartRace/src/util/geometry/geometryutil.h	/^	double y;$/;"	member	line:8	struct:Point
-Point	/home/stefano/Documents/Develop/AlienKartRace/src/util/geometry/geometryutil.h	/^} typedef Point;$/;"	typedef	line:9
-IPoint	/home/stefano/Documents/Develop/AlienKartRace/src/util/geometry/geometryutil.h	/^struct IPoint {$/;"	struct	line:11
-x	/home/stefano/Documents/Develop/AlienKartRace/src/util/geometry/geometryutil.h	/^	int x;$/;"	member	line:12	struct:IPoint
-y	/home/stefano/Documents/Develop/AlienKartRace/src/util/geometry/geometryutil.h	/^	int y;$/;"	member	line:13	struct:IPoint
-IPoint	/home/stefano/Documents/Develop/AlienKartRace/src/util/geometry/geometryutil.h	/^} typedef IPoint;$/;"	typedef	line:14
-Line	/home/stefano/Documents/Develop/AlienKartRace/src/util/geometry/geometryutil.h	/^struct Line {$/;"	struct	line:16
-m	/home/stefano/Documents/Develop/AlienKartRace/src/util/geometry/geometryutil.h	/^	double m;$/;"	member	line:17	struct:Line
-q	/home/stefano/Documents/Develop/AlienKartRace/src/util/geometry/geometryutil.h	/^	double q;$/;"	member	line:18	struct:Line
-Line	/home/stefano/Documents/Develop/AlienKartRace/src/util/geometry/geometryutil.h	/^} typedef Line;$/;"	typedef	line:19
-GeometryUtil	/home/stefano/Documents/Develop/AlienKartRace/src/util/geometry/geometryutil.h	/^class GeometryUtil {$/;"	class	line:21
-operator <<	/home/stefano/Documents/Develop/AlienKartRace/src/util/geometry/geometryutil.cc	/^ostream& operator << (ostream &o, const IPoint &p) {$/;"	function	line:7	signature:(ostream &o, const IPoint &p)
-operator <<	/home/stefano/Documents/Develop/AlienKartRace/src/util/geometry/geometryutil.cc	/^ostream& operator << (ostream &o, const Point &p) {$/;"	function	line:12	signature:(ostream &o, const Point &p)
-operator <<	/home/stefano/Documents/Develop/AlienKartRace/src/util/geometry/geometryutil.cc	/^ostream& operator << (ostream &o, const Line &l) {$/;"	function	line:17	signature:(ostream &o, const Line &l)
-lineForTwoPoints	/home/stefano/Documents/Develop/AlienKartRace/src/util/geometry/geometryutil.cc	/^Line  GeometryUtil::lineForTwoPoints(const Point &p1, const Point &p2) {$/;"	function	line:22	class:GeometryUtil	signature:(const Point &p1, const Point &p2)
-intersectionForTwoLines	/home/stefano/Documents/Develop/AlienKartRace/src/util/geometry/geometryutil.cc	/^Point GeometryUtil::intersectionForTwoLines(const Line &l1, const Line &l2) {$/;"	function	line:32	class:GeometryUtil	signature:(const Line &l1, const Line &l2)
-distanceBetweenTwoPoints	/home/stefano/Documents/Develop/AlienKartRace/src/util/geometry/geometryutil.cc	/^double GeometryUtil::distanceBetweenTwoPoints(const Point &p1, const Point &p2) {$/;"	function	line:46	class:GeometryUtil	signature:(const Point &p1, const Point &p2)
-rotatePoint	/home/stefano/Documents/Develop/AlienKartRace/src/util/geometry/geometryutil.cc	/^Point GeometryUtil::rotatePoint(const Point &p, const Point &c, const double radians) {$/;"	function	line:53	class:GeometryUtil	signature:(const Point &p, const Point &c, const double radians)
-scalePoint	/home/stefano/Documents/Develop/AlienKartRace/src/util/geometry/geometryutil.cc	/^Point GeometryUtil::scalePoint(const Point &p, const double scaleFactor) {$/;"	function	line:63	class:GeometryUtil	signature:(const Point &p, const double scaleFactor)
-hypot	/home/stefano/Documents/Develop/AlienKartRace/src/util/geometry/geometryutil.cc	/^double GeometryUtil::hypot(double d1, double d2) {$/;"	function	line:67	class:GeometryUtil	signature:(double d1, double d2)
-toIPoint	/home/stefano/Documents/Develop/AlienKartRace/src/util/geometry/geometryutil.cc	/^IPoint GeometryUtil::toIPoint(const Point &p) {$/;"	function	line:71	class:GeometryUtil	signature:(const Point &p)
-Level	/home/stefano/Documents/Develop/AlienKartRace/src/level/level.cc	/^Level::Level() {$/;"	function	line:7	class:Level	signature:()
-~Level	/home/stefano/Documents/Develop/AlienKartRace/src/level/level.cc	/^Level::~Level() {$/;"	function	line:21	class:Level	signature:()
-kart	/home/stefano/Documents/Develop/AlienKartRace/src/level/level.cc	/^Kart * Level::kart() {$/;"	function	line:26	class:Level	signature:()
-map	/home/stefano/Documents/Develop/AlienKartRace/src/level/level.cc	/^Map * Level::map() {$/;"	function	line:30	class:Level	signature:()
-update	/home/stefano/Documents/Develop/AlienKartRace/src/level/level.cc	/^void Level::update() {$/;"	function	line:34	class:Level	signature:()
-render	/home/stefano/Documents/Develop/AlienKartRace/src/level/level.cc	/^void Level::render() {$/;"	function	line:39	class:Level	signature:()
 COLOR_FULL	/home/stefano/Documents/Develop/AlienKartRace/src/minimap/minimap.cc	/^const sf::Color COLOR_FULL = sf::Color(128, 128, 128, 164);$/;"	variable	line:7
 COLOR_EMPTY	/home/stefano/Documents/Develop/AlienKartRace/src/minimap/minimap.cc	/^const sf::Color COLOR_EMPTY = sf::Color::White;$/;"	variable	line:8
 MINI_MAP_X	/home/stefano/Documents/Develop/AlienKartRace/src/minimap/minimap.cc	/^const int MINI_MAP_X = Game::WIDTH * 0.6;$/;"	variable	line:10
@@ -1808,39 +1750,6 @@ Minimap	/home/stefano/Documents/Develop/AlienKartRace/src/minimap/minimap.cc	/^M
 drawPoint	/home/stefano/Documents/Develop/AlienKartRace/src/minimap/minimap.cc	/^void Minimap::drawPoint(double row, double col, int size, sf::Color color) {$/;"	function	line:24	class:Minimap	signature:(double row, double col, int size, sf::Color color)
 loadFromFile	/home/stefano/Documents/Develop/AlienKartRace/src/minimap/minimap.cc	/^void Minimap::loadFromFile(const char *minimapFilename) {$/;"	function	line:37	class:Minimap	signature:(const char *minimapFilename)
 draw	/home/stefano/Documents/Develop/AlienKartRace/src/minimap/minimap.cc	/^void Minimap::draw() {$/;"	function	line:63	class:Minimap	signature:()
-MAP_H	/home/stefano/Documents/Develop/AlienKartRace/src/map/base/map.h	/^#define MAP_H$/;"	macro	line:2
-Map	/home/stefano/Documents/Develop/AlienKartRace/src/map/base/map.h	/^class Map {$/;"	class	line:11
-TileEvent	/home/stefano/Documents/Develop/AlienKartRace/src/map/base/map.h	/^	enum TileEvent {$/;"	enum	line:13	class:Map
-Unpassable	/home/stefano/Documents/Develop/AlienKartRace/src/map/base/map.h	/^		Unpassable = 0,$/;"	enumerator	line:14	enum:Map::TileEvent
-Passable	/home/stefano/Documents/Develop/AlienKartRace/src/map/base/map.h	/^		Passable = 1,$/;"	enumerator	line:15	enum:Map::TileEvent
-Slow	/home/stefano/Documents/Develop/AlienKartRace/src/map/base/map.h	/^		Slow = 2$/;"	enumerator	line:16	enum:Map::TileEvent
-Tile	/home/stefano/Documents/Develop/AlienKartRace/src/map/base/map.h	/^	struct Tile {$/;"	struct	line:36	class:Map
-tilesetY	/home/stefano/Documents/Develop/AlienKartRace/src/map/base/map.h	/^		int tilesetY;$/;"	member	line:37	struct:Map::Tile
-tilesetX	/home/stefano/Documents/Develop/AlienKartRace/src/map/base/map.h	/^		int tilesetX;$/;"	member	line:38	struct:Map::Tile
-event	/home/stefano/Documents/Develop/AlienKartRace/src/map/base/map.h	/^		TileEvent event;$/;"	member	line:39	struct:Map::Tile
-Tile	/home/stefano/Documents/Develop/AlienKartRace/src/map/base/map.h	/^	} typedef Tile;$/;"	typedef	line:40	class:Map
-mMatrix	/home/stefano/Documents/Develop/AlienKartRace/src/map/base/map.h	/^	Tile **mMatrix;$/;"	member	line:42	class:Map
-mColCount	/home/stefano/Documents/Develop/AlienKartRace/src/map/base/map.h	/^	int mColCount;$/;"	member	line:46	class:Map
-mRowCount	/home/stefano/Documents/Develop/AlienKartRace/src/map/base/map.h	/^	int mRowCount;$/;"	member	line:47	class:Map
-mDebugGridImage	/home/stefano/Documents/Develop/AlienKartRace/src/map/base/map.h	/^	sf::Image mDebugGridImage;$/;"	member	line:49	class:Map
-mRenderedTiles	/home/stefano/Documents/Develop/AlienKartRace/src/map/base/map.h	/^	sf::VertexArray mRenderedTiles;$/;"	member	line:51	class:Map
-mTileset	/home/stefano/Documents/Develop/AlienKartRace/src/map/base/map.h	/^	sf::Texture mTileset;$/;"	member	line:52	class:Map
-MATRIX_RENDERED_TILES_RADIUS	/home/stefano/Documents/Develop/AlienKartRace/src/map/base/map.cc	/^const int MATRIX_RENDERED_TILES_RADIUS = 32;$/;"	variable	line:16
-MATRIX_RENDERED_TILES_DIAMETER	/home/stefano/Documents/Develop/AlienKartRace/src/map/base/map.cc	/^const int MATRIX_RENDERED_TILES_DIAMETER = MATRIX_RENDERED_TILES_RADIUS * 2 + 1;$/;"	variable	line:19
-Map	/home/stefano/Documents/Develop/AlienKartRace/src/map/base/map.cc	/^Map::Map() {$/;"	function	line:21	class:Map	signature:()
-~Map	/home/stefano/Documents/Develop/AlienKartRace/src/map/base/map.cc	/^Map::~Map() {$/;"	function	line:35	class:Map	signature:()
-getTileEvent	/home/stefano/Documents/Develop/AlienKartRace/src/map/base/map.cc	/^Map::TileEvent Map::getTileEvent(int row, int col) {$/;"	function	line:39	class:Map	signature:(int row, int col)
-mapMatrixFillFunction	/home/stefano/Documents/Develop/AlienKartRace/src/map/base/map.cc	/^void Map::mapMatrixFillFunction(int readValue, int row, int col) {$/;"	function	line:46	class:Map	signature:(int readValue, int row, int col)
-eventsMatrixFillFunction	/home/stefano/Documents/Develop/AlienKartRace/src/map/base/map.cc	/^void Map::eventsMatrixFillFunction(int readValue, int row, int col) {$/;"	function	line:54	class:Map	signature:(int readValue, int row, int col)
-loadMap	/home/stefano/Documents/Develop/AlienKartRace/src/map/base/map.cc	/^void Map::loadMap(const char *rawFilename, const char *tilesetFilename) {$/;"	function	line:58	class:Map	signature:(const char *rawFilename, const char *tilesetFilename)
-update	/home/stefano/Documents/Develop/AlienKartRace/src/map/base/map.cc	/^void Map::update() {$/;"	function	line:90	class:Map	signature:()
-draw	/home/stefano/Documents/Develop/AlienKartRace/src/map/base/map.cc	/^void Map::draw() {$/;"	function	line:94	class:Map	signature:()
-colCount	/home/stefano/Documents/Develop/AlienKartRace/src/map/base/map.cc	/^int Map::colCount() {$/;"	function	line:117	class:Map	signature:()
-rowCount	/home/stefano/Documents/Develop/AlienKartRace/src/map/base/map.cc	/^int Map::rowCount() {$/;"	function	line:121	class:Map	signature:()
-updateRenderedTiles	/home/stefano/Documents/Develop/AlienKartRace/src/map/base/map.cc	/^void Map::updateRenderedTiles() {$/;"	function	line:295	class:Map	signature:()
-drawPoint	/home/stefano/Documents/Develop/AlienKartRace/src/map/base/map.cc	/^void Map::drawPoint(sf::Image * map, const Point &p, sf::Color color, int size = 7) {$/;"	function	line:474	class:Map	signature:(sf::Image * map, const Point &p, sf::Color color, int size = 7)
-drawPoint	/home/stefano/Documents/Develop/AlienKartRace/src/map/base/map.cc	/^void Map::drawPoint(sf::Image * map, const IPoint &p, sf::Color color, int size = 7) {$/;"	function	line:485	class:Map	signature:(sf::Image * map, const IPoint &p, sf::Color color, int size = 7)
-drawLine	/home/stefano/Documents/Develop/AlienKartRace/src/map/base/map.cc	/^void Map::drawLine(double x1, double y1, double x2, double y2, double thickness) {$/;"	function	line:495	class:Map	signature:(double x1, double y1, double x2, double y2, double thickness)
 KART_H	/home/stefano/Documents/Develop/AlienKartRace/src/object/kart/base/kart.h	/^#define KART_H$/;"	macro	line:2
 sf	/home/stefano/Documents/Develop/AlienKartRace/src/object/kart/base/kart.h	/^namespace sf {$/;"	namespace	line:6
 Kart	/home/stefano/Documents/Develop/AlienKartRace/src/object/kart/base/kart.h	/^class Kart : public MapObject {$/;"	class	line:13
@@ -1892,3 +1801,584 @@ update	/home/stefano/Documents/Develop/AlienKartRace/src/object/kart/base/kart.c
 bounce	/home/stefano/Documents/Develop/AlienKartRace/src/object/kart/base/kart.cc	/^void Kart::bounce() {$/;"	function	line:210	class:Kart	signature:()
 isSkidding	/home/stefano/Documents/Develop/AlienKartRace/src/object/kart/base/kart.cc	/^bool Kart::isSkidding() {$/;"	function	line:247	class:Kart	signature:()
 goForward	/home/stefano/Documents/Develop/AlienKartRace/src/object/kart/base/kart.cc	/^void Kart::goForward() {$/;"	function	line:251	class:Kart	signature:()
+LEVEL_PICKER_H	/home/stefano/Documents/Develop/AlienKartRace/src/levelpicker/levelpicker.h	/^#define LEVEL_PICKER_H$/;"	macro	line:2
+sf	/home/stefano/Documents/Develop/AlienKartRace/src/levelpicker/levelpicker.h	/^namespace sf {$/;"	namespace	line:11
+LevelPicker	/home/stefano/Documents/Develop/AlienKartRace/src/levelpicker/levelpicker.h	/^class LevelPicker : public FadeScreen, public KeyboardListener, public LoggerInterface {$/;"	class	line:17
+PickerSectionType	/home/stefano/Documents/Develop/AlienKartRace/src/levelpicker/levelpicker.h	/^    enum PickerSectionType {$/;"	enum	line:32	class:LevelPicker
+Karts	/home/stefano/Documents/Develop/AlienKartRace/src/levelpicker/levelpicker.h	/^        Karts,$/;"	enumerator	line:33	enum:LevelPicker::PickerSectionType
+Maps	/home/stefano/Documents/Develop/AlienKartRace/src/levelpicker/levelpicker.h	/^        Maps,$/;"	enumerator	line:34	enum:LevelPicker::PickerSectionType
+_PickerSectionCount	/home/stefano/Documents/Develop/AlienKartRace/src/levelpicker/levelpicker.h	/^        _PickerSectionCount$/;"	enumerator	line:35	enum:LevelPicker::PickerSectionType
+Pickable	/home/stefano/Documents/Develop/AlienKartRace/src/levelpicker/levelpicker.h	/^    struct Pickable {$/;"	struct	line:39	class:LevelPicker
+type	/home/stefano/Documents/Develop/AlienKartRace/src/levelpicker/levelpicker.h	/^        Type type;$/;"	member	line:40	struct:LevelPicker::Pickable
+sprite	/home/stefano/Documents/Develop/AlienKartRace/src/levelpicker/levelpicker.h	/^        sf::Sprite  *sprite;$/;"	member	line:41	struct:LevelPicker::Pickable
+name	/home/stefano/Documents/Develop/AlienKartRace/src/levelpicker/levelpicker.h	/^        sf::Text    *name;$/;"	member	line:42	struct:LevelPicker::Pickable
+Pickables	/home/stefano/Documents/Develop/AlienKartRace/src/levelpicker/levelpicker.h	/^    struct Pickables {$/;"	struct	line:46	class:LevelPicker
+elements	/home/stefano/Documents/Develop/AlienKartRace/src/levelpicker/levelpicker.h	/^        std::vector<Pickable<Type>> elements;$/;"	member	line:47	struct:LevelPicker::Pickables
+currentSelectedIndex	/home/stefano/Documents/Develop/AlienKartRace/src/levelpicker/levelpicker.h	/^        int currentSelectedIndex;$/;"	member	line:48	struct:LevelPicker::Pickables
+currentSelectedAlpha	/home/stefano/Documents/Develop/AlienKartRace/src/levelpicker/levelpicker.h	/^        int currentSelectedAlpha;$/;"	member	line:49	struct:LevelPicker::Pickables
+currentSelectedAlphaIncrementSign	/home/stefano/Documents/Develop/AlienKartRace/src/levelpicker/levelpicker.h	/^        int currentSelectedAlphaIncrementSign;$/;"	member	line:50	struct:LevelPicker::Pickables
+mKarts	/home/stefano/Documents/Develop/AlienKartRace/src/levelpicker/levelpicker.h	/^    Pickables<KartFactory::KartType> mKarts;$/;"	member	line:53	class:LevelPicker
+mMaps	/home/stefano/Documents/Develop/AlienKartRace/src/levelpicker/levelpicker.h	/^    Pickables<MapFactory::MapType> mMaps;$/;"	member	line:54	class:LevelPicker
+mCurrentPickerSection	/home/stefano/Documents/Develop/AlienKartRace/src/levelpicker/levelpicker.h	/^    PickerSectionType mCurrentPickerSection;$/;"	member	line:56	class:LevelPicker
+mBackgroundTexture	/home/stefano/Documents/Develop/AlienKartRace/src/levelpicker/levelpicker.h	/^    sf::Texture *mBackgroundTexture;$/;"	member	line:58	class:LevelPicker
+mBackgroundSprite	/home/stefano/Documents/Develop/AlienKartRace/src/levelpicker/levelpicker.h	/^    sf::Sprite  *mBackgroundSprite;$/;"	member	line:59	class:LevelPicker
+mFrameTexture	/home/stefano/Documents/Develop/AlienKartRace/src/levelpicker/levelpicker.h	/^    sf::Texture *mFrameTexture;$/;"	member	line:61	class:LevelPicker
+mFrameSprite	/home/stefano/Documents/Develop/AlienKartRace/src/levelpicker/levelpicker.h	/^    sf::Sprite  *mFrameSprite;$/;"	member	line:62	class:LevelPicker
+mKartHeaderText	/home/stefano/Documents/Develop/AlienKartRace/src/levelpicker/levelpicker.h	/^    sf::Text    *mKartHeaderText;$/;"	member	line:64	class:LevelPicker
+mMapHeaderText	/home/stefano/Documents/Develop/AlienKartRace/src/levelpicker/levelpicker.h	/^    sf::Text    *mMapHeaderText;$/;"	member	line:65	class:LevelPicker
+mInPicking	/home/stefano/Documents/Develop/AlienKartRace/src/levelpicker/levelpicker.h	/^    bool mInPicking;$/;"	member	line:67	class:LevelPicker
+LOG_TAG	/home/stefano/Documents/Develop/AlienKartRace/src/levelpicker/levelpicker.cc	/^#define LOG_TAG /;"	macro	line:9	file:
+CAN_LOG	/home/stefano/Documents/Develop/AlienKartRace/src/levelpicker/levelpicker.cc	/^#define CAN_LOG /;"	macro	line:10	file:
+BACKGROUND_COLOR_RGB	/home/stefano/Documents/Develop/AlienKartRace/src/levelpicker/levelpicker.cc	/^#define BACKGROUND_COLOR_RGB /;"	macro	line:12	file:
+PICKER_SECTION_HEADER_COLOR_RGB	/home/stefano/Documents/Develop/AlienKartRace/src/levelpicker/levelpicker.cc	/^#define PICKER_SECTION_HEADER_COLOR_RGB /;"	macro	line:13	file:
+PICKER_ELEMENT_HIGHLIGHTED_COLOR_RGB	/home/stefano/Documents/Develop/AlienKartRace/src/levelpicker/levelpicker.cc	/^#define PICKER_ELEMENT_HIGHLIGHTED_COLOR_RGB /;"	macro	line:14	file:
+PICKER_ELEMENT_SELECTED_COLOR_RGB	/home/stefano/Documents/Develop/AlienKartRace/src/levelpicker/levelpicker.cc	/^#define PICKER_ELEMENT_SELECTED_COLOR_RGB /;"	macro	line:15	file:
+PICKER_ELEMENT_UNSELECTED_COLOR_RGB	/home/stefano/Documents/Develop/AlienKartRace/src/levelpicker/levelpicker.cc	/^#define PICKER_ELEMENT_UNSELECTED_COLOR_RGB /;"	macro	line:16	file:
+PICKER_SELECTED_ELEMENT_ALPHA_HIGH	/home/stefano/Documents/Develop/AlienKartRace/src/levelpicker/levelpicker.cc	/^#define PICKER_SELECTED_ELEMENT_ALPHA_HIGH /;"	macro	line:18	file:
+PICKER_SELECTED_ELEMENT_ALPHA_LOW	/home/stefano/Documents/Develop/AlienKartRace/src/levelpicker/levelpicker.cc	/^#define PICKER_SELECTED_ELEMENT_ALPHA_LOW /;"	macro	line:19	file:
+PICKER_SELECTED_ELEMENT_ALPHA_INCREMENT	/home/stefano/Documents/Develop/AlienKartRace/src/levelpicker/levelpicker.cc	/^#define PICKER_SELECTED_ELEMENT_ALPHA_INCREMENT /;"	macro	line:20	file:
+PICKER_SECTION_HEADER_FONT_SIZE	/home/stefano/Documents/Develop/AlienKartRace/src/levelpicker/levelpicker.cc	/^const float PICKER_SECTION_HEADER_FONT_SIZE = Const::WINDOW_HEIGHT \/ 18;$/;"	variable	line:22
+PICKER_ELEMENT_FONT_SIZE	/home/stefano/Documents/Develop/AlienKartRace/src/levelpicker/levelpicker.cc	/^const float PICKER_ELEMENT_FONT_SIZE = Const::WINDOW_HEIGHT \/ 20;$/;"	variable	line:23
+PICKER_FRAME_PADDING_TOP	/home/stefano/Documents/Develop/AlienKartRace/src/levelpicker/levelpicker.cc	/^const float PICKER_FRAME_PADDING_TOP = Const::WINDOW_HEIGHT \/ 12;$/;"	variable	line:25
+PICKER_ELEMENT_FROM_SECION_HEADER_MARGIN_TOP	/home/stefano/Documents/Develop/AlienKartRace/src/levelpicker/levelpicker.cc	/^const float PICKER_ELEMENT_FROM_SECION_HEADER_MARGIN_TOP = Const::WINDOW_HEIGHT \/ 6;$/;"	variable	line:27
+PICKER_NAME_FROM_ELEMENT_MARGIN_TOP	/home/stefano/Documents/Develop/AlienKartRace/src/levelpicker/levelpicker.cc	/^const float PICKER_NAME_FROM_ELEMENT_MARGIN_TOP = Const::WINDOW_HEIGHT \/ 30;$/;"	variable	line:28
+LevelPicker	/home/stefano/Documents/Develop/AlienKartRace/src/levelpicker/levelpicker.cc	/^LevelPicker::LevelPicker(sf::RenderWindow *w, KeyboardManager *km) : FadeScreen(w, km) {$/;"	function	line:30	class:LevelPicker	signature:(sf::RenderWindow *w, KeyboardManager *km)
+~LevelPicker	/home/stefano/Documents/Develop/AlienKartRace/src/levelpicker/levelpicker.cc	/^LevelPicker::~LevelPicker() {$/;"	function	line:91	class:LevelPicker	signature:()
+update	/home/stefano/Documents/Develop/AlienKartRace/src/levelpicker/levelpicker.cc	/^void LevelPicker::update() {$/;"	function	line:118	class:LevelPicker	signature:()
+render	/home/stefano/Documents/Develop/AlienKartRace/src/levelpicker/levelpicker.cc	/^void LevelPicker::render() {$/;"	function	line:142	class:LevelPicker	signature:()
+onKeyPressed	/home/stefano/Documents/Develop/AlienKartRace/src/levelpicker/levelpicker.cc	/^void LevelPicker::onKeyPressed(int keyCode) {$/;"	function	line:223	class:LevelPicker	signature:(int keyCode)
+initializedPickerSectionText	/home/stefano/Documents/Develop/AlienKartRace/src/levelpicker/levelpicker.cc	/^sf::Text *LevelPicker::initializedPickerSectionText(const char *str) {$/;"	function	line:276	class:LevelPicker	signature:(const char *str)
+addPickableKart	/home/stefano/Documents/Develop/AlienKartRace/src/levelpicker/levelpicker.cc	/^void LevelPicker::addPickableKart(KartFactory::KartType type) {$/;"	function	line:294	class:LevelPicker	signature:(KartFactory::KartType type)
+addPickableMap	/home/stefano/Documents/Develop/AlienKartRace/src/levelpicker/levelpicker.cc	/^void LevelPicker::addPickableMap(MapFactory::MapType type) {$/;"	function	line:320	class:LevelPicker	signature:(MapFactory::MapType type)
+fadeInFinished	/home/stefano/Documents/Develop/AlienKartRace/src/levelpicker/levelpicker.cc	/^void LevelPicker::fadeInFinished() {$/;"	function	line:345	class:LevelPicker	signature:()
+fadeOutFinished	/home/stefano/Documents/Develop/AlienKartRace/src/levelpicker/levelpicker.cc	/^void LevelPicker::fadeOutFinished() {$/;"	function	line:349	class:LevelPicker	signature:()
+logTag	/home/stefano/Documents/Develop/AlienKartRace/src/levelpicker/levelpicker.cc	/^const char * LevelPicker::logTag() {$/;"	function	line:355	class:LevelPicker	signature:()
+canLog	/home/stefano/Documents/Develop/AlienKartRace/src/levelpicker/levelpicker.cc	/^bool LevelPicker::canLog() {$/;"	function	line:359	class:LevelPicker	signature:()
+LEVEL_H	/home/stefano/Documents/Develop/AlienKartRace/src/level/level.h	/^#define LEVEL_H$/;"	macro	line:2
+sf	/home/stefano/Documents/Develop/AlienKartRace/src/level/level.h	/^namespace sf {$/;"	namespace	line:16
+LevelNS	/home/stefano/Documents/Develop/AlienKartRace/src/level/level.h	/^namespace LevelNS {$/;"	namespace	line:22
+RacingKart	/home/stefano/Documents/Develop/AlienKartRace/src/level/level.h	/^	struct RacingKart {$/;"	struct	line:23	namespace:LevelNS
+kart	/home/stefano/Documents/Develop/AlienKartRace/src/level/level.h	/^		Kart *kart;$/;"	member	line:24	struct:LevelNS::RacingKart
+currentSector	/home/stefano/Documents/Develop/AlienKartRace/src/level/level.h	/^		Map::Sector currentSector; \/\/ Not needed, just for cache reason$/;"	member	line:25	struct:LevelNS::RacingKart
+currentLap	/home/stefano/Documents/Develop/AlienKartRace/src/level/level.h	/^		int currentLap;$/;"	member	line:26	struct:LevelNS::RacingKart
+q1Finished	/home/stefano/Documents/Develop/AlienKartRace/src/level/level.h	/^		bool q1Finished, q2Finished, q3Finished;$/;"	member	line:27	struct:LevelNS::RacingKart
+q2Finished	/home/stefano/Documents/Develop/AlienKartRace/src/level/level.h	/^		bool q1Finished, q2Finished, q3Finished;$/;"	member	line:27	struct:LevelNS::RacingKart
+q3Finished	/home/stefano/Documents/Develop/AlienKartRace/src/level/level.h	/^		bool q1Finished, q2Finished, q3Finished;$/;"	member	line:27	struct:LevelNS::RacingKart
+RacingKart	/home/stefano/Documents/Develop/AlienKartRace/src/level/level.h	/^	} typedef RacingKart;$/;"	typedef	line:28	namespace:LevelNS
+Level	/home/stefano/Documents/Develop/AlienKartRace/src/level/level.h	/^class Level : public FadeScreen, public KeyboardListener, public LoggerInterface {$/;"	class	line:31
+MenuOption	/home/stefano/Documents/Develop/AlienKartRace/src/level/level.h	/^	struct MenuOption {$/;"	struct	line:53	class:Level
+text	/home/stefano/Documents/Develop/AlienKartRace/src/level/level.h	/^		sf::Text *text;$/;"	member	line:54	struct:Level::MenuOption
+func	/home/stefano/Documents/Develop/AlienKartRace/src/level/level.h	/^ 		void (Level::*func)();$/;"	member	line:55	struct:Level::MenuOption
+MenuOption	/home/stefano/Documents/Develop/AlienKartRace/src/level/level.h	/^	} typedef MenuOption;$/;"	typedef	line:56	class:Level
+Menu	/home/stefano/Documents/Develop/AlienKartRace/src/level/level.h	/^	struct Menu {$/;"	struct	line:58	class:Level
+options	/home/stefano/Documents/Develop/AlienKartRace/src/level/level.h	/^		std::vector<MenuOption> options;$/;"	member	line:59	struct:Level::Menu
+currentOptionIndex	/home/stefano/Documents/Develop/AlienKartRace/src/level/level.h	/^		int currentOptionIndex;$/;"	member	line:60	struct:Level::Menu
+opened	/home/stefano/Documents/Develop/AlienKartRace/src/level/level.h	/^		bool opened;$/;"	member	line:61	struct:Level::Menu
+Menu	/home/stefano/Documents/Develop/AlienKartRace/src/level/level.h	/^	} typedef Menu;$/;"	typedef	line:62	class:Level
+LevelState	/home/stefano/Documents/Develop/AlienKartRace/src/level/level.h	/^	enum LevelState {$/;"	enum	line:64	class:Level
+Running	/home/stefano/Documents/Develop/AlienKartRace/src/level/level.h	/^		Running,$/;"	enumerator	line:65	enum:Level::LevelState
+Finished	/home/stefano/Documents/Develop/AlienKartRace/src/level/level.h	/^		Finished,$/;"	enumerator	line:66	enum:Level::LevelState
+Retrying	/home/stefano/Documents/Develop/AlienKartRace/src/level/level.h	/^		Retrying,$/;"	enumerator	line:67	enum:Level::LevelState
+Quitting	/home/stefano/Documents/Develop/AlienKartRace/src/level/level.h	/^		Quitting$/;"	enumerator	line:68	enum:Level::LevelState
+mOptionContinue	/home/stefano/Documents/Develop/AlienKartRace/src/level/level.h	/^	MenuOption mOptionContinue;$/;"	member	line:71	class:Level
+mOptionRetry	/home/stefano/Documents/Develop/AlienKartRace/src/level/level.h	/^  	MenuOption mOptionRetry;$/;"	member	line:72	class:Level
+mOptionQuit	/home/stefano/Documents/Develop/AlienKartRace/src/level/level.h	/^  	MenuOption mOptionQuit;$/;"	member	line:73	class:Level
+mMenuInGame	/home/stefano/Documents/Develop/AlienKartRace/src/level/level.h	/^	Menu mMenuInGame;$/;"	member	line:75	class:Level
+mMenuLevelFinished	/home/stefano/Documents/Develop/AlienKartRace/src/level/level.h	/^	Menu mMenuLevelFinished;$/;"	member	line:76	class:Level
+mLevelState	/home/stefano/Documents/Develop/AlienKartRace/src/level/level.h	/^ 	LevelState mLevelState;$/;"	member	line:78	class:Level
+mPlayerKartType	/home/stefano/Documents/Develop/AlienKartRace/src/level/level.h	/^	KartFactory::KartType mPlayerKartType;$/;"	member	line:80	class:Level
+mMapType	/home/stefano/Documents/Develop/AlienKartRace/src/level/level.h	/^	MapFactory::MapType   mMapType;$/;"	member	line:81	class:Level
+mPlayerKart	/home/stefano/Documents/Develop/AlienKartRace/src/level/level.h	/^	LevelNS::RacingKart mPlayerKart;$/;"	member	line:83	class:Level
+mAIKarts	/home/stefano/Documents/Develop/AlienKartRace/src/level/level.h	/^	std::vector<LevelNS::RacingKart> mAIKarts;$/;"	member	line:84	class:Level
+mMap	/home/stefano/Documents/Develop/AlienKartRace/src/level/level.h	/^	Map *mMap;$/;"	member	line:86	class:Level
+mMinimap	/home/stefano/Documents/Develop/AlienKartRace/src/level/level.h	/^	Minimap *mMinimap;$/;"	member	line:87	class:Level
+mLeaderboard	/home/stefano/Documents/Develop/AlienKartRace/src/level/level.h	/^	Leaderboard *mLeaderboard;$/;"	member	line:88	class:Level
+mRaceStartTimer	/home/stefano/Documents/Develop/AlienKartRace/src/level/level.h	/^	GameTimer<Level> mRaceStartTimer;$/;"	member	line:90	class:Level
+mRaceStartTimerText	/home/stefano/Documents/Develop/AlienKartRace/src/level/level.h	/^	sf::Text *mRaceStartTimerText;$/;"	member	line:91	class:Level
+mLapText	/home/stefano/Documents/Develop/AlienKartRace/src/level/level.h	/^	sf::Text *mLapText;$/;"	member	line:93	class:Level
+mOverlayTexture	/home/stefano/Documents/Develop/AlienKartRace/src/level/level.h	/^	sf::Texture *mOverlayTexture;$/;"	member	line:95	class:Level
+mOverlaySprite	/home/stefano/Documents/Develop/AlienKartRace/src/level/level.h	/^	sf::Sprite *mOverlaySprite;$/;"	member	line:96	class:Level
+mLevelFinishedMenuFrameTexture	/home/stefano/Documents/Develop/AlienKartRace/src/level/level.h	/^	sf::Texture *mLevelFinishedMenuFrameTexture;$/;"	member	line:98	class:Level
+mLevelFinishedMenuFrameSprite	/home/stefano/Documents/Develop/AlienKartRace/src/level/level.h	/^	sf::Sprite *mLevelFinishedMenuFrameSprite;$/;"	member	line:99	class:Level
+mLevelRunningMenuFrameTexture	/home/stefano/Documents/Develop/AlienKartRace/src/level/level.h	/^	sf::Texture *mLevelRunningMenuFrameTexture;$/;"	member	line:101	class:Level
+mLevelRunningMenuFrameSprite	/home/stefano/Documents/Develop/AlienKartRace/src/level/level.h	/^	sf::Sprite *mLevelRunningMenuFrameSprite;$/;"	member	line:102	class:Level
+mDepthSprites	/home/stefano/Documents/Develop/AlienKartRace/src/level/level.h	/^	std::vector<sf::Sprite*> mDepthSprites;$/;"	member	line:104	class:Level
+mMenuSelectedOptionCurrentAlpha	/home/stefano/Documents/Develop/AlienKartRace/src/level/level.h	/^	int mMenuSelectedOptionCurrentAlpha;$/;"	member	line:106	class:Level
+mMenuSelectedOptionCurrentAlphaIncrementSign	/home/stefano/Documents/Develop/AlienKartRace/src/level/level.h	/^	int mMenuSelectedOptionCurrentAlphaIncrementSign;$/;"	member	line:107	class:Level
+LOG_TAG	/home/stefano/Documents/Develop/AlienKartRace/src/leaderboard/leaderboard.cc	/^#define LOG_TAG /;"	macro	line:11	file:
+CAN_LOG	/home/stefano/Documents/Develop/AlienKartRace/src/leaderboard/leaderboard.cc	/^#define CAN_LOG /;"	macro	line:12	file:
+RANKING_HEADER	/home/stefano/Documents/Develop/AlienKartRace/src/leaderboard/leaderboard.cc	/^#define RANKING_HEADER /;"	macro	line:14	file:
+LEADERBOARD_MARGIN_LEFT	/home/stefano/Documents/Develop/AlienKartRace/src/leaderboard/leaderboard.cc	/^const float LEADERBOARD_MARGIN_LEFT = Const::WINDOW_WIDTH \/ 18;$/;"	variable	line:16
+LEADERBOARD_MARGIN_TOP	/home/stefano/Documents/Develop/AlienKartRace/src/leaderboard/leaderboard.cc	/^const float LEADERBOARD_MARGIN_TOP = Const::WINDOW_HEIGHT \/ 12;$/;"	variable	line:17
+LEADERBOARD_FONT_SIZE	/home/stefano/Documents/Develop/AlienKartRace/src/leaderboard/leaderboard.cc	/^const float LEADERBOARD_FONT_SIZE = Const::WINDOW_HEIGHT \/ 24;$/;"	variable	line:18
+LEADERBOARD_MARGIN_BETWEEN_KARTS	/home/stefano/Documents/Develop/AlienKartRace/src/leaderboard/leaderboard.cc	/^const float LEADERBOARD_MARGIN_BETWEEN_KARTS = Const::WINDOW_HEIGHT \/ 16;$/;"	variable	line:19
+LEADERBOARD_MARGIN_FROM_FACE_TO_TEXT	/home/stefano/Documents/Develop/AlienKartRace/src/leaderboard/leaderboard.cc	/^const float LEADERBOARD_MARGIN_FROM_FACE_TO_TEXT = Const::WINDOW_WIDTH \/ 18;$/;"	variable	line:20
+LEADERBOARD_RANKING_PADDING_TOP	/home/stefano/Documents/Develop/AlienKartRace/src/leaderboard/leaderboard.cc	/^const float LEADERBOARD_RANKING_PADDING_TOP = Const::WINDOW_HEIGHT \/ 14;$/;"	variable	line:22
+LEADERBOARD_RANKING_PADDING_LEFT	/home/stefano/Documents/Develop/AlienKartRace/src/leaderboard/leaderboard.cc	/^const float LEADERBOARD_RANKING_PADDING_LEFT = Const::WINDOW_HEIGHT \/ 24;$/;"	variable	line:23
+LEADERBOARD_RANKING_HEADER_MARGIN_TOP	/home/stefano/Documents/Develop/AlienKartRace/src/leaderboard/leaderboard.cc	/^const float LEADERBOARD_RANKING_HEADER_MARGIN_TOP = Const::WINDOW_HEIGHT \/ 28;$/;"	variable	line:25
+LEADERBOARD_RANKING_FONT_SIZE	/home/stefano/Documents/Develop/AlienKartRace/src/leaderboard/leaderboard.cc	/^const float LEADERBOARD_RANKING_FONT_SIZE = Const::WINDOW_HEIGHT \/ 18;$/;"	variable	line:26
+LEADERBOARD_RANKING_FRAME_SIZE	/home/stefano/Documents/Develop/AlienKartRace/src/leaderboard/leaderboard.cc	/^const float LEADERBOARD_RANKING_FRAME_SIZE = 12 * Const::WINDOW_WIDTH \/ 640.0;$/;"	variable	line:27
+Leaderboard	/home/stefano/Documents/Develop/AlienKartRace/src/leaderboard/leaderboard.cc	/^Leaderboard::Leaderboard(sf::RenderWindow *window) {$/;"	function	line:29	class:Leaderboard	signature:(sf::RenderWindow *window)
+~Leaderboard	/home/stefano/Documents/Develop/AlienKartRace/src/leaderboard/leaderboard.cc	/^Leaderboard::~Leaderboard() {$/;"	function	line:65	class:Leaderboard	signature:()
+addKart	/home/stefano/Documents/Develop/AlienKartRace/src/leaderboard/leaderboard.cc	/^void Leaderboard::addKart(LevelNS::RacingKart *rk) {$/;"	function	line:71	class:Leaderboard	signature:(LevelNS::RacingKart *rk)
+clearKarts	/home/stefano/Documents/Develop/AlienKartRace/src/leaderboard/leaderboard.cc	/^void Leaderboard::clearKarts() {$/;"	function	line:75	class:Leaderboard	signature:()
+update	/home/stefano/Documents/Develop/AlienKartRace/src/leaderboard/leaderboard.cc	/^void Leaderboard::update() {$/;"	function	line:79	class:Leaderboard	signature:()
+draw	/home/stefano/Documents/Develop/AlienKartRace/src/leaderboard/leaderboard.cc	/^void Leaderboard::draw(bool levelRunning) {$/;"	function	line:92	class:Leaderboard	signature:(bool levelRunning)
+kartText	/home/stefano/Documents/Develop/AlienKartRace/src/leaderboard/leaderboard.cc	/^sf::Text *Leaderboard::kartText(LevelNS::RacingKart *rk) {$/;"	function	line:139	class:Leaderboard	signature:(LevelNS::RacingKart *rk)
+racingKartCompareFunction	/home/stefano/Documents/Develop/AlienKartRace/src/leaderboard/leaderboard.cc	/^bool Leaderboard::racingKartCompareFunction(LeaderboardKart &lk1, LeaderboardKart &lk2) {$/;"	function	line:150	class:Leaderboard	signature:(LeaderboardKart &lk1, LeaderboardKart &lk2)
+canLog	/home/stefano/Documents/Develop/AlienKartRace/src/leaderboard/leaderboard.cc	/^bool Leaderboard::canLog() {$/;"	function	line:207	class:Leaderboard	signature:()
+logTag	/home/stefano/Documents/Develop/AlienKartRace/src/leaderboard/leaderboard.cc	/^const char * Leaderboard::logTag() {$/;"	function	line:211	class:Leaderboard	signature:()
+main	/home/stefano/Documents/Develop/AlienKartRace/src/main/main.cc	/^int main() {$/;"	function	line:7	signature:()
+LAUNCHER_FADE_IN_DURATION	/home/stefano/Documents/Develop/AlienKartRace/src/launcher/launcher.cc	/^#define LAUNCHER_FADE_IN_DURATION /;"	macro	line:8	file:
+LAUNCHER_FADE_OUT_DURATION	/home/stefano/Documents/Develop/AlienKartRace/src/launcher/launcher.cc	/^#define LAUNCHER_FADE_OUT_DURATION /;"	macro	line:9	file:
+LAUNCHER_SHOW_DURATION	/home/stefano/Documents/Develop/AlienKartRace/src/launcher/launcher.cc	/^#define LAUNCHER_SHOW_DURATION /;"	macro	line:11	file:
+BACKGROUND_COLOR_RGB	/home/stefano/Documents/Develop/AlienKartRace/src/launcher/launcher.cc	/^#define BACKGROUND_COLOR_RGB /;"	macro	line:13	file:
+GAME_TITLE_COLOR_RGB	/home/stefano/Documents/Develop/AlienKartRace/src/launcher/launcher.cc	/^#define GAME_TITLE_COLOR_RGB /;"	macro	line:14	file:
+GAME_TITLE_FONT_SIZE	/home/stefano/Documents/Develop/AlienKartRace/src/launcher/launcher.cc	/^const float GAME_TITLE_FONT_SIZE = Const::WINDOW_HEIGHT \/ 6;$/;"	variable	line:16
+Launcher	/home/stefano/Documents/Develop/AlienKartRace/src/launcher/launcher.cc	/^Launcher::Launcher(sf::RenderWindow *w, KeyboardManager *keysManager)$/;"	function	line:18	class:Launcher	signature:(sf::RenderWindow *w, KeyboardManager *keysManager)
+update	/home/stefano/Documents/Develop/AlienKartRace/src/launcher/launcher.cc	/^void Launcher::update() {$/;"	function	line:48	class:Launcher	signature:()
+render	/home/stefano/Documents/Develop/AlienKartRace/src/launcher/launcher.cc	/^void Launcher::render() {$/;"	function	line:54	class:Launcher	signature:()
+initializedLauncherText	/home/stefano/Documents/Develop/AlienKartRace/src/launcher/launcher.cc	/^sf::Text * Launcher::initializedLauncherText(const char *str) {$/;"	function	line:62	class:Launcher	signature:(const char *str)
+startFadeOut	/home/stefano/Documents/Develop/AlienKartRace/src/launcher/launcher.cc	/^void Launcher::startFadeOut() {$/;"	function	line:80	class:Launcher	signature:()
+fadeInFinished	/home/stefano/Documents/Develop/AlienKartRace/src/launcher/launcher.cc	/^void Launcher::fadeInFinished() {$/;"	function	line:84	class:Launcher	signature:()
+fadeOutFinished	/home/stefano/Documents/Develop/AlienKartRace/src/launcher/launcher.cc	/^void Launcher::fadeOutFinished() {$/;"	function	line:88	class:Launcher	signature:()
+LOG_TAG	/home/stefano/Documents/Develop/AlienKartRace/src/map/base/map.cc	/^#define LOG_TAG /;"	macro	line:17	file:
+CAN_LOG	/home/stefano/Documents/Develop/AlienKartRace/src/map/base/map.cc	/^#define CAN_LOG /;"	macro	line:18	file:
+SectorsFileFieldIndex	/home/stefano/Documents/Develop/AlienKartRace/src/map/base/map.cc	/^enum SectorsFileFieldIndex {$/;"	enum	line:20	file:
+ULy	/home/stefano/Documents/Develop/AlienKartRace/src/map/base/map.cc	/^	ULy,$/;"	enumerator	line:21	enum:SectorsFileFieldIndex	file:
+ULx	/home/stefano/Documents/Develop/AlienKartRace/src/map/base/map.cc	/^	ULx,$/;"	enumerator	line:22	enum:SectorsFileFieldIndex	file:
+URy	/home/stefano/Documents/Develop/AlienKartRace/src/map/base/map.cc	/^	URy,$/;"	enumerator	line:23	enum:SectorsFileFieldIndex	file:
+URx	/home/stefano/Documents/Develop/AlienKartRace/src/map/base/map.cc	/^	URx,$/;"	enumerator	line:24	enum:SectorsFileFieldIndex	file:
+DRy	/home/stefano/Documents/Develop/AlienKartRace/src/map/base/map.cc	/^	DRy,$/;"	enumerator	line:25	enum:SectorsFileFieldIndex	file:
+DRx	/home/stefano/Documents/Develop/AlienKartRace/src/map/base/map.cc	/^	DRx,$/;"	enumerator	line:26	enum:SectorsFileFieldIndex	file:
+DLy	/home/stefano/Documents/Develop/AlienKartRace/src/map/base/map.cc	/^	DLy,$/;"	enumerator	line:27	enum:SectorsFileFieldIndex	file:
+DLx	/home/stefano/Documents/Develop/AlienKartRace/src/map/base/map.cc	/^	DLx,$/;"	enumerator	line:28	enum:SectorsFileFieldIndex	file:
+Type	/home/stefano/Documents/Develop/AlienKartRace/src/map/base/map.cc	/^	Type$/;"	enumerator	line:29	enum:SectorsFileFieldIndex	file:
+MATRIX_RENDERED_TILES_RADIUS	/home/stefano/Documents/Develop/AlienKartRace/src/map/base/map.cc	/^const int MATRIX_RENDERED_TILES_RADIUS = 32;$/;"	variable	line:33
+MATRIX_RENDERED_TILES_DIAMETER	/home/stefano/Documents/Develop/AlienKartRace/src/map/base/map.cc	/^const int MATRIX_RENDERED_TILES_DIAMETER = MATRIX_RENDERED_TILES_RADIUS * 2 + 1;$/;"	variable	line:36
+Map	/home/stefano/Documents/Develop/AlienKartRace/src/map/base/map.cc	/^Map::Map(sf::RenderWindow *window, Level *level) {$/;"	function	line:38	class:Map	signature:(sf::RenderWindow *window, Level *level)
+~Map	/home/stefano/Documents/Develop/AlienKartRace/src/map/base/map.cc	/^Map::~Map() {$/;"	function	line:51	class:Map	signature:()
+tileEvent	/home/stefano/Documents/Develop/AlienKartRace/src/map/base/map.cc	/^Map::TileEvent Map::tileEvent(const Point &p) {$/;"	function	line:55	class:Map	signature:(const Point &p)
+sector	/home/stefano/Documents/Develop/AlienKartRace/src/map/base/map.cc	/^Map::Sector Map::sector(const Point &p) {$/;"	function	line:64	class:Map	signature:(const Point &p)
+sectorCount	/home/stefano/Documents/Develop/AlienKartRace/src/map/base/map.cc	/^int Map::sectorCount() {$/;"	function	line:77	class:Map	signature:()
+aiPathCount	/home/stefano/Documents/Develop/AlienKartRace/src/map/base/map.cc	/^int Map::aiPathCount() {$/;"	function	line:81	class:Map	signature:()
+aiPath	/home/stefano/Documents/Develop/AlienKartRace/src/map/base/map.cc	/^const char *Map::aiPath(unsigned int index) {$/;"	function	line:85	class:Map	signature:(unsigned int index)
+randomAIPath	/home/stefano/Documents/Develop/AlienKartRace/src/map/base/map.cc	/^const char *Map::randomAIPath() {$/;"	function	line:91	class:Map	signature:()
+mapMatrixFillFunction	/home/stefano/Documents/Develop/AlienKartRace/src/map/base/map.cc	/^void Map::mapMatrixFillFunction(int readValue, int row, int col) {$/;"	function	line:96	class:Map	signature:(int readValue, int row, int col)
+eventsMatrixFillFunction	/home/stefano/Documents/Develop/AlienKartRace/src/map/base/map.cc	/^void Map::eventsMatrixFillFunction(int readValue, int row, int col) {$/;"	function	line:104	class:Map	signature:(int readValue, int row, int col)
+sectorsFillFunction	/home/stefano/Documents/Develop/AlienKartRace/src/map/base/map.cc	/^void Map::sectorsFillFunction(int readValue, int row, int col) {$/;"	function	line:108	class:Map	signature:(int readValue, int row, int col)
+loadMap	/home/stefano/Documents/Develop/AlienKartRace/src/map/base/map.cc	/^void Map::loadMap(const char *mapFilename) {$/;"	function	line:149	class:Map	signature:(const char *mapFilename)
+loadEvents	/home/stefano/Documents/Develop/AlienKartRace/src/map/base/map.cc	/^void Map::loadEvents(const char *eventsFilename) {$/;"	function	line:173	class:Map	signature:(const char *eventsFilename)
+loadTileset	/home/stefano/Documents/Develop/AlienKartRace/src/map/base/map.cc	/^void Map::loadTileset(const char *tilesetFilename) {$/;"	function	line:185	class:Map	signature:(const char *tilesetFilename)
+loadSectors	/home/stefano/Documents/Develop/AlienKartRace/src/map/base/map.cc	/^void Map::loadSectors(const char *sectorsFilename) {$/;"	function	line:189	class:Map	signature:(const char *sectorsFilename)
+addAIPath	/home/stefano/Documents/Develop/AlienKartRace/src/map/base/map.cc	/^void Map::addAIPath(const char *pathFilename) {$/;"	function	line:209	class:Map	signature:(const char *pathFilename)
+update	/home/stefano/Documents/Develop/AlienKartRace/src/map/base/map.cc	/^void Map::update() {$/;"	function	line:213	class:Map	signature:()
+draw	/home/stefano/Documents/Develop/AlienKartRace/src/map/base/map.cc	/^void Map::draw() {$/;"	function	line:217	class:Map	signature:()
+colCount	/home/stefano/Documents/Develop/AlienKartRace/src/map/base/map.cc	/^int Map::colCount() {$/;"	function	line:238	class:Map	signature:()
+rowCount	/home/stefano/Documents/Develop/AlienKartRace/src/map/base/map.cc	/^int Map::rowCount() {$/;"	function	line:242	class:Map	signature:()
+updateRenderedTiles	/home/stefano/Documents/Develop/AlienKartRace/src/map/base/map.cc	/^void Map::updateRenderedTiles() {$/;"	function	line:416	class:Map	signature:()
+drawPoint	/home/stefano/Documents/Develop/AlienKartRace/src/map/base/map.cc	/^void Map::drawPoint(sf::Image * map, const Point &p, sf::Color color, int size = 7) {$/;"	function	line:535	class:Map	signature:(sf::Image * map, const Point &p, sf::Color color, int size = 7)
+drawPoint	/home/stefano/Documents/Develop/AlienKartRace/src/map/base/map.cc	/^void Map::drawPoint(sf::Image * map, const IPoint &p, sf::Color color, int size = 7) {$/;"	function	line:546	class:Map	signature:(sf::Image * map, const IPoint &p, sf::Color color, int size = 7)
+drawLine	/home/stefano/Documents/Develop/AlienKartRace/src/map/base/map.cc	/^void Map::drawLine(double x1, double y1, double x2, double y2, double thickness) {$/;"	function	line:556	class:Map	signature:(double x1, double y1, double x2, double y2, double thickness)
+logTag	/home/stefano/Documents/Develop/AlienKartRace/src/map/base/map.cc	/^const char * Map::logTag() {$/;"	function	line:572	class:Map	signature:()
+canLog	/home/stefano/Documents/Develop/AlienKartRace/src/map/base/map.cc	/^bool Map::canLog() {$/;"	function	line:576	class:Map	signature:()
+MAP_H	/home/stefano/Documents/Develop/AlienKartRace/src/map/base/map.h	/^#define MAP_H$/;"	macro	line:2
+sf	/home/stefano/Documents/Develop/AlienKartRace/src/map/base/map.h	/^namespace sf {$/;"	namespace	line:10
+Map	/home/stefano/Documents/Develop/AlienKartRace/src/map/base/map.h	/^class Map : public LoggerInterface {$/;"	class	line:16
+SectorDirectionType	/home/stefano/Documents/Develop/AlienKartRace/src/map/base/map.h	/^	enum SectorDirectionType {$/;"	enum	line:18	class:Map
+UpLeft	/home/stefano/Documents/Develop/AlienKartRace/src/map/base/map.h	/^		UpLeft,$/;"	enumerator	line:19	enum:Map::SectorDirectionType
+UpRight	/home/stefano/Documents/Develop/AlienKartRace/src/map/base/map.h	/^		UpRight,$/;"	enumerator	line:20	enum:Map::SectorDirectionType
+RightUp	/home/stefano/Documents/Develop/AlienKartRace/src/map/base/map.h	/^		RightUp,$/;"	enumerator	line:21	enum:Map::SectorDirectionType
+RightDown	/home/stefano/Documents/Develop/AlienKartRace/src/map/base/map.h	/^		RightDown,$/;"	enumerator	line:22	enum:Map::SectorDirectionType
+DownRight	/home/stefano/Documents/Develop/AlienKartRace/src/map/base/map.h	/^		DownRight,$/;"	enumerator	line:23	enum:Map::SectorDirectionType
+DownLeft	/home/stefano/Documents/Develop/AlienKartRace/src/map/base/map.h	/^		DownLeft,$/;"	enumerator	line:24	enum:Map::SectorDirectionType
+LeftUp	/home/stefano/Documents/Develop/AlienKartRace/src/map/base/map.h	/^		LeftUp,$/;"	enumerator	line:25	enum:Map::SectorDirectionType
+LeftDown	/home/stefano/Documents/Develop/AlienKartRace/src/map/base/map.h	/^		LeftDown$/;"	enumerator	line:26	enum:Map::SectorDirectionType
+Sector	/home/stefano/Documents/Develop/AlienKartRace/src/map/base/map.h	/^	struct Sector {$/;"	struct	line:29	class:Map
+quad	/home/stefano/Documents/Develop/AlienKartRace/src/map/base/map.h	/^		Quad quad;$/;"	member	line:30	struct:Map::Sector
+type	/home/stefano/Documents/Develop/AlienKartRace/src/map/base/map.h	/^		SectorDirectionType type;$/;"	member	line:31	struct:Map::Sector
+index	/home/stefano/Documents/Develop/AlienKartRace/src/map/base/map.h	/^		int index;$/;"	member	line:32	struct:Map::Sector
+Sector	/home/stefano/Documents/Develop/AlienKartRace/src/map/base/map.h	/^	} typedef Sector;$/;"	typedef	line:33	class:Map
+TileEvent	/home/stefano/Documents/Develop/AlienKartRace/src/map/base/map.h	/^	enum TileEvent {$/;"	enum	line:35	class:Map
+Unpassable	/home/stefano/Documents/Develop/AlienKartRace/src/map/base/map.h	/^		Unpassable = 0,$/;"	enumerator	line:36	enum:Map::TileEvent
+Passable	/home/stefano/Documents/Develop/AlienKartRace/src/map/base/map.h	/^		Passable = 1,$/;"	enumerator	line:37	enum:Map::TileEvent
+Slow	/home/stefano/Documents/Develop/AlienKartRace/src/map/base/map.h	/^		Slow = 2,$/;"	enumerator	line:38	enum:Map::TileEvent
+LapFinished	/home/stefano/Documents/Develop/AlienKartRace/src/map/base/map.h	/^		LapFinished = 3$/;"	enumerator	line:39	enum:Map::TileEvent
+Tile	/home/stefano/Documents/Develop/AlienKartRace/src/map/base/map.h	/^	struct Tile {$/;"	struct	line:72	class:Map
+tilesetY	/home/stefano/Documents/Develop/AlienKartRace/src/map/base/map.h	/^		int tilesetY;$/;"	member	line:73	struct:Map::Tile
+tilesetX	/home/stefano/Documents/Develop/AlienKartRace/src/map/base/map.h	/^		int tilesetX;$/;"	member	line:74	struct:Map::Tile
+event	/home/stefano/Documents/Develop/AlienKartRace/src/map/base/map.h	/^		TileEvent event;$/;"	member	line:75	struct:Map::Tile
+Tile	/home/stefano/Documents/Develop/AlienKartRace/src/map/base/map.h	/^	} typedef Tile;$/;"	typedef	line:76	class:Map
+mWindow	/home/stefano/Documents/Develop/AlienKartRace/src/map/base/map.h	/^	sf::RenderWindow *mWindow;$/;"	member	line:78	class:Map
+mLevel	/home/stefano/Documents/Develop/AlienKartRace/src/map/base/map.h	/^	Level *mLevel;$/;"	member	line:79	class:Map
+mMatrix	/home/stefano/Documents/Develop/AlienKartRace/src/map/base/map.h	/^	Tile **mMatrix;$/;"	member	line:81	class:Map
+mColCount	/home/stefano/Documents/Develop/AlienKartRace/src/map/base/map.h	/^	int mColCount;$/;"	member	line:85	class:Map
+mRowCount	/home/stefano/Documents/Develop/AlienKartRace/src/map/base/map.h	/^	int mRowCount;$/;"	member	line:86	class:Map
+mDebugGridImage	/home/stefano/Documents/Develop/AlienKartRace/src/map/base/map.h	/^	sf::Image mDebugGridImage;$/;"	member	line:88	class:Map
+mRenderedTiles	/home/stefano/Documents/Develop/AlienKartRace/src/map/base/map.h	/^	sf::VertexArray mRenderedTiles;$/;"	member	line:90	class:Map
+mTileset	/home/stefano/Documents/Develop/AlienKartRace/src/map/base/map.h	/^	sf::Texture mTileset;$/;"	member	line:91	class:Map
+mSectors	/home/stefano/Documents/Develop/AlienKartRace/src/map/base/map.h	/^	std::vector<Sector> mSectors;$/;"	member	line:93	class:Map
+mAIPathsFilename	/home/stefano/Documents/Develop/AlienKartRace/src/map/base/map.h	/^	std::vector<const char *> mAIPathsFilename;$/;"	member	line:95	class:Map
+WINDOW_WIDTH	/home/stefano/Documents/Develop/AlienKartRace/src/const/const.cc	/^const int Const::WINDOW_WIDTH = 640;$/;"	member	line:3	class:Const	file:
+WINDOW_HEIGHT	/home/stefano/Documents/Develop/AlienKartRace/src/const/const.cc	/^const int Const::WINDOW_HEIGHT = 480;$/;"	member	line:4	class:Const	file:
+TARGET_UPDATES_PER_SECOND	/home/stefano/Documents/Develop/AlienKartRace/src/const/const.cc	/^const int Const::TARGET_UPDATES_PER_SECOND = 60;/;"	member	line:5	class:Const	file:
+EARTH_MAP_FILENAME	/home/stefano/Documents/Develop/AlienKartRace/src/map/impl/earth/earth.cc	/^#define EARTH_MAP_FILENAME /;"	macro	line:10	file:
+EARTH_EVENTS_FILENAME	/home/stefano/Documents/Develop/AlienKartRace/src/map/impl/earth/earth.cc	/^#define EARTH_EVENTS_FILENAME /;"	macro	line:11	file:
+EARTH_SECTORS_FILENAME	/home/stefano/Documents/Develop/AlienKartRace/src/map/impl/earth/earth.cc	/^#define EARTH_SECTORS_FILENAME /;"	macro	line:12	file:
+EARTH_TILESET_FILENAME	/home/stefano/Documents/Develop/AlienKartRace/src/map/impl/earth/earth.cc	/^#define EARTH_TILESET_FILENAME /;"	macro	line:13	file:
+EARTH_AI_PATH_FILENAME	/home/stefano/Documents/Develop/AlienKartRace/src/map/impl/earth/earth.cc	/^#define EARTH_AI_PATH_FILENAME(/;"	macro	line:14	file:
+Earth	/home/stefano/Documents/Develop/AlienKartRace/src/map/impl/earth/earth.cc	/^Earth::Earth(sf::RenderWindow *window, Level *level) : Map(window, level) {}$/;"	function	line:16	class:Earth	signature:(sf::RenderWindow *window, Level *level)
+loadMap	/home/stefano/Documents/Develop/AlienKartRace/src/map/impl/earth/earth.cc	/^void Earth::loadMap() {$/;"	function	line:18	class:Earth	signature:()
+startingPointForRacePosition	/home/stefano/Documents/Develop/AlienKartRace/src/map/impl/earth/earth.cc	/^Point Earth::startingPointForRacePosition(int racePosition) {$/;"	function	line:31	class:Earth	signature:(int racePosition)
+lastRacePosition	/home/stefano/Documents/Develop/AlienKartRace/src/map/impl/earth/earth.cc	/^int Earth::lastRacePosition() {$/;"	function	line:46	class:Earth	signature:()
+LOG_TAG	/home/stefano/Documents/Develop/AlienKartRace/src/level/level.cc	/^#define LOG_TAG /;"	macro	line:14	file:
+CAN_LOG	/home/stefano/Documents/Develop/AlienKartRace/src/level/level.cc	/^#define CAN_LOG /;"	macro	line:15	file:
+GO_TEXT	/home/stefano/Documents/Develop/AlienKartRace/src/level/level.cc	/^#define GO_TEXT /;"	macro	line:17	file:
+FADE_STARTING_ALPHA	/home/stefano/Documents/Develop/AlienKartRace/src/level/level.cc	/^#define FADE_STARTING_ALPHA /;"	macro	line:19	file:
+FADE_ENDING_ALPHA	/home/stefano/Documents/Develop/AlienKartRace/src/level/level.cc	/^#define FADE_ENDING_ALPHA /;"	macro	line:20	file:
+FADE_TIMER_COUNTDOWN_MS	/home/stefano/Documents/Develop/AlienKartRace/src/level/level.cc	/^#define FADE_TIMER_COUNTDOWN_MS /;"	macro	line:22	file:
+RACE_START_TIMER_COUNTDOWN_SEC	/home/stefano/Documents/Develop/AlienKartRace/src/level/level.cc	/^#define RACE_START_TIMER_COUNTDOWN_SEC /;"	macro	line:24	file:
+RACE_START_TIMER_GO_MS	/home/stefano/Documents/Develop/AlienKartRace/src/level/level.cc	/^#define RACE_START_TIMER_GO_MS /;"	macro	line:25	file:
+RACE_LAP_COUNT	/home/stefano/Documents/Develop/AlienKartRace/src/level/level.cc	/^#define RACE_LAP_COUNT /;"	macro	line:27	file:
+LAP_Q1_PERCENTAGE	/home/stefano/Documents/Develop/AlienKartRace/src/level/level.cc	/^#define LAP_Q1_PERCENTAGE /;"	macro	line:29	file:
+LAP_Q2_PERCENTAGE	/home/stefano/Documents/Develop/AlienKartRace/src/level/level.cc	/^#define LAP_Q2_PERCENTAGE /;"	macro	line:30	file:
+LAP_Q3_PERCENTAGE	/home/stefano/Documents/Develop/AlienKartRace/src/level/level.cc	/^#define LAP_Q3_PERCENTAGE /;"	macro	line:31	file:
+LAP_Q4_PERCENTAGE	/home/stefano/Documents/Develop/AlienKartRace/src/level/level.cc	/^#define LAP_Q4_PERCENTAGE /;"	macro	line:32	file:
+AI_KART_RGB_BLUE	/home/stefano/Documents/Develop/AlienKartRace/src/level/level.cc	/^#define AI_KART_RGB_BLUE /;"	macro	line:34	file:
+AI_KART_RGB_YELLOW	/home/stefano/Documents/Develop/AlienKartRace/src/level/level.cc	/^#define AI_KART_RGB_YELLOW /;"	macro	line:35	file:
+AI_KART_RGB_VIOLET	/home/stefano/Documents/Develop/AlienKartRace/src/level/level.cc	/^#define AI_KART_RGB_VIOLET /;"	macro	line:36	file:
+AI_KART_RGB_ORANGE	/home/stefano/Documents/Develop/AlienKartRace/src/level/level.cc	/^#define AI_KART_RGB_ORANGE /;"	macro	line:37	file:
+AI_KART_RGB_RED	/home/stefano/Documents/Develop/AlienKartRace/src/level/level.cc	/^#define AI_KART_RGB_RED /;"	macro	line:38	file:
+AI_KART_RGB_BROWN	/home/stefano/Documents/Develop/AlienKartRace/src/level/level.cc	/^#define AI_KART_RGB_BROWN	/;"	macro	line:39	file:
+AI_KART_RGB_AZURE	/home/stefano/Documents/Develop/AlienKartRace/src/level/level.cc	/^#define AI_KART_RGB_AZURE /;"	macro	line:40	file:
+KART_CRASH_RADIUS	/home/stefano/Documents/Develop/AlienKartRace/src/level/level.cc	/^#define KART_CRASH_RADIUS /;"	macro	line:42	file:
+MENU_OPTION_UNSELECTED_RGB	/home/stefano/Documents/Develop/AlienKartRace/src/level/level.cc	/^#define MENU_OPTION_UNSELECTED_RGB /;"	macro	line:44	file:
+MENU_OPTION_SELECTED_RGB	/home/stefano/Documents/Develop/AlienKartRace/src/level/level.cc	/^#define MENU_OPTION_SELECTED_RGB /;"	macro	line:45	file:
+MENU_OPTION_SELECTED_ALPHA_LOW	/home/stefano/Documents/Develop/AlienKartRace/src/level/level.cc	/^#define MENU_OPTION_SELECTED_ALPHA_LOW /;"	macro	line:47	file:
+MENU_OPTION_SELECTED_ALPHA_HIGH	/home/stefano/Documents/Develop/AlienKartRace/src/level/level.cc	/^#define MENU_OPTION_SELECTED_ALPHA_HIGH /;"	macro	line:48	file:
+MENU_OPTION_SELECTED_INCREMENT	/home/stefano/Documents/Develop/AlienKartRace/src/level/level.cc	/^#define MENU_OPTION_SELECTED_INCREMENT /;"	macro	line:49	file:
+MENU_OPTION_FONT_SIZE	/home/stefano/Documents/Develop/AlienKartRace/src/level/level.cc	/^const float MENU_OPTION_FONT_SIZE = Const::WINDOW_HEIGHT \/ 18;$/;"	variable	line:51
+Level	/home/stefano/Documents/Develop/AlienKartRace/src/level/level.cc	/^Level::Level(	sf::RenderWindow *window, KeyboardManager *keysManager,$/;"	function	line:53	class:Level	signature:( sf::RenderWindow *window, KeyboardManager *keysManager, KartFactory::KartType kartType, MapFactory::MapType mapType)
+~Level	/home/stefano/Documents/Develop/AlienKartRace/src/level/level.cc	/^Level::~Level() {$/;"	function	line:164	class:Level	signature:()
+playerKart	/home/stefano/Documents/Develop/AlienKartRace/src/level/level.cc	/^Kart * Level::playerKart() {$/;"	function	line:183	class:Level	signature:()
+map	/home/stefano/Documents/Develop/AlienKartRace/src/level/level.cc	/^Map * Level::map() {$/;"	function	line:187	class:Level	signature:()
+onKeyPressed	/home/stefano/Documents/Develop/AlienKartRace/src/level/level.cc	/^void Level::onKeyPressed(int keyCode) {$/;"	function	line:191	class:Level	signature:(int keyCode)
+update	/home/stefano/Documents/Develop/AlienKartRace/src/level/level.cc	/^void Level::update() {$/;"	function	line:203	class:Level	signature:()
+render	/home/stefano/Documents/Develop/AlienKartRace/src/level/level.cc	/^void Level::render() {$/;"	function	line:249	class:Level	signature:()
+pushSprite	/home/stefano/Documents/Develop/AlienKartRace/src/level/level.cc	/^void Level::pushSprite(sf::Sprite *sprite) {$/;"	function	line:291	class:Level	signature:(sf::Sprite *sprite)
+deleteKarts	/home/stefano/Documents/Develop/AlienKartRace/src/level/level.cc	/^void Level::deleteKarts() {$/;"	function	line:295	class:Level	signature:()
+initKarts	/home/stefano/Documents/Develop/AlienKartRace/src/level/level.cc	/^void Level::initKarts() {$/;"	function	line:306	class:Level	signature:()
+spriteDepthCompareFunction	/home/stefano/Documents/Develop/AlienKartRace/src/level/level.cc	/^bool Level::spriteDepthCompareFunction(sf::Sprite *s1, sf::Sprite *s2) {$/;"	function	line:338	class:Level	signature:(sf::Sprite *s1, sf::Sprite *s2)
+renderSpritesForDepth	/home/stefano/Documents/Develop/AlienKartRace/src/level/level.cc	/^void Level::renderSpritesForDepth() {$/;"	function	line:342	class:Level	signature:()
+updateKartsLapProgress	/home/stefano/Documents/Develop/AlienKartRace/src/level/level.cc	/^void Level::updateKartsLapProgress() {$/;"	function	line:351	class:Level	signature:()
+updateKartLapProgress	/home/stefano/Documents/Develop/AlienKartRace/src/level/level.cc	/^void Level::updateKartLapProgress(LevelNS::RacingKart &rk) {$/;"	function	line:361	class:Level	signature:(LevelNS::RacingKart &rk)
+handleKartsCrash	/home/stefano/Documents/Develop/AlienKartRace/src/level/level.cc	/^void Level::handleKartsCrash() {$/;"	function	line:402	class:Level	signature:()
+updateMenu	/home/stefano/Documents/Develop/AlienKartRace/src/level/level.cc	/^void Level::updateMenu(Menu &m, int keyCode) {$/;"	function	line:443	class:Level	signature:(Menu &m, int keyCode)
+updateLapText	/home/stefano/Documents/Develop/AlienKartRace/src/level/level.cc	/^void Level::updateLapText() {$/;"	function	line:457	class:Level	signature:()
+updateStartTimeText	/home/stefano/Documents/Develop/AlienKartRace/src/level/level.cc	/^void Level::updateStartTimeText() {$/;"	function	line:463	class:Level	signature:()
+drawInGameMenu	/home/stefano/Documents/Develop/AlienKartRace/src/level/level.cc	/^void Level::drawInGameMenu() {$/;"	function	line:482	class:Level	signature:()
+drawLevelFinishedMenu	/home/stefano/Documents/Develop/AlienKartRace/src/level/level.cc	/^void Level::drawLevelFinishedMenu() {$/;"	function	line:491	class:Level	signature:()
+drawMenuOptions	/home/stefano/Documents/Develop/AlienKartRace/src/level/level.cc	/^void Level::drawMenuOptions(Menu &m, int frameCenterX, int frameTopY, int frameBottomY) {$/;"	function	line:500	class:Level	signature:(Menu &m, int frameCenterX, int frameTopY, int frameBottomY)
+levelFinishedByAKart	/home/stefano/Documents/Develop/AlienKartRace/src/level/level.cc	/^bool Level::levelFinishedByAKart() {$/;"	function	line:530	class:Level	signature:()
+initialRacingKart	/home/stefano/Documents/Develop/AlienKartRace/src/level/level.cc	/^LevelNS::RacingKart Level::initialRacingKart(Kart *k) {$/;"	function	line:543	class:Level	signature:(Kart *k)
+retryFunc	/home/stefano/Documents/Develop/AlienKartRace/src/level/level.cc	/^void Level::retryFunc() {$/;"	function	line:551	class:Level	signature:()
+continueFunc	/home/stefano/Documents/Develop/AlienKartRace/src/level/level.cc	/^void Level::continueFunc() {$/;"	function	line:556	class:Level	signature:()
+quitFunc	/home/stefano/Documents/Develop/AlienKartRace/src/level/level.cc	/^void Level::quitFunc() {$/;"	function	line:560	class:Level	signature:()
+fadeInFinished	/home/stefano/Documents/Develop/AlienKartRace/src/level/level.cc	/^void Level::fadeInFinished() {$/;"	function	line:565	class:Level	signature:()
+fadeOutFinished	/home/stefano/Documents/Develop/AlienKartRace/src/level/level.cc	/^void Level::fadeOutFinished() {$/;"	function	line:570	class:Level	signature:()
+optionText	/home/stefano/Documents/Develop/AlienKartRace/src/level/level.cc	/^sf::Text * Level::optionText(const char *title) {$/;"	function	line:587	class:Level	signature:(const char *title)
+logTag	/home/stefano/Documents/Develop/AlienKartRace/src/level/level.cc	/^const char * Level::logTag() {$/;"	function	line:598	class:Level	signature:()
+canLog	/home/stefano/Documents/Develop/AlienKartRace/src/level/level.cc	/^bool Level::canLog() {$/;"	function	line:602	class:Level	signature:()
+sKartsTextures	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/kartfactory/kartfactory.cc	/^sf::Texture ** KartFactory::sKartsTextures = textures();$/;"	member	line:11	class:KartFactory	file:
+sKartsSkidGasTextures	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/kartfactory/kartfactory.cc	/^sf::Texture ** KartFactory::sKartsSkidGasTextures = skidGasTextures();$/;"	member	line:12	class:KartFactory	file:
+sKartsLeadboardFacesTextures	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/kartfactory/kartfactory.cc	/^sf::Texture *  KartFactory::sKartsLeadboardFacesTextures = leadeboardFacesTextures();$/;"	member	line:13	class:KartFactory	file:
+sKartsPickerTextures	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/kartfactory/kartfactory.cc	/^sf::Texture *  KartFactory::sKartsPickerTextures = pickerTextures();$/;"	member	line:14	class:KartFactory	file:
+params	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/kartfactory/kartfactory.cc	/^Kart::KartParams KartFactory::params(KartType type, double randomnessFactor) {$/;"	function	line:16	class:KartFactory	signature:(KartType type, double randomnessFactor)
+sprites	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/kartfactory/kartfactory.cc	/^int KartFactory::sprites(KartType type, sf::Sprite *&sprites) {$/;"	function	line:77	class:KartFactory	signature:(KartType type, sf::Sprite *&sprites)
+skidGasSprites	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/kartfactory/kartfactory.cc	/^int KartFactory::skidGasSprites(KartType type, sf::Sprite *&sprites) {$/;"	function	line:91	class:KartFactory	signature:(KartType type, sf::Sprite *&sprites)
+scaleFactor	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/kartfactory/kartfactory.cc	/^float KartFactory::scaleFactor(\/* KartType type*\/ ) {$/;"	function	line:105	class:KartFactory	signature:( )
+leadeboardFaceSprite	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/kartfactory/kartfactory.cc	/^sf::Sprite * KartFactory::leadeboardFaceSprite(KartType type) {$/;"	function	line:109	class:KartFactory	signature:(KartType type)
+pickerSprite	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/kartfactory/kartfactory.cc	/^sf::Sprite * KartFactory::pickerSprite(KartType type) {$/;"	function	line:115	class:KartFactory	signature:(KartType type)
+name	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/kartfactory/kartfactory.cc	/^const char * KartFactory::name(KartType type) {$/;"	function	line:121	class:KartFactory	signature:(KartType type)
+playerKart	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/kartfactory/kartfactory.cc	/^Kart * KartFactory::playerKart(Level *level, KartType type) {$/;"	function	line:130	class:KartFactory	signature:(Level *level, KartType type)
+textures	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/kartfactory/kartfactory.cc	/^sf::Texture ** KartFactory::textures() {$/;"	function	line:141	class:KartFactory	signature:()
+skidGasTextures	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/kartfactory/kartfactory.cc	/^sf::Texture ** KartFactory::skidGasTextures() {$/;"	function	line:160	class:KartFactory	signature:()
+leadeboardFacesTextures	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/kartfactory/kartfactory.cc	/^sf::Texture * KartFactory::leadeboardFacesTextures() {$/;"	function	line:179	class:KartFactory	signature:()
+pickerTextures	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/kartfactory/kartfactory.cc	/^sf::Texture * KartFactory::pickerTextures() {$/;"	function	line:189	class:KartFactory	signature:()
+spriteCount	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/kartfactory/kartfactory.cc	/^int KartFactory::spriteCount(KartType type) {$/;"	function	line:204	class:KartFactory	signature:(KartType type)
+spriteFilename	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/kartfactory/kartfactory.cc	/^std::string KartFactory::spriteFilename(KartType type, int index) {$/;"	function	line:213	class:KartFactory	signature:(KartType type, int index)
+spriteOrigin	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/kartfactory/kartfactory.cc	/^Point KartFactory::spriteOrigin(KartType type, int index) {$/;"	function	line:224	class:KartFactory	signature:(KartType type, int index)
+spriteSkidGasCount	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/kartfactory/kartfactory.cc	/^int KartFactory::spriteSkidGasCount(KartType type) {$/;"	function	line:235	class:KartFactory	signature:(KartType type)
+spriteSkidGasFilename	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/kartfactory/kartfactory.cc	/^std::string KartFactory::spriteSkidGasFilename(KartType type, int index) {$/;"	function	line:244	class:KartFactory	signature:(KartType type, int index)
+spriteSkidGasOrigin	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/kartfactory/kartfactory.cc	/^Point KartFactory::spriteSkidGasOrigin(KartType type, int index) {$/;"	function	line:258	class:KartFactory	signature:(KartType type, int index)
+spriteLeadeboardFaceFilename	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/kartfactory/kartfactory.cc	/^std::string KartFactory::spriteLeadeboardFaceFilename(KartType type) {$/;"	function	line:267	class:KartFactory	signature:(KartType type)
+spritePickerFilename	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/kartfactory/kartfactory.cc	/^std::string KartFactory::spritePickerFilename(KartType type) {$/;"	function	line:278	class:KartFactory	signature:(KartType type)
+GAME_TIMER_H	/home/stefano/Documents/Develop/AlienKartRace/src/gametimer/gametimer.h	/^#define GAME_TIMER_H$/;"	macro	line:2
+EVENT_ON_TIMER_FINISH	/home/stefano/Documents/Develop/AlienKartRace/src/gametimer/gametimer.h	/^#define EVENT_ON_TIMER_FINISH /;"	macro	line:6
+GameTimer	/home/stefano/Documents/Develop/AlienKartRace/src/gametimer/gametimer.h	/^template<class FuncOwner> class GameTimer {$/;"	class	line:8
+GameTimer	/home/stefano/Documents/Develop/AlienKartRace/src/gametimer/gametimer.h	/^    GameTimer() {$/;"	function	line:11	class:GameTimer	signature:()
+GameTimer	/home/stefano/Documents/Develop/AlienKartRace/src/gametimer/gametimer.h	/^    GameTimer(  int totalTimeMS,$/;"	function	line:16	class:GameTimer	signature:( int totalTimeMS, FuncOwner *instance = NULL, void (FuncOwner::*eventFunc)() = NULL, int eventTimeMS = EVENT_ON_TIMER_FINISH)
+initialize	/home/stefano/Documents/Develop/AlienKartRace/src/gametimer/gametimer.h	/^    void initialize(int totalTimeMS,$/;"	function	line:23	class:GameTimer	signature:(int totalTimeMS, FuncOwner *instance = NULL, void (FuncOwner::*eventFunc)() = NULL, int eventTimeMS = EVENT_ON_TIMER_FINISH)
+reset	/home/stefano/Documents/Develop/AlienKartRace/src/gametimer/gametimer.h	/^    void reset() {$/;"	function	line:43	class:GameTimer	signature:()
+restart	/home/stefano/Documents/Develop/AlienKartRace/src/gametimer/gametimer.h	/^    void restart() {$/;"	function	line:49	class:GameTimer	signature:()
+start	/home/stefano/Documents/Develop/AlienKartRace/src/gametimer/gametimer.h	/^    void start() {$/;"	function	line:54	class:GameTimer	signature:()
+stop	/home/stefano/Documents/Develop/AlienKartRace/src/gametimer/gametimer.h	/^    void stop() {$/;"	function	line:58	class:GameTimer	signature:()
+update	/home/stefano/Documents/Develop/AlienKartRace/src/gametimer/gametimer.h	/^    int update() {$/;"	function	line:62	class:GameTimer	signature:()
+isRunning	/home/stefano/Documents/Develop/AlienKartRace/src/gametimer/gametimer.h	/^    bool isRunning() {$/;"	function	line:78	class:GameTimer	signature:()
+currentTicks	/home/stefano/Documents/Develop/AlienKartRace/src/gametimer/gametimer.h	/^    int currentTicks() {$/;"	function	line:82	class:GameTimer	signature:()
+mTotalTicks	/home/stefano/Documents/Develop/AlienKartRace/src/gametimer/gametimer.h	/^    int mTotalTicks;$/;"	member	line:87	class:GameTimer
+mEventTicks	/home/stefano/Documents/Develop/AlienKartRace/src/gametimer/gametimer.h	/^    int mEventTicks;$/;"	member	line:88	class:GameTimer
+mCurrentTotalTicks	/home/stefano/Documents/Develop/AlienKartRace/src/gametimer/gametimer.h	/^    int mCurrentTotalTicks;$/;"	member	line:90	class:GameTimer
+mCurrentEventTicks	/home/stefano/Documents/Develop/AlienKartRace/src/gametimer/gametimer.h	/^    int mCurrentEventTicks;$/;"	member	line:91	class:GameTimer
+mRunning	/home/stefano/Documents/Develop/AlienKartRace/src/gametimer/gametimer.h	/^    bool mRunning;$/;"	member	line:93	class:GameTimer
+mEventFuncOwnerInstance	/home/stefano/Documents/Develop/AlienKartRace/src/gametimer/gametimer.h	/^    FuncOwner *mEventFuncOwnerInstance;$/;"	member	line:95	class:GameTimer
+mEventFunc	/home/stefano/Documents/Develop/AlienKartRace/src/gametimer/gametimer.h	/^    void (FuncOwner::*mEventFunc)();$/;"	member	line:96	class:GameTimer
+CONST_H	/home/stefano/Documents/Develop/AlienKartRace/src/const/const.h	/^#define CONST_H$/;"	macro	line:2
+Const	/home/stefano/Documents/Develop/AlienKartRace/src/const/const.h	/^namespace Const {$/;"	namespace	line:5
+lineForTwoPoints	/home/stefano/Documents/Develop/AlienKartRace/src/util/geometry/geometryutil.cc	/^Line  GeometryUtil::lineForTwoPoints(const Point &p1, const Point &p2) {$/;"	function	line:4	class:GeometryUtil	signature:(const Point &p1, const Point &p2)
+intersectionForTwoLines	/home/stefano/Documents/Develop/AlienKartRace/src/util/geometry/geometryutil.cc	/^Point GeometryUtil::intersectionForTwoLines(const Line &l1, const Line &l2) {$/;"	function	line:13	class:GeometryUtil	signature:(const Line &l1, const Line &l2)
+distanceBetweenTwoPoints	/home/stefano/Documents/Develop/AlienKartRace/src/util/geometry/geometryutil.cc	/^double GeometryUtil::distanceBetweenTwoPoints(const Point &p1, const Point &p2) {$/;"	function	line:22	class:GeometryUtil	signature:(const Point &p1, const Point &p2)
+hypot	/home/stefano/Documents/Develop/AlienKartRace/src/util/geometry/geometryutil.cc	/^double GeometryUtil::hypot(double d1, double d2) {$/;"	function	line:29	class:GeometryUtil	signature:(double d1, double d2)
+toIPoint	/home/stefano/Documents/Develop/AlienKartRace/src/util/geometry/geometryutil.cc	/^IPoint GeometryUtil::toIPoint(const Point &p) {$/;"	function	line:33	class:GeometryUtil	signature:(const Point &p)
+GEOMETRY_UTIL_H	/home/stefano/Documents/Develop/AlienKartRace/src/util/geometry/geometryutil.h	/^#define GEOMETRY_UTIL_H$/;"	macro	line:2
+GeometryUtil	/home/stefano/Documents/Develop/AlienKartRace/src/util/geometry/geometryutil.h	/^class GeometryUtil {$/;"	class	line:8
+GEOMETRY_ENTITIES_H	/home/stefano/Documents/Develop/AlienKartRace/src/util/geometry/geometryentities.h	/^#define GEOMETRY_ENTITIES_H$/;"	macro	line:2
+Point	/home/stefano/Documents/Develop/AlienKartRace/src/util/geometry/geometryentities.h	/^struct Point {$/;"	struct	line:6
+x	/home/stefano/Documents/Develop/AlienKartRace/src/util/geometry/geometryentities.h	/^	double x;$/;"	member	line:7	struct:Point
+y	/home/stefano/Documents/Develop/AlienKartRace/src/util/geometry/geometryentities.h	/^	double y;$/;"	member	line:8	struct:Point
+Point	/home/stefano/Documents/Develop/AlienKartRace/src/util/geometry/geometryentities.h	/^} typedef Point;$/;"	typedef	line:9
+IPoint	/home/stefano/Documents/Develop/AlienKartRace/src/util/geometry/geometryentities.h	/^struct IPoint {$/;"	struct	line:11
+x	/home/stefano/Documents/Develop/AlienKartRace/src/util/geometry/geometryentities.h	/^	int x;$/;"	member	line:12	struct:IPoint
+y	/home/stefano/Documents/Develop/AlienKartRace/src/util/geometry/geometryentities.h	/^	int y;$/;"	member	line:13	struct:IPoint
+operator Point	/home/stefano/Documents/Develop/AlienKartRace/src/util/geometry/geometryentities.h	/^	operator Point() {$/;"	function	line:14	struct:IPoint	signature:()
+IPoint	/home/stefano/Documents/Develop/AlienKartRace/src/util/geometry/geometryentities.h	/^} typedef IPoint;$/;"	typedef	line:17
+Line	/home/stefano/Documents/Develop/AlienKartRace/src/util/geometry/geometryentities.h	/^struct Line {$/;"	struct	line:19
+m	/home/stefano/Documents/Develop/AlienKartRace/src/util/geometry/geometryentities.h	/^	double m;$/;"	member	line:20	struct:Line
+q	/home/stefano/Documents/Develop/AlienKartRace/src/util/geometry/geometryentities.h	/^	double q;$/;"	member	line:21	struct:Line
+Line	/home/stefano/Documents/Develop/AlienKartRace/src/util/geometry/geometryentities.h	/^} typedef Line;$/;"	typedef	line:22
+Quad	/home/stefano/Documents/Develop/AlienKartRace/src/util/geometry/geometryentities.h	/^struct Quad {$/;"	struct	line:24
+ul	/home/stefano/Documents/Develop/AlienKartRace/src/util/geometry/geometryentities.h	/^	Point ul;$/;"	member	line:25	struct:Quad
+ur	/home/stefano/Documents/Develop/AlienKartRace/src/util/geometry/geometryentities.h	/^	Point ur;$/;"	member	line:26	struct:Quad
+dr	/home/stefano/Documents/Develop/AlienKartRace/src/util/geometry/geometryentities.h	/^	Point dr;$/;"	member	line:27	struct:Quad
+dl	/home/stefano/Documents/Develop/AlienKartRace/src/util/geometry/geometryentities.h	/^	Point dl;$/;"	member	line:28	struct:Quad
+Quad	/home/stefano/Documents/Develop/AlienKartRace/src/util/geometry/geometryentities.h	/^} typedef Quad;$/;"	typedef	line:32
+Angle	/home/stefano/Documents/Develop/AlienKartRace/src/util/geometry/geometryentities.h	/^struct Angle {$/;"	struct	line:34
+Angle	/home/stefano/Documents/Develop/AlienKartRace/src/util/geometry/geometryentities.h	/^	Angle() {}$/;"	function	line:35	struct:Angle	signature:()
+rad	/home/stefano/Documents/Develop/AlienKartRace/src/util/geometry/geometryentities.h	/^    double rad;$/;"	member	line:38	struct:Angle
+Angle	/home/stefano/Documents/Develop/AlienKartRace/src/util/geometry/geometryentities.h	/^} typedef Angle;$/;"	typedef	line:44
+Vector	/home/stefano/Documents/Develop/AlienKartRace/src/util/geometry/geometryentities.h	/^struct Vector {$/;"	struct	line:51
+direction	/home/stefano/Documents/Develop/AlienKartRace/src/util/geometry/geometryentities.h	/^	Angle direction;$/;"	member	line:52	struct:Vector
+magnitude	/home/stefano/Documents/Develop/AlienKartRace/src/util/geometry/geometryentities.h	/^	double magnitude;$/;"	member	line:53	struct:Vector
+Vector	/home/stefano/Documents/Develop/AlienKartRace/src/util/geometry/geometryentities.h	/^} typedef Vector;$/;"	typedef	line:56
+DirectionalPoint	/home/stefano/Documents/Develop/AlienKartRace/src/util/geometry/geometryentities.h	/^struct DirectionalPoint {$/;"	struct	line:59
+DirectionalPoint	/home/stefano/Documents/Develop/AlienKartRace/src/util/geometry/geometryentities.h	/^	DirectionalPoint() {}$/;"	function	line:60	struct:DirectionalPoint	signature:()
+position	/home/stefano/Documents/Develop/AlienKartRace/src/util/geometry/geometryentities.h	/^	Point position;$/;"	member	line:63	struct:DirectionalPoint
+direction	/home/stefano/Documents/Develop/AlienKartRace/src/util/geometry/geometryentities.h	/^	Angle direction;$/;"	member	line:64	struct:DirectionalPoint
+DirectionalPoint	/home/stefano/Documents/Develop/AlienKartRace/src/util/geometry/geometryentities.h	/^} typedef DirectionalPoint;$/;"	typedef	line:74
+operator <<	/home/stefano/Documents/Develop/AlienKartRace/src/util/geometry/geometryentities.cc	/^std::ostream& operator << (std::ostream &o, const IPoint &ip) {$/;"	function	line:7	signature:(std::ostream &o, const IPoint &ip)
+operator <<	/home/stefano/Documents/Develop/AlienKartRace/src/util/geometry/geometryentities.cc	/^std::ostream& operator << (std::ostream &o, const Point &p) {$/;"	function	line:12	signature:(std::ostream &o, const Point &p)
+operator <<	/home/stefano/Documents/Develop/AlienKartRace/src/util/geometry/geometryentities.cc	/^std::ostream& operator << (std::ostream &o, const Line &l) {$/;"	function	line:17	signature:(std::ostream &o, const Line &l)
+operator <<	/home/stefano/Documents/Develop/AlienKartRace/src/util/geometry/geometryentities.cc	/^std::ostream& operator << (std::ostream &o, const Quad &q) {$/;"	function	line:22	signature:(std::ostream &o, const Quad &q)
+operator <<	/home/stefano/Documents/Develop/AlienKartRace/src/util/geometry/geometryentities.cc	/^std::ostream& operator << (std::ostream &o, const Vector &v) {$/;"	function	line:28	signature:(std::ostream &o, const Vector &v)
+operator <<	/home/stefano/Documents/Develop/AlienKartRace/src/util/geometry/geometryentities.cc	/^std::ostream& operator << (std::ostream &o, const Angle &a) {$/;"	function	line:33	signature:(std::ostream &o, const Angle &a)
+operator <<	/home/stefano/Documents/Develop/AlienKartRace/src/util/geometry/geometryentities.cc	/^std::ostream& operator << (std::ostream &o, const DirectionalPoint &v) {$/;"	function	line:38	signature:(std::ostream &o, const DirectionalPoint &v)
+contains	/home/stefano/Documents/Develop/AlienKartRace/src/util/geometry/geometryentities.cc	/^bool Quad::contains(const Point &p) const {$/;"	function	line:47	class:Quad	signature:(const Point &p) const
+intersects	/home/stefano/Documents/Develop/AlienKartRace/src/util/geometry/geometryentities.cc	/^bool Quad::intersects(const Quad &q) const {$/;"	function	line:57	class:Quad	signature:(const Quad &q) const
+Angle	/home/stefano/Documents/Develop/AlienKartRace/src/util/geometry/geometryentities.cc	/^Angle::Angle(double angleRad) : rad(MathUtil::mod(angleRad, 2 * M_PI)) {}$/;"	function	line:74	class:Angle	signature:(double angleRad)
+operator +=	/home/stefano/Documents/Develop/AlienKartRace/src/util/geometry/geometryentities.cc	/^Angle & Angle::operator+=(const Angle &a) {$/;"	function	line:76	class:Angle	signature:(const Angle &a)
+operator +=	/home/stefano/Documents/Develop/AlienKartRace/src/util/geometry/geometryentities.cc	/^Angle & Angle::operator+=(double rad) {$/;"	function	line:81	class:Angle	signature:(double rad)
+operator -=	/home/stefano/Documents/Develop/AlienKartRace/src/util/geometry/geometryentities.cc	/^Angle & Angle::operator-=(Angle a) {$/;"	function	line:87	class:Angle	signature:(Angle a)
+operator -=	/home/stefano/Documents/Develop/AlienKartRace/src/util/geometry/geometryentities.cc	/^Angle & Angle::operator-=(double rad) {$/;"	function	line:93	class:Angle	signature:(double rad)
+operator +	/home/stefano/Documents/Develop/AlienKartRace/src/util/geometry/geometryentities.cc	/^Angle operator +(Angle a1, const Angle &a2) {$/;"	function	line:99	signature:(Angle a1, const Angle &a2)
+operator +	/home/stefano/Documents/Develop/AlienKartRace/src/util/geometry/geometryentities.cc	/^Angle operator +(Angle a1, double rad) {$/;"	function	line:104	signature:(Angle a1, double rad)
+operator -	/home/stefano/Documents/Develop/AlienKartRace/src/util/geometry/geometryentities.cc	/^Angle operator -(Angle a1, const Angle &a2) {$/;"	function	line:109	signature:(Angle a1, const Angle &a2)
+operator -	/home/stefano/Documents/Develop/AlienKartRace/src/util/geometry/geometryentities.cc	/^Angle operator -(Angle a1, double rad) {$/;"	function	line:114	signature:(Angle a1, double rad)
+operator +=	/home/stefano/Documents/Develop/AlienKartRace/src/util/geometry/geometryentities.cc	/^Vector & Vector::operator+=(const Vector &v) {$/;"	function	line:123	class:Vector	signature:(const Vector &v)
+operator +	/home/stefano/Documents/Develop/AlienKartRace/src/util/geometry/geometryentities.cc	/^Vector operator +(Vector v1, const Vector &v2) {$/;"	function	line:136	signature:(Vector v1, const Vector &v2)
+DirectionalPoint	/home/stefano/Documents/Develop/AlienKartRace/src/util/geometry/geometryentities.cc	/^DirectionalPoint::DirectionalPoint(const Point &pStart, const Point &pEnd) {$/;"	function	line:145	class:DirectionalPoint	signature:(const Point &pStart, const Point &pEnd)
+DirectionalPoint	/home/stefano/Documents/Develop/AlienKartRace/src/util/geometry/geometryentities.cc	/^DirectionalPoint::DirectionalPoint(const Point &p, const Angle &a) : position(p), direction(a) {}$/;"	function	line:152	class:DirectionalPoint	signature:(const Point &p, const Angle &a)
+operator +=	/home/stefano/Documents/Develop/AlienKartRace/src/util/geometry/geometryentities.cc	/^DirectionalPoint& DirectionalPoint::operator+=(const Angle &a) {$/;"	function	line:154	class:DirectionalPoint	signature:(const Angle &a)
+operator +=	/home/stefano/Documents/Develop/AlienKartRace/src/util/geometry/geometryentities.cc	/^DirectionalPoint& DirectionalPoint::operator+=(double rad) {$/;"	function	line:159	class:DirectionalPoint	signature:(double rad)
+operator -=	/home/stefano/Documents/Develop/AlienKartRace/src/util/geometry/geometryentities.cc	/^DirectionalPoint& DirectionalPoint::operator-=(Angle a) {$/;"	function	line:165	class:DirectionalPoint	signature:(Angle a)
+operator -=	/home/stefano/Documents/Develop/AlienKartRace/src/util/geometry/geometryentities.cc	/^DirectionalPoint& DirectionalPoint::operator-=(double rad) {$/;"	function	line:171	class:DirectionalPoint	signature:(double rad)
+operator +	/home/stefano/Documents/Develop/AlienKartRace/src/util/geometry/geometryentities.cc	/^DirectionalPoint operator+(DirectionalPoint v1, const Angle &angle) {$/;"	function	line:177	signature:(DirectionalPoint v1, const Angle &angle)
+operator +	/home/stefano/Documents/Develop/AlienKartRace/src/util/geometry/geometryentities.cc	/^DirectionalPoint operator+(DirectionalPoint v1, double angleRad) {$/;"	function	line:182	signature:(DirectionalPoint v1, double angleRad)
+operator -	/home/stefano/Documents/Develop/AlienKartRace/src/util/geometry/geometryentities.cc	/^DirectionalPoint operator-(DirectionalPoint v1, const Angle &angle) {$/;"	function	line:187	signature:(DirectionalPoint v1, const Angle &angle)
+operator -	/home/stefano/Documents/Develop/AlienKartRace/src/util/geometry/geometryentities.cc	/^DirectionalPoint operator-(DirectionalPoint v1, double angleRad) {$/;"	function	line:192	signature:(DirectionalPoint v1, double angleRad)
+operator -	/home/stefano/Documents/Develop/AlienKartRace/src/util/geometry/geometryentities.cc	/^Angle operator-(DirectionalPoint v1, const Point &p) {$/;"	function	line:197	signature:(DirectionalPoint v1, const Point &p)
+advance	/home/stefano/Documents/Develop/AlienKartRace/src/util/geometry/geometryentities.cc	/^void DirectionalPoint::advance(double magnitude) {$/;"	function	line:202	class:DirectionalPoint	signature:(double magnitude)
+advance	/home/stefano/Documents/Develop/AlienKartRace/src/util/geometry/geometryentities.cc	/^void DirectionalPoint::advance(const Vector & v) {$/;"	function	line:206	class:DirectionalPoint	signature:(const Vector & v)
+advance	/home/stefano/Documents/Develop/AlienKartRace/src/util/geometry/geometryentities.cc	/^void DirectionalPoint::advance(double ang, double magnitude) {$/;"	function	line:210	class:DirectionalPoint	signature:(double ang, double magnitude)
+LOG_TAG	/home/stefano/Documents/Develop/AlienKartRace/src/game/game.cc	/^#define LOG_TAG /;"	macro	line:8	file:
+CAN_LOG	/home/stefano/Documents/Develop/AlienKartRace/src/game/game.cc	/^#define CAN_LOG /;"	macro	line:9	file:
+GAME_TITLE	/home/stefano/Documents/Develop/AlienKartRace/src/game/game.cc	/^#define GAME_TITLE /;"	macro	line:11	file:
+Game	/home/stefano/Documents/Develop/AlienKartRace/src/game/game.cc	/^Game::Game() {$/;"	function	line:13	class:Game	signature:()
+~Game	/home/stefano/Documents/Develop/AlienKartRace/src/game/game.cc	/^Game::~Game() {$/;"	function	line:17	class:Game	signature:()
+start	/home/stefano/Documents/Develop/AlienKartRace/src/game/game.cc	/^void Game::start() {$/;"	function	line:25	class:Game	signature:()
+window	/home/stefano/Documents/Develop/AlienKartRace/src/game/game.cc	/^sf::RenderWindow* Game::window() {$/;"	function	line:82	class:Game	signature:()
+keysManager	/home/stefano/Documents/Develop/AlienKartRace/src/game/game.cc	/^KeyboardManager * Game::keysManager() {$/;"	function	line:86	class:Game	signature:()
+init	/home/stefano/Documents/Develop/AlienKartRace/src/game/game.cc	/^void Game::init() {$/;"	function	line:92	class:Game	signature:()
+update	/home/stefano/Documents/Develop/AlienKartRace/src/game/game.cc	/^void Game::update() {$/;"	function	line:100	class:Game	signature:()
+render	/home/stefano/Documents/Develop/AlienKartRace/src/game/game.cc	/^void Game::render() {$/;"	function	line:104	class:Game	signature:()
+pollEvents	/home/stefano/Documents/Develop/AlienKartRace/src/game/game.cc	/^void Game::pollEvents() {$/;"	function	line:110	class:Game	signature:()
+logTag	/home/stefano/Documents/Develop/AlienKartRace/src/game/game.cc	/^const char * Game::logTag() {$/;"	function	line:126	class:Game	signature:()
+canLog	/home/stefano/Documents/Develop/AlienKartRace/src/game/game.cc	/^bool Game::canLog() {$/;"	function	line:130	class:Game	signature:()
+MAP_ENTITY_H	/home/stefano/Documents/Develop/AlienKartRace/src/entity/base/mapentity.h	/^#define MAP_ENTITY_H$/;"	macro	line:2
+MapEntity	/home/stefano/Documents/Develop/AlienKartRace/src/entity/base/mapentity.h	/^class MapEntity {$/;"	class	line:10
+MAP_MOVING_ENTITY_H	/home/stefano/Documents/Develop/AlienKartRace/src/entity/base/mapmovingentity.h	/^#define MAP_MOVING_ENTITY_H$/;"	macro	line:2
+MapMovingEntity	/home/stefano/Documents/Develop/AlienKartRace/src/entity/base/mapmovingentity.h	/^class MapMovingEntity : public MapEntity {$/;"	class	line:9
+PARAM_RANDOMNESS_FACTOR	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/aikart/impl/venusian/aivenusian.cc	/^#define PARAM_RANDOMNESS_FACTOR /;"	macro	line:8	file:
+AIVenusian	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/aikart/impl/venusian/aivenusian.cc	/^AIVenusian::AIVenusian( Level * level, const char *kartName,$/;"	function	line:10	class:AIVenusian	signature:( Level * level, const char *kartName, sf::Color *kartColor, const char *pathName)
+initSprites	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/aikart/impl/venusian/aivenusian.cc	/^void AIVenusian::initSprites() {$/;"	function	line:19	class:AIVenusian	signature:()
+initParameters	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/aikart/impl/venusian/aivenusian.cc	/^void AIVenusian::initParameters() {$/;"	function	line:24	class:AIVenusian	signature:()
+AI_VENUSIAN_H	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/aikart/impl/venusian/aivenusian.h	/^#define AI_VENUSIAN_H$/;"	macro	line:2
+AIVenusian	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/aikart/impl/venusian/aivenusian.h	/^class AIVenusian : public AIKart {$/;"	class	line:7
+PLAYER_VENUSIAN_H	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/playerkart/impl/venusian/playervenusian.h	/^#define PLAYER_VENUSIAN_H$/;"	macro	line:2
+PlayerVenusian	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/playerkart/impl/venusian/playervenusian.h	/^class PlayerVenusian : public PlayerKart {$/;"	class	line:7
+GAME_H	/home/stefano/Documents/Develop/AlienKartRace/src/game/game.h	/^#define GAME_H$/;"	macro	line:2
+sf	/home/stefano/Documents/Develop/AlienKartRace/src/game/game.h	/^namespace sf {$/;"	namespace	line:6
+Game	/home/stefano/Documents/Develop/AlienKartRace/src/game/game.h	/^class Game : public LoggerInterface {$/;"	class	line:15
+mWindow	/home/stefano/Documents/Develop/AlienKartRace/src/game/game.h	/^	sf::RenderWindow *mWindow;$/;"	member	line:40	class:Game
+mAsyncKeyboardManager	/home/stefano/Documents/Develop/AlienKartRace/src/game/game.h	/^	KeyboardManager *mAsyncKeyboardManager;$/;"	member	line:43	class:Game
+mScreenManager	/home/stefano/Documents/Develop/AlienKartRace/src/game/game.h	/^	ScreenManager *mScreenManager;$/;"	member	line:46	class:Game
+MATH_UTIL_H	/home/stefano/Documents/Develop/AlienKartRace/src/util/math/mathutil.h	/^#define MATH_UTIL_H$/;"	macro	line:2
+MathUtil	/home/stefano/Documents/Develop/AlienKartRace/src/util/math/mathutil.h	/^class MathUtil {$/;"	class	line:6
+MATH_ENTITIES_H	/home/stefano/Documents/Develop/AlienKartRace/src/util/math/mathentities.h	/^#define MATH_ENTITIES_H$/;"	macro	line:2
+Range	/home/stefano/Documents/Develop/AlienKartRace/src/util/math/mathentities.h	/^struct Range {$/;"	struct	line:4
+low	/home/stefano/Documents/Develop/AlienKartRace/src/util/math/mathentities.h	/^    double low;$/;"	member	line:5	struct:Range
+high	/home/stefano/Documents/Develop/AlienKartRace/src/util/math/mathentities.h	/^    double high;$/;"	member	line:6	struct:Range
+Range	/home/stefano/Documents/Develop/AlienKartRace/src/util/math/mathentities.h	/^} typedef Range;$/;"	typedef	line:7
+BoundRange	/home/stefano/Documents/Develop/AlienKartRace/src/util/math/mathentities.h	/^struct BoundRange {$/;"	struct	line:9
+low	/home/stefano/Documents/Develop/AlienKartRace/src/util/math/mathentities.h	/^    double low;$/;"	member	line:10	struct:BoundRange
+high	/home/stefano/Documents/Develop/AlienKartRace/src/util/math/mathentities.h	/^    double high;$/;"	member	line:11	struct:BoundRange
+associatedValue	/home/stefano/Documents/Develop/AlienKartRace/src/util/math/mathentities.h	/^    int associatedValue;$/;"	member	line:12	struct:BoundRange
+BoundRange	/home/stefano/Documents/Develop/AlienKartRace/src/util/math/mathentities.h	/^} typedef BoundRange;$/;"	typedef	line:13
+LOG_TAG	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/aikart/base/aikart.cc	/^#define LOG_TAG /;"	macro	line:16	file:
+CAN_LOG	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/aikart/base/aikart.cc	/^#define CAN_LOG /;"	macro	line:17	file:
+minimapSize	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/aikart/base/aikart.cc	/^int AIKart::minimapSize() {$/;"	function	line:19	class:AIKart	signature:()
+AIKart	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/aikart/base/aikart.cc	/^AIKart::AIKart( Level * level, const char *kartName,$/;"	function	line:23	class:AIKart	signature:( Level * level, const char *kartName, sf::Color *kartColor, const char *pathName)
+~AIKart	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/aikart/base/aikart.cc	/^AIKart::~AIKart() {$/;"	function	line:30	class:AIKart	signature:()
+draw	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/aikart/base/aikart.cc	/^void AIKart::draw() {$/;"	function	line:34	class:AIKart	signature:()
+update	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/aikart/base/aikart.cc	/^void AIKart::update() {$/;"	function	line:89	class:AIKart	signature:()
+pathArrayFillFunction	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/aikart/base/aikart.cc	/^void AIKart::pathArrayFillFunction(int readVal, int fileRow, int fileCol) {$/;"	function	line:150	class:AIKart	signature:(int readVal, int fileRow, int fileCol)
+initAIPath	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/aikart/base/aikart.cc	/^void AIKart::initAIPath() {$/;"	function	line:158	class:AIKart	signature:()
+logTag	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/aikart/base/aikart.cc	/^const char * AIKart::logTag() {$/;"	function	line:180	class:AIKart	signature:()
+canLog	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/aikart/base/aikart.cc	/^bool AIKart::canLog() {$/;"	function	line:184	class:AIKart	signature:()
+AI_KART_H	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/aikart/base/aikart.h	/^#define AI_KART_H$/;"	macro	line:2
+sf	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/aikart/base/aikart.h	/^namespace sf {$/;"	namespace	line:6
+AIKart	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/aikart/base/aikart.h	/^class AIKart : public Kart {$/;"	class	line:16
+AIPath	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/aikart/base/aikart.h	/^    struct AIPath {$/;"	struct	line:42	class:AIKart
+points	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/aikart/base/aikart.h	/^        Point *points;$/;"	member	line:43	struct:AIKart::AIPath
+pointCount	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/aikart/base/aikart.h	/^        int pointCount;$/;"	member	line:44	struct:AIKart::AIPath
+AIPath	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/aikart/base/aikart.h	/^    } typedef AIPath;$/;"	typedef	line:45	class:AIKart
+mPath	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/aikart/base/aikart.h	/^    AIPath mPath;$/;"	member	line:48	class:AIKart
+mPathFilename	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/aikart/base/aikart.h	/^    std::string mPathFilename;$/;"	member	line:54	class:AIKart
+mNextPathPointIndex	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/aikart/base/aikart.h	/^    int mNextPathPointIndex;$/;"	member	line:57	class:AIKart
+PLAYER_KART_H	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/playerkart/base/playerkart.h	/^#define PLAYER_KART_H$/;"	macro	line:2
+PlayerKart	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/playerkart/base/playerkart.h	/^class PlayerKart : public Kart {$/;"	class	line:9
+PERSPECTIVE_POINT	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/playerkart/base/playerkart.h	/^	static const Point PERSPECTIVE_POINT;$/;"	member	line:15	class:PlayerKart
+PERSPECTIVE_SCALE	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/playerkart/base/playerkart.h	/^	static const float PERSPECTIVE_SCALE;$/;"	member	line:18	class:PlayerKart
+TURNING_RANGE_COUNT	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/playerkart/base/playerkart.h	/^	static const int TURNING_RANGE_COUNT = 11;$/;"	member	line:32	class:PlayerKart
+mSkidGasSprites	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/playerkart/base/playerkart.h	/^    sf::Sprite *mSkidGasSprites;$/;"	member	line:35	class:PlayerKart
+mSkidGasSpriteCount	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/playerkart/base/playerkart.h	/^    int mSkidGasSpriteCount;$/;"	member	line:38	class:PlayerKart
+mRenderTurningRanges	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/playerkart/base/playerkart.h	/^	BoundRange mRenderTurningRanges[TURNING_RANGE_COUNT];$/;"	member	line:41	class:PlayerKart
+KART_H	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/base/kart.h	/^#define KART_H$/;"	macro	line:2
+sf	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/base/kart.h	/^namespace sf {$/;"	namespace	line:8
+Kart	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/base/kart.h	/^class Kart : public MapMovingEntity, public LoggerInterface {$/;"	class	line:20
+KartParams	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/base/kart.h	/^    struct KartParams {$/;"	struct	line:24	class:Kart
+maxSpeed	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/base/kart.h	/^		double maxSpeed;$/;"	member	line:26	struct:Kart::KartParams
+minSpeed	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/base/kart.h	/^		double minSpeed;$/;"	member	line:29	struct:Kart::KartParams
+maxWheelTurning	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/base/kart.h	/^		double maxWheelTurning;$/;"	member	line:32	struct:Kart::KartParams
+accelerationFactor	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/base/kart.h	/^		double accelerationFactor; \/\/$/;"	member	line:38	struct:Kart::KartParams
+decelerationFactor	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/base/kart.h	/^		double decelerationFactor;$/;"	member	line:44	struct:Kart::KartParams
+backwardAccelerationFactor	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/base/kart.h	/^		double backwardAccelerationFactor;$/;"	member	line:50	struct:Kart::KartParams
+brakeFactor	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/base/kart.h	/^		double brakeFactor;$/;"	member	line:56	struct:Kart::KartParams
+steeringWheelTurningFactor	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/base/kart.h	/^		double steeringWheelTurningFactor;$/;"	member	line:62	struct:Kart::KartParams
+steeringWheelTurningFactorSkidding	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/base/kart.h	/^		double steeringWheelTurningFactorSkidding;$/;"	member	line:68	struct:Kart::KartParams
+steeringWheelReturnFactor	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/base/kart.h	/^		double steeringWheelReturnFactor;$/;"	member	line:75	struct:Kart::KartParams
+wheelTurningSkidPoint	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/base/kart.h	/^		double wheelTurningSkidPoint;$/;"	member	line:78	struct:Kart::KartParams
+slownessFactor	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/base/kart.h	/^		double slownessFactor;$/;"	member	line:84	struct:Kart::KartParams
+weight	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/base/kart.h	/^		double weight;$/;"	member	line:87	struct:Kart::KartParams
+CollisionType	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/base/kart.h	/^	enum CollisionType {$/;"	enum	line:177	class:Kart
+Bounce	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/base/kart.h	/^		Bounce,$/;"	enumerator	line:179	enum:Kart::CollisionType
+Crash	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/base/kart.h	/^		Crash$/;"	enumerator	line:181	enum:Kart::CollisionType
+CollisionVector	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/base/kart.h	/^	struct CollisionVector {$/;"	struct	line:189	class:Kart
+type	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/base/kart.h	/^		CollisionType type;$/;"	member	line:190	struct:Kart::CollisionVector
+k	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/base/kart.h	/^		Kart *k;$/;"	member	line:191	struct:Kart::CollisionVector
+v	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/base/kart.h	/^		Vector v;$/;"	member	line:192	struct:Kart::CollisionVector
+CollisionVector	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/base/kart.h	/^	} typedef CollisionVector;$/;"	typedef	line:193	class:Kart
+mLevel	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/base/kart.h	/^	Level *mLevel;$/;"	member	line:196	class:Kart
+mDirectionalPoint	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/base/kart.h	/^	DirectionalPoint mDirectionalPoint;$/;"	member	line:199	class:Kart
+mParams	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/base/kart.h	/^	KartParams mParams;$/;"	member	line:202	class:Kart
+mSprites	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/base/kart.h	/^	sf::Sprite *mSprites;$/;"	member	line:205	class:Kart
+mSpriteCount	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/base/kart.h	/^	int mSpriteCount;$/;"	member	line:208	class:Kart
+mLeaderboardSprite	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/base/kart.h	/^	sf::Sprite *mLeaderboardSprite;$/;"	member	line:211	class:Kart
+mWheelTurning	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/base/kart.h	/^	double mWheelTurning;$/;"	member	line:214	class:Kart
+mSpeed	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/base/kart.h	/^	double mSpeed;$/;"	member	line:217	class:Kart
+mName	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/base/kart.h	/^	const char *mName;$/;"	member	line:220	class:Kart
+mColor	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/base/kart.h	/^	sf::Color *mColor;$/;"	member	line:223	class:Kart
+mCollisionForces	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/base/kart.h	/^	std::list<CollisionVector> mCollisionForces;$/;"	member	line:226	class:Kart
+FONT_FACTORY_H	/home/stefano/Documents/Develop/AlienKartRace/src/font/fontfactory.h	/^#define FONT_FACTORY_H$/;"	macro	line:2
+sf	/home/stefano/Documents/Develop/AlienKartRace/src/font/fontfactory.h	/^namespace sf {$/;"	namespace	line:4
+FontFactory	/home/stefano/Documents/Develop/AlienKartRace/src/font/fontfactory.h	/^class FontFactory {$/;"	class	line:12
+FontType	/home/stefano/Documents/Develop/AlienKartRace/src/font/fontfactory.h	/^    enum FontType {$/;"	enum	line:15	class:FontFactory
+Plain	/home/stefano/Documents/Develop/AlienKartRace/src/font/fontfactory.h	/^        Plain,$/;"	enumerator	line:17	enum:FontFactory::FontType
+Semibold	/home/stefano/Documents/Develop/AlienKartRace/src/font/fontfactory.h	/^        Semibold,$/;"	enumerator	line:20	enum:FontFactory::FontType
+Fancy	/home/stefano/Documents/Develop/AlienKartRace/src/font/fontfactory.h	/^        Fancy,$/;"	enumerator	line:23	enum:FontFactory::FontType
+_FontTypeCount	/home/stefano/Documents/Develop/AlienKartRace/src/font/fontfactory.h	/^        _FontTypeCount$/;"	enumerator	line:26	enum:FontFactory::FontType
+sFonts	/home/stefano/Documents/Develop/AlienKartRace/src/font/fontfactory.h	/^    static sf::Font *sFonts;$/;"	member	line:38	class:FontFactory
+KART_FACTORY_H	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/kartfactory/kartfactory.h	/^#define KART_FACTORY_H$/;"	macro	line:2
+sf	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/kartfactory/kartfactory.h	/^namespace sf {$/;"	namespace	line:8
+KartFactory	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/kartfactory/kartfactory.h	/^class KartFactory {$/;"	class	line:19
+KartType	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/kartfactory/kartfactory.h	/^    enum KartType {$/;"	enum	line:22	class:KartFactory
+VenusianType	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/kartfactory/kartfactory.h	/^        VenusianType,$/;"	enumerator	line:24	enum:KartFactory::KartType
+_KartTypeCount	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/kartfactory/kartfactory.h	/^        _KartTypeCount$/;"	enumerator	line:27	enum:KartFactory::KartType
+sKartsTextures	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/kartfactory/kartfactory.h	/^    static sf::Texture **sKartsTextures;$/;"	member	line:98	class:KartFactory
+sKartsSkidGasTextures	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/kartfactory/kartfactory.h	/^    static sf::Texture **sKartsSkidGasTextures;$/;"	member	line:101	class:KartFactory
+sKartsLeadboardFacesTextures	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/kartfactory/kartfactory.h	/^    static sf::Texture * sKartsLeadboardFacesTextures;$/;"	member	line:104	class:KartFactory
+sKartsPickerTextures	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/kartfactory/kartfactory.h	/^    static sf::Texture * sKartsPickerTextures;$/;"	member	line:107	class:KartFactory
+PlayerVenusian	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/playerkart/impl/venusian/playervenusian.cc	/^PlayerVenusian::PlayerVenusian(Level *level, const char *kartName, sf::Color *kartColor)$/;"	function	line:9	class:PlayerVenusian	signature:(Level *level, const char *kartName, sf::Color *kartColor)
+initSprites	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/playerkart/impl/venusian/playervenusian.cc	/^void PlayerVenusian::initSprites() {$/;"	function	line:16	class:PlayerVenusian	signature:()
+draw	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/playerkart/impl/venusian/playervenusian.cc	/^void PlayerVenusian::draw() {$/;"	function	line:33	class:PlayerVenusian	signature:()
+initParameters	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/playerkart/impl/venusian/playervenusian.cc	/^void PlayerVenusian::initParameters() {$/;"	function	line:41	class:PlayerVenusian	signature:()
+PERSPECTIVE_POINT	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/playerkart/base/playerkart.cc	/^const Point PlayerKart::PERSPECTIVE_POINT = PerspectiveUtil::perspectivePoint($/;"	member	line:11	class:PlayerKart	file:
+PERSPECTIVE_SCALE	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/playerkart/base/playerkart.cc	/^const float PlayerKart::PERSPECTIVE_SCALE = PerspectiveUtil::scaleForPerspectivePoint($/;"	member	line:20	class:PlayerKart	file:
+PlayerKart	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/playerkart/base/playerkart.cc	/^PlayerKart::PlayerKart(Level * level, const char *kartName, sf::Color *kartColor)$/;"	function	line:26	class:PlayerKart	signature:(Level * level, const char *kartName, sf::Color *kartColor)
+minimapSize	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/playerkart/base/playerkart.cc	/^int PlayerKart::minimapSize() {$/;"	function	line:29	class:PlayerKart	signature:()
+update	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/playerkart/base/playerkart.cc	/^void PlayerKart::update() {$/;"	function	line:33	class:PlayerKart	signature:()
+draw	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/playerkart/base/playerkart.cc	/^void PlayerKart::draw() {$/;"	function	line:42	class:PlayerKart	signature:()
+initRenderTurningRanges	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/playerkart/base/playerkart.cc	/^void PlayerKart::initRenderTurningRanges() {$/;"	function	line:49	class:PlayerKart	signature:()
+initSprites	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/playerkart/base/playerkart.cc	/^void PlayerKart::initSprites() {$/;"	function	line:108	class:PlayerKart	signature:()
+LOG_TAG	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/base/kart.cc	/^#define LOG_TAG /;"	macro	line:10	file:
+CAN_LOG	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/base/kart.cc	/^#define CAN_LOG /;"	macro	line:11	file:
+FLIGHT_MODE	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/base/kart.cc	/^#define FLIGHT_MODE /;"	macro	line:13	file:
+COLLISION_BOUNCE_FACTOR	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/base/kart.cc	/^const double COLLISION_BOUNCE_FACTOR = 0.7;$/;"	variable	line:15
+COLLISION_BOUNCE_REDUCTION_FACTOR	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/base/kart.cc	/^const double COLLISION_BOUNCE_REDUCTION_FACTOR = (double)1 \/ 120;$/;"	variable	line:16
+COLLISION_CRASH_FACTOR	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/base/kart.cc	/^const double COLLISION_CRASH_FACTOR = 0.2;$/;"	variable	line:18
+COLLISION_CRASH_REDUCTION_FACTOR	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/base/kart.cc	/^const double COLLISION_CRASH_REDUCTION_FACTOR = (double)1 \/ (1 << 9);$/;"	variable	line:19
+MINI_MAP_KART_SIZE	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/base/kart.cc	/^const int MINI_MAP_KART_SIZE = 2;$/;"	variable	line:21
+Kart	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/base/kart.cc	/^Kart::Kart(Level * level, const char *kartName, sf::Color *kartColor) {$/;"	function	line:23	class:Kart	signature:(Level * level, const char *kartName, sf::Color *kartColor)
+~Kart	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/base/kart.cc	/^Kart::~Kart() {$/;"	function	line:34	class:Kart	signature:()
+position	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/base/kart.cc	/^Point Kart::position() {$/;"	function	line:42	class:Kart	signature:()
+direction	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/base/kart.cc	/^Angle Kart::direction() {$/;"	function	line:46	class:Kart	signature:()
+directionalPoint	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/base/kart.cc	/^DirectionalPoint Kart::directionalPoint() {$/;"	function	line:50	class:Kart	signature:()
+name	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/base/kart.cc	/^const char * Kart::name() {$/;"	function	line:54	class:Kart	signature:()
+color	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/base/kart.cc	/^sf::Color Kart::color() {$/;"	function	line:58	class:Kart	signature:()
+leadeboardSprite	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/base/kart.cc	/^sf::Sprite *Kart::leadeboardSprite() {$/;"	function	line:62	class:Kart	signature:()
+setPosition	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/base/kart.cc	/^void Kart::setPosition(const Point p) {$/;"	function	line:66	class:Kart	signature:(const Point p)
+setDirection	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/base/kart.cc	/^void Kart::setDirection(const Angle a) {$/;"	function	line:70	class:Kart	signature:(const Angle a)
+update	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/base/kart.cc	/^void Kart::update(bool goForward, bool goBackward, bool goLeft, bool goRight) {$/;"	function	line:74	class:Kart	signature:(bool goForward, bool goBackward, bool goLeft, bool goRight)
+update	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/base/kart.cc	/^void Kart::update() {$/;"	function	line:235	class:Kart	signature:()
+crash	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/base/kart.cc	/^void Kart::crash(Kart *k) {$/;"	function	line:239	class:Kart	signature:(Kart *k)
+bounce	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/base/kart.cc	/^void Kart::bounce() {$/;"	function	line:270	class:Kart	signature:()
+isSkidding	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/base/kart.cc	/^bool Kart::isSkidding() {$/;"	function	line:292	class:Kart	signature:()
+isBouncing	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/base/kart.cc	/^bool Kart::isBouncing() {$/;"	function	line:296	class:Kart	signature:()
+advanceInCurrentDirection	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/base/kart.cc	/^void Kart::advanceInCurrentDirection() {$/;"	function	line:306	class:Kart	signature:()
+logTag	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/base/kart.cc	/^const char * Kart::logTag() {$/;"	function	line:365	class:Kart	signature:()
+canLog	/home/stefano/Documents/Develop/AlienKartRace/src/entity/kart/base/kart.cc	/^bool Kart::canLog() {$/;"	function	line:369	class:Kart	signature:()
+changeRange	/home/stefano/Documents/Develop/AlienKartRace/src/util/math/mathtutil.cc	/^double MathUtil::changeRange(const Range &r1, const Range &r2, double r1Val) {$/;"	function	line:5	class:MathUtil	signature:(const Range &r1, const Range &r2, double r1Val)
+changeRangeToInt	/home/stefano/Documents/Develop/AlienKartRace/src/util/math/mathtutil.cc	/^int MathUtil::changeRangeToInt(const Range &r1, const Range &r2, double r1Val) {$/;"	function	line:9	class:MathUtil	signature:(const Range &r1, const Range &r2, double r1Val)
+isInRange	/home/stefano/Documents/Develop/AlienKartRace/src/util/math/mathtutil.cc	/^bool MathUtil::isInRange(const Range &r, double val) {$/;"	function	line:13	class:MathUtil	signature:(const Range &r, double val)
+rangeBelongingTo	/home/stefano/Documents/Develop/AlienKartRace/src/util/math/mathtutil.cc	/^double MathUtil::rangeBelongingTo(const BoundRange ranges[], int rangeCount, double val) {$/;"	function	line:17	class:MathUtil	signature:(const BoundRange ranges[], int rangeCount, double val)
+mod	/home/stefano/Documents/Develop/AlienKartRace/src/util/math/mathtutil.cc	/^double MathUtil::mod(double d1, double d2) {$/;"	function	line:25	class:MathUtil	signature:(double d1, double d2)
+random	/home/stefano/Documents/Develop/AlienKartRace/src/util/math/mathtutil.cc	/^double MathUtil::random(const Range &r) {$/;"	function	line:34	class:MathUtil	signature:(const Range &r)

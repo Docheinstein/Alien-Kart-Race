@@ -1,0 +1,7 @@
+<map id="AIVenusian" name="AIVenusian">
+<area shape="rect" id="node2" href="$classAIKart.html" title="Base entity representing a kart controller by the CPU. " alt="" coords="108,229,167,256"/>
+<area shape="rect" id="node3" href="$classKart.html" title="Base entity representing a kart. " alt="" coords="114,155,161,181"/>
+<area shape="rect" id="node4" href="$classMapMovingEntity.html" title="Represents an abstract entity placed into a map that have a direction. " alt="" coords="5,80,128,107"/>
+<area shape="rect" id="node5" href="$classMapEntity.html" title="Represents an abstract entity placed into a map. " alt="" coords="26,5,107,32"/>
+<area shape="rect" id="node6" href="$classLoggerInterface.html" title="LoggerInterface" alt="" coords="152,80,264,107"/>
+</map>

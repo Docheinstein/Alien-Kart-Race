@@ -2,6 +2,7 @@
 #include "kartfactory.h"
 #include "const.h"
 #include "viewutil.h"
+#include "mathutil.h"
 #include "perspectiveutil.h"
 #include "resourceutil.h"
 #include "playervenusian.h"
@@ -12,7 +13,7 @@ sf::Texture ** KartFactory::sKartsSkidGasTextures = skidGasTextures();
 sf::Texture *  KartFactory::sKartsLeadboardFacesTextures = leadeboardFacesTextures();
 sf::Texture *  KartFactory::sKartsPickerTextures = pickerTextures();
 
-Kart::KartParams KartFactory::params(KartType type) {
+Kart::KartParams KartFactory::params(KartType type, double randomnessFactor) {
     Kart::KartParams params;
     switch (type) {
     case VenusianType: {
@@ -28,15 +29,48 @@ Kart::KartParams KartFactory::params(KartType type) {
         params.steeringWheelTurningFactor = 0.018;
         params.steeringWheelTurningFactorSkidding = 0.036;
     	params.steeringWheelReturnFactor = 0.016;
-        params.bounceSpeedInitialSpeed = params.maxSpeed * 0.9;
-        params.bounceDecellerationFactor = (double) 1 / 160;
+
+        params.slownessFactor = 0.5;
 
         params.weight = 0.5;
-        return params;
     }
     default:
-        return params;
+        break;
     }
+
+    if (randomnessFactor != 0) {
+        Range randRange {-randomnessFactor, randomnessFactor};
+        params.maxSpeed +=
+            params.maxSpeed * MathUtil::random(randRange);
+        params.minSpeed +=
+            params.minSpeed * MathUtil::random(randRange);
+        params.maxWheelTurning +=
+            params.maxWheelTurning * MathUtil::random(randRange);
+        params.wheelTurningSkidPoint +=
+            params.wheelTurningSkidPoint * MathUtil::random(randRange);
+        params.accelerationFactor +=
+            params.accelerationFactor * MathUtil::random(randRange);
+        params.backwardAccelerationFactor +=
+            params.backwardAccelerationFactor * MathUtil::random(randRange);
+        params.decelerationFactor +=
+            params.decelerationFactor * MathUtil::random(randRange);
+        params.brakeFactor +=
+            params.brakeFactor * MathUtil::random(randRange);
+
+        params.steeringWheelTurningFactor +=
+            params.steeringWheelTurningFactor * MathUtil::random(randRange);
+        params.steeringWheelTurningFactorSkidding +=
+            params.steeringWheelTurningFactorSkidding * MathUtil::random(randRange);
+        params.steeringWheelReturnFactor +=
+            params.steeringWheelReturnFactor * MathUtil::random(randRange);
+
+        params.slownessFactor +=
+            params.slownessFactor * MathUtil::random(randRange);
+        params.weight +=
+            params.weight * MathUtil::random(randRange);
+    }
+
+    return params;
 }
 
 

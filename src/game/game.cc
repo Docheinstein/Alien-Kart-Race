@@ -1,7 +1,5 @@
 #include <SFML/Graphics.hpp>
-#include <iostream>
 #include "game.h"
-#include "logger.h"
 #include "keyboardmanager.h"
 #include "screenmanager.h"
 #include "launcher.h"
@@ -22,10 +20,13 @@ Game::~Game() {
 	delete mWindow;
 }
 
+// PUBLIC
+
 void Game::start() {
 	const int TARGET_UPDATE_MS = 1000 / Const::TARGET_UPDATES_PER_SECOND;
-	const int CYCLE_TO_PERFORM_FOR_NOTIFY_AVG_TIME = 300;
 
+	// Represents the cycles between benchmarks.
+	const int CYCLE_TO_PERFORM_FOR_NOTIFY_AVG_TIME = 300;
 
 	int performedCycles = 0;
 	long cyclesMillisSum = 0;
@@ -44,11 +45,15 @@ void Game::start() {
 		// double cycleConsumedMillisPercentage = (double) cycleMillis / TARGET_UPDATE_MS * 100;
 		// benchmark("Millis used for the cycle ", cycleMillis);
 		// benchmark("Maximum amount of millis available per cycle: ", TARGET_UPDATE_MS);
-		// benchmark("Cycle is taking ", cycleMillis, "ms; ", cycleConsumedMillisPercentage, "% of the available time.");
-		// There is enough time to sleep
+		// benchmark("Cycle is taking ", cycleMillis, "ms; ", cycleConsumedMillisPercentage,
+		// 			 "% of the available time.");
+
+		// There is enough time to sleep (in order not to consume CPU)
 		if (cycleMillis <= TARGET_UPDATE_MS)
 			sleep(sf::milliseconds(TARGET_UPDATE_MS - cycleMillis));
 		else {
+			// We are out of time => do not render until we are under the maximum
+			// amount of time for the cycle (frame skip)
 			int skippedFrames = 0;
 			while (cycleMillis > TARGET_UPDATE_MS) {
 				skippedFrames++;
@@ -82,7 +87,26 @@ KeyboardManager * Game::keysManager() {
 	return mAsyncKeyboardManager;
 }
 
-// Private
+// PRIVATE
+
+void Game::init() {
+    mWindow = new sf::RenderWindow(sf::VideoMode(
+		Const::WINDOW_WIDTH, Const::WINDOW_HEIGHT), GAME_TITLE);
+	mAsyncKeyboardManager = new KeyboardManager();
+	mScreenManager = new ScreenManager(this);
+	mScreenManager->setScreen(new Launcher(mWindow, mAsyncKeyboardManager));
+}
+
+void Game::update() {
+	mScreenManager->update();
+}
+
+void Game::render() {
+	mWindow->clear(sf::Color::White);
+	mScreenManager->render();
+	mWindow->display();
+}
+
 void Game::pollEvents() {
 	sf::Event event;
 	while (mWindow->pollEvent(event)) {
@@ -97,31 +121,6 @@ void Game::pollEvents() {
 			break;
 		}
 	}
-}
-
-void Game::update() {
-	// mLevel->update();
-	mScreenManager->update();
-}
-
-void Game::render() {
-	// Draw
-	mWindow->clear(sf::Color::White);
-
-	// mLevel->render();
-	mScreenManager->render();
-
-	mWindow->display();
-}
-
-// Private
-void Game::init() {
-    mWindow = new sf::RenderWindow(sf::VideoMode(
-		Const::WINDOW_WIDTH, Const::WINDOW_HEIGHT), GAME_TITLE);
-	mAsyncKeyboardManager = new KeyboardManager();
-	//mLevel = new Level(this);
-	mScreenManager = new ScreenManager(this);
-	mScreenManager->setScreen(new Launcher(mWindow, mAsyncKeyboardManager));
 }
 
 const char * Game::logTag() {

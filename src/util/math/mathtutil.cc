@@ -30,3 +30,7 @@ double MathUtil::mod(double d1, double d2) {
         res += d2;
     return res;
 }
+
+double MathUtil::random(const Range &r) {
+    return (r.low + (double)rand() * (r.high - r.low) / RAND_MAX);
+}

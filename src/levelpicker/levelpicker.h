@@ -64,6 +64,8 @@ private:
     sf::Text    *mKartHeaderText;
     sf::Text    *mMapHeaderText;
 
+    bool mInPicking;
+
     sf::Text *initializedPickerSectionText(const char *str);
 
     void addPickableKart(KartFactory::KartType type);

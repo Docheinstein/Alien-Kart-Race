@@ -1,0 +1,6 @@
+<map id="Screen" name="Screen">
+<area shape="rect" id="node2" href="$classFadeScreen.html" title="FadeScreen" alt="" coords="85,80,177,107"/>
+<area shape="rect" id="node3" href="$classLauncher.html" title="Launcher" alt="" coords="5,155,80,181"/>
+<area shape="rect" id="node4" href="$classLevel.html" title="Level" alt="" coords="104,155,157,181"/>
+<area shape="rect" id="node5" href="$classLevelPicker.html" title="LevelPicker" alt="" coords="181,155,272,181"/>
+</map>

@@ -1,0 +1,8 @@
+<map id="MapMovingEntity" name="MapMovingEntity">
+<area shape="rect" id="node3" href="$classKart.html" title="Base entity representing a kart. " alt="" coords="81,155,128,181"/>
+<area shape="rect" id="node2" href="$classMapEntity.html" title="Represents an abstract entity placed into a map. " alt="" coords="64,5,145,32"/>
+<area shape="rect" id="node4" href="$classAIKart.html" title="Base entity representing a kart controller by the CPU. " alt="" coords="29,229,87,256"/>
+<area shape="rect" id="node6" href="$classPlayerKart.html" title="Base entity representing a kart controller by the player. " alt="" coords="126,229,209,256"/>
+<area shape="rect" id="node5" href="$classAIVenusian.html" title="Implementation of an AI kart of type Venusian. " alt="" coords="5,304,95,331"/>
+<area shape="rect" id="node7" href="$classPlayerVenusian.html" title="Implementation of a player kart of type Venusian. " alt="" coords="119,304,232,331"/>
+</map>

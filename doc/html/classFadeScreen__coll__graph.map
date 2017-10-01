@@ -1,0 +1,5 @@
+<map id="FadeScreen" name="FadeScreen">
+<area shape="rect" id="node2" href="$classScreen.html" title="Screen" alt="" coords="37,95,100,121"/>
+<area shape="rect" id="node3" href="$classKeyboardManager.html" title="KeyboardManager" alt="" coords="5,5,132,32"/>
+<area shape="rect" id="node4" href="$classGameTimer.html" title="GameTimer\&lt; FadeScreen \&gt;" alt="" coords="202,95,386,121"/>
+</map>

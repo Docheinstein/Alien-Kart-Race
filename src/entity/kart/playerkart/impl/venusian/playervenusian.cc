@@ -19,7 +19,7 @@ void PlayerVenusian::initSprites() {
     mSkidGasSpriteCount = KartFactory::skidGasSprites(KartFactory::KartType::VenusianType, mSkidGasSprites);
 
     float kartScaleFactor = KartFactory::scaleFactor();
-    float scaleFactor  = PLAYER_KART_PERSPECTIVE_SCALE * kartScaleFactor;
+    float scaleFactor  = PERSPECTIVE_SCALE * kartScaleFactor;
     d("Venusian scale factor:", scaleFactor);
     for (int i = 0; i < mSpriteCount; i ++)
         mSprites[i].setScale(scaleFactor, scaleFactor);

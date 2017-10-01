@@ -5,6 +5,7 @@
 #include <iostream>
 
 int main() {
+	srand(time(NULL));
 	Game game;
 	game.start();
 	// Vector v1;

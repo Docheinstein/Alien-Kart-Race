@@ -3,6 +3,7 @@
 #include "aikart.h"
 #include "fileutil.h"
 #include "geometryutil.h"
+#include "resourceutil.h"
 #include "perspectiveutil.h"
 #include "viewutil.h"
 #include "mathutil.h"
@@ -19,9 +20,11 @@ int AIKart::minimapSize() {
     return Minimap::MINIMAP_SIZE / 128;
 }
 
-AIKart::AIKart( Level * level, const char *kartName, sf::Color *kartColor)
+AIKart::AIKart( Level * level, const char *kartName,
+                sf::Color *kartColor, const char *pathName)
                  : Kart(level, kartName, kartColor) {
-	mDirectionalPoint.direction = Angle {(double)1 / (1 << 9)};
+     mPathFilename = pathName;
+     mDirectionalPoint.direction = Angle {(double)1 / (1 << 9)};
 }
 
 AIKart::~AIKart() {
@@ -57,8 +60,8 @@ void AIKart::draw() {
 
     int spriteIndexForCurrentDirection =
         MathUtil::changeRangeToInt(
-            MathUtil::Range {0, 2 * M_PI },
-            MathUtil::Range {0, static_cast<double>(mSpriteCount)},
+            Range {0, 2 * M_PI },
+            Range {0, static_cast<double>(mSpriteCount)},
             angleDiff) % mSpriteCount;
     // d2("Choosing int index: ", spriteIndexForCurrentDirection);
 
@@ -154,16 +157,17 @@ void AIKart::pathArrayFillFunction(int readVal, int fileRow, int fileCol) {
 
 void AIKart::initAIPath() {
     int fileRowCount, fileColCount;
-	FileUtil::getMatrixSize<int>(mPathFilename.c_str(), fileRowCount, fileColCount);
+    std::string pathFile = ResourceUtil::raw(mPathFilename.c_str());
+	FileUtil::getMatrixSize<int>(pathFile.c_str(), fileRowCount, fileColCount);
 	mPath.pointCount = fileColCount / 2;
     mPath.points = new Point[mPath.pointCount];
 
     void (AIKart::*pathFillFunctionPtr)(int, int, int) = &AIKart::pathArrayFillFunction;
 
     FileUtil::loadStructureFromFileKnowningSize<int, AIKart>(
-    	mPathFilename.c_str(), fileRowCount, fileColCount, this, pathFillFunctionPtr);
+        pathFile.c_str(), fileRowCount, fileColCount, this, pathFillFunctionPtr);
 
-    d("Loaded AI path: ", mPathFilename, " of size: ", mPath.pointCount);
+    d("Loaded AI path: ", pathFile, " of size: ", mPath.pointCount);
 
     for (int i = 0; i < mPath.pointCount; i++) {
         d("Path point[", i, "]", mPath.points[i].y, ", ", mPath.points[i].x);
@@ -178,5 +182,5 @@ const char * AIKart::logTag() {
 }
 
 bool AIKart::canLog() {
-	return 1;
+	return CAN_LOG;
 }

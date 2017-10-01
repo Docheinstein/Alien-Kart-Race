@@ -83,6 +83,8 @@ LevelPicker::LevelPicker(sf::RenderWindow *w, KeyboardManager *km) : FadeScreen(
 
     addPickableMap(MapFactory::MapType::EarthType);
 
+    mInPicking = true;
+
     mKeysManager->addListener(this);
 }
 
@@ -219,6 +221,8 @@ void LevelPicker::render() {
 }
 
 void LevelPicker::onKeyPressed(int keyCode) {
+    if (!mInPicking)
+        return;
     if (keyCode == sf::Keyboard::Key::Up ||
         keyCode == sf::Keyboard::Key::Down) {
 
@@ -264,6 +268,7 @@ void LevelPicker::onKeyPressed(int keyCode) {
     }
 
 	else if (keyCode == sf::Keyboard::Key::Return) {
+        mInPicking = false;
         fadeOut();
 	}
 }

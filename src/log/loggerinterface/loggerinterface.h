@@ -4,8 +4,10 @@
 #include "logger.h"
 
 class LoggerInterface {
-protected:
+public:
+    virtual ~LoggerInterface() {}
 
+protected:
     template<typename FirstType, typename ...OtherTypes>
     inline
     void d_level(unsigned int level, FirstType && first, OtherTypes && ...other) {

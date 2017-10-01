@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['maptype',['MapType',['../classMap.html#a8005c60a26103aad605e66390efdf857',1,'Map']]]
+  ['collisiontype',['CollisionType',['../classKart.html#ac26a12dfc9f4bbead1a706f0622bd066',1,'Kart']]]
 ];

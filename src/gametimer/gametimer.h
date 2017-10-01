@@ -46,6 +46,11 @@ public:
         mRunning = false;;
     }
 
+    void restart() {
+        reset();
+        start();
+    }
+
     void start() {
         mRunning = true;
     }
