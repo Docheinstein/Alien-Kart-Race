@@ -6,11 +6,12 @@ src/entity/kart/playerkart/impl/venusian/playervenusian.o: \
  src/entity/base/mapmovingentity.h src/entity/base/mapentity.h \
  src/util/geometry/geometryentities.h \
  src/log/loggerinterface/loggerinterface.h src/log/logger/logger.h \
+ src/log/logger/logger.tpp src/log/loggerinterface/loggerinterface.tpp \
  src/util/math/mathentities.h src/level/level.h src/map/base/map.h \
- src/util/geometry/geometryutil.h src/util/geometry/geometryentities.h \
- src/util/math/mathutil.h src/util/math/mathentities.h \
  src/screen/fade/fadescreen.h src/screen/base/screen.h \
  src/gametimer/gametimer.h src/util/timeutil/timeutil.h \
- src/keyboard/listener/keyboardlistener.h \
+ src/gametimer/gametimer.tpp src/keyboard/listener/keyboardlistener.h \
  src/entity/kart/kartfactory/kartfactory.h \
+ src/util/geometry/geometryutil.h src/util/geometry/geometryentities.h \
+ src/util/math/mathutil.h src/util/math/mathentities.h \
  src/map/mapfactory/mapfactory.h src/game/game.h src/minimap/minimap.h

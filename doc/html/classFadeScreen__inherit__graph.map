@@ -1,6 +1,6 @@
 <map id="FadeScreen" name="FadeScreen">
-<area shape="rect" id="node3" href="$classLauncher.html" title="Launcher" alt="" coords="5,155,80,181"/>
-<area shape="rect" id="node4" href="$classLevel.html" title="Level" alt="" coords="104,155,157,181"/>
-<area shape="rect" id="node5" href="$classLevelPicker.html" title="LevelPicker" alt="" coords="181,155,272,181"/>
-<area shape="rect" id="node2" href="$classScreen.html" title="Screen" alt="" coords="99,5,162,32"/>
+<area shape="rect" id="node3" href="$classLauncher.html" title="Launcher screen of the game, shown at the game&#39;s startup. " alt="" coords="5,155,80,181"/>
+<area shape="rect" id="node4" href="$classLevel.html" title="Handles the karts, the map and eventually every other object in the level. " alt="" coords="104,155,157,181"/>
+<area shape="rect" id="node5" href="$classLevelPicker.html" title="Screen responsible for choose the player kart and the map to use for the level. " alt="" coords="181,155,272,181"/>
+<area shape="rect" id="node2" href="$classScreen.html" title="Base class representing a screen of the game. " alt="" coords="99,5,162,32"/>
 </map>

@@ -94,16 +94,19 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 
+<p>Handles the karts, the map and eventually every other object in the level.  
+ <a href="classLevel.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="level_8h_source.html">level.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for Level:</div>
 <div class="dyncontent">
 <div class="center"><img src="classLevel__inherit__graph.png" border="0" usemap="#Level_inherit__map" alt="Inheritance graph"/></div>
 <map name="Level_inherit__map" id="Level_inherit__map">
-<area shape="rect" id="node2" href="classFadeScreen.html" title="FadeScreen" alt="" coords="5,80,97,107"/>
-<area shape="rect" id="node3" href="classScreen.html" title="Screen" alt="" coords="20,5,83,32"/>
-<area shape="rect" id="node4" href="classKeyboardListener.html" title="KeyboardListener" alt="" coords="122,80,245,107"/>
-<area shape="rect" id="node5" href="classLoggerInterface.html" title="LoggerInterface" alt="" coords="269,80,381,107"/>
+<area shape="rect" id="node2" href="classFadeScreen.html" title="Base class representing a screen of the game that has the feauture of fade in and fade out with a van..." alt="" coords="5,80,97,107"/>
+<area shape="rect" id="node3" href="classScreen.html" title="Base class representing a screen of the game. " alt="" coords="20,5,83,32"/>
+<area shape="rect" id="node4" href="classKeyboardListener.html" title="Intarface usable for listen to keys pressed on the keyboard. " alt="" coords="122,80,245,107"/>
+<area shape="rect" id="node5" href="classLoggerInterface.html" title="Interface usable by entities that need to print on the output stream. " alt="" coords="269,80,381,107"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <div class="dynheader">
@@ -111,52 +114,66 @@ Collaboration diagram for Level:</div>
 <div class="dyncontent">
 <div class="center"><img src="classLevel__coll__graph.png" border="0" usemap="#Level_coll__map" alt="Collaboration graph"/></div>
 <map name="Level_coll__map" id="Level_coll__map">
-<area shape="rect" id="node2" href="classFadeScreen.html" title="FadeScreen" alt="" coords="191,199,283,225"/>
-<area shape="rect" id="node3" href="classScreen.html" title="Screen" alt="" coords="37,95,100,121"/>
-<area shape="rect" id="node4" href="classKeyboardManager.html" title="KeyboardManager" alt="" coords="5,5,132,32"/>
+<area shape="rect" id="node2" href="classFadeScreen.html" title="Base class representing a screen of the game that has the feauture of fade in and fade out with a van..." alt="" coords="191,199,283,225"/>
+<area shape="rect" id="node3" href="classScreen.html" title="Base class representing a screen of the game. " alt="" coords="37,95,100,121"/>
+<area shape="rect" id="node4" href="classKeyboardManager.html" title="Responsible for handle the pressure of the keys by notifying listeners about new pressed key..." alt="" coords="5,5,132,32"/>
 <area shape="rect" id="node5" href="classGameTimer.html" title="GameTimer\&lt; FadeScreen \&gt;" alt="" coords="202,95,386,121"/>
-<area shape="rect" id="node6" href="classKeyboardListener.html" title="KeyboardListener" alt="" coords="307,199,430,225"/>
-<area shape="rect" id="node7" href="classLoggerInterface.html" title="LoggerInterface" alt="" coords="454,199,566,225"/>
+<area shape="rect" id="node6" href="classKeyboardListener.html" title="Intarface usable for listen to keys pressed on the keyboard. " alt="" coords="307,199,430,225"/>
+<area shape="rect" id="node7" href="classLoggerInterface.html" title="Interface usable by entities that need to print on the output stream. " alt="" coords="454,199,566,225"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a9bc1796f35faad80b129b8a600e3dd28"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLevel.html#a9bc1796f35faad80b129b8a600e3dd28">Level</a> (sf::RenderWindow *window, <a class="el" href="classKeyboardManager.html">KeyboardManager</a> *keysManager, <a class="el" href="classKartFactory.html#a14272f9c883e31e997d2f2bb8edc792d">KartFactory::KartType</a> kartType, <a class="el" href="classMapFactory.html#ac50308e4dff450ae228176c2c076c936">MapFactory::MapType</a> mapType)</td></tr>
-<tr class="separator:a9bc1796f35faad80b129b8a600e3dd28"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa055ae3cdd066a7b4ddf9eec0f09943f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLevel.html#aa055ae3cdd066a7b4ddf9eec0f09943f">Level</a> (sf::RenderWindow *window, <a class="el" href="classKeyboardManager.html">KeyboardManager</a> *keysManager, <a class="el" href="classKartFactory.html#a14272f9c883e31e997d2f2bb8edc792d">KartFactory::KartType</a> playerKartType, <a class="el" href="classMapFactory.html#ac50308e4dff450ae228176c2c076c936">MapFactory::MapType</a> mapType)</td></tr>
+<tr class="memdesc:aa055ae3cdd066a7b4ddf9eec0f09943f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new level for the given player kart and map.  <a href="#aa055ae3cdd066a7b4ddf9eec0f09943f">More...</a><br /></td></tr>
+<tr class="separator:aa055ae3cdd066a7b4ddf9eec0f09943f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a249eac1e8f19ff44134efa5e986feaca"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLevel.html#a249eac1e8f19ff44134efa5e986feaca">~Level</a> ()</td></tr>
 <tr class="separator:a249eac1e8f19ff44134efa5e986feaca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a62e412eaad753d2baa2f94239cb80e41"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLevel.html#a62e412eaad753d2baa2f94239cb80e41">update</a> ()</td></tr>
+<tr class="memdesc:a62e412eaad753d2baa2f94239cb80e41"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the logic of the screen.  <a href="#a62e412eaad753d2baa2f94239cb80e41">More...</a><br /></td></tr>
 <tr class="separator:a62e412eaad753d2baa2f94239cb80e41"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4ce1e8089977edfb4a02a7d5b94225c2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLevel.html#a4ce1e8089977edfb4a02a7d5b94225c2">render</a> ()</td></tr>
+<tr class="memdesc:a4ce1e8089977edfb4a02a7d5b94225c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws the screen on the window.  <a href="#a4ce1e8089977edfb4a02a7d5b94225c2">More...</a><br /></td></tr>
 <tr class="separator:a4ce1e8089977edfb4a02a7d5b94225c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b701d09f301dd68a4f7476ad2a1463e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLevel.html#a2b701d09f301dd68a4f7476ad2a1463e">onKeyPressed</a> (int keyCode)</td></tr>
+<tr class="memdesc:a2b701d09f301dd68a4f7476ad2a1463e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called when a key is pressed on the keyboard.  <a href="#a2b701d09f301dd68a4f7476ad2a1463e">More...</a><br /></td></tr>
+<tr class="separator:a2b701d09f301dd68a4f7476ad2a1463e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a26ffd952f503c7ecbd8331d1e8405dc7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classKart.html">Kart</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLevel.html#a26ffd952f503c7ecbd8331d1e8405dc7">playerKart</a> ()</td></tr>
+<tr class="memdesc:a26ffd952f503c7ecbd8331d1e8405dc7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the kart of the active player.  <a href="#a26ffd952f503c7ecbd8331d1e8405dc7">More...</a><br /></td></tr>
 <tr class="separator:a26ffd952f503c7ecbd8331d1e8405dc7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a09c7a4694dbc1c37c86ad7f48a9c3b4c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classMap.html">Map</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLevel.html#a09c7a4694dbc1c37c86ad7f48a9c3b4c">map</a> ()</td></tr>
+<tr class="memdesc:a09c7a4694dbc1c37c86ad7f48a9c3b4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the map used for this level.  <a href="#a09c7a4694dbc1c37c86ad7f48a9c3b4c">More...</a><br /></td></tr>
 <tr class="separator:a09c7a4694dbc1c37c86ad7f48a9c3b4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0a9d61a9010d1762f1c07651e3aea793"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLevel.html#a0a9d61a9010d1762f1c07651e3aea793">pushSprite</a> (sf::Sprite *sprite)</td></tr>
+<tr class="memdesc:a0a9d61a9010d1762f1c07651e3aea793"><td class="mdescLeft">&#160;</td><td class="mdescRight">Push a sprite to the collection of sprite to render in the next <a class="el" href="classLevel.html#a4ce1e8089977edfb4a02a7d5b94225c2" title="Draws the screen on the window. ">render</a> call.  <a href="#a0a9d61a9010d1762f1c07651e3aea793">More...</a><br /></td></tr>
 <tr class="separator:a0a9d61a9010d1762f1c07651e3aea793"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2b701d09f301dd68a4f7476ad2a1463e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLevel.html#a2b701d09f301dd68a4f7476ad2a1463e">onKeyPressed</a> (int keyCode)</td></tr>
-<tr class="separator:a2b701d09f301dd68a4f7476ad2a1463e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classFadeScreen"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classFadeScreen')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classFadeScreen.html">FadeScreen</a></td></tr>
 <tr class="memitem:a0dfe5b0736bb13b8a4861f623067181f inherit pub_methods_classFadeScreen"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFadeScreen.html#a0dfe5b0736bb13b8a4861f623067181f">FadeScreen</a> (sf::RenderWindow *window, <a class="el" href="classKeyboardManager.html">KeyboardManager</a> *keysManager=NULL, int fadeInDuration=<a class="el" href="fadescreen_8h.html#ab719dfabf21d9758134d1f6cf1f43580">FADE_DEFAULT_DURATION</a>, int fadeOutDuration=<a class="el" href="fadescreen_8h.html#ab719dfabf21d9758134d1f6cf1f43580">FADE_DEFAULT_DURATION</a>)</td></tr>
+<tr class="memdesc:a0dfe5b0736bb13b8a4861f623067181f inherit pub_methods_classFadeScreen"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new fade screen.  <a href="#a0dfe5b0736bb13b8a4861f623067181f">More...</a><br /></td></tr>
 <tr class="separator:a0dfe5b0736bb13b8a4861f623067181f inherit pub_methods_classFadeScreen"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8b44f29c5703dbcb7a813320ed6c54b3 inherit pub_methods_classFadeScreen"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFadeScreen.html#a8b44f29c5703dbcb7a813320ed6c54b3">~FadeScreen</a> ()</td></tr>
 <tr class="separator:a8b44f29c5703dbcb7a813320ed6c54b3 inherit pub_methods_classFadeScreen"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad78397dfdbd6b6405418fad8b8dafec3 inherit pub_methods_classFadeScreen"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFadeScreen.html#ad78397dfdbd6b6405418fad8b8dafec3">update</a> ()</td></tr>
+<tr class="memdesc:ad78397dfdbd6b6405418fad8b8dafec3 inherit pub_methods_classFadeScreen"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the logic of the screen.  <a href="#ad78397dfdbd6b6405418fad8b8dafec3">More...</a><br /></td></tr>
 <tr class="separator:ad78397dfdbd6b6405418fad8b8dafec3 inherit pub_methods_classFadeScreen"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a804aebaa6c7374eb32192e303e8cf7f1 inherit pub_methods_classFadeScreen"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFadeScreen.html#a804aebaa6c7374eb32192e303e8cf7f1">render</a> ()</td></tr>
+<tr class="memdesc:a804aebaa6c7374eb32192e303e8cf7f1 inherit pub_methods_classFadeScreen"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws the screen on the window.  <a href="#a804aebaa6c7374eb32192e303e8cf7f1">More...</a><br /></td></tr>
 <tr class="separator:a804aebaa6c7374eb32192e303e8cf7f1 inherit pub_methods_classFadeScreen"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae51ddef9ec1a73613f4f5248d4f76b83 inherit pub_methods_classFadeScreen"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFadeScreen.html#ae51ddef9ec1a73613f4f5248d4f76b83">fadeIn</a> ()</td></tr>
+<tr class="memdesc:ae51ddef9ec1a73613f4f5248d4f76b83 inherit pub_methods_classFadeScreen"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts a fade in effect.  <a href="#ae51ddef9ec1a73613f4f5248d4f76b83">More...</a><br /></td></tr>
 <tr class="separator:ae51ddef9ec1a73613f4f5248d4f76b83 inherit pub_methods_classFadeScreen"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a08368fbfdafaba5a5cfd9b3781076c72 inherit pub_methods_classFadeScreen"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFadeScreen.html#a08368fbfdafaba5a5cfd9b3781076c72">fadeOut</a> ()</td></tr>
+<tr class="memdesc:a08368fbfdafaba5a5cfd9b3781076c72 inherit pub_methods_classFadeScreen"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts a fade out effect.  <a href="#a08368fbfdafaba5a5cfd9b3781076c72">More...</a><br /></td></tr>
 <tr class="separator:a08368fbfdafaba5a5cfd9b3781076c72 inherit pub_methods_classFadeScreen"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classScreen"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classScreen')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classScreen.html">Screen</a></td></tr>
 <tr class="memitem:a6f1771501631b084e94b20f63688405d inherit pub_methods_classScreen"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classScreen.html#a6f1771501631b084e94b20f63688405d">Screen</a> (sf::RenderWindow *window, <a class="el" href="classKeyboardManager.html">KeyboardManager</a> *keysManager=NULL)</td></tr>
+<tr class="memdesc:a6f1771501631b084e94b20f63688405d inherit pub_methods_classScreen"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new screen.  <a href="#a6f1771501631b084e94b20f63688405d">More...</a><br /></td></tr>
 <tr class="separator:a6f1771501631b084e94b20f63688405d inherit pub_methods_classScreen"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4243bc17596af96415b09ac48205676d inherit pub_methods_classScreen"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classScreen.html#a4243bc17596af96415b09ac48205676d">~Screen</a> ()</td></tr>
 <tr class="separator:a4243bc17596af96415b09ac48205676d inherit pub_methods_classScreen"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac9a53ef90e59adfb63b4b0d6be7aa87f inherit pub_methods_classScreen"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classScreen.html">Screen</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classScreen.html#ac9a53ef90e59adfb63b4b0d6be7aa87f">segue</a> ()</td></tr>
+<tr class="memdesc:ac9a53ef90e59adfb63b4b0d6be7aa87f inherit pub_methods_classScreen"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the screen that should be shown on the window.  <a href="#ac9a53ef90e59adfb63b4b0d6be7aa87f">More...</a><br /></td></tr>
 <tr class="separator:ac9a53ef90e59adfb63b4b0d6be7aa87f inherit pub_methods_classScreen"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classLoggerInterface"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classLoggerInterface')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classLoggerInterface.html">LoggerInterface</a></td></tr>
 <tr class="memitem:a70c3e450fcc106112ac7bae9133b5068 inherit pub_methods_classLoggerInterface"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLoggerInterface.html#a70c3e450fcc106112ac7bae9133b5068">~LoggerInterface</a> ()</td></tr>
@@ -165,57 +182,77 @@ Public Member Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
 <tr class="memitem:a73a8d2df33ce73ff6a3e3534ec902002"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLevel.html#a73a8d2df33ce73ff6a3e3534ec902002">fadeInFinished</a> ()</td></tr>
+<tr class="memdesc:a73a8d2df33ce73ff6a3e3534ec902002"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method will be called when the screen finished the fade in effect.  <a href="#a73a8d2df33ce73ff6a3e3534ec902002">More...</a><br /></td></tr>
 <tr class="separator:a73a8d2df33ce73ff6a3e3534ec902002"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a69405ec8ae352dae9dd179588b7174ac"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLevel.html#a69405ec8ae352dae9dd179588b7174ac">fadeOutFinished</a> ()</td></tr>
+<tr class="memdesc:a69405ec8ae352dae9dd179588b7174ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method will be called when the screen finished the fade out effect.  <a href="#a69405ec8ae352dae9dd179588b7174ac">More...</a><br /></td></tr>
 <tr class="separator:a69405ec8ae352dae9dd179588b7174ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_methods_classFadeScreen"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_classFadeScreen')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="classFadeScreen.html">FadeScreen</a></td></tr>
 <tr class="memitem:aa6b7984719302837e57582c67ae2c89d inherit pro_methods_classFadeScreen"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFadeScreen.html#aa6b7984719302837e57582c67ae2c89d">isFadingIn</a> ()</td></tr>
+<tr class="memdesc:aa6b7984719302837e57582c67ae2c89d inherit pro_methods_classFadeScreen"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns whether the screen is fading in.  <a href="#aa6b7984719302837e57582c67ae2c89d">More...</a><br /></td></tr>
 <tr class="separator:aa6b7984719302837e57582c67ae2c89d inherit pro_methods_classFadeScreen"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3d3da48aadeb5616a1563ddd16c6b90f inherit pro_methods_classFadeScreen"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFadeScreen.html#a3d3da48aadeb5616a1563ddd16c6b90f">isFadingOut</a> ()</td></tr>
+<tr class="memdesc:a3d3da48aadeb5616a1563ddd16c6b90f inherit pro_methods_classFadeScreen"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns whether the screen is fading out.  <a href="#a3d3da48aadeb5616a1563ddd16c6b90f">More...</a><br /></td></tr>
 <tr class="separator:a3d3da48aadeb5616a1563ddd16c6b90f inherit pro_methods_classFadeScreen"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5b5a572d8bcc6d1589df7d9314cdb7ed inherit pro_methods_classFadeScreen"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFadeScreen.html#a5b5a572d8bcc6d1589df7d9314cdb7ed">isFading</a> ()</td></tr>
+<tr class="memdesc:a5b5a572d8bcc6d1589df7d9314cdb7ed inherit pro_methods_classFadeScreen"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns whether the screen is fading, either in or out.  <a href="#a5b5a572d8bcc6d1589df7d9314cdb7ed">More...</a><br /></td></tr>
 <tr class="separator:a5b5a572d8bcc6d1589df7d9314cdb7ed inherit pro_methods_classFadeScreen"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_methods_classLoggerInterface"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_classLoggerInterface')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="classLoggerInterface.html">LoggerInterface</a></td></tr>
-<tr class="memitem:aca9f8dc7ea5ea76ad8390b52f2561a15 inherit pro_methods_classLoggerInterface"><td class="memTemplParams" colspan="2">template&lt;typename FirstType , typename... OtherTypes&gt; </td></tr>
-<tr class="memitem:aca9f8dc7ea5ea76ad8390b52f2561a15 inherit pro_methods_classLoggerInterface"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classLoggerInterface.html#aca9f8dc7ea5ea76ad8390b52f2561a15">d_level</a> (unsigned int level, FirstType &amp;&amp;first, OtherTypes &amp;&amp;...other)</td></tr>
-<tr class="separator:aca9f8dc7ea5ea76ad8390b52f2561a15 inherit pro_methods_classLoggerInterface"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a34dc1c7975aa06f977707bf4bacc1a9d inherit pro_methods_classLoggerInterface"><td class="memTemplParams" colspan="2">template&lt;typename FirstType , typename... OtherTypes&gt; </td></tr>
 <tr class="memitem:a34dc1c7975aa06f977707bf4bacc1a9d inherit pro_methods_classLoggerInterface"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classLoggerInterface.html#a34dc1c7975aa06f977707bf4bacc1a9d">d</a> (FirstType &amp;&amp;first, OtherTypes &amp;&amp;...other)</td></tr>
+<tr class="memdesc:a34dc1c7975aa06f977707bf4bacc1a9d inherit pro_methods_classLoggerInterface"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints a debug message using the default output verbosity level (1).  <a href="#a34dc1c7975aa06f977707bf4bacc1a9d">More...</a><br /></td></tr>
 <tr class="separator:a34dc1c7975aa06f977707bf4bacc1a9d inherit pro_methods_classLoggerInterface"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae7ea7fb18f9288b616d6226745bc7605 inherit pro_methods_classLoggerInterface"><td class="memTemplParams" colspan="2">template&lt;typename FirstType , typename... OtherTypes&gt; </td></tr>
 <tr class="memitem:ae7ea7fb18f9288b616d6226745bc7605 inherit pro_methods_classLoggerInterface"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classLoggerInterface.html#ae7ea7fb18f9288b616d6226745bc7605">d1</a> (FirstType &amp;&amp;first, OtherTypes &amp;&amp;...other)</td></tr>
+<tr class="memdesc:ae7ea7fb18f9288b616d6226745bc7605 inherit pro_methods_classLoggerInterface"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints a debug message using output verbosity level equals to 1.  <a href="#ae7ea7fb18f9288b616d6226745bc7605">More...</a><br /></td></tr>
 <tr class="separator:ae7ea7fb18f9288b616d6226745bc7605 inherit pro_methods_classLoggerInterface"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab2b05c5c566965cc37a906d145b20cec inherit pro_methods_classLoggerInterface"><td class="memTemplParams" colspan="2">template&lt;typename FirstType , typename... OtherTypes&gt; </td></tr>
 <tr class="memitem:ab2b05c5c566965cc37a906d145b20cec inherit pro_methods_classLoggerInterface"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classLoggerInterface.html#ab2b05c5c566965cc37a906d145b20cec">d2</a> (FirstType &amp;&amp;first, OtherTypes &amp;&amp;...other)</td></tr>
+<tr class="memdesc:ab2b05c5c566965cc37a906d145b20cec inherit pro_methods_classLoggerInterface"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints a debug message using output verbosity level equals to 2.  <a href="#ab2b05c5c566965cc37a906d145b20cec">More...</a><br /></td></tr>
 <tr class="separator:ab2b05c5c566965cc37a906d145b20cec inherit pro_methods_classLoggerInterface"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca9f8dc7ea5ea76ad8390b52f2561a15 inherit pro_methods_classLoggerInterface"><td class="memTemplParams" colspan="2">template&lt;typename FirstType , typename... OtherTypes&gt; </td></tr>
+<tr class="memitem:aca9f8dc7ea5ea76ad8390b52f2561a15 inherit pro_methods_classLoggerInterface"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classLoggerInterface.html#aca9f8dc7ea5ea76ad8390b52f2561a15">d_level</a> (unsigned int level, FirstType &amp;&amp;first, OtherTypes &amp;&amp;...other)</td></tr>
+<tr class="memdesc:aca9f8dc7ea5ea76ad8390b52f2561a15 inherit pro_methods_classLoggerInterface"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints a debug message using the given verbosity level.  <a href="#aca9f8dc7ea5ea76ad8390b52f2561a15">More...</a><br /></td></tr>
+<tr class="separator:aca9f8dc7ea5ea76ad8390b52f2561a15 inherit pro_methods_classLoggerInterface"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8b715cb6b4616496e78a71a628225b8b inherit pro_methods_classLoggerInterface"><td class="memTemplParams" colspan="2">template&lt;typename FirstType , typename... OtherTypes&gt; </td></tr>
 <tr class="memitem:a8b715cb6b4616496e78a71a628225b8b inherit pro_methods_classLoggerInterface"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classLoggerInterface.html#a8b715cb6b4616496e78a71a628225b8b">w</a> (FirstType &amp;&amp;first, OtherTypes &amp;&amp;...other)</td></tr>
+<tr class="memdesc:a8b715cb6b4616496e78a71a628225b8b inherit pro_methods_classLoggerInterface"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints a warn message.  <a href="#a8b715cb6b4616496e78a71a628225b8b">More...</a><br /></td></tr>
 <tr class="separator:a8b715cb6b4616496e78a71a628225b8b inherit pro_methods_classLoggerInterface"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afb381df73e55b1423be07e8f09ee0123 inherit pro_methods_classLoggerInterface"><td class="memTemplParams" colspan="2">template&lt;typename FirstType , typename... OtherTypes&gt; </td></tr>
 <tr class="memitem:afb381df73e55b1423be07e8f09ee0123 inherit pro_methods_classLoggerInterface"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classLoggerInterface.html#afb381df73e55b1423be07e8f09ee0123">bench</a> (FirstType &amp;&amp;first, OtherTypes &amp;&amp;...other)</td></tr>
+<tr class="memdesc:afb381df73e55b1423be07e8f09ee0123 inherit pro_methods_classLoggerInterface"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints a bench message.  <a href="#afb381df73e55b1423be07e8f09ee0123">More...</a><br /></td></tr>
 <tr class="separator:afb381df73e55b1423be07e8f09ee0123 inherit pro_methods_classLoggerInterface"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pro_attribs_classFadeScreen"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_classFadeScreen')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="classFadeScreen.html">FadeScreen</a></td></tr>
 <tr class="memitem:ae4ae0413091830df58852166e37e499a inherit pro_attribs_classFadeScreen"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classGameTimer.html">GameTimer</a>&lt; <a class="el" href="classFadeScreen.html">FadeScreen</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFadeScreen.html#ae4ae0413091830df58852166e37e499a">mFadeInTimer</a></td></tr>
+<tr class="memdesc:ae4ae0413091830df58852166e37e499a inherit pro_attribs_classFadeScreen"><td class="mdescLeft">&#160;</td><td class="mdescRight">Timer counting the time elapsed from the beginning of the fade in effect.  <a href="#ae4ae0413091830df58852166e37e499a">More...</a><br /></td></tr>
 <tr class="separator:ae4ae0413091830df58852166e37e499a inherit pro_attribs_classFadeScreen"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a53578926cb611db92bd688f6ae083390 inherit pro_attribs_classFadeScreen"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classGameTimer.html">GameTimer</a>&lt; <a class="el" href="classFadeScreen.html">FadeScreen</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFadeScreen.html#a53578926cb611db92bd688f6ae083390">mFadeOutTimer</a></td></tr>
+<tr class="memdesc:a53578926cb611db92bd688f6ae083390 inherit pro_attribs_classFadeScreen"><td class="mdescLeft">&#160;</td><td class="mdescRight">Timer counting the time elapsed from the beginning of the fade out effect.  <a href="#a53578926cb611db92bd688f6ae083390">More...</a><br /></td></tr>
 <tr class="separator:a53578926cb611db92bd688f6ae083390 inherit pro_attribs_classFadeScreen"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a119bf69f48e2ad7dfb7fa7f1cb6c9196 inherit pro_attribs_classFadeScreen"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFadeScreen.html#a119bf69f48e2ad7dfb7fa7f1cb6c9196">mFadeInDuration</a></td></tr>
+<tr class="memdesc:a119bf69f48e2ad7dfb7fa7f1cb6c9196 inherit pro_attribs_classFadeScreen"><td class="mdescLeft">&#160;</td><td class="mdescRight">Duration of the fade in effect in millis.  <a href="#a119bf69f48e2ad7dfb7fa7f1cb6c9196">More...</a><br /></td></tr>
 <tr class="separator:a119bf69f48e2ad7dfb7fa7f1cb6c9196 inherit pro_attribs_classFadeScreen"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acea75deb268cb5432d297005d0b8b73a inherit pro_attribs_classFadeScreen"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFadeScreen.html#acea75deb268cb5432d297005d0b8b73a">mFadeOutDuration</a></td></tr>
+<tr class="memdesc:acea75deb268cb5432d297005d0b8b73a inherit pro_attribs_classFadeScreen"><td class="mdescLeft">&#160;</td><td class="mdescRight">Duration of the fade out effect in millis.  <a href="#acea75deb268cb5432d297005d0b8b73a">More...</a><br /></td></tr>
 <tr class="separator:acea75deb268cb5432d297005d0b8b73a inherit pro_attribs_classFadeScreen"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_attribs_classScreen"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_classScreen')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="classScreen.html">Screen</a></td></tr>
 <tr class="memitem:afc96d715f1f1b7005b60d0ffce88fbf4 inherit pro_attribs_classScreen"><td class="memItemLeft" align="right" valign="top">sf::RenderWindow *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classScreen.html#afc96d715f1f1b7005b60d0ffce88fbf4">mWindow</a></td></tr>
+<tr class="memdesc:afc96d715f1f1b7005b60d0ffce88fbf4 inherit pro_attribs_classScreen"><td class="mdescLeft">&#160;</td><td class="mdescRight">Window this screen is encapsulated in.  <a href="#afc96d715f1f1b7005b60d0ffce88fbf4">More...</a><br /></td></tr>
 <tr class="separator:afc96d715f1f1b7005b60d0ffce88fbf4 inherit pro_attribs_classScreen"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a139b7280d584a282887c9731bdbc926d inherit pro_attribs_classScreen"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classKeyboardManager.html">KeyboardManager</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classScreen.html#a139b7280d584a282887c9731bdbc926d">mKeysManager</a></td></tr>
+<tr class="memdesc:a139b7280d584a282887c9731bdbc926d inherit pro_attribs_classScreen"><td class="mdescLeft">&#160;</td><td class="mdescRight">Keyboard manager that will notify this screen about async key pressure.  <a href="#a139b7280d584a282887c9731bdbc926d">More...</a><br /></td></tr>
 <tr class="separator:a139b7280d584a282887c9731bdbc926d inherit pro_attribs_classScreen"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7f657a49c46dbe653a95cc82c4d0673f inherit pro_attribs_classScreen"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classScreen.html">Screen</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classScreen.html#a7f657a49c46dbe653a95cc82c4d0673f">mSegue</a></td></tr>
+<tr class="memdesc:a7f657a49c46dbe653a95cc82c4d0673f inherit pro_attribs_classScreen"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classScreen.html" title="Base class representing a screen of the game. ">Screen</a> that will segue this screen for next update.  <a href="#a7f657a49c46dbe653a95cc82c4d0673f">More...</a><br /></td></tr>
 <tr class="separator:a7f657a49c46dbe653a95cc82c4d0673f inherit pro_attribs_classScreen"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a9bc1796f35faad80b129b8a600e3dd28"></a>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Handles the karts, the map and eventually every other object in the level. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="aa055ae3cdd066a7b4ddf9eec0f09943f"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -235,7 +272,7 @@ Additional Inherited Members</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="classKartFactory.html#a14272f9c883e31e997d2f2bb8edc792d">KartFactory::KartType</a>&#160;</td>
-          <td class="paramname"><em>kartType</em>, </td>
+          <td class="paramname"><em>playerKartType</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -250,6 +287,17 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Creates a new level for the given player kart and map. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">window</td><td>the window this level is encapsulated in. </td></tr>
+    <tr><td class="paramname">keysManager</td><td>the keyboard manager that will notify this level about async key pressure (needed for menu). </td></tr>
+    <tr><td class="paramname">playerKartType</td><td>the type of the kart for the player. </td></tr>
+    <tr><td class="paramname">mapType</td><td>the type of the map used for this level. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -290,6 +338,9 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>This method will be called when the screen finished the fade in effect. </p>
+<p>Entities inheriting from this class can override this method for perform tasks after the completation of the fade effect (i.e. starting the logic of the screen). </p>
+
 <p>Reimplemented from <a class="el" href="classFadeScreen.html#a8a2bfaa24f899fd1d4ca52bcfadb2ada">FadeScreen</a>.</p>
 
 </div>
@@ -315,6 +366,9 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>This method will be called when the screen finished the fade out effect. </p>
+<p>Entities inheriting from this class can override this method for perform tasks after the completation of the fade effect (i.e. change the segue of this screen to another one). </p>
+
 <p>Reimplemented from <a class="el" href="classFadeScreen.html#a0b60a714daf1013708d9babc4258e857">FadeScreen</a>.</p>
 
 </div>
@@ -331,6 +385,9 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns the map used for this level. </p>
+<dl class="section return"><dt>Returns</dt><dd>the map of this level. </dd></dl>
 
 </div>
 </div>
@@ -356,6 +413,14 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Called when a key is pressed on the keyboard. </p>
+<p>This method will be called asynchronously when the user press the keyboard, so outside the game loop. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">keyCode</td><td>the int ASCII code of the pressed key. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 <p>Implements <a class="el" href="classKeyboardListener.html#a3527da2476a3d344c949cc0df37382e1">KeyboardListener</a>.</p>
 
 </div>
@@ -373,6 +438,9 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Returns the kart of the active player. </p>
+<dl class="section return"><dt>Returns</dt><dd>the player kart. </dd></dl>
+
 </div>
 </div>
 <a class="anchor" id="a0a9d61a9010d1762f1c07651e3aea793"></a>
@@ -388,6 +456,14 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Push a sprite to the collection of sprite to render in the next <a class="el" href="classLevel.html#a4ce1e8089977edfb4a02a7d5b94225c2" title="Draws the screen on the window. ">render</a> call. </p>
+<p>This method should be used by every entity that need to render on the screen during the level. This is needed since the sprite will be rendered at once after a sort by "z-axis", in order to appropriately place object in the screen and avoid to wrap near objects with distant objects. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sprite</td><td>the sprite to render the next <a class="el" href="classLevel.html#a4ce1e8089977edfb4a02a7d5b94225c2" title="Draws the screen on the window. ">render</a> call </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -411,6 +487,8 @@ Additional Inherited Members</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Draws the screen on the window. </p>
 
 <p>Implements <a class="el" href="classScreen.html#a1b42df84ff23324c05b63decad5a8846">Screen</a>.</p>
 
@@ -436,6 +514,9 @@ Additional Inherited Members</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Updates the logic of the screen. </p>
+<p>This method should not be used for draw on the window, instead use <a class="el" href="classLevel.html#a4ce1e8089977edfb4a02a7d5b94225c2" title="Draws the screen on the window. ">render</a> </p>
 
 <p>Implements <a class="el" href="classScreen.html#a9cea8804adadbf9ee3ede5d9d2d58671">Screen</a>.</p>
 

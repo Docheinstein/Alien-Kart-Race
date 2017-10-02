@@ -87,187 +87,114 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#define-members">Macros</a> &#124;
-<a href="#func-members">Functions</a> &#124;
-<a href="#var-members">Variables</a>  </div>
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">logger.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;iostream&gt;</code><br />
+<div class="textblock"><code>#include &quot;logger.tpp&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for logger.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="logger_8h__incl.png" border="0" usemap="#src_2log_2logger_2logger_8h" alt=""/></div>
+<map name="src_2log_2logger_2logger_8h" id="src_2log_2logger_2logger_8h">
+</map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="logger_8h__dep__incl.png" border="0" usemap="#src_2log_2logger_2logger_8hdep" alt=""/></div>
 <map name="src_2log_2logger_2logger_8hdep" id="src_2log_2logger_2logger_8hdep">
-<area shape="rect" id="node2" href="kart_8cc.html" title="src/entity/kart/base\l/kart.cc" alt="" coords="19,437,154,479"/>
-<area shape="rect" id="node3" href="logger_8cc.html" title="src/log/logger/logger.cc" alt="" coords="1907,87,2064,114"/>
-<area shape="rect" id="node4" href="loggerinterface_8h.html" title="src/log/loggerinterface\l/loggerinterface.h" alt="" coords="1577,80,1727,121"/>
-<area shape="rect" id="node19" href="earth_8cc.html" title="src/map/impl/earth\l/earth.cc" alt="" coords="2472,437,2603,479"/>
-<area shape="rect" id="node29" href="perspectiveutil_8cc.html" title="src/util/perspective\l/perspectiveutil.cc" alt="" coords="43,259,175,300"/>
-<area shape="rect" id="node33" href="fileutil_8h.html" title="src/util/file/fileutil.h" alt="" coords="396,355,527,382"/>
-<area shape="rect" id="node35" href="mathtutil_8cc.html" title="src/util/math/mathtutil.cc" alt="" coords="2089,87,2255,114"/>
-<area shape="rect" id="node36" href="resourceutil_8cc.html" title="src/util/resources\l/resourceutil.cc" alt="" coords="2280,80,2403,121"/>
-<area shape="rect" id="node5" href="kart_8h.html" title="src/entity/kart/base\l/kart.h" alt="" coords="1158,169,1293,211"/>
-<area shape="rect" id="node21" href="levelpicker_8h.html" title="src/levelpicker/levelpicker.h" alt="" coords="1905,355,2087,382"/>
-<area shape="rect" id="node25" href="game_8h.html" title="src/game/game.h" alt="" coords="305,177,428,203"/>
-<area shape="rect" id="node30" href="leaderboard_8h.html" title="src/leaderboard/leaderboard.h" alt="" coords="1687,355,1881,382"/>
-<area shape="rect" id="node31" href="map_8h.html" title="src/map/base/map.h" alt="" coords="1408,266,1549,293"/>
-<area shape="rect" id="node6" href="aikart_8h.html" title="src/entity/kart/aikart\l/base/aikart.h" alt="" coords="1245,259,1384,300"/>
-<area shape="rect" id="node11" href="kartfactory_8h.html" title="src/entity/kart/kartfactory\l/kartfactory.h" alt="" coords="1053,259,1221,300"/>
-<area shape="rect" id="node16" href="leaderboard_8cc.html" title="src/leaderboard/leaderboard.cc" alt="" coords="1536,445,1736,471"/>
-<area shape="rect" id="node23" href="playerkart_8h.html" title="src/entity/kart/playerkart\l/base/playerkart.h" alt="" coords="867,259,1029,300"/>
-<area shape="rect" id="node7" href="aikart_8cc.html" title="src/entity/kart/aikart\l/base/aikart.cc" alt="" coords="605,437,744,479"/>
-<area shape="rect" id="node8" href="aivenusian_8h.html" title="src/entity/kart/aikart\l/impl/venusian/aivenusian.h" alt="" coords="1429,348,1611,389"/>
-<area shape="rect" id="node9" href="aivenusian_8cc.html" title="src/entity/kart/aikart\l/impl/venusian/aivenusian.cc" alt="" coords="1321,437,1511,479"/>
-<area shape="rect" id="node10" href="level_8cc.html" title="src/level/level.cc" alt="" coords="1976,445,2096,471"/>
-<area shape="rect" id="node12" href="kartfactory_8cc.html" title="src/entity/kart/kartfactory\l/kartfactory.cc" alt="" coords="941,437,1109,479"/>
-<area shape="rect" id="node13" href="playervenusian_8cc.html" title="src/entity/kart/playerkart\l/impl/venusian/playervenusian.cc" alt="" coords="366,437,581,479"/>
-<area shape="rect" id="node14" href="level_8h.html" title="src/level/level.h" alt="" coords="1239,355,1353,382"/>
-<area shape="rect" id="node15" href="playerkart_8cc.html" title="src/entity/kart/playerkart\l/base/playerkart.cc" alt="" coords="1133,437,1296,479"/>
-<area shape="rect" id="node17" href="levelpicker_8cc.html" title="src/levelpicker/levelpicker.cc" alt="" coords="1761,445,1951,471"/>
-<area shape="rect" id="node18" href="map_8cc.html" title="src/map/base/map.cc" alt="" coords="769,445,917,471"/>
-<area shape="rect" id="node20" href="mapfactory_8cc.html" title="src/map/mapfactory\l/mapfactory.cc" alt="" coords="2120,437,2259,479"/>
-<area shape="rect" id="node22" href="launcher_8cc.html" title="src/launcher/launcher.cc" alt="" coords="2283,445,2447,471"/>
-<area shape="rect" id="node24" href="playervenusian_8h.html" title="src/entity/kart/playerkart\l/impl/venusian/playervenusian.h" alt="" coords="703,348,911,389"/>
-<area shape="rect" id="node26" href="game_8cc.html" title="src/game/game.cc" alt="" coords="301,266,432,293"/>
-<area shape="rect" id="node27" href="main_8cc.html" title="src/main/main.cc" alt="" coords="456,266,579,293"/>
-<area shape="rect" id="node28" href="screenmanager_8cc.html" title="src/screen/manager\l/screenmanager.cc" alt="" coords="603,259,741,300"/>
-<area shape="rect" id="node32" href="earth_8h.html" title="src/map/impl/earth\l/earth.h" alt="" coords="2112,348,2243,389"/>
-<area shape="rect" id="node34" href="minimap_8cc.html" title="src/minimap/minimap.cc" alt="" coords="178,445,342,471"/>
+<area shape="rect" id="node2" href="kart_8cc.html" title="src/entity/kart/base\l/kart.cc" alt="" coords="39,437,174,479"/>
+<area shape="rect" id="node3" href="loggerinterface_8h.html" title="src/log/loggerinterface\l/loggerinterface.h" alt="" coords="1113,80,1263,121"/>
+<area shape="rect" id="node18" href="earth_8cc.html" title="src/map/impl/earth\l/earth.cc" alt="" coords="1311,437,1441,479"/>
+<area shape="rect" id="node26" href="perspectiveutil_8cc.html" title="src/util/perspective\l/perspectiveutil.cc" alt="" coords="94,259,226,300"/>
+<area shape="rect" id="node31" href="fileutil_8h.html" title="src/util/file/fileutil.h" alt="" coords="400,355,531,382"/>
+<area shape="rect" id="node33" href="mathtutil_8cc.html" title="src/util/math/mathtutil.cc" alt="" coords="1638,87,1805,114"/>
+<area shape="rect" id="node34" href="resourceutil_8cc.html" title="src/util/resources\l/resourceutil.cc" alt="" coords="1829,80,1952,121"/>
+<area shape="rect" id="node4" href="kart_8h.html" title="src/entity/kart/base\l/kart.h" alt="" coords="1121,169,1255,211"/>
+<area shape="rect" id="node19" href="levelpicker_8h.html" title="src/levelpicker/levelpicker.h" alt="" coords="1845,355,2027,382"/>
+<area shape="rect" id="node23" href="game_8h.html" title="src/game/game.h" alt="" coords="392,177,515,203"/>
+<area shape="rect" id="node27" href="leaderboard_8h.html" title="src/leaderboard/leaderboard.h" alt="" coords="2051,355,2245,382"/>
+<area shape="rect" id="node28" href="map_8h.html" title="src/map/base/map.h" alt="" coords="707,266,848,293"/>
+<area shape="rect" id="node5" href="aikart_8h.html" title="src/entity/kart/aikart\l/base/aikart.h" alt="" coords="1119,259,1257,300"/>
+<area shape="rect" id="node10" href="kartfactory_8h.html" title="src/entity/kart/kartfactory\l/kartfactory.h" alt="" coords="1320,259,1488,300"/>
+<area shape="rect" id="node15" href="leaderboard_8cc.html" title="src/leaderboard/leaderboard.cc" alt="" coords="2421,445,2621,471"/>
+<area shape="rect" id="node21" href="playerkart_8h.html" title="src/entity/kart/playerkart\l/base/playerkart.h" alt="" coords="895,259,1057,300"/>
+<area shape="rect" id="node6" href="aikart_8cc.html" title="src/entity/kart/aikart\l/base/aikart.cc" alt="" coords="721,437,860,479"/>
+<area shape="rect" id="node7" href="aivenusian_8h.html" title="src/entity/kart/aikart\l/impl/venusian/aivenusian.h" alt="" coords="1638,348,1821,389"/>
+<area shape="rect" id="node8" href="aivenusian_8cc.html" title="src/entity/kart/aikart\l/impl/venusian/aivenusian.cc" alt="" coords="1658,437,1849,479"/>
+<area shape="rect" id="node9" href="level_8cc.html" title="src/level/level.cc" alt="" coords="2088,445,2208,471"/>
+<area shape="rect" id="node11" href="kartfactory_8cc.html" title="src/entity/kart/kartfactory\l/kartfactory.cc" alt="" coords="1465,437,1633,479"/>
+<area shape="rect" id="node12" href="playervenusian_8cc.html" title="src/entity/kart/playerkart\l/impl/venusian/playervenusian.cc" alt="" coords="885,437,1099,479"/>
+<area shape="rect" id="node13" href="level_8h.html" title="src/level/level.h" alt="" coords="1347,355,1461,382"/>
+<area shape="rect" id="node14" href="playerkart_8cc.html" title="src/entity/kart/playerkart\l/base/playerkart.cc" alt="" coords="1124,437,1287,479"/>
+<area shape="rect" id="node16" href="levelpicker_8cc.html" title="src/levelpicker/levelpicker.cc" alt="" coords="1873,445,2063,471"/>
+<area shape="rect" id="node17" href="map_8cc.html" title="src/map/base/map.cc" alt="" coords="386,445,534,471"/>
+<area shape="rect" id="node20" href="launcher_8cc.html" title="src/launcher/launcher.cc" alt="" coords="2233,445,2397,471"/>
+<area shape="rect" id="node22" href="playervenusian_8h.html" title="src/entity/kart/playerkart\l/impl/venusian/playervenusian.h" alt="" coords="1115,348,1323,389"/>
+<area shape="rect" id="node24" href="game_8cc.html" title="src/game/game.cc" alt="" coords="301,266,432,293"/>
+<area shape="rect" id="node25" href="main_8cc.html" title="src/main/main.cc" alt="" coords="456,266,579,293"/>
+<area shape="rect" id="node29" href="earth_8h.html" title="src/map/impl/earth\l/earth.h" alt="" coords="707,348,837,389"/>
+<area shape="rect" id="node30" href="mapfactory_8cc.html" title="src/map/mapfactory\l/mapfactory.cc" alt="" coords="559,437,697,479"/>
+<area shape="rect" id="node32" href="minimap_8cc.html" title="src/minimap/minimap.cc" alt="" coords="198,445,362,471"/>
 </map>
 </div>
 </div>
 <p><a href="logger_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
-Macros</h2></td></tr>
-<tr class="memitem:af995a69d407976a4c42b7d3f9a8285f8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="logger_8h.html#af995a69d407976a4c42b7d3f9a8285f8">DEBUG_OUTPUT_ENABLED</a>&#160;&#160;&#160;1</td></tr>
-<tr class="separator:af995a69d407976a4c42b7d3f9a8285f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a865309cbde9e03a03b3836208bfde84e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="logger_8h.html#a865309cbde9e03a03b3836208bfde84e">WARN_OUTPUT_ENABLED</a>&#160;&#160;&#160;1</td></tr>
-<tr class="separator:a865309cbde9e03a03b3836208bfde84e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00966cc0a7a6f6ec75f9b93686d0d857"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="logger_8h.html#a00966cc0a7a6f6ec75f9b93686d0d857">BENCHMARK_OUTPUT_ENABLED</a>&#160;&#160;&#160;1</td></tr>
-<tr class="separator:a00966cc0a7a6f6ec75f9b93686d0d857"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afa298694895a3c88ce4dd64755c9d4e5"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="logger_8h.html#afa298694895a3c88ce4dd64755c9d4e5">DEBUG_OUTPUT_LEVEL_MASK</a></td></tr>
-<tr class="separator:afa298694895a3c88ce4dd64755c9d4e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a741afef97d8335416ae8f016c6333ca3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="logger_8h.html#a741afef97d8335416ae8f016c6333ca3">FLUSH_ON_OUTPUT</a>&#160;&#160;&#160;0</td></tr>
-<tr class="separator:a741afef97d8335416ae8f016c6333ca3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:aca4d493eeb887ca548e46ff6702c451a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="logger_8h.html#aca4d493eeb887ca548e46ff6702c451a">debug_internal</a> ()</td></tr>
-<tr class="separator:aca4d493eeb887ca548e46ff6702c451a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a84cb2aca866834cfb87745143d53a025"><td class="memTemplParams" colspan="2">template&lt;typename FirstType , typename... OtherTypes&gt; </td></tr>
+<tr class="memitem:a84cb2aca866834cfb87745143d53a025"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="logger_8h.html#a84cb2aca866834cfb87745143d53a025">debug</a> (unsigned int level, const char *logTag, FirstType &amp;&amp;first, OtherTypes &amp;&amp;...other)</td></tr>
+<tr class="memdesc:a84cb2aca866834cfb87745143d53a025"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints a debug message by recursively output the variadic arguments.  <a href="#a84cb2aca866834cfb87745143d53a025">More...</a><br /></td></tr>
+<tr class="separator:a84cb2aca866834cfb87745143d53a025"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a135633669e23876a543536375c7419d9"><td class="memTemplParams" colspan="2">template&lt;typename FirstType , typename... OtherTypes&gt; </td></tr>
 <tr class="memitem:a135633669e23876a543536375c7419d9"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="logger_8h.html#a135633669e23876a543536375c7419d9">debug_internal</a> (FirstType &amp;&amp;first, OtherTypes &amp;&amp;...other)</td></tr>
+<tr class="memdesc:a135633669e23876a543536375c7419d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints a debug message by recursively output the variadic arguments.  <a href="#a135633669e23876a543536375c7419d9">More...</a><br /></td></tr>
 <tr class="separator:a135633669e23876a543536375c7419d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a351bccfbfe2cabd2dcb2f405e60b6df2"><td class="memTemplParams" colspan="2">template&lt;typename FirstType , typename... OtherTypes&gt; </td></tr>
-<tr class="memitem:a351bccfbfe2cabd2dcb2f405e60b6df2"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="logger_8h.html#a351bccfbfe2cabd2dcb2f405e60b6df2">debug</a> (unsigned int level, FirstType &amp;&amp;first, OtherTypes &amp;&amp;...other)</td></tr>
-<tr class="separator:a351bccfbfe2cabd2dcb2f405e60b6df2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a14dfda02a86e8f3db16173550335ab96"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="logger_8h.html#a14dfda02a86e8f3db16173550335ab96">warn_internal</a> ()</td></tr>
-<tr class="separator:a14dfda02a86e8f3db16173550335ab96"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca4d493eeb887ca548e46ff6702c451a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="logger_8h.html#aca4d493eeb887ca548e46ff6702c451a">debug_internal</a> ()</td></tr>
+<tr class="memdesc:aca4d493eeb887ca548e46ff6702c451a"><td class="mdescLeft">&#160;</td><td class="mdescRight">End function for the recursive debug call.  <a href="#aca4d493eeb887ca548e46ff6702c451a">More...</a><br /></td></tr>
+<tr class="separator:aca4d493eeb887ca548e46ff6702c451a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a62bdae78dfda86b1181482f0cd7ffecd"><td class="memTemplParams" colspan="2">template&lt;typename FirstType , typename... OtherTypes&gt; </td></tr>
+<tr class="memitem:a62bdae78dfda86b1181482f0cd7ffecd"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="logger_8h.html#a62bdae78dfda86b1181482f0cd7ffecd">warn</a> (const char *logTag, FirstType &amp;&amp;first, OtherTypes &amp;&amp;...other)</td></tr>
+<tr class="memdesc:a62bdae78dfda86b1181482f0cd7ffecd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints a warn message by recursively output the variadic arguments.  <a href="#a62bdae78dfda86b1181482f0cd7ffecd">More...</a><br /></td></tr>
+<tr class="separator:a62bdae78dfda86b1181482f0cd7ffecd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0144b3b9feeab2767b777375b63d3121"><td class="memTemplParams" colspan="2">template&lt;typename FirstType , typename... OtherTypes&gt; </td></tr>
 <tr class="memitem:a0144b3b9feeab2767b777375b63d3121"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="logger_8h.html#a0144b3b9feeab2767b777375b63d3121">warn_internal</a> (FirstType &amp;&amp;first, OtherTypes &amp;&amp;...other)</td></tr>
+<tr class="memdesc:a0144b3b9feeab2767b777375b63d3121"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints a warn message by recursively output the variadic arguments.  <a href="#a0144b3b9feeab2767b777375b63d3121">More...</a><br /></td></tr>
 <tr class="separator:a0144b3b9feeab2767b777375b63d3121"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6bfb25447b5a5bc49058c74d553f75d7"><td class="memTemplParams" colspan="2">template&lt;typename FirstType , typename... OtherTypes&gt; </td></tr>
-<tr class="memitem:a6bfb25447b5a5bc49058c74d553f75d7"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="logger_8h.html#a6bfb25447b5a5bc49058c74d553f75d7">warn</a> (FirstType &amp;&amp;first, OtherTypes &amp;&amp;...other)</td></tr>
-<tr class="separator:a6bfb25447b5a5bc49058c74d553f75d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aab81e10680f9357560b93d520d1855e1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="logger_8h.html#aab81e10680f9357560b93d520d1855e1">benchmark_internal</a> ()</td></tr>
-<tr class="separator:aab81e10680f9357560b93d520d1855e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a14dfda02a86e8f3db16173550335ab96"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="logger_8h.html#a14dfda02a86e8f3db16173550335ab96">warn_internal</a> ()</td></tr>
+<tr class="memdesc:a14dfda02a86e8f3db16173550335ab96"><td class="mdescLeft">&#160;</td><td class="mdescRight">End function for the recursive warn call.  <a href="#a14dfda02a86e8f3db16173550335ab96">More...</a><br /></td></tr>
+<tr class="separator:a14dfda02a86e8f3db16173550335ab96"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac2deaf33e13eaa1a5d6c0748fa7e63e6"><td class="memTemplParams" colspan="2">template&lt;typename FirstType , typename... OtherTypes&gt; </td></tr>
+<tr class="memitem:ac2deaf33e13eaa1a5d6c0748fa7e63e6"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="logger_8h.html#ac2deaf33e13eaa1a5d6c0748fa7e63e6">benchmark</a> (const char *logTag, FirstType &amp;&amp;first, OtherTypes &amp;&amp;...other)</td></tr>
+<tr class="memdesc:ac2deaf33e13eaa1a5d6c0748fa7e63e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints a benchmark message by recursively output the variadic arguments.  <a href="#ac2deaf33e13eaa1a5d6c0748fa7e63e6">More...</a><br /></td></tr>
+<tr class="separator:ac2deaf33e13eaa1a5d6c0748fa7e63e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5cc7fcde9b12c7fbb0ed09400223e264"><td class="memTemplParams" colspan="2">template&lt;typename FirstType , typename... OtherTypes&gt; </td></tr>
 <tr class="memitem:a5cc7fcde9b12c7fbb0ed09400223e264"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="logger_8h.html#a5cc7fcde9b12c7fbb0ed09400223e264">benchmark_internal</a> (FirstType &amp;&amp;first, OtherTypes &amp;&amp;...other)</td></tr>
+<tr class="memdesc:a5cc7fcde9b12c7fbb0ed09400223e264"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints a benchmark message by recursively output the variadic arguments.  <a href="#a5cc7fcde9b12c7fbb0ed09400223e264">More...</a><br /></td></tr>
 <tr class="separator:a5cc7fcde9b12c7fbb0ed09400223e264"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a84a567468c46d03f006104499f5d7365"><td class="memTemplParams" colspan="2">template&lt;typename FirstType , typename... OtherTypes&gt; </td></tr>
-<tr class="memitem:a84a567468c46d03f006104499f5d7365"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="logger_8h.html#a84a567468c46d03f006104499f5d7365">benchmark</a> (FirstType &amp;&amp;first, OtherTypes &amp;&amp;...other)</td></tr>
-<tr class="separator:a84a567468c46d03f006104499f5d7365"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
-Variables</h2></td></tr>
-<tr class="memitem:a35d51ad8b76008b4cad6c3fd78937a90"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="logger_8h.html#a35d51ad8b76008b4cad6c3fd78937a90">DEBUG_TAG</a></td></tr>
-<tr class="separator:a35d51ad8b76008b4cad6c3fd78937a90"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6ca0792c47bb0a8322822bbcf72c51bc"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="logger_8h.html#a6ca0792c47bb0a8322822bbcf72c51bc">WARN_TAG</a></td></tr>
-<tr class="separator:a6ca0792c47bb0a8322822bbcf72c51bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a267aed9b4b2023f47ae584653b0d3e8e"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="logger_8h.html#a267aed9b4b2023f47ae584653b0d3e8e">BENCHMARK_TAG</a></td></tr>
-<tr class="separator:a267aed9b4b2023f47ae584653b0d3e8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aab81e10680f9357560b93d520d1855e1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="logger_8h.html#aab81e10680f9357560b93d520d1855e1">benchmark_internal</a> ()</td></tr>
+<tr class="memdesc:aab81e10680f9357560b93d520d1855e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">End function for the recursive benchmark call.  <a href="#aab81e10680f9357560b93d520d1855e1">More...</a><br /></td></tr>
+<tr class="separator:aab81e10680f9357560b93d520d1855e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Macro Definition Documentation</h2>
-<a class="anchor" id="a00966cc0a7a6f6ec75f9b93686d0d857"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define BENCHMARK_OUTPUT_ENABLED&#160;&#160;&#160;1</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="af995a69d407976a4c42b7d3f9a8285f8"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define DEBUG_OUTPUT_ENABLED&#160;&#160;&#160;1</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="afa298694895a3c88ce4dd64755c9d4e5"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define DEBUG_OUTPUT_LEVEL_MASK</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line">(\</div><div class="line">(1 &lt;&lt; 0)\</div><div class="line">| (1 &lt;&lt; 1) \</div><div class="line">)</div></div><!-- fragment -->
-</div>
-</div>
-<a class="anchor" id="a741afef97d8335416ae8f016c6333ca3"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define FLUSH_ON_OUTPUT&#160;&#160;&#160;0</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a865309cbde9e03a03b3836208bfde84e"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define WARN_OUTPUT_ENABLED&#160;&#160;&#160;1</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="a84a567468c46d03f006104499f5d7365"></a>
+<a class="anchor" id="ac2deaf33e13eaa1a5d6c0748fa7e63e6"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;typename FirstType , typename... OtherTypes&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void benchmark </td>
           <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>logTag</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
           <td class="paramtype">FirstType &amp;&amp;&#160;</td>
           <td class="paramname"><em>first</em>, </td>
         </tr>
@@ -283,35 +210,17 @@ template&lt;typename FirstType , typename... OtherTypes&gt; </div>
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-</div>
-</div>
-<a class="anchor" id="aab81e10680f9357560b93d520d1855e1"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void benchmark_internal </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
+<p>Prints a benchmark message by recursively output the variadic arguments. </p>
+<p>The message will be put on the output stream onlt if the benchmark mode is enabled. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">logTag</td><td>tag of the entity that is printing this message. </td></tr>
+    <tr><td class="paramname">first</td><td>the first argument. </td></tr>
+    <tr><td class="paramname">other</td><td>the other arguments. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -320,9 +229,6 @@ template&lt;typename FirstType , typename... OtherTypes&gt; </div>
 <div class="memproto">
 <div class="memtemplate">
 template&lt;typename FirstType , typename... OtherTypes&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void benchmark_internal </td>
@@ -342,23 +248,42 @@ template&lt;typename FirstType , typename... OtherTypes&gt; </div>
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
+
+<p>Prints a benchmark message by recursively output the variadic arguments. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">first</td><td>the first argument. </td></tr>
+    <tr><td class="paramname">other</td><td>the other arguments. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
-<a class="anchor" id="a351bccfbfe2cabd2dcb2f405e60b6df2"></a>
+<a class="anchor" id="aab81e10680f9357560b93d520d1855e1"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void benchmark_internal </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>End function for the recursive benchmark call. </p>
+<p>Prints end of line and eventually flushes the output. </p>
+
+</div>
+</div>
+<a class="anchor" id="a84cb2aca866834cfb87745143d53a025"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;typename FirstType , typename... OtherTypes&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void debug </td>
@@ -369,6 +294,12 @@ template&lt;typename FirstType , typename... OtherTypes&gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>logTag</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
           <td class="paramtype">FirstType &amp;&amp;&#160;</td>
           <td class="paramname"><em>first</em>, </td>
         </tr>
@@ -384,35 +315,18 @@ template&lt;typename FirstType , typename... OtherTypes&gt; </div>
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-</div>
-</div>
-<a class="anchor" id="aca4d493eeb887ca548e46ff6702c451a"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void debug_internal </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
+<p>Prints a debug message by recursively output the variadic arguments. </p>
+<p>A level should be specified, and the message will be put on output only if the debug mode is enabled and the current debug level is compatible with the specified level (an AND bit a bit is done for this purpose). </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">level</td><td>the output level; higher is more verbose (actually 1 or 2 can be used). </td></tr>
+    <tr><td class="paramname">logTag</td><td>tag of the entity that is printing this message. </td></tr>
+    <tr><td class="paramname">first</td><td>the first argument. </td></tr>
+    <tr><td class="paramname">other</td><td>the other arguments. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -421,9 +335,6 @@ template&lt;typename FirstType , typename... OtherTypes&gt; </div>
 <div class="memproto">
 <div class="memtemplate">
 template&lt;typename FirstType , typename... OtherTypes&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void debug_internal </td>
@@ -443,27 +354,52 @@ template&lt;typename FirstType , typename... OtherTypes&gt; </div>
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
+
+<p>Prints a debug message by recursively output the variadic arguments. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">first</td><td>the first argument. </td></tr>
+    <tr><td class="paramname">other</td><td>the other arguments. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
-<a class="anchor" id="a6bfb25447b5a5bc49058c74d553f75d7"></a>
+<a class="anchor" id="aca4d493eeb887ca548e46ff6702c451a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void debug_internal </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>End function for the recursive debug call. </p>
+<p>Prints end of line and eventually flushes the output. </p>
+
+</div>
+</div>
+<a class="anchor" id="a62bdae78dfda86b1181482f0cd7ffecd"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;typename FirstType , typename... OtherTypes&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void warn </td>
           <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>logTag</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
           <td class="paramtype">FirstType &amp;&amp;&#160;</td>
           <td class="paramname"><em>first</em>, </td>
         </tr>
@@ -479,35 +415,17 @@ template&lt;typename FirstType , typename... OtherTypes&gt; </div>
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-</div>
-</div>
-<a class="anchor" id="a14dfda02a86e8f3db16173550335ab96"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void warn_internal </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
+<p>Prints a warn message by recursively output the variadic arguments. </p>
+<p>The message will be put on the output stream onlt if the warn mode is enabled. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">logTag</td><td>tag of the entity that is printing this message. </td></tr>
+    <tr><td class="paramname">first</td><td>the first argument. </td></tr>
+    <tr><td class="paramname">other</td><td>the other arguments. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -516,9 +434,6 @@ template&lt;typename FirstType , typename... OtherTypes&gt; </div>
 <div class="memproto">
 <div class="memtemplate">
 template&lt;typename FirstType , typename... OtherTypes&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void warn_internal </td>
@@ -538,49 +453,34 @@ template&lt;typename FirstType , typename... OtherTypes&gt; </div>
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
+
+<p>Prints a warn message by recursively output the variadic arguments. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">first</td><td>the first argument. </td></tr>
+    <tr><td class="paramname">other</td><td>the other arguments. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
-<h2 class="groupheader">Variable Documentation</h2>
-<a class="anchor" id="a267aed9b4b2023f47ae584653b0d3e8e"></a>
+<a class="anchor" id="a14dfda02a86e8f3db16173550335ab96"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const char* BENCHMARK_TAG</td>
+          <td class="memname">void warn_internal </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-</div>
-</div>
-<a class="anchor" id="a35d51ad8b76008b4cad6c3fd78937a90"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const char* DEBUG_TAG</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a6ca0792c47bb0a8322822bbcf72c51bc"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const char* WARN_TAG</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
+<p>End function for the recursive warn call. </p>
+<p>Prints end of line and eventually flushes the output. </p>
 
 </div>
 </div>

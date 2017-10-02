@@ -92,33 +92,49 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 
+<p>Responsible for handle the current shown <a class="el" href="classScreen.html" title="Base class representing a screen of the game. ">Screen</a>.  
+ <a href="classScreenManager.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="screenmanager_8h_source.html">screenmanager.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a5c7245e028f80f68e123d8b2f33bcfd7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classScreenManager.html#a5c7245e028f80f68e123d8b2f33bcfd7">ScreenManager</a> (<a class="el" href="classGame.html">Game</a> *g)</td></tr>
-<tr class="separator:a5c7245e028f80f68e123d8b2f33bcfd7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab397f82b180ee7d50cc1e305c19ed733"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classScreenManager.html#ab397f82b180ee7d50cc1e305c19ed733">ScreenManager</a> ()</td></tr>
+<tr class="memdesc:ab397f82b180ee7d50cc1e305c19ed733"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new screen manager.  <a href="#ab397f82b180ee7d50cc1e305c19ed733">More...</a><br /></td></tr>
+<tr class="separator:ab397f82b180ee7d50cc1e305c19ed733"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a67f4c89ccb3f667d4dddab7b4316df04"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classScreenManager.html#a67f4c89ccb3f667d4dddab7b4316df04">setScreen</a> (<a class="el" href="classScreen.html">Screen</a> *screen)</td></tr>
+<tr class="memdesc:a67f4c89ccb3f667d4dddab7b4316df04"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the screen handled by this screen manager.  <a href="#a67f4c89ccb3f667d4dddab7b4316df04">More...</a><br /></td></tr>
 <tr class="separator:a67f4c89ccb3f667d4dddab7b4316df04"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a83085d47b1492949a032332257e5e66f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classScreenManager.html#a83085d47b1492949a032332257e5e66f">update</a> ()</td></tr>
+<tr class="memdesc:a83085d47b1492949a032332257e5e66f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the handled screen (actually calls <a class="el" href="classScreen.html#a9cea8804adadbf9ee3ede5d9d2d58671" title="Updates the logic of the screen. ">Screen::update</a>).  <a href="#a83085d47b1492949a032332257e5e66f">More...</a><br /></td></tr>
 <tr class="separator:a83085d47b1492949a032332257e5e66f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0e5382d48c63d55b9ec1d63615640f8d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classScreenManager.html#a0e5382d48c63d55b9ec1d63615640f8d">render</a> ()</td></tr>
+<tr class="memdesc:a0e5382d48c63d55b9ec1d63615640f8d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Renders the handled screen (actually calls <a class="el" href="classScreen.html#a1b42df84ff23324c05b63decad5a8846" title="Draws the screen on the window. ">Screen::render</a>).  <a href="#a0e5382d48c63d55b9ec1d63615640f8d">More...</a><br /></td></tr>
 <tr class="separator:a0e5382d48c63d55b9ec1d63615640f8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a5c7245e028f80f68e123d8b2f33bcfd7"></a>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Responsible for handle the current shown <a class="el" href="classScreen.html" title="Base class representing a screen of the game. ">Screen</a>. </p>
+<p>Only a screen will be handled by this manager, which will call <a class="el" href="classScreen.html#a9cea8804adadbf9ee3ede5d9d2d58671" title="Updates the logic of the screen. ">Screen::update</a> and <a class="el" href="classScreen.html#a1b42df84ff23324c05b63decad5a8846" title="Draws the screen on the window. ">Screen::render</a> for the current screen appropriately. A screen should return a different segue screen for change the screen handled by this manager. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">g</td><td>[description] </td></tr>
+  </table>
+  </dd>
+</dl>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="ab397f82b180ee7d50cc1e305c19ed733"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">ScreenManager::ScreenManager </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classGame.html">Game</a> *&#160;</td>
-          <td class="paramname"><em>g</em></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Creates a new screen manager. </p>
 
 </div>
 </div>
@@ -136,6 +152,8 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Renders the handled screen (actually calls <a class="el" href="classScreen.html#a1b42df84ff23324c05b63decad5a8846" title="Draws the screen on the window. ">Screen::render</a>). </p>
+
 </div>
 </div>
 <a class="anchor" id="a67f4c89ccb3f667d4dddab7b4316df04"></a>
@@ -152,6 +170,8 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Sets the screen handled by this screen manager. </p>
+
 </div>
 </div>
 <a class="anchor" id="a83085d47b1492949a032332257e5e66f"></a>
@@ -166,6 +186,8 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Updates the handled screen (actually calls <a class="el" href="classScreen.html#a9cea8804adadbf9ee3ede5d9d2d58671" title="Updates the logic of the screen. ">Screen::update</a>). </p>
 
 </div>
 </div>

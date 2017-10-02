@@ -2,14 +2,14 @@
 <area shape="rect" id="node2" href="$classKart.html" title="Base entity representing a kart. " alt="" coords="338,377,385,404"/>
 <area shape="rect" id="node3" href="$classMapMovingEntity.html" title="Represents an abstract entity placed into a map that have a direction. " alt="" coords="5,288,128,315"/>
 <area shape="rect" id="node4" href="$classMapEntity.html" title="Represents an abstract entity placed into a map. " alt="" coords="15,199,97,225"/>
-<area shape="rect" id="node5" href="$classLoggerInterface.html" title="LoggerInterface" alt="" coords="121,199,233,225"/>
-<area shape="rect" id="node7" href="$classLevel.html" title="Level" alt="" coords="271,288,324,315"/>
+<area shape="rect" id="node5" href="$classLoggerInterface.html" title="Interface usable by entities that need to print on the output stream. " alt="" coords="121,199,233,225"/>
+<area shape="rect" id="node7" href="$classLevel.html" title="Handles the karts, the map and eventually every other object in the level. " alt="" coords="271,288,324,315"/>
 <area shape="rect" id="node6" href="$structKart_1_1KartParams.html" title="Encapsulates the parameters of the karts. " alt="" coords="348,288,471,315"/>
-<area shape="rect" id="node8" href="$classFadeScreen.html" title="FadeScreen" alt="" coords="258,199,350,225"/>
-<area shape="rect" id="node9" href="$classScreen.html" title="Screen" alt="" coords="105,95,167,121"/>
-<area shape="rect" id="node10" href="$classKeyboardManager.html" title="KeyboardManager" alt="" coords="73,5,199,32"/>
+<area shape="rect" id="node8" href="$classFadeScreen.html" title="Base class representing a screen of the game that has the feauture of fade in and fade out with a van..." alt="" coords="258,199,350,225"/>
+<area shape="rect" id="node9" href="$classScreen.html" title="Base class representing a screen of the game. " alt="" coords="105,95,167,121"/>
+<area shape="rect" id="node10" href="$classKeyboardManager.html" title="Responsible for handle the pressure of the keys by notifying listeners about new pressed key..." alt="" coords="73,5,199,32"/>
 <area shape="rect" id="node11" href="$classGameTimer.html" title="GameTimer\&lt; FadeScreen \&gt;" alt="" coords="269,95,453,121"/>
-<area shape="rect" id="node12" href="$classKeyboardListener.html" title="KeyboardListener" alt="" coords="375,199,497,225"/>
+<area shape="rect" id="node12" href="$classKeyboardListener.html" title="Intarface usable for listen to keys pressed on the keyboard. " alt="" coords="375,199,497,225"/>
 <area shape="rect" id="node13" href="$structDirectionalPoint.html" title="DirectionalPoint" alt="" coords="495,288,609,315"/>
 <area shape="rect" id="node14" href="$structAngle.html" title="Angle" alt="" coords="522,199,577,225"/>
 <area shape="rect" id="node15" href="$structPoint.html" title="Point" alt="" coords="642,199,694,225"/>

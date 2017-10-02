@@ -7,7 +7,6 @@ var searchData=
   ['fade_5fstarting_5falpha',['FADE_STARTING_ALPHA',['../level_8cc.html#acc65fe0a637cb4af53004b03a47a682d',1,'level.cc']]],
   ['fade_5ftimer_5fcountdown_5fms',['FADE_TIMER_COUNTDOWN_MS',['../level_8cc.html#aa856b4686d0aead6b1de75288f9364f6',1,'level.cc']]],
   ['flight_5fmode',['FLIGHT_MODE',['../kart_8cc.html#a80bbd95a50bfb90e017945a610e39837',1,'kart.cc']]],
-  ['flush_5fon_5foutput',['FLUSH_ON_OUTPUT',['../logger_8h.html#a741afef97d8335416ae8f016c6333ca3',1,'logger.h']]],
   ['font_5fname_5ffancy',['FONT_NAME_FANCY',['../fontfactory_8cc.html#a0228a781891a4ccdec57d8dedd9529a8',1,'fontfactory.cc']]],
   ['font_5fname_5fplain',['FONT_NAME_PLAIN',['../fontfactory_8cc.html#a11f3cde7afd328efd32842df46214a19',1,'fontfactory.cc']]],
   ['font_5fname_5fsemibold',['FONT_NAME_SEMIBOLD',['../fontfactory_8cc.html#a4bce5407941b0ab1cddb41478f9afe10',1,'fontfactory.cc']]]

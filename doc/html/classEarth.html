@@ -99,8 +99,8 @@ Inheritance diagram for Earth:</div>
 <div class="dyncontent">
 <div class="center"><img src="classEarth__inherit__graph.png" border="0" usemap="#Earth_inherit__map" alt="Inheritance graph"/></div>
 <map name="Earth_inherit__map" id="Earth_inherit__map">
-<area shape="rect" id="node2" href="classMap.html" title="Map" alt="" coords="38,80,85,107"/>
-<area shape="rect" id="node3" href="classLoggerInterface.html" title="LoggerInterface" alt="" coords="5,5,117,32"/>
+<area shape="rect" id="node2" href="classMap.html" title="Base class for the level&#39;s map. " alt="" coords="38,80,85,107"/>
+<area shape="rect" id="node3" href="classLoggerInterface.html" title="Interface usable by entities that need to print on the output stream. " alt="" coords="5,5,117,32"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <div class="dynheader">
@@ -108,8 +108,8 @@ Collaboration diagram for Earth:</div>
 <div class="dyncontent">
 <div class="center"><img src="classEarth__coll__graph.png" border="0" usemap="#Earth_coll__map" alt="Collaboration graph"/></div>
 <map name="Earth_coll__map" id="Earth_coll__map">
-<area shape="rect" id="node2" href="classMap.html" title="Map" alt="" coords="38,80,85,107"/>
-<area shape="rect" id="node3" href="classLoggerInterface.html" title="LoggerInterface" alt="" coords="5,5,117,32"/>
+<area shape="rect" id="node2" href="classMap.html" title="Base class for the level&#39;s map. " alt="" coords="38,80,85,107"/>
+<area shape="rect" id="node3" href="classLoggerInterface.html" title="Interface usable by entities that need to print on the output stream. " alt="" coords="5,5,117,32"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
@@ -118,36 +118,50 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a3c83baad6cee933508a01a63169134f9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEarth.html#a3c83baad6cee933508a01a63169134f9">Earth</a> (sf::RenderWindow *window, <a class="el" href="classLevel.html">Level</a> *level)</td></tr>
 <tr class="separator:a3c83baad6cee933508a01a63169134f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a440517ac091cd770bbc3abb9d32216a7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEarth.html#a440517ac091cd770bbc3abb9d32216a7">loadMap</a> ()</td></tr>
+<tr class="memdesc:a440517ac091cd770bbc3abb9d32216a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads the map.  <a href="#a440517ac091cd770bbc3abb9d32216a7">More...</a><br /></td></tr>
 <tr class="separator:a440517ac091cd770bbc3abb9d32216a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4ababa809abaf2cb86ca2096fe88567d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structPoint.html">Point</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEarth.html#a4ababa809abaf2cb86ca2096fe88567d">startingPointForRacePosition</a> (int racePosition)</td></tr>
+<tr class="memdesc:a4ababa809abaf2cb86ca2096fe88567d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the point on the loaded map associated with the given race position.  <a href="#a4ababa809abaf2cb86ca2096fe88567d">More...</a><br /></td></tr>
 <tr class="separator:a4ababa809abaf2cb86ca2096fe88567d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2ed8a2cebd0d02e125ee2a3a0a982a16"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEarth.html#a2ed8a2cebd0d02e125ee2a3a0a982a16">lastRacePosition</a> ()</td></tr>
+<tr class="memdesc:a2ed8a2cebd0d02e125ee2a3a0a982a16"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the race position for the last kart.  <a href="#a2ed8a2cebd0d02e125ee2a3a0a982a16">More...</a><br /></td></tr>
 <tr class="separator:a2ed8a2cebd0d02e125ee2a3a0a982a16"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classMap"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classMap')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classMap.html">Map</a></td></tr>
 <tr class="memitem:ab332b6563e4f108e328f742ee9fda3be inherit pub_methods_classMap"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMap.html#ab332b6563e4f108e328f742ee9fda3be">Map</a> (sf::RenderWindow *window, <a class="el" href="classLevel.html">Level</a> *level)</td></tr>
+<tr class="memdesc:ab332b6563e4f108e328f742ee9fda3be inherit pub_methods_classMap"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new empty map.  <a href="#ab332b6563e4f108e328f742ee9fda3be">More...</a><br /></td></tr>
 <tr class="separator:ab332b6563e4f108e328f742ee9fda3be inherit pub_methods_classMap"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa403fbe09394ccf39747588f5168e3b2 inherit pub_methods_classMap"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMap.html#aa403fbe09394ccf39747588f5168e3b2">~Map</a> ()</td></tr>
 <tr class="separator:aa403fbe09394ccf39747588f5168e3b2 inherit pub_methods_classMap"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab12643cc3a8d5e48f566c1abb571e9bf inherit pub_methods_classMap"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMap.html#ab12643cc3a8d5e48f566c1abb571e9bf">update</a> ()</td></tr>
+<tr class="memdesc:ab12643cc3a8d5e48f566c1abb571e9bf inherit pub_methods_classMap"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the logic of the map (if any).  <a href="#ab12643cc3a8d5e48f566c1abb571e9bf">More...</a><br /></td></tr>
 <tr class="separator:ab12643cc3a8d5e48f566c1abb571e9bf inherit pub_methods_classMap"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6a40755f8541eece2fa48e9e24a588f8 inherit pub_methods_classMap"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMap.html#a6a40755f8541eece2fa48e9e24a588f8">draw</a> ()</td></tr>
+<tr class="memdesc:a6a40755f8541eece2fa48e9e24a588f8 inherit pub_methods_classMap"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws the portion of visible map on the screen.  <a href="#a6a40755f8541eece2fa48e9e24a588f8">More...</a><br /></td></tr>
 <tr class="separator:a6a40755f8541eece2fa48e9e24a588f8 inherit pub_methods_classMap"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac3a2f5b5e6faa910b80ef1f3c1bac00b inherit pub_methods_classMap"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMap.html#ac3a2f5b5e6faa910b80ef1f3c1bac00b">colCount</a> ()</td></tr>
+<tr class="memdesc:ac3a2f5b5e6faa910b80ef1f3c1bac00b inherit pub_methods_classMap"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the column count of the currently loaded map.  <a href="#ac3a2f5b5e6faa910b80ef1f3c1bac00b">More...</a><br /></td></tr>
 <tr class="separator:ac3a2f5b5e6faa910b80ef1f3c1bac00b inherit pub_methods_classMap"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a292737d780fbba4df5f77ea16998119b inherit pub_methods_classMap"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMap.html#a292737d780fbba4df5f77ea16998119b">rowCount</a> ()</td></tr>
+<tr class="memdesc:a292737d780fbba4df5f77ea16998119b inherit pub_methods_classMap"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the row count of the currently loaded map.  <a href="#a292737d780fbba4df5f77ea16998119b">More...</a><br /></td></tr>
 <tr class="separator:a292737d780fbba4df5f77ea16998119b inherit pub_methods_classMap"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a638bc2068d611eb95924c6d4a22fc8d3 inherit pub_methods_classMap"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classMap.html#a7b5cf31600224c078f4393dbeccccdad">TileEvent</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMap.html#a638bc2068d611eb95924c6d4a22fc8d3">tileEvent</a> (const <a class="el" href="structPoint.html">Point</a> &amp;p)</td></tr>
+<tr class="memdesc:a638bc2068d611eb95924c6d4a22fc8d3 inherit pub_methods_classMap"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the event associated with the tile at the given point.  <a href="#a638bc2068d611eb95924c6d4a22fc8d3">More...</a><br /></td></tr>
 <tr class="separator:a638bc2068d611eb95924c6d4a22fc8d3 inherit pub_methods_classMap"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a57ce9c8d8d8a0a03543422bc16ac6076 inherit pub_methods_classMap"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structMap_1_1Sector.html">Sector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMap.html#a57ce9c8d8d8a0a03543422bc16ac6076">sector</a> (const <a class="el" href="structPoint.html">Point</a> &amp;p)</td></tr>
+<tr class="memdesc:a57ce9c8d8d8a0a03543422bc16ac6076 inherit pub_methods_classMap"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the sector associated with the given point.  <a href="#a57ce9c8d8d8a0a03543422bc16ac6076">More...</a><br /></td></tr>
 <tr class="separator:a57ce9c8d8d8a0a03543422bc16ac6076 inherit pub_methods_classMap"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a90d425b60e68f243009e2f59882e4035 inherit pub_methods_classMap"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMap.html#a90d425b60e68f243009e2f59882e4035">sectorCount</a> ()</td></tr>
+<tr class="memdesc:a90d425b60e68f243009e2f59882e4035 inherit pub_methods_classMap"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the sector count for the currently loaded map.  <a href="#a90d425b60e68f243009e2f59882e4035">More...</a><br /></td></tr>
 <tr class="separator:a90d425b60e68f243009e2f59882e4035 inherit pub_methods_classMap"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0f31bfd434371783768854a2ed9b9289 inherit pub_methods_classMap"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMap.html#a0f31bfd434371783768854a2ed9b9289">aiPathCount</a> ()</td></tr>
-<tr class="separator:a0f31bfd434371783768854a2ed9b9289 inherit pub_methods_classMap"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a08fdb70e9e48af7bafab24aba0d175c1 inherit pub_methods_classMap"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMap.html#a08fdb70e9e48af7bafab24aba0d175c1">aiPath</a> (unsigned int index)</td></tr>
+<tr class="memdesc:a08fdb70e9e48af7bafab24aba0d175c1 inherit pub_methods_classMap"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the filename of the AI path with the given index.  <a href="#a08fdb70e9e48af7bafab24aba0d175c1">More...</a><br /></td></tr>
 <tr class="separator:a08fdb70e9e48af7bafab24aba0d175c1 inherit pub_methods_classMap"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af22bbddff7e2af26f9b5fa6111dc6329 inherit pub_methods_classMap"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMap.html#af22bbddff7e2af26f9b5fa6111dc6329">randomAIPath</a> ()</td></tr>
+<tr class="memdesc:af22bbddff7e2af26f9b5fa6111dc6329 inherit pub_methods_classMap"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a random AI path.  <a href="#af22bbddff7e2af26f9b5fa6111dc6329">More...</a><br /></td></tr>
 <tr class="separator:af22bbddff7e2af26f9b5fa6111dc6329 inherit pub_methods_classMap"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f31bfd434371783768854a2ed9b9289 inherit pub_methods_classMap"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMap.html#a0f31bfd434371783768854a2ed9b9289">aiPathCount</a> ()</td></tr>
+<tr class="memdesc:a0f31bfd434371783768854a2ed9b9289 inherit pub_methods_classMap"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of AI path available for the currently loaded map.  <a href="#a0f31bfd434371783768854a2ed9b9289">More...</a><br /></td></tr>
+<tr class="separator:a0f31bfd434371783768854a2ed9b9289 inherit pub_methods_classMap"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classLoggerInterface"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classLoggerInterface')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classLoggerInterface.html">LoggerInterface</a></td></tr>
 <tr class="memitem:a70c3e450fcc106112ac7bae9133b5068 inherit pub_methods_classLoggerInterface"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLoggerInterface.html#a70c3e450fcc106112ac7bae9133b5068">~LoggerInterface</a> ()</td></tr>
 <tr class="separator:a70c3e450fcc106112ac7bae9133b5068 inherit pub_methods_classLoggerInterface"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -171,43 +185,56 @@ Additional Inherited Members</h2></td></tr>
 <a class="el" href="classMap.html#abd420aa9ad08bbadb79cf83ee2999383ac7cb353fe1967a37667bd0c478937b54">LeftUp</a>, 
 <a class="el" href="classMap.html#abd420aa9ad08bbadb79cf83ee2999383a8f4430cdfbdbabbb6ea7f27ab94edc4f">LeftDown</a>
 <br />
- }</td></tr>
+ }<tr class="memdesc:abd420aa9ad08bbadb79cf83ee2999383"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type of the sector.  <a href="classMap.html#abd420aa9ad08bbadb79cf83ee2999383">More...</a><br /></td></tr>
+</td></tr>
 <tr class="separator:abd420aa9ad08bbadb79cf83ee2999383 inherit pub_types_classMap"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7b5cf31600224c078f4393dbeccccdad inherit pub_types_classMap"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMap.html#a7b5cf31600224c078f4393dbeccccdad">TileEvent</a> { <a class="el" href="classMap.html#a7b5cf31600224c078f4393dbeccccdada6cb64aaced1ac0a46e878b6eee4ce6d9">Unpassable</a> = 0, 
 <a class="el" href="classMap.html#a7b5cf31600224c078f4393dbeccccdadafffc6e5a5fe17cdd51d466d9a921cd3a">Passable</a> = 1, 
 <a class="el" href="classMap.html#a7b5cf31600224c078f4393dbeccccdada18f6a3fe6ebc3205159ab7e9688be532">Slow</a> = 2, 
 <a class="el" href="classMap.html#a7b5cf31600224c078f4393dbeccccdada8f9ba6c491c53fe13afd3d460b78eed4">LapFinished</a> = 3
- }</td></tr>
+ }<tr class="memdesc:a7b5cf31600224c078f4393dbeccccdad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Action associated with a tile.  <a href="classMap.html#a7b5cf31600224c078f4393dbeccccdad">More...</a><br /></td></tr>
+</td></tr>
 <tr class="separator:a7b5cf31600224c078f4393dbeccccdad inherit pub_types_classMap"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_methods_classMap"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_classMap')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="classMap.html">Map</a></td></tr>
 <tr class="memitem:a03b457393af2916f0ff9b3d880e27471 inherit pro_methods_classMap"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMap.html#a03b457393af2916f0ff9b3d880e27471">loadMap</a> (const char *mapFilename)</td></tr>
+<tr class="memdesc:a03b457393af2916f0ff9b3d880e27471 inherit pro_methods_classMap"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads the map from the raw file with the given name.  <a href="#a03b457393af2916f0ff9b3d880e27471">More...</a><br /></td></tr>
 <tr class="separator:a03b457393af2916f0ff9b3d880e27471 inherit pro_methods_classMap"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a201f745ce1c53800e4f7918e20b199c0 inherit pro_methods_classMap"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMap.html#a201f745ce1c53800e4f7918e20b199c0">loadEvents</a> (const char *eventsFilename)</td></tr>
+<tr class="memdesc:a201f745ce1c53800e4f7918e20b199c0 inherit pro_methods_classMap"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads the events associated with the map from the raw file with the given name.  <a href="#a201f745ce1c53800e4f7918e20b199c0">More...</a><br /></td></tr>
 <tr class="separator:a201f745ce1c53800e4f7918e20b199c0 inherit pro_methods_classMap"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af6a50bc4f67e6532164da0aed294df9f inherit pro_methods_classMap"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMap.html#af6a50bc4f67e6532164da0aed294df9f">loadTileset</a> (const char *tilesetFilename)</td></tr>
+<tr class="memdesc:af6a50bc4f67e6532164da0aed294df9f inherit pro_methods_classMap"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads the tileset to use for the map from the image file with the given name.  <a href="#af6a50bc4f67e6532164da0aed294df9f">More...</a><br /></td></tr>
 <tr class="separator:af6a50bc4f67e6532164da0aed294df9f inherit pro_methods_classMap"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a64153c5e8cbf27afebd1a539ff8f2a37 inherit pro_methods_classMap"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMap.html#a64153c5e8cbf27afebd1a539ff8f2a37">loadSectors</a> (const char *sectorsFilename)</td></tr>
+<tr class="memdesc:a64153c5e8cbf27afebd1a539ff8f2a37 inherit pro_methods_classMap"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads the sectors from the raw file with the given name.  <a href="#a64153c5e8cbf27afebd1a539ff8f2a37">More...</a><br /></td></tr>
 <tr class="separator:a64153c5e8cbf27afebd1a539ff8f2a37 inherit pro_methods_classMap"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a603c62bdf7f1ac7acddcf0902984d234 inherit pro_methods_classMap"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMap.html#a603c62bdf7f1ac7acddcf0902984d234">addAIPath</a> (const char *aiPathFilename)</td></tr>
+<tr class="memdesc:a603c62bdf7f1ac7acddcf0902984d234 inherit pro_methods_classMap"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds an AI path to the collection of paths available for AI.  <a href="#a603c62bdf7f1ac7acddcf0902984d234">More...</a><br /></td></tr>
 <tr class="separator:a603c62bdf7f1ac7acddcf0902984d234 inherit pro_methods_classMap"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_methods_classLoggerInterface"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_classLoggerInterface')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="classLoggerInterface.html">LoggerInterface</a></td></tr>
-<tr class="memitem:aca9f8dc7ea5ea76ad8390b52f2561a15 inherit pro_methods_classLoggerInterface"><td class="memTemplParams" colspan="2">template&lt;typename FirstType , typename... OtherTypes&gt; </td></tr>
-<tr class="memitem:aca9f8dc7ea5ea76ad8390b52f2561a15 inherit pro_methods_classLoggerInterface"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classLoggerInterface.html#aca9f8dc7ea5ea76ad8390b52f2561a15">d_level</a> (unsigned int level, FirstType &amp;&amp;first, OtherTypes &amp;&amp;...other)</td></tr>
-<tr class="separator:aca9f8dc7ea5ea76ad8390b52f2561a15 inherit pro_methods_classLoggerInterface"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a34dc1c7975aa06f977707bf4bacc1a9d inherit pro_methods_classLoggerInterface"><td class="memTemplParams" colspan="2">template&lt;typename FirstType , typename... OtherTypes&gt; </td></tr>
 <tr class="memitem:a34dc1c7975aa06f977707bf4bacc1a9d inherit pro_methods_classLoggerInterface"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classLoggerInterface.html#a34dc1c7975aa06f977707bf4bacc1a9d">d</a> (FirstType &amp;&amp;first, OtherTypes &amp;&amp;...other)</td></tr>
+<tr class="memdesc:a34dc1c7975aa06f977707bf4bacc1a9d inherit pro_methods_classLoggerInterface"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints a debug message using the default output verbosity level (1).  <a href="#a34dc1c7975aa06f977707bf4bacc1a9d">More...</a><br /></td></tr>
 <tr class="separator:a34dc1c7975aa06f977707bf4bacc1a9d inherit pro_methods_classLoggerInterface"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae7ea7fb18f9288b616d6226745bc7605 inherit pro_methods_classLoggerInterface"><td class="memTemplParams" colspan="2">template&lt;typename FirstType , typename... OtherTypes&gt; </td></tr>
 <tr class="memitem:ae7ea7fb18f9288b616d6226745bc7605 inherit pro_methods_classLoggerInterface"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classLoggerInterface.html#ae7ea7fb18f9288b616d6226745bc7605">d1</a> (FirstType &amp;&amp;first, OtherTypes &amp;&amp;...other)</td></tr>
+<tr class="memdesc:ae7ea7fb18f9288b616d6226745bc7605 inherit pro_methods_classLoggerInterface"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints a debug message using output verbosity level equals to 1.  <a href="#ae7ea7fb18f9288b616d6226745bc7605">More...</a><br /></td></tr>
 <tr class="separator:ae7ea7fb18f9288b616d6226745bc7605 inherit pro_methods_classLoggerInterface"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab2b05c5c566965cc37a906d145b20cec inherit pro_methods_classLoggerInterface"><td class="memTemplParams" colspan="2">template&lt;typename FirstType , typename... OtherTypes&gt; </td></tr>
 <tr class="memitem:ab2b05c5c566965cc37a906d145b20cec inherit pro_methods_classLoggerInterface"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classLoggerInterface.html#ab2b05c5c566965cc37a906d145b20cec">d2</a> (FirstType &amp;&amp;first, OtherTypes &amp;&amp;...other)</td></tr>
+<tr class="memdesc:ab2b05c5c566965cc37a906d145b20cec inherit pro_methods_classLoggerInterface"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints a debug message using output verbosity level equals to 2.  <a href="#ab2b05c5c566965cc37a906d145b20cec">More...</a><br /></td></tr>
 <tr class="separator:ab2b05c5c566965cc37a906d145b20cec inherit pro_methods_classLoggerInterface"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca9f8dc7ea5ea76ad8390b52f2561a15 inherit pro_methods_classLoggerInterface"><td class="memTemplParams" colspan="2">template&lt;typename FirstType , typename... OtherTypes&gt; </td></tr>
+<tr class="memitem:aca9f8dc7ea5ea76ad8390b52f2561a15 inherit pro_methods_classLoggerInterface"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classLoggerInterface.html#aca9f8dc7ea5ea76ad8390b52f2561a15">d_level</a> (unsigned int level, FirstType &amp;&amp;first, OtherTypes &amp;&amp;...other)</td></tr>
+<tr class="memdesc:aca9f8dc7ea5ea76ad8390b52f2561a15 inherit pro_methods_classLoggerInterface"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints a debug message using the given verbosity level.  <a href="#aca9f8dc7ea5ea76ad8390b52f2561a15">More...</a><br /></td></tr>
+<tr class="separator:aca9f8dc7ea5ea76ad8390b52f2561a15 inherit pro_methods_classLoggerInterface"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8b715cb6b4616496e78a71a628225b8b inherit pro_methods_classLoggerInterface"><td class="memTemplParams" colspan="2">template&lt;typename FirstType , typename... OtherTypes&gt; </td></tr>
 <tr class="memitem:a8b715cb6b4616496e78a71a628225b8b inherit pro_methods_classLoggerInterface"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classLoggerInterface.html#a8b715cb6b4616496e78a71a628225b8b">w</a> (FirstType &amp;&amp;first, OtherTypes &amp;&amp;...other)</td></tr>
+<tr class="memdesc:a8b715cb6b4616496e78a71a628225b8b inherit pro_methods_classLoggerInterface"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints a warn message.  <a href="#a8b715cb6b4616496e78a71a628225b8b">More...</a><br /></td></tr>
 <tr class="separator:a8b715cb6b4616496e78a71a628225b8b inherit pro_methods_classLoggerInterface"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afb381df73e55b1423be07e8f09ee0123 inherit pro_methods_classLoggerInterface"><td class="memTemplParams" colspan="2">template&lt;typename FirstType , typename... OtherTypes&gt; </td></tr>
 <tr class="memitem:afb381df73e55b1423be07e8f09ee0123 inherit pro_methods_classLoggerInterface"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classLoggerInterface.html#afb381df73e55b1423be07e8f09ee0123">bench</a> (FirstType &amp;&amp;first, OtherTypes &amp;&amp;...other)</td></tr>
+<tr class="memdesc:afb381df73e55b1423be07e8f09ee0123 inherit pro_methods_classLoggerInterface"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints a bench message.  <a href="#afb381df73e55b1423be07e8f09ee0123">More...</a><br /></td></tr>
 <tr class="separator:afb381df73e55b1423be07e8f09ee0123 inherit pro_methods_classLoggerInterface"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
@@ -259,6 +286,9 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Returns the race position for the last kart. </p>
+<dl class="section return"><dt>Returns</dt><dd>the race position for the last kart. </dd></dl>
+
 <p>Implements <a class="el" href="classMap.html#a5dec82ab659b3fb7a56c0830b1222792">Map</a>.</p>
 
 </div>
@@ -283,6 +313,8 @@ Additional Inherited Members</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Loads the map. </p>
 
 <p>Implements <a class="el" href="classMap.html#a0e50295b181204823f04f97b862fc51b">Map</a>.</p>
 
@@ -309,6 +341,15 @@ Additional Inherited Members</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Returns the point on the loaded map associated with the given race position. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">racePosition</td><td>the race position. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the point associated with the given race position. </dd></dl>
 
 <p>Implements <a class="el" href="classMap.html#ac4709d0bf0ea0e1cd7fef016464fbf7a">Map</a>.</p>
 

@@ -23,4 +23,5 @@ void AIVenusian::initSprites() {
 
 void AIVenusian::initParameters() {
     mParams = KartFactory::params(KartFactory::KartType::VenusianType, PARAM_RANDOMNESS_FACTOR);
+    // mParams.maxSpeed /=2;
 }

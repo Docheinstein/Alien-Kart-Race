@@ -4,6 +4,7 @@
 #include "game.h"
 
 #define DBG 0
+#define LOG_TAG = "{PerspectiveUtil} "
 
 Point PerspectiveUtil::perspectivePoint(
                         const Point &mapPoint,
@@ -80,14 +81,14 @@ void PerspectiveUtil::calculateVanishPointsForAngle(
 	out_vp2 = Point { vanishPoint2X, horizonY };
 
 #if DBG
-    debug(1,"Calcultating vanish for angle: ", cameraAngle);
-    debug(1,"(basePoint.y - horizonY)", (basePoint.y - horizonY));
-    debug(1,"tan(M_PI / 2 - cameraAngle.rad): ", tan(M_PI / 2 - cameraAngle.rad));
-    debug(1,"tan(cameraAngle.rad) ", tan(cameraAngle.rad) );
-    debug(1,"tan(M_PI / 2 - cameraAngle.rad) * (basePoint.y - horizonY) ", tan(M_PI / 2 - cameraAngle.rad) * (basePoint.y - horizonY));
-    debug(1,"tan(cameraAngle.rad) * (basePoint.y - horizonY)", tan(cameraAngle.rad) * (basePoint.y - horizonY));
-    debug(1,"out_vp1 ", out_vp1);
-    debug(1,"out_vp2 ", out_vp2);
+    debug(2, LOG_TAG, "Calcultating vanish for angle: ", cameraAngle);
+    debug(2, LOG_TAG, "(basePoint.y - horizonY)", (basePoint.y - horizonY));
+    debug(2, LOG_TAG, "tan(M_PI / 2 - cameraAngle.rad): ", tan(M_PI / 2 - cameraAngle.rad));
+    debug(2, LOG_TAG, "tan(cameraAngle.rad) ", tan(cameraAngle.rad) );
+    debug(2, LOG_TAG, "tan(M_PI / 2 - cameraAngle.rad) * (basePoint.y - horizonY) ", tan(M_PI / 2 - cameraAngle.rad) * (basePoint.y - horizonY));
+    debug(2, LOG_TAG, "tan(cameraAngle.rad) * (basePoint.y - horizonY)", tan(cameraAngle.rad) * (basePoint.y - horizonY));
+    debug(2, LOG_TAG, "out_vp1 ", out_vp1);
+    debug(2, LOG_TAG, "out_vp2 ", out_vp2);
 #endif
 }
 
@@ -115,7 +116,7 @@ Point PerspectiveUtil::perspectivePointInternal(
 	double baselineRowOffset = ((relativeToCenterRow) / cos(M_PI / 2 - cameraRad));
 
 #if DBG
-    debug(1,"\n\trelativeToCenterCol\t", relativeToCenterCol,
+    debug(2, LOG_TAG, "\n\trelativeToCenterCol\t", relativeToCenterCol,
         "\n\trelativeToCenterRow\t", relativeToCenterRow,
         "\n\tbaselineColOffset\t", baselineColOffset,
         "\n\tbaselineRowOffset\t", baselineRowOffset);
@@ -153,7 +154,7 @@ Point PerspectiveUtil::perspectivePointInternal(
         baselineRowOffset = distanceOfPointProjectedOnHypotFromHorizonOrigin + baselineRowOffsetRotatedPoint;
 
 #if DBG
-        debug(1, "Rotated object perspective details",
+        debug(2, LOG_TAG, "Rotated object perspective details",
             "\n\tdistancePointHorizonCol\t", distancePointHorizonCol,
             "\n\tdistancePointHorizonRow\t", distancePointHorizonRow,
             "\n\tstandardAngleTrigArea\t", standardAngleTrigArea,
@@ -183,7 +184,7 @@ Point PerspectiveUtil::perspectivePointInternal(
 	Point pp = GeometryUtil::intersectionForTwoLines(pc_vp2, pr_vp1);
 
 #if DBG
-    debug(1, "Calculated pp for",
+    debug(2, LOG_TAG, "Calculated pp for",
         "\nmapPoint\t", mapPoint,
         "\ncameraPoint\t", cameraPoint,
         "\nbasePoint\t", basePoint,
@@ -255,7 +256,7 @@ Point PerspectiveUtil::perspectivePointInternal(
 	// Definitive perspective point
 	const Point pp = GeometryUtil::intersectionForTwoLines(pc_vp2, pr_vp1);
 
-    // debug(1, "Calculating pp for",
+    // debug(2, LOG_TAG, "Calculating pp for",
     //     "\nmapPoint\t", mapPoint,
     //     "\ncameraPoint\t", cameraPoint,
     //     "\nbasePoint\t", basePoint,
@@ -283,7 +284,7 @@ double PerspectiveUtil::scaleForPerspectivePoint(const Point &perspectivePoint, 
 
     double perspectiveScale = distancePP_VP / distanceConstruction_VP;
 
-    // debug(1, "Calculating height for",
+    // debug(2, LOG_TAG, "Calculating height for",
     //     "\nperspectivePoint\t", perspectivePoint,
     //     "\nvanishPoint\t", vanishPoint,
     //     "\nconstructionPoint\t", constructionPoint,

@@ -93,7 +93,7 @@ void Game::init() {
     mWindow = new sf::RenderWindow(sf::VideoMode(
 		Const::WINDOW_WIDTH, Const::WINDOW_HEIGHT), GAME_TITLE);
 	mAsyncKeyboardManager = new KeyboardManager();
-	mScreenManager = new ScreenManager(this);
+	mScreenManager = new ScreenManager();
 	mScreenManager->setScreen(new Launcher(mWindow, mAsyncKeyboardManager));
 }
 

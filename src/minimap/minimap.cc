@@ -22,13 +22,13 @@ Minimap::~Minimap() {
     delete mMinimapTexture;
 }
 
-void Minimap::drawPoint(double row, double col, int size, sf::Color color) {
+void Minimap::drawPoint(const Point &p, int size, sf::Color color) {
 	sf::CircleShape circlePoint(size);
 	circlePoint.setFillColor(color);
 
 	circlePoint.setPosition(
-		MINIMAP_X + (double) MINIMAP_SIZE / mColCount * col - size / 2,
-		MINIMAP_Y + (double) MINIMAP_SIZE / mRowCount * row - size / 2
+		MINIMAP_X + (double) MINIMAP_SIZE / mColCount * p.x - size / 2,
+		MINIMAP_Y + (double) MINIMAP_SIZE / mRowCount * p.y - size / 2
 	);
 
 	mWindow->draw(circlePoint);

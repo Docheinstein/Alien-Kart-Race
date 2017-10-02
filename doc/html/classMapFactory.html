@@ -93,27 +93,37 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 
+<p>Factory class usable for create and retrieve information about concrete types of maps.  
+ <a href="classMapFactory.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="mapfactory_8h_source.html">mapfactory.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
 <tr class="memitem:ac50308e4dff450ae228176c2c076c936"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMapFactory.html#ac50308e4dff450ae228176c2c076c936">MapType</a> { <a class="el" href="classMapFactory.html#ac50308e4dff450ae228176c2c076c936a87f732ffb502f3b5728871bf1b7e1202">EarthType</a>, 
 <a class="el" href="classMapFactory.html#ac50308e4dff450ae228176c2c076c936acd794f602665194396549ba18155fb3d">_MapTypeCount</a>
- }</td></tr>
+ }<tr class="memdesc:ac50308e4dff450ae228176c2c076c936"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type of map.  <a href="classMapFactory.html#ac50308e4dff450ae228176c2c076c936">More...</a><br /></td></tr>
+</td></tr>
 <tr class="separator:ac50308e4dff450ae228176c2c076c936"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a133239ffec36495c4981b75b422ee8c7"><td class="memItemLeft" align="right" valign="top">static sf::Sprite *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMapFactory.html#a133239ffec36495c4981b75b422ee8c7">pickerSprite</a> (<a class="el" href="classMapFactory.html#ac50308e4dff450ae228176c2c076c936">MapType</a> type)</td></tr>
+<tr class="memdesc:a133239ffec36495c4981b75b422ee8c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the sprite to used for the level picker for the given map type.  <a href="#a133239ffec36495c4981b75b422ee8c7">More...</a><br /></td></tr>
 <tr class="separator:a133239ffec36495c4981b75b422ee8c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0a2964278c2ec956309ca67a4330063f"><td class="memItemLeft" align="right" valign="top">static const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMapFactory.html#a0a2964278c2ec956309ca67a4330063f">name</a> (<a class="el" href="classMapFactory.html#ac50308e4dff450ae228176c2c076c936">MapType</a> type)</td></tr>
+<tr class="memdesc:a0a2964278c2ec956309ca67a4330063f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the name associated with the given map type.  <a href="#a0a2964278c2ec956309ca67a4330063f">More...</a><br /></td></tr>
 <tr class="separator:a0a2964278c2ec956309ca67a4330063f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5f97f9fd14edf2b792fa1b5e810fb35c"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classMap.html">Map</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMapFactory.html#a5f97f9fd14edf2b792fa1b5e810fb35c">map</a> (sf::RenderWindow *window, <a class="el" href="classLevel.html">Level</a> *level, <a class="el" href="classMapFactory.html#ac50308e4dff450ae228176c2c076c936">MapType</a> type)</td></tr>
+<tr class="memdesc:a5f97f9fd14edf2b792fa1b5e810fb35c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates and returns a map of the given map type.  <a href="#a5f97f9fd14edf2b792fa1b5e810fb35c">More...</a><br /></td></tr>
 <tr class="separator:a5f97f9fd14edf2b792fa1b5e810fb35c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a14ce5461fb608703d6942d5b4ae49342"><td class="memItemLeft" align="right" valign="top">static const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMapFactory.html#a14ce5461fb608703d6942d5b4ae49342">minimapFilename</a> (<a class="el" href="classMapFactory.html#ac50308e4dff450ae228176c2c076c936">MapType</a> type)</td></tr>
+<tr class="memdesc:a14ce5461fb608703d6942d5b4ae49342"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the filename of the minimap associated with this map.  <a href="#a14ce5461fb608703d6942d5b4ae49342">More...</a><br /></td></tr>
 <tr class="separator:a14ce5461fb608703d6942d5b4ae49342"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Enumeration Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Factory class usable for create and retrieve information about concrete types of maps. </p>
+</div><h2 class="groupheader">Member Enumeration Documentation</h2>
 <a class="anchor" id="ac50308e4dff450ae228176c2c076c936"></a>
 <div class="memitem">
 <div class="memproto">
@@ -123,10 +133,14 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Type of map. </p>
 <table class="fieldtable">
 <tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a class="anchor" id="ac50308e4dff450ae228176c2c076c936a87f732ffb502f3b5728871bf1b7e1202"></a>EarthType&#160;</td><td class="fielddoc">
+<p><a class="el" href="classEarth.html">Earth</a>. </p>
 </td></tr>
 <tr><td class="fieldname"><a class="anchor" id="ac50308e4dff450ae228176c2c076c936acd794f602665194396549ba18155fb3d"></a>_MapTypeCount&#160;</td><td class="fielddoc">
+<p>Number of maps. </p>
 </td></tr>
 </table>
 
@@ -171,6 +185,17 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Creates and returns a map of the given map type. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">window</td><td>the window the new map will draw to. </td></tr>
+    <tr><td class="paramname">level</td><td>the level the new map is involved in. </td></tr>
+    <tr><td class="paramname">type</td><td>the type of the map to create. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the created map. </dd></dl>
+
 </div>
 </div>
 <a class="anchor" id="a14ce5461fb608703d6942d5b4ae49342"></a>
@@ -194,6 +219,15 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Returns the filename of the minimap associated with this map. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">type</td><td>the type of the map. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the filename of the minimap associated with this map. </dd></dl>
 
 </div>
 </div>
@@ -219,6 +253,15 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Returns the name associated with the given map type. </p>
+<p>This actually matches the string representation of the type. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">type</td><td>the name associated with the map type. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the name of type. </dd></dl>
+
 </div>
 </div>
 <a class="anchor" id="a133239ffec36495c4981b75b422ee8c7"></a>
@@ -242,6 +285,15 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Returns the sprite to used for the level picker for the given map type. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">type</td><td>the type of the map. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the sprite to use for the level picker. </dd></dl>
 
 </div>
 </div>

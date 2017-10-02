@@ -93,13 +93,16 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 
+<p>Responsible for show the current ranking of the karts in a map.  
+ <a href="classLeaderboard.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="leaderboard_8h_source.html">leaderboard.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for Leaderboard:</div>
 <div class="dyncontent">
 <div class="center"><img src="classLeaderboard__inherit__graph.png" border="0" usemap="#Leaderboard_inherit__map" alt="Inheritance graph"/></div>
 <map name="Leaderboard_inherit__map" id="Leaderboard_inherit__map">
-<area shape="rect" id="node2" href="classLoggerInterface.html" title="LoggerInterface" alt="" coords="5,5,117,32"/>
+<area shape="rect" id="node2" href="classLoggerInterface.html" title="Interface usable by entities that need to print on the output stream. " alt="" coords="5,5,117,32"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <div class="dynheader">
@@ -107,23 +110,28 @@ Collaboration diagram for Leaderboard:</div>
 <div class="dyncontent">
 <div class="center"><img src="classLeaderboard__coll__graph.png" border="0" usemap="#Leaderboard_coll__map" alt="Collaboration graph"/></div>
 <map name="Leaderboard_coll__map" id="Leaderboard_coll__map">
-<area shape="rect" id="node2" href="classLoggerInterface.html" title="LoggerInterface" alt="" coords="5,5,117,32"/>
+<area shape="rect" id="node2" href="classLoggerInterface.html" title="Interface usable by entities that need to print on the output stream. " alt="" coords="5,5,117,32"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:aeda247cb25c65981536b1b1a96f851fa"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLeaderboard.html#aeda247cb25c65981536b1b1a96f851fa">Leaderboard</a> (sf::RenderWindow *window)</td></tr>
+<tr class="memdesc:aeda247cb25c65981536b1b1a96f851fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a leaderboard.  <a href="#aeda247cb25c65981536b1b1a96f851fa">More...</a><br /></td></tr>
 <tr class="separator:aeda247cb25c65981536b1b1a96f851fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af22f560c91505f0d97e02d4c41103a4c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLeaderboard.html#af22f560c91505f0d97e02d4c41103a4c">~Leaderboard</a> ()</td></tr>
 <tr class="separator:af22f560c91505f0d97e02d4c41103a4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adfd6985c335e88c90706b88373f528f7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLeaderboard.html#adfd6985c335e88c90706b88373f528f7">addKart</a> (<a class="el" href="structLevelNS_1_1RacingKart.html">LevelNS::RacingKart</a> *rk)</td></tr>
-<tr class="separator:adfd6985c335e88c90706b88373f528f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f98be7a4ad5de6e051b618c2132106f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLeaderboard.html#a0f98be7a4ad5de6e051b618c2132106f">addKart</a> (<a class="el" href="structRacingKart.html">RacingKart</a> *rk)</td></tr>
+<tr class="memdesc:a0f98be7a4ad5de6e051b618c2132106f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a kart to the collection of karts considered in the leaderboard.  <a href="#a0f98be7a4ad5de6e051b618c2132106f">More...</a><br /></td></tr>
+<tr class="separator:a0f98be7a4ad5de6e051b618c2132106f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adac3895f528212a2b408d18165e43b19"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLeaderboard.html#adac3895f528212a2b408d18165e43b19">clearKarts</a> ()</td></tr>
+<tr class="memdesc:adac3895f528212a2b408d18165e43b19"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes every karts from the collection of karts in the leaderboard.  <a href="#adac3895f528212a2b408d18165e43b19">More...</a><br /></td></tr>
 <tr class="separator:adac3895f528212a2b408d18165e43b19"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac7e379864f2ca9622bd9be616363adfd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLeaderboard.html#ac7e379864f2ca9622bd9be616363adfd">update</a> ()</td></tr>
+<tr class="memdesc:ac7e379864f2ca9622bd9be616363adfd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the leaderboard.  <a href="#ac7e379864f2ca9622bd9be616363adfd">More...</a><br /></td></tr>
 <tr class="separator:ac7e379864f2ca9622bd9be616363adfd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a82f6bc9a6c0a5256839e8b3e779e1207"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLeaderboard.html#a82f6bc9a6c0a5256839e8b3e779e1207">draw</a> (bool levelRunning)</td></tr>
+<tr class="memdesc:a82f6bc9a6c0a5256839e8b3e779e1207"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws the leaderboard on the window.  <a href="#a82f6bc9a6c0a5256839e8b3e779e1207">More...</a><br /></td></tr>
 <tr class="separator:a82f6bc9a6c0a5256839e8b3e779e1207"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classLoggerInterface"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classLoggerInterface')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classLoggerInterface.html">LoggerInterface</a></td></tr>
 <tr class="memitem:a70c3e450fcc106112ac7bae9133b5068 inherit pub_methods_classLoggerInterface"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLoggerInterface.html#a70c3e450fcc106112ac7bae9133b5068">~LoggerInterface</a> ()</td></tr>
@@ -132,26 +140,35 @@ Public Member Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pro_methods_classLoggerInterface"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_classLoggerInterface')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="classLoggerInterface.html">LoggerInterface</a></td></tr>
-<tr class="memitem:aca9f8dc7ea5ea76ad8390b52f2561a15 inherit pro_methods_classLoggerInterface"><td class="memTemplParams" colspan="2">template&lt;typename FirstType , typename... OtherTypes&gt; </td></tr>
-<tr class="memitem:aca9f8dc7ea5ea76ad8390b52f2561a15 inherit pro_methods_classLoggerInterface"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classLoggerInterface.html#aca9f8dc7ea5ea76ad8390b52f2561a15">d_level</a> (unsigned int level, FirstType &amp;&amp;first, OtherTypes &amp;&amp;...other)</td></tr>
-<tr class="separator:aca9f8dc7ea5ea76ad8390b52f2561a15 inherit pro_methods_classLoggerInterface"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a34dc1c7975aa06f977707bf4bacc1a9d inherit pro_methods_classLoggerInterface"><td class="memTemplParams" colspan="2">template&lt;typename FirstType , typename... OtherTypes&gt; </td></tr>
 <tr class="memitem:a34dc1c7975aa06f977707bf4bacc1a9d inherit pro_methods_classLoggerInterface"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classLoggerInterface.html#a34dc1c7975aa06f977707bf4bacc1a9d">d</a> (FirstType &amp;&amp;first, OtherTypes &amp;&amp;...other)</td></tr>
+<tr class="memdesc:a34dc1c7975aa06f977707bf4bacc1a9d inherit pro_methods_classLoggerInterface"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints a debug message using the default output verbosity level (1).  <a href="#a34dc1c7975aa06f977707bf4bacc1a9d">More...</a><br /></td></tr>
 <tr class="separator:a34dc1c7975aa06f977707bf4bacc1a9d inherit pro_methods_classLoggerInterface"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae7ea7fb18f9288b616d6226745bc7605 inherit pro_methods_classLoggerInterface"><td class="memTemplParams" colspan="2">template&lt;typename FirstType , typename... OtherTypes&gt; </td></tr>
 <tr class="memitem:ae7ea7fb18f9288b616d6226745bc7605 inherit pro_methods_classLoggerInterface"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classLoggerInterface.html#ae7ea7fb18f9288b616d6226745bc7605">d1</a> (FirstType &amp;&amp;first, OtherTypes &amp;&amp;...other)</td></tr>
+<tr class="memdesc:ae7ea7fb18f9288b616d6226745bc7605 inherit pro_methods_classLoggerInterface"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints a debug message using output verbosity level equals to 1.  <a href="#ae7ea7fb18f9288b616d6226745bc7605">More...</a><br /></td></tr>
 <tr class="separator:ae7ea7fb18f9288b616d6226745bc7605 inherit pro_methods_classLoggerInterface"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab2b05c5c566965cc37a906d145b20cec inherit pro_methods_classLoggerInterface"><td class="memTemplParams" colspan="2">template&lt;typename FirstType , typename... OtherTypes&gt; </td></tr>
 <tr class="memitem:ab2b05c5c566965cc37a906d145b20cec inherit pro_methods_classLoggerInterface"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classLoggerInterface.html#ab2b05c5c566965cc37a906d145b20cec">d2</a> (FirstType &amp;&amp;first, OtherTypes &amp;&amp;...other)</td></tr>
+<tr class="memdesc:ab2b05c5c566965cc37a906d145b20cec inherit pro_methods_classLoggerInterface"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints a debug message using output verbosity level equals to 2.  <a href="#ab2b05c5c566965cc37a906d145b20cec">More...</a><br /></td></tr>
 <tr class="separator:ab2b05c5c566965cc37a906d145b20cec inherit pro_methods_classLoggerInterface"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca9f8dc7ea5ea76ad8390b52f2561a15 inherit pro_methods_classLoggerInterface"><td class="memTemplParams" colspan="2">template&lt;typename FirstType , typename... OtherTypes&gt; </td></tr>
+<tr class="memitem:aca9f8dc7ea5ea76ad8390b52f2561a15 inherit pro_methods_classLoggerInterface"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classLoggerInterface.html#aca9f8dc7ea5ea76ad8390b52f2561a15">d_level</a> (unsigned int level, FirstType &amp;&amp;first, OtherTypes &amp;&amp;...other)</td></tr>
+<tr class="memdesc:aca9f8dc7ea5ea76ad8390b52f2561a15 inherit pro_methods_classLoggerInterface"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints a debug message using the given verbosity level.  <a href="#aca9f8dc7ea5ea76ad8390b52f2561a15">More...</a><br /></td></tr>
+<tr class="separator:aca9f8dc7ea5ea76ad8390b52f2561a15 inherit pro_methods_classLoggerInterface"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8b715cb6b4616496e78a71a628225b8b inherit pro_methods_classLoggerInterface"><td class="memTemplParams" colspan="2">template&lt;typename FirstType , typename... OtherTypes&gt; </td></tr>
 <tr class="memitem:a8b715cb6b4616496e78a71a628225b8b inherit pro_methods_classLoggerInterface"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classLoggerInterface.html#a8b715cb6b4616496e78a71a628225b8b">w</a> (FirstType &amp;&amp;first, OtherTypes &amp;&amp;...other)</td></tr>
+<tr class="memdesc:a8b715cb6b4616496e78a71a628225b8b inherit pro_methods_classLoggerInterface"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints a warn message.  <a href="#a8b715cb6b4616496e78a71a628225b8b">More...</a><br /></td></tr>
 <tr class="separator:a8b715cb6b4616496e78a71a628225b8b inherit pro_methods_classLoggerInterface"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afb381df73e55b1423be07e8f09ee0123 inherit pro_methods_classLoggerInterface"><td class="memTemplParams" colspan="2">template&lt;typename FirstType , typename... OtherTypes&gt; </td></tr>
 <tr class="memitem:afb381df73e55b1423be07e8f09ee0123 inherit pro_methods_classLoggerInterface"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classLoggerInterface.html#afb381df73e55b1423be07e8f09ee0123">bench</a> (FirstType &amp;&amp;first, OtherTypes &amp;&amp;...other)</td></tr>
+<tr class="memdesc:afb381df73e55b1423be07e8f09ee0123 inherit pro_methods_classLoggerInterface"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints a bench message.  <a href="#afb381df73e55b1423be07e8f09ee0123">More...</a><br /></td></tr>
 <tr class="separator:afb381df73e55b1423be07e8f09ee0123 inherit pro_methods_classLoggerInterface"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Responsible for show the current ranking of the karts in a map. </p>
+<p>This is reponsible for show the leadeboard either while the level is running or is finished. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="aeda247cb25c65981536b1b1a96f851fa"></a>
 <div class="memitem">
 <div class="memproto">
@@ -165,6 +182,14 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Creates a leaderboard. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">window</td><td>the window used for render the leaderboard. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -184,19 +209,27 @@ Additional Inherited Members</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="adfd6985c335e88c90706b88373f528f7"></a>
+<a class="anchor" id="a0f98be7a4ad5de6e051b618c2132106f"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">void Leaderboard::addKart </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structLevelNS_1_1RacingKart.html">LevelNS::RacingKart</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="structRacingKart.html">RacingKart</a> *&#160;</td>
           <td class="paramname"><em>rk</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Adds a kart to the collection of karts considered in the leaderboard. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rk</td><td>the racing kart to add to the leaderboard. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -212,6 +245,8 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Removes every karts from the collection of karts in the leaderboard. </p>
 
 </div>
 </div>
@@ -229,6 +264,14 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Draws the leaderboard on the window. </p>
+<p>This can draw the leaderboard either for level running or level finished. If the level is running, the leaderboard will be drawn as floating on the left; if the level is finished, it will be drawn within the ranking frame. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">levelRunning</td><td>whether the lever is still running. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a class="anchor" id="ac7e379864f2ca9622bd9be616363adfd"></a>
@@ -243,6 +286,9 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Updates the leaderboard. </p>
+<p>This method just sort the collection of karts, but the current lap and the current sector of the karts should have already been defined before call this. </p>
 
 </div>
 </div>

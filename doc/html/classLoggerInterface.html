@@ -93,6 +93,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 
+<p>Interface usable by entities that need to print on the output stream.  
+ <a href="classLoggerInterface.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="loggerinterface_8h_source.html">loggerinterface.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for LoggerInterface:</div>
@@ -101,10 +104,10 @@ Inheritance diagram for LoggerInterface:</div>
 <map name="LoggerInterface_inherit__map" id="LoggerInterface_inherit__map">
 <area shape="rect" id="node2" href="classGame.html" title="Principal class responsible for handle the window and the game loop. " alt="" coords="8,80,65,107"/>
 <area shape="rect" id="node3" href="classKart.html" title="Base entity representing a kart. " alt="" coords="89,80,136,107"/>
-<area shape="rect" id="node8" href="classLeaderboard.html" title="Leaderboard" alt="" coords="161,80,254,107"/>
-<area shape="rect" id="node9" href="classLevel.html" title="Level" alt="" coords="278,80,331,107"/>
-<area shape="rect" id="node10" href="classLevelPicker.html" title="LevelPicker" alt="" coords="355,80,446,107"/>
-<area shape="rect" id="node11" href="classMap.html" title="Map" alt="" coords="471,80,517,107"/>
+<area shape="rect" id="node8" href="classLeaderboard.html" title="Responsible for show the current ranking of the karts in a map. " alt="" coords="161,80,254,107"/>
+<area shape="rect" id="node9" href="classLevel.html" title="Handles the karts, the map and eventually every other object in the level. " alt="" coords="278,80,331,107"/>
+<area shape="rect" id="node10" href="classLevelPicker.html" title="Screen responsible for choose the player kart and the map to use for the level. " alt="" coords="355,80,446,107"/>
+<area shape="rect" id="node11" href="classMap.html" title="Base class for the level&#39;s map. " alt="" coords="471,80,517,107"/>
 <area shape="rect" id="node4" href="classAIKart.html" title="Base entity representing a kart controller by the CPU. " alt="" coords="29,155,87,181"/>
 <area shape="rect" id="node6" href="classPlayerKart.html" title="Base entity representing a kart controller by the player. " alt="" coords="126,155,209,181"/>
 <area shape="rect" id="node5" href="classAIVenusian.html" title="Implementation of an AI kart of type Venusian. " alt="" coords="5,229,95,256"/>
@@ -120,30 +123,41 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr class="memitem:aca9f8dc7ea5ea76ad8390b52f2561a15"><td class="memTemplParams" colspan="2">template&lt;typename FirstType , typename... OtherTypes&gt; </td></tr>
-<tr class="memitem:aca9f8dc7ea5ea76ad8390b52f2561a15"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classLoggerInterface.html#aca9f8dc7ea5ea76ad8390b52f2561a15">d_level</a> (unsigned int level, FirstType &amp;&amp;first, OtherTypes &amp;&amp;...other)</td></tr>
-<tr class="separator:aca9f8dc7ea5ea76ad8390b52f2561a15"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a34dc1c7975aa06f977707bf4bacc1a9d"><td class="memTemplParams" colspan="2">template&lt;typename FirstType , typename... OtherTypes&gt; </td></tr>
 <tr class="memitem:a34dc1c7975aa06f977707bf4bacc1a9d"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classLoggerInterface.html#a34dc1c7975aa06f977707bf4bacc1a9d">d</a> (FirstType &amp;&amp;first, OtherTypes &amp;&amp;...other)</td></tr>
+<tr class="memdesc:a34dc1c7975aa06f977707bf4bacc1a9d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints a debug message using the default output verbosity level (1).  <a href="#a34dc1c7975aa06f977707bf4bacc1a9d">More...</a><br /></td></tr>
 <tr class="separator:a34dc1c7975aa06f977707bf4bacc1a9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae7ea7fb18f9288b616d6226745bc7605"><td class="memTemplParams" colspan="2">template&lt;typename FirstType , typename... OtherTypes&gt; </td></tr>
 <tr class="memitem:ae7ea7fb18f9288b616d6226745bc7605"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classLoggerInterface.html#ae7ea7fb18f9288b616d6226745bc7605">d1</a> (FirstType &amp;&amp;first, OtherTypes &amp;&amp;...other)</td></tr>
+<tr class="memdesc:ae7ea7fb18f9288b616d6226745bc7605"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints a debug message using output verbosity level equals to 1.  <a href="#ae7ea7fb18f9288b616d6226745bc7605">More...</a><br /></td></tr>
 <tr class="separator:ae7ea7fb18f9288b616d6226745bc7605"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab2b05c5c566965cc37a906d145b20cec"><td class="memTemplParams" colspan="2">template&lt;typename FirstType , typename... OtherTypes&gt; </td></tr>
 <tr class="memitem:ab2b05c5c566965cc37a906d145b20cec"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classLoggerInterface.html#ab2b05c5c566965cc37a906d145b20cec">d2</a> (FirstType &amp;&amp;first, OtherTypes &amp;&amp;...other)</td></tr>
+<tr class="memdesc:ab2b05c5c566965cc37a906d145b20cec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints a debug message using output verbosity level equals to 2.  <a href="#ab2b05c5c566965cc37a906d145b20cec">More...</a><br /></td></tr>
 <tr class="separator:ab2b05c5c566965cc37a906d145b20cec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca9f8dc7ea5ea76ad8390b52f2561a15"><td class="memTemplParams" colspan="2">template&lt;typename FirstType , typename... OtherTypes&gt; </td></tr>
+<tr class="memitem:aca9f8dc7ea5ea76ad8390b52f2561a15"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classLoggerInterface.html#aca9f8dc7ea5ea76ad8390b52f2561a15">d_level</a> (unsigned int level, FirstType &amp;&amp;first, OtherTypes &amp;&amp;...other)</td></tr>
+<tr class="memdesc:aca9f8dc7ea5ea76ad8390b52f2561a15"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints a debug message using the given verbosity level.  <a href="#aca9f8dc7ea5ea76ad8390b52f2561a15">More...</a><br /></td></tr>
+<tr class="separator:aca9f8dc7ea5ea76ad8390b52f2561a15"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8b715cb6b4616496e78a71a628225b8b"><td class="memTemplParams" colspan="2">template&lt;typename FirstType , typename... OtherTypes&gt; </td></tr>
 <tr class="memitem:a8b715cb6b4616496e78a71a628225b8b"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classLoggerInterface.html#a8b715cb6b4616496e78a71a628225b8b">w</a> (FirstType &amp;&amp;first, OtherTypes &amp;&amp;...other)</td></tr>
+<tr class="memdesc:a8b715cb6b4616496e78a71a628225b8b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints a warn message.  <a href="#a8b715cb6b4616496e78a71a628225b8b">More...</a><br /></td></tr>
 <tr class="separator:a8b715cb6b4616496e78a71a628225b8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afb381df73e55b1423be07e8f09ee0123"><td class="memTemplParams" colspan="2">template&lt;typename FirstType , typename... OtherTypes&gt; </td></tr>
 <tr class="memitem:afb381df73e55b1423be07e8f09ee0123"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classLoggerInterface.html#afb381df73e55b1423be07e8f09ee0123">bench</a> (FirstType &amp;&amp;first, OtherTypes &amp;&amp;...other)</td></tr>
+<tr class="memdesc:afb381df73e55b1423be07e8f09ee0123"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints a bench message.  <a href="#afb381df73e55b1423be07e8f09ee0123">More...</a><br /></td></tr>
 <tr class="separator:afb381df73e55b1423be07e8f09ee0123"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac69df306478c55c68aa14a0fbb78f05e"><td class="memItemLeft" align="right" valign="top">virtual const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLoggerInterface.html#ac69df306478c55c68aa14a0fbb78f05e">logTag</a> ()=0</td></tr>
+<tr class="memdesc:ac69df306478c55c68aa14a0fbb78f05e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a tag that identifies the entity in the output stream (the tag should possibilty be unique in order to easily identifies the entities).  <a href="#ac69df306478c55c68aa14a0fbb78f05e">More...</a><br /></td></tr>
 <tr class="separator:ac69df306478c55c68aa14a0fbb78f05e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6c2067b4ef79177f27c254300cf04404"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLoggerInterface.html#a6c2067b4ef79177f27c254300cf04404">canLog</a> ()=0</td></tr>
+<tr class="memdesc:a6c2067b4ef79177f27c254300cf04404"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns whether this entity is able to print message to the output stream.  <a href="#a6c2067b4ef79177f27c254300cf04404">More...</a><br /></td></tr>
 <tr class="separator:a6c2067b4ef79177f27c254300cf04404"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Interface usable by entities that need to print on the output stream. </p>
+<p>Use this interface is preferred respect to invoke directly the logger method, since this automatically handle the log tag and whether the entity can log or not. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a70c3e450fcc106112ac7bae9133b5068"></a>
 <div class="memitem">
 <div class="memproto">
@@ -197,10 +211,19 @@ template&lt;typename FirstType , typename... OtherTypes&gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Prints a bench message. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">first</td><td>the first argument. </td></tr>
+    <tr><td class="paramname">other</td><td>the orther arguments. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -224,6 +247,9 @@ template&lt;typename FirstType , typename... OtherTypes&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Returns whether this entity is able to print message to the output stream. </p>
+<p>If this method return false, every message won't be printed to the output stream. </p><dl class="section return"><dt>Returns</dt><dd>whether this entity can log. </dd></dl>
 
 <p>Implemented in <a class="el" href="classKart.html#a8ad9de82ad871b4271a7277af89b24cc">Kart</a>, and <a class="el" href="classAIKart.html#acfd345c1b285316c70dd23990076152a">AIKart</a>.</p>
 
@@ -263,6 +289,15 @@ template&lt;typename FirstType , typename... OtherTypes&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Prints a debug message using the default output verbosity level (1). </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">first</td><td>the first argument. </td></tr>
+    <tr><td class="paramname">other</td><td>the orther arguments. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a class="anchor" id="ae7ea7fb18f9288b616d6226745bc7605"></a>
@@ -294,10 +329,19 @@ template&lt;typename FirstType , typename... OtherTypes&gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Prints a debug message using output verbosity level equals to 1. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">first</td><td>the first argument. </td></tr>
+    <tr><td class="paramname">other</td><td>the orther arguments. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -330,10 +374,19 @@ template&lt;typename FirstType , typename... OtherTypes&gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Prints a debug message using output verbosity level equals to 2. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">first</td><td>the first argument. </td></tr>
+    <tr><td class="paramname">other</td><td>the orther arguments. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -372,10 +425,20 @@ template&lt;typename FirstType , typename... OtherTypes&gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Prints a debug message using the given verbosity level. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">level</td><td>the verbosity debug level of this print. </td></tr>
+    <tr><td class="paramname">first</td><td>the first argument. </td></tr>
+    <tr><td class="paramname">other</td><td>the orther arguments. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -399,6 +462,9 @@ template&lt;typename FirstType , typename... OtherTypes&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Returns a tag that identifies the entity in the output stream (the tag should possibilty be unique in order to easily identifies the entities). </p>
+<dl class="section return"><dt>Returns</dt><dd>the tag used for identify this entity in the log. </dd></dl>
 
 <p>Implemented in <a class="el" href="classKart.html#a2dfb740be06cc77641ad237d8157f4eb">Kart</a>, and <a class="el" href="classAIKart.html#afc8556c727844fb3d942635720f255f7">AIKart</a>.</p>
 
@@ -433,10 +499,19 @@ template&lt;typename FirstType , typename... OtherTypes&gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Prints a warn message. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">first</td><td>the first argument. </td></tr>
+    <tr><td class="paramname">other</td><td>the orther arguments. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

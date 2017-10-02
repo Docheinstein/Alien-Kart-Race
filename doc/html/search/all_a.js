@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['k',['k',['../structKart_1_1CollisionVector.html#a46585138b21a98264dc769c46fac0b7f',1,'Kart::CollisionVector']]],
-  ['kart',['Kart',['../classKart.html',1,'Kart'],['../structLevelNS_1_1RacingKart.html#a2e5b169c7419bc44d026f7326e682a26',1,'LevelNS::RacingKart::kart()'],['../classKart.html#af2ba346637850c2efe8c9c3061b5e499',1,'Kart::Kart()']]],
+  ['kart',['Kart',['../classKart.html',1,'Kart'],['../structRacingKart.html#a91a179a9b3b7f2472b57bd6057d87aff',1,'RacingKart::kart()'],['../classKart.html#af2ba346637850c2efe8c9c3061b5e499',1,'Kart::Kart()']]],
   ['kart_2ecc',['kart.cc',['../kart_8cc.html',1,'']]],
   ['kart_2ed',['kart.d',['../kart_8d.html',1,'']]],
   ['kart_2eh',['kart.h',['../kart_8h.html',1,'']]],

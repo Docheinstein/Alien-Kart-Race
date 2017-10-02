@@ -92,23 +92,29 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 
+<p>Intarface usable for listen to keys pressed on the keyboard.  
+ <a href="classKeyboardListener.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="keyboardlistener_8h_source.html">keyboardlistener.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for KeyboardListener:</div>
 <div class="dyncontent">
 <div class="center"><img src="classKeyboardListener__inherit__graph.png" border="0" usemap="#KeyboardListener_inherit__map" alt="Inheritance graph"/></div>
 <map name="KeyboardListener_inherit__map" id="KeyboardListener_inherit__map">
-<area shape="rect" id="node2" href="classLevel.html" title="Level" alt="" coords="5,80,59,107"/>
-<area shape="rect" id="node3" href="classLevelPicker.html" title="LevelPicker" alt="" coords="83,80,173,107"/>
+<area shape="rect" id="node2" href="classLevel.html" title="Handles the karts, the map and eventually every other object in the level. " alt="" coords="5,80,59,107"/>
+<area shape="rect" id="node3" href="classLevelPicker.html" title="Screen responsible for choose the player kart and the map to use for the level. " alt="" coords="83,80,173,107"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a3527da2476a3d344c949cc0df37382e1"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classKeyboardListener.html#a3527da2476a3d344c949cc0df37382e1">onKeyPressed</a> (int keyCode)=0</td></tr>
+<tr class="memdesc:a3527da2476a3d344c949cc0df37382e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called when a key is pressed on the keyboard.  <a href="#a3527da2476a3d344c949cc0df37382e1">More...</a><br /></td></tr>
 <tr class="separator:a3527da2476a3d344c949cc0df37382e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Intarface usable for listen to keys pressed on the keyboard. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="a3527da2476a3d344c949cc0df37382e1"></a>
 <div class="memitem">
 <div class="memproto">
@@ -130,6 +136,14 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Called when a key is pressed on the keyboard. </p>
+<p>This method will be called asynchronously when the user press the keyboard, so outside the game loop. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">keyCode</td><td>the int ASCII code of the pressed key. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p>Implemented in <a class="el" href="classLevel.html#a2b701d09f301dd68a4f7476ad2a1463e">Level</a>, and <a class="el" href="classLevelPicker.html#ad2a557f36ab0eceec02139b7b4780674">LevelPicker</a>.</p>
 

@@ -1,3 +1,5 @@
+#include <SFML/Graphics.hpp>
+
 #include <iostream>
 #include <cmath>
 #include <cstring>
@@ -41,15 +43,26 @@ Map::Map(sf::RenderWindow *window, Level *level) {
 
 	mMatrix = NULL;
 
+	mDebugGridImage = new sf::Image();
+	mDebugGridTexture = new sf::Texture();
+	mDebugGridSprite = new sf::Sprite();
+	mRenderedTiles = new sf::VertexArray();
+	mTileset = new sf::Texture();
+
 	const double OUT_OF_SCREEN_TILES_ESTIMATED_PERCENTAGE = 0.5;
-	mRenderedTiles.setPrimitiveType(sf::Quads);
-    mRenderedTiles.resize(static_cast<int>(
+	mRenderedTiles->setPrimitiveType(sf::Quads);
+    mRenderedTiles->resize(static_cast<int>(
 		MATRIX_RENDERED_TILES_DIAMETER * MATRIX_RENDERED_TILES_DIAMETER * 4 *
 		OUT_OF_SCREEN_TILES_ESTIMATED_PERCENTAGE));
 }
 
 Map::~Map() {
 	MatrixUtil::deleteMatrix<Tile>(mMatrix, mRowCount);
+	delete mDebugGridSprite;
+	delete mDebugGridTexture;
+	delete mDebugGridImage;
+	delete mRenderedTiles;
+	delete mTileset;
 }
 
 Map::TileEvent Map::tileEvent(const Point &p) {
@@ -183,7 +196,7 @@ void Map::loadEvents(const char *eventsFilename) {
 }
 
 void Map::loadTileset(const char *tilesetFilename) {
- 	mTileset.loadFromFile(ResourceUtil::image(tilesetFilename).c_str());
+ 	mTileset->loadFromFile(ResourceUtil::image(tilesetFilename).c_str());
 }
 
 void Map::loadSectors(const char *sectorsFilename) {
@@ -215,24 +228,13 @@ void Map::update() {
 }
 
 void Map::draw() {
-
-	mDebugGridImage.create(Const::WINDOW_WIDTH, Const::WINDOW_HEIGHT, sf::Color(50, 156, 206, 255));
-
-
-	sf::Texture mapGridTexture;
-	mapGridTexture.loadFromImage(mDebugGridImage);
-
-	sf::Sprite mapGridSprite;
-	mapGridSprite.setTexture(mapGridTexture);
-
-	mWindow->draw(mapGridSprite);
+	mDebugGridImage->create(Const::WINDOW_WIDTH, Const::WINDOW_HEIGHT, sf::Color(50, 156, 206, 255));
+	mDebugGridTexture->loadFromImage(*mDebugGridImage);
+	mDebugGridSprite->setTexture(*mDebugGridTexture);
+	mWindow->draw(*mDebugGridSprite);
 
 	updateRenderedTiles();
-
-	mWindow->draw(mRenderedTiles, &mTileset);
-
-	// drawMapObjects();
-
+	mWindow->draw(*mRenderedTiles, mTileset);
 }
 
 int Map::colCount() {
@@ -242,176 +244,6 @@ int Map::colCount() {
 int Map::rowCount() {
 	return mRowCount;
 }
-/*
-void Map::drawMapObjects() {
-	return;
-		const int WIDTH = Const::WINDOW_WIDTH;
-		const int HEIGHT = Const::WINDOW_HEIGHT;
-
-		// Y coordinate of the horizon line.
-		const int HORIZON_LINE_Y = HEIGHT / 2;
-
-		// Amount of pixel a single tile will occupy.
-		const int RENDERED_TILE_SIZE = 75;
-
-		// Size of the tile in the tileset.
-		const int TILE_SIZE = 15;
-
-	 	Kart *k = Game::instance().level()->kart();
-
-		// Angle between 0 and 6.28 representing the direction of the kart.
-		const double ANGLE = k->direction();
-
-		const int INT_COL = k->col();
-		const int INT_ROW = k->row();
-
-		// Basepoint
-		const double BASE_POINT_Y = HEIGHT;
-		const double BASE_POINT_X = WIDTH / 2;
-
-		// Vanish points
-	 	const double VANISH_POINT_1_X = BASE_POINT_X - tan(M_PI / 2 - ANGLE) * (BASE_POINT_Y - HORIZON_LINE_Y);
-		const double VANISH_POINT_2_X = BASE_POINT_X + tan(ANGLE) * (BASE_POINT_Y - HORIZON_LINE_Y);
-
-		const Point bp = Point { BASE_POINT_X, BASE_POINT_Y };
-		const Point vp1 = Point { VANISH_POINT_1_X, HORIZON_LINE_Y };
-		const Point vp2 = Point { VANISH_POINT_2_X, HORIZON_LINE_Y };
-
-		// Calculate the perspective points since tiles shares contact points.
-
-		struct TwoPoint {
-			Point perspectivePoint;
-			Point constructionPointForVP1;
-			Point constructionPointForVP2;
-		} typedef TwoPoint;
-
-		TwoPoint perspectivePoints[MATRIX_RENDERED_TILES_DIAMETER + 1][MATRIX_RENDERED_TILES_DIAMETER + 1];
-
-		for (int r = 0; r < MATRIX_RENDERED_TILES_DIAMETER + 1; r++) {
-			for (int c = 0; c < MATRIX_RENDERED_TILES_DIAMETER + 1; c++) {
-				// Indexes of the considered tile (absolute).
-				const int absoluteMatrixIndexCol = INT_COL - MATRIX_RENDERED_TILES_RADIUS + c;
-				const int absoluteMatrixIndexRow = INT_ROW - MATRIX_RENDERED_TILES_RADIUS + r;
-
-				// Offset that the considered tile has respect to the kart tile (relative).
-				const double relativeToCenterCol = k->col() - absoluteMatrixIndexCol;
-				const double relativeToCenterRow = k->row() - absoluteMatrixIndexRow;
-
-				// Offsets of the projected points on the baseline relative to the center.
-				const double colOffset = (relativeToCenterCol) / cos (ANGLE);
-				const double rowOffset = (relativeToCenterRow) / cos(M_PI / 2 - ANGLE);
-
-				const Point pc = { bp.x - colOffset * RENDERED_TILE_SIZE, bp.y };
-				const Point pr = { bp.x + rowOffset * RENDERED_TILE_SIZE, bp.y };
-
-				// Line that join projected points on the baseline to the vanish points.
-				const Line pc_vp2 = GeometryUtil::lineForTwoPoints(pc, vp2);
-				const Line pr_vp1 = GeometryUtil::lineForTwoPoints(pr, vp1);
-
-				// Definitive perspective points
-				const Point pp = GeometryUtil::intersectionForTwoLines(pc_vp2, pr_vp1);
-
-				perspectivePoints[r][c] = TwoPoint {pp, pr, pc};
-			}
-		}
-
-		for (int r = 0; r < MATRIX_RENDERED_TILES_DIAMETER; r++) {
-			for (int c = 0; c < MATRIX_RENDERED_TILES_DIAMETER; c++) {
-
-				// Indexes of the considered tile (absolute).
-				const int absoluteMatrixIndexCol = INT_COL - MATRIX_RENDERED_TILES_RADIUS + c;
-				const int absoluteMatrixIndexRow = INT_ROW - MATRIX_RENDERED_TILES_RADIUS + r;
-
-				const Point ppUL = perspectivePoints[r][c].perspectivePoint;
-				const Point ppUR = perspectivePoints[r][c + 1].perspectivePoint;
-				const Point ppDL = perspectivePoints[r + 1][c].perspectivePoint;
-				const Point ppDR = perspectivePoints[r + 1][c + 1].perspectivePoint;
-
-				const Point cpULforVP1 = perspectivePoints[r][c].constructionPointForVP1;
-				const Point cpURforVP1 = perspectivePoints[r][c + 1].constructionPointForVP1;
-				const Point cpDLforVP1 = perspectivePoints[r + 1][c].constructionPointForVP1;
-				const Point cpDRforVP1 = perspectivePoints[r + 1][c + 1].constructionPointForVP1;
-
-				const Point cpULforVP2 = perspectivePoints[r][c].constructionPointForVP2;
-				const Point cpURforVP2 = perspectivePoints[r][c + 1].constructionPointForVP2;
-				const Point cpDLforVP2 = perspectivePoints[r + 1][c].constructionPointForVP2;
-				const Point cpDRforVP2 = perspectivePoints[r + 1][c + 1].constructionPointForVP2;
-
-				const bool insideScreenHeight =
-					(ppUL.y < HEIGHT ||
-					ppUR.y < HEIGHT ||
-					ppDL.y < HEIGHT ||
-					ppDR.y < HEIGHT);
-
-				const bool insideScreenWidth =
-					// Ensure the points are right to left border
-					(ppUL.x > 0 ||
-					ppUR.x > 0 ||
-					ppDL.x > 0 ||
-					ppDR.x > 0)
-					 	&&
-					// Ensure the points are left to right border
-					(ppUL.x < WIDTH ||
-					ppUR.x < WIDTH ||
-					ppDL.x < WIDTH ||
-					ppDR.x < WIDTH);
-
-				const bool underHorizonLine =
-					(ppUL.y > HORIZON_LINE_Y &&
-					ppUR.y > HORIZON_LINE_Y &&
-					ppDR.y > HORIZON_LINE_Y &&
-					ppDL.y > HORIZON_LINE_Y);
-
-				if (insideScreenHeight && insideScreenWidth && underHorizonLine &&
-					absoluteMatrixIndexCol >= 0 && absoluteMatrixIndexCol < mColCount &&
-					absoluteMatrixIndexRow >= 0 && absoluteMatrixIndexRow < mRowCount) {
-
-					if (mObjMatrix[absoluteMatrixIndexRow][absoluteMatrixIndexCol].type == 11) {
-						//if (absoluteMatrixIndexRow == 0 && absoluteMatrixIndexCol == 51) {
-
-						Point middleConstructionPoint = {(cpULforVP2.x + cpDRforVP2.x) / 2, BASE_POINT_Y};
-
-						Line ul_dr = GeometryUtil::lineForTwoPoints(ppUL, ppDR);
-						Line dl_ur = GeometryUtil::lineForTwoPoints(ppDL, ppUR);
-
-						Point middlePoint = GeometryUtil::intersectionForTwoLines(ul_dr, dl_ur);
-
-						// cpULforVP1
-
-						// d("Drawing obj");
-						double distanceMiddle_VP = GeometryUtil::distanceBetweenTwoPoints(middlePoint, vp2);
-						double distanceConstruction_VP = GeometryUtil::distanceBetweenTwoPoints(middleConstructionPoint, vp2);
-
-						const int WHEEL_BOUND_SIZE = RENDERED_TILE_SIZE * 1.5;
-						double perspectiveSize = distanceMiddle_VP / distanceConstruction_VP * WHEEL_BOUND_SIZE;
-
-						sf::Sprite s;
-						s.setTexture(mWheelBoundTex);
-						double scaleForReachPerspectiveSize = perspectiveSize / s.getGlobalBounds().height;
-						s.setScale(sf::Vector2f(scaleForReachPerspectiveSize, scaleForReachPerspectiveSize));
-
-
-						s.setPosition(	middlePoint.x - s.getGlobalBounds().width / 2,
-						 				middlePoint.y - s.getGlobalBounds().height);
-
-
-						// d("distanceoPP_VP: ", distanceoPP_VP);
-						// d("distanceoCP_VP: ", distanceoCP_VP);
-						// d("perspectiveHeight: ", perspectiveHeight);
-						// d("GlobalBoundHeight: ", s.getGlobalBounds().height);
-						// d("scaleForReachHeight: ", scaleForReachHeight);
-
-
-						drawPoint(&mDebugGridImage, middlePoint, sf::Color::Cyan, 1);
-
-						Game::instance().window()->draw(s);
-					//}
-					}
-				}
-			}
-		}
-}
-*/
 
 void Map::updateRenderedTiles() {
  	Kart *playerKart = mLevel->playerKart();
@@ -463,7 +295,7 @@ void Map::updateRenderedTiles() {
 	}
 
 	int inScreenTiles = 0;
-	mRenderedTiles.clear();
+	mRenderedTiles->clear();
 
 	for (int r = 0; r < MATRIX_RENDERED_TILES_DIAMETER; r++) {
 		for (int c = 0; c < MATRIX_RENDERED_TILES_DIAMETER; c++) {
@@ -504,19 +336,19 @@ void Map::updateRenderedTiles() {
 			)
 				continue;
 
-			mRenderedTiles.append(sf::Vertex(
+			mRenderedTiles->append(sf::Vertex(
 				sf::Vector2f(ppUL.x, ppUL.y),
 				sf::Vector2f(tilesetX, tilesetY)
 			));
-			mRenderedTiles.append(sf::Vertex(
+			mRenderedTiles->append(sf::Vertex(
 				sf::Vector2f(ppUR.x, ppUR.y),
 				sf::Vector2f(tilesetX + TILE_SIZE, tilesetY)
 			));
-			mRenderedTiles.append(sf::Vertex(
+			mRenderedTiles->append(sf::Vertex(
 				sf::Vector2f(ppDR.x, ppDR.y),
 				sf::Vector2f(tilesetX + TILE_SIZE, tilesetY + TILE_SIZE)
 			));
-			mRenderedTiles.append(sf::Vertex(
+			mRenderedTiles->append(sf::Vertex(
 				sf::Vector2f(ppDL.x, ppDL.y),
 				sf::Vector2f(tilesetX, tilesetY + TILE_SIZE)
 			));
@@ -539,16 +371,6 @@ void Map::drawPoint(sf::Image * map, const Point &p, sf::Color color, int size =
 		for (int y = - size / 2; y <= size / 2; y++) {
 			map->setPixel(p.x + x, p.y + y, color);
 
-		}
-	}
-}
-
-void Map::drawPoint(sf::Image * map, const IPoint &p, sf::Color color, int size = 7) {
-	if (p.x < 0 + size / 2 || p.x >= Const::WINDOW_WIDTH - size / 2 || p.y < 0 + size / 2 || p.y >= Const::WINDOW_HEIGHT - size / 2)
-		return;
-	for (int x = - size / 2; x <= size / 2; x++) {
-		for (int y = - size / 2; y <= size / 2; y++) {
-			map->setPixel(p.x + x, p.y + y, color);
 		}
 	}
 }

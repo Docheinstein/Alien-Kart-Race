@@ -93,35 +93,49 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 
+<p>Factory class usable for create and retrieve information about concrete types of karts.  
+ <a href="classKartFactory.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="kartfactory_8h_source.html">kartfactory.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
 <tr class="memitem:a14272f9c883e31e997d2f2bb8edc792d"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classKartFactory.html#a14272f9c883e31e997d2f2bb8edc792d">KartType</a> { <a class="el" href="classKartFactory.html#a14272f9c883e31e997d2f2bb8edc792da86e5d99add49a2bc9069185f20dbb3db">VenusianType</a>, 
 <a class="el" href="classKartFactory.html#a14272f9c883e31e997d2f2bb8edc792da48b21a36c0333f860c8f90434edea1df">_KartTypeCount</a>
- }</td></tr>
+ }<tr class="memdesc:a14272f9c883e31e997d2f2bb8edc792d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type of kart.  <a href="classKartFactory.html#a14272f9c883e31e997d2f2bb8edc792d">More...</a><br /></td></tr>
+</td></tr>
 <tr class="separator:a14272f9c883e31e997d2f2bb8edc792d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a87ae5cc3f6d68f298c7dfe25242f635d"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structKart_1_1KartParams.html">Kart::KartParams</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classKartFactory.html#a87ae5cc3f6d68f298c7dfe25242f635d">params</a> (<a class="el" href="classKartFactory.html#a14272f9c883e31e997d2f2bb8edc792d">KartType</a> type, double randomnessFactor=0)</td></tr>
+<tr class="memdesc:a87ae5cc3f6d68f298c7dfe25242f635d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the parameters for the given kart type.  <a href="#a87ae5cc3f6d68f298c7dfe25242f635d">More...</a><br /></td></tr>
 <tr class="separator:a87ae5cc3f6d68f298c7dfe25242f635d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaff8bff4b620ccca024fd608aad07452"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classKartFactory.html#aaff8bff4b620ccca024fd608aad07452">sprites</a> (<a class="el" href="classKartFactory.html#a14272f9c883e31e997d2f2bb8edc792d">KartType</a> type, sf::Sprite *&amp;sprites)</td></tr>
+<tr class="memdesc:aaff8bff4b620ccca024fd608aad07452"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the sprites of the given kart type to use for render on the map.  <a href="#aaff8bff4b620ccca024fd608aad07452">More...</a><br /></td></tr>
 <tr class="separator:aaff8bff4b620ccca024fd608aad07452"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afb9dc398e3eddd8adfb6aea60c9fd037"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classKartFactory.html#afb9dc398e3eddd8adfb6aea60c9fd037">skidGasSprites</a> (<a class="el" href="classKartFactory.html#a14272f9c883e31e997d2f2bb8edc792d">KartType</a> type, sf::Sprite *&amp;gasSprites)</td></tr>
+<tr class="memdesc:afb9dc398e3eddd8adfb6aea60c9fd037"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the sprites of the given kart type to used for render the skid effect on the map.  <a href="#afb9dc398e3eddd8adfb6aea60c9fd037">More...</a><br /></td></tr>
 <tr class="separator:afb9dc398e3eddd8adfb6aea60c9fd037"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7e3814ef03f757c31e5a8a9bd3b98763"><td class="memItemLeft" align="right" valign="top">static float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classKartFactory.html#a7e3814ef03f757c31e5a8a9bd3b98763">scaleFactor</a> ()</td></tr>
+<tr class="memdesc:a7e3814ef03f757c31e5a8a9bd3b98763"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the scale factor for the kart.  <a href="#a7e3814ef03f757c31e5a8a9bd3b98763">More...</a><br /></td></tr>
 <tr class="separator:a7e3814ef03f757c31e5a8a9bd3b98763"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a86efdee2c24e3e327c6f90bf381d9e7b"><td class="memItemLeft" align="right" valign="top">static sf::Sprite *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classKartFactory.html#a86efdee2c24e3e327c6f90bf381d9e7b">leadeboardFaceSprite</a> (<a class="el" href="classKartFactory.html#a14272f9c883e31e997d2f2bb8edc792d">KartType</a> type)</td></tr>
+<tr class="memdesc:a86efdee2c24e3e327c6f90bf381d9e7b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the sprite to use for the leaderboard for the given kart type.  <a href="#a86efdee2c24e3e327c6f90bf381d9e7b">More...</a><br /></td></tr>
 <tr class="separator:a86efdee2c24e3e327c6f90bf381d9e7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a943eb0f4f51311b25f5168a6177f523f"><td class="memItemLeft" align="right" valign="top">static sf::Sprite *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classKartFactory.html#a943eb0f4f51311b25f5168a6177f523f">pickerSprite</a> (<a class="el" href="classKartFactory.html#a14272f9c883e31e997d2f2bb8edc792d">KartType</a> type)</td></tr>
+<tr class="memdesc:a943eb0f4f51311b25f5168a6177f523f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the sprite to used for the level picker for the given kart type.  <a href="#a943eb0f4f51311b25f5168a6177f523f">More...</a><br /></td></tr>
 <tr class="separator:a943eb0f4f51311b25f5168a6177f523f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3d40e390550b05ecd1d0c9c8f676d393"><td class="memItemLeft" align="right" valign="top">static const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classKartFactory.html#a3d40e390550b05ecd1d0c9c8f676d393">name</a> (<a class="el" href="classKartFactory.html#a14272f9c883e31e997d2f2bb8edc792d">KartType</a> type)</td></tr>
+<tr class="memdesc:a3d40e390550b05ecd1d0c9c8f676d393"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the name associated with the given kart type.  <a href="#a3d40e390550b05ecd1d0c9c8f676d393">More...</a><br /></td></tr>
 <tr class="separator:a3d40e390550b05ecd1d0c9c8f676d393"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a27fd37bbfdcb105e24072b7eb4fd8417"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classKart.html">Kart</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classKartFactory.html#a27fd37bbfdcb105e24072b7eb4fd8417">playerKart</a> (<a class="el" href="classLevel.html">Level</a> *level, <a class="el" href="classKartFactory.html#a14272f9c883e31e997d2f2bb8edc792d">KartType</a> type)</td></tr>
+<tr class="memdesc:a27fd37bbfdcb105e24072b7eb4fd8417"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates and returns a player kart of the given kart type.  <a href="#a27fd37bbfdcb105e24072b7eb4fd8417">More...</a><br /></td></tr>
 <tr class="separator:a27fd37bbfdcb105e24072b7eb4fd8417"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Enumeration Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Factory class usable for create and retrieve information about concrete types of karts. </p>
+</div><h2 class="groupheader">Member Enumeration Documentation</h2>
 <a class="anchor" id="a14272f9c883e31e997d2f2bb8edc792d"></a>
 <div class="memitem">
 <div class="memproto">
@@ -131,10 +145,14 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Type of kart. </p>
 <table class="fieldtable">
 <tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a class="anchor" id="a14272f9c883e31e997d2f2bb8edc792da86e5d99add49a2bc9069185f20dbb3db"></a>VenusianType&#160;</td><td class="fielddoc">
+<p>Alien from the venus planet :) </p>
 </td></tr>
 <tr><td class="fieldname"><a class="anchor" id="a14272f9c883e31e997d2f2bb8edc792da48b21a36c0333f860c8f90434edea1df"></a>_KartTypeCount&#160;</td><td class="fielddoc">
+<p>Number of kart. </p>
 </td></tr>
 </table>
 
@@ -163,6 +181,15 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Returns the sprite to use for the leaderboard for the given kart type. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">type</td><td>the type of the kart. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the sprite to use for the leaderboard. </dd></dl>
+
 </div>
 </div>
 <a class="anchor" id="a3d40e390550b05ecd1d0c9c8f676d393"></a>
@@ -186,6 +213,15 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Returns the name associated with the given kart type. </p>
+<p>This actually matches the string representation of the type. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">type</td><td>the name associated with the kart type. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the name of type. </dd></dl>
 
 </div>
 </div>
@@ -221,6 +257,16 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Returns the parameters for the given kart type. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">type</td><td>the type of the kart. </td></tr>
+    <tr><td class="paramname">randomnessFactor</td><td>a factor of randomness that will be applied to the parameters. each parameter will be added or subtracted by a random number between -randomnessFactor and +randomnessFactor. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the parameters for the given kart type. </dd></dl>
+
 </div>
 </div>
 <a class="anchor" id="a943eb0f4f51311b25f5168a6177f523f"></a>
@@ -244,6 +290,15 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Returns the sprite to used for the level picker for the given kart type. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">type</td><td>the type of the kart. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the sprite to use for the level picker. </dd></dl>
 
 </div>
 </div>
@@ -279,6 +334,16 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Creates and returns a player kart of the given kart type. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">level</td><td>the level the newly player kart will be part of. </td></tr>
+    <tr><td class="paramname">type</td><td>the type of the kart to create. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the created player kart. </dd></dl>
+
 </div>
 </div>
 <a class="anchor" id="a7e3814ef03f757c31e5a8a9bd3b98763"></a>
@@ -301,6 +366,9 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Returns the scale factor for the kart. </p>
+<p>This actually doesn't take any type as parameter since the scale should be the same for every kart. </p><dl class="section return"><dt>Returns</dt><dd>the scale factor for the kart. </dd></dl>
 
 </div>
 </div>
@@ -336,6 +404,16 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Returns the sprites of the given kart type to used for render the skid effect on the map. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">type</td><td>the type of the kart. </td></tr>
+    <tr><td class="paramname">gasSprites</td><td>the sprites pointer that will be filled with the sprites. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the number of created sprites. </dd></dl>
+
 </div>
 </div>
 <a class="anchor" id="aaff8bff4b620ccca024fd608aad07452"></a>
@@ -369,6 +447,16 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Returns the sprites of the given kart type to use for render on the map. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">type</td><td>the type of the kart. </td></tr>
+    <tr><td class="paramname">sprites</td><td>the sprites pointer that will be filled with the sprites. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the number of created sprites. </dd></dl>
 
 </div>
 </div>

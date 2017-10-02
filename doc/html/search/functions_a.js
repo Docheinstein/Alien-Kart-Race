@@ -5,7 +5,7 @@ var searchData=
   ['leadeboardfacesprite',['leadeboardFaceSprite',['../classKartFactory.html#a86efdee2c24e3e327c6f90bf381d9e7b',1,'KartFactory']]],
   ['leadeboardsprite',['leadeboardSprite',['../classKart.html#abc7e56c4b0cf149afc80ad707e157ba0',1,'Kart']]],
   ['leaderboard',['Leaderboard',['../classLeaderboard.html#aeda247cb25c65981536b1b1a96f851fa',1,'Leaderboard']]],
-  ['level',['Level',['../classLevel.html#a9bc1796f35faad80b129b8a600e3dd28',1,'Level']]],
+  ['level',['Level',['../classLevel.html#aa055ae3cdd066a7b4ddf9eec0f09943f',1,'Level']]],
   ['levelpicker',['LevelPicker',['../classLevelPicker.html#af4c601cc9e2efbe630ed865ce3a01557',1,'LevelPicker']]],
   ['linefortwopoints',['lineForTwoPoints',['../classGeometryUtil.html#afd5cd54a66f4b3ba65a7def532271af6',1,'GeometryUtil']]],
   ['loadarray',['loadArray',['../classFileUtil.html#a9e193f625dbda46ad4b390c08fa2571f',1,'FileUtil']]],

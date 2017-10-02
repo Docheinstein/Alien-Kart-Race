@@ -1,105 +1,99 @@
-#ifndef LOG_H
-#define LOG_H
+#ifndef LOGGER_H
+#define LOGGER_H
 
-#include <iostream>
+// This file contains the functions used by the game for print to the
+// output stream. Functions in there are global for output in a handly
+// and faster way.
 
-#define DEBUG_OUTPUT_ENABLED 1
-#define WARN_OUTPUT_ENABLED 1
-#define BENCHMARK_OUTPUT_ENABLED 1
+// -----------------------------------------------------------------
+// DEBUG -----------------------------------------------------------
+// -----------------------------------------------------------------
 
-// Higher is more verbose
-#define DEBUG_OUTPUT_LEVEL_MASK (\
-(1 << 0)\
-| (1 << 1) \
-)
-
-#define FLUSH_ON_OUTPUT 0
-
-extern const char * DEBUG_TAG;
-extern const char * WARN_TAG;
-extern const char * BENCHMARK_TAG;
-
-// Debug
-
-inline
-void debug_internal() {
-	std::cout << std::endl;
-
-	#if FLUSH_ON_OUTPUT
-		std::cout << std::flush;
-	#endif
-}
-
+/**
+* Prints a debug message by recursively output the variadic arguments.
+* A level should be specified, and the message will be put on output
+* only if the debug mode is enabled and the current debug level is
+* compatible with the specified level (an AND bit a bit is done for this purpose).
+* @param level 	the output level; higher is more verbose (actually 1 or 2 can be used).
+* @param logTag tag of the entity that is printing this message.
+* @param first 	the first argument.
+* @param other 	the other arguments.
+*/
 template<typename FirstType, typename ...OtherTypes>
-inline
-void debug_internal(FirstType && first, OtherTypes && ...other) {
-	std::cout << first;
-	debug_internal(other...);
-}
+void debug(	unsigned int level, const char *logTag,
+			FirstType && first, OtherTypes && ...other);
 
+/**
+ * Prints a debug message by recursively output the variadic arguments.
+ * @param first the first argument.
+ * @param other the other arguments.
+ */
 template<typename FirstType, typename ...OtherTypes>
-inline
-void debug(unsigned int level, FirstType && first, OtherTypes && ...other) {
-#if DEBUG_OUTPUT_ENABLED
-	if (DEBUG_OUTPUT_LEVEL_MASK & level) {
-			std::cout << DEBUG_TAG << first;
-			debug_internal(other...);
-	}
-#endif
-}
+void debug_internal(FirstType && first, OtherTypes && ...other);
 
-// Warn
+/**
+ * End function for the recursive debug call.
+ * Prints end of line and eventually flushes the output.
+ */
+void debug_internal();
 
-inline
-void warn_internal() {
-	std::cout << std::endl;
+// -----------------------------------------------------------------
+// WARN ------------------------------------------------------------
+// -----------------------------------------------------------------
 
-	#if WARN_OUTPUT_ENABLED
-		std::cout << std::flush;
-	#endif
-}
 
+/**
+ * Prints a warn message by recursively output the variadic arguments.
+ * The message will be put on the output stream onlt if the warn mode is enabled.
+ * @param logTag tag of the entity that is printing this message.
+ * @param first the first argument.
+ * @param other the other arguments.
+ */
 template<typename FirstType, typename ...OtherTypes>
-inline
-void warn_internal(FirstType && first, OtherTypes && ...other) {
-	std::cout << first;
-	warn_internal(other...);
-}
+void warn(const char *logTag, FirstType && first, OtherTypes && ...other);
 
+/**
+ * Prints a warn message by recursively output the variadic arguments.
+ * @param first the first argument.
+ * @param other the other arguments.
+ */
 template<typename FirstType, typename ...OtherTypes>
-inline
-void warn(FirstType && first, OtherTypes && ...other) {
-#if WARN_OUTPUT_ENABLED
-	std::cout << WARN_TAG << first;
-	warn_internal(other...);
-#endif
-}
+void warn_internal(FirstType && first, OtherTypes && ...other);
 
-// Benchmark
+/**
+ * End function for the recursive warn call.
+ * Prints end of line and eventually flushes the output.
+ */
+void warn_internal();
 
-inline
-void benchmark_internal() {
-	std::cout << std::endl;
+// -----------------------------------------------------------------
+// BENCHMARK -------------------------------------------------------
+// -----------------------------------------------------------------
 
-	#if FLUSH_ON_OUTPUT
-		std::cout << std::flush;
-	#endif
-}
-
+/**
+ * Prints a benchmark message by recursively output the variadic arguments.
+ * The message will be put on the output stream onlt if the benchmark mode is enabled.
+ * @param logTag tag of the entity that is printing this message.
+ * @param first the first argument.
+ * @param other the other arguments.
+ */
 template<typename FirstType, typename ...OtherTypes>
-inline
-void benchmark_internal(FirstType && first, OtherTypes && ...other) {
-	std::cout << first;
-	benchmark_internal(other...);
-}
+void benchmark(const char *logTag, FirstType && first, OtherTypes && ...other);
 
+/**
+ * Prints a benchmark message by recursively output the variadic arguments.
+ * @param first the first argument.
+ * @param other the other arguments.
+ */
 template<typename FirstType, typename ...OtherTypes>
-inline
-void benchmark(FirstType && first, OtherTypes && ...other) {
-#if BENCHMARK_OUTPUT_ENABLED
-	std::cout << BENCHMARK_TAG << first;
-	benchmark_internal(other...);
-#endif
-}
+void benchmark_internal(FirstType && first, OtherTypes && ...other);
 
-#endif
+/**
+ * End function for the recursive benchmark call.
+ * Prints end of line and eventually flushes the output.
+ */
+void benchmark_internal();
+
+#include "logger.tpp"
+
+#endif // LOGGER_H

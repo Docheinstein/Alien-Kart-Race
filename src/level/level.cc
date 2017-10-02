@@ -86,14 +86,6 @@ Level::Level(	sf::RenderWindow *window, KeyboardManager *keysManager,
 		Const::WINDOW_WIDTH / 18
 	);
 
-	sf::Image overlayImage;
-	overlayImage.create(Const::WINDOW_WIDTH, Const::WINDOW_HEIGHT, sf::Color::Black);
-	mOverlayTexture = new sf::Texture();
-	mOverlayTexture->loadFromImage(overlayImage);
-
-	mOverlaySprite = new sf::Sprite();
-	mOverlaySprite->setTexture(*mOverlayTexture);
-
 	// Menus frame
 	mLevelRunningMenuFrameTexture = new sf::Texture();
 	mLevelRunningMenuFrameTexture->loadFromFile(
@@ -130,13 +122,13 @@ Level::Level(	sf::RenderWindow *window, KeyboardManager *keysManager,
 	);
 
 	// Menus
-	mOptionContinue.text = optionText("Continue");
+	mOptionContinue.text = initializedOptionText("Continue");
 	mOptionContinue.func = &Level::continueFunc;
 
-	mOptionRetry.text = optionText("Retry");
+	mOptionRetry.text = initializedOptionText("Retry");
 	mOptionRetry.func = &Level::retryFunc;
 
-	mOptionQuit.text = optionText("Quit");
+	mOptionQuit.text = initializedOptionText("Quit");
 	mOptionQuit.func = &Level::quitFunc;
 
 	mMenuInGame.options.push_back(mOptionContinue);
@@ -168,8 +160,6 @@ Level::~Level() {
 
 	delete mRaceStartTimerText;
 	delete mLapText;
-	delete mOverlayTexture;
-	delete mOverlaySprite;
 	delete mLevelFinishedMenuFrameTexture;
 	delete mLevelFinishedMenuFrameSprite;
 
@@ -222,7 +212,7 @@ void Level::update() {
 
 			mPlayerKart.kart->update();
 
-		    for (std::vector<LevelNS::RacingKart>::iterator aiIter = mAIKarts.begin();
+		    for (std::vector<RacingKart>::iterator aiIter = mAIKarts.begin();
 		        aiIter != mAIKarts.end();
 		        aiIter++)
 					(*aiIter).kart->update();
@@ -258,17 +248,19 @@ void Level::render() {
 
 	mPlayerKart.kart->draw();
 	mMinimap->drawPoint(
-		mPlayerKart.kart->position().y, mPlayerKart.kart->position().x,
-		mPlayerKart.kart->minimapSize(), mPlayerKart.kart->color()
+		mPlayerKart.kart->position(),
+		mPlayerKart.kart->minimapSize(),
+		mPlayerKart.kart->color()
 	);
 
-    for (std::vector<LevelNS::RacingKart>::iterator aiIter = mAIKarts.begin();
+    for (std::vector<RacingKart>::iterator aiIter = mAIKarts.begin();
         aiIter != mAIKarts.end();
         aiIter++) {
 			(*aiIter).kart->draw();
 			mMinimap->drawPoint(
-				(*aiIter).kart->position().y, (*aiIter).kart->position().x,
-				(*aiIter).kart->minimapSize(), (*aiIter).kart->color()
+				(*aiIter).kart->position().,
+				(*aiIter).kart->minimapSize(),
+				(*aiIter).kart->color()
 			);
 	}
 
@@ -295,7 +287,7 @@ void Level::pushSprite(sf::Sprite *sprite) {
 void Level::deleteKarts() {
 	delete mPlayerKart.kart;
 
- 	for (std::vector<LevelNS::RacingKart>::iterator aiIter = mAIKarts.begin();
+ 	for (std::vector<RacingKart>::iterator aiIter = mAIKarts.begin();
 		 aiIter != mAIKarts.end();
 		 aiIter++)
 		 	delete aiIter->kart;
@@ -326,7 +318,7 @@ void Level::initKarts() {
 		new AIVenusian(this, "Baley", new sf::Color(AI_KART_RGB_BROWN), mMap->randomAIPath())));
 
 	int racePosition = 1;
-    for (std::vector<LevelNS::RacingKart>::iterator aiIter = mAIKarts.begin();
+    for (std::vector<RacingKart>::iterator aiIter = mAIKarts.begin();
         aiIter != mAIKarts.end();
         aiIter++, racePosition ++) {
 			(*aiIter).kart->setPosition(mMap->startingPointForRacePosition(racePosition));
@@ -352,13 +344,13 @@ void Level::updateKartsLapProgress() {
 	// Update the lap count for the player
 	updateKartLapProgress(mPlayerKart);
 
-    for (std::vector<LevelNS::RacingKart>::iterator aiIter = mAIKarts.begin();
+    for (std::vector<RacingKart>::iterator aiIter = mAIKarts.begin();
         aiIter != mAIKarts.end();
         aiIter++)
 		updateKartLapProgress(*aiIter);
 }
 
-void Level::updateKartLapProgress(LevelNS::RacingKart &rk) {
+void Level::updateKartLapProgress(RacingKart &rk) {
 	int sectorCount = mMap->sectorCount();
 	rk.currentSector = mMap->sector(rk.kart->position());
 	int currentSectorIndex = rk.currentSector.index;
@@ -403,7 +395,7 @@ void Level::handleKartsCrash() {
 	// Create temp array;
 	int kartCount = mAIKarts.size() + 1; // player
 	struct CrashableRacingKart {
-		LevelNS::RacingKart *rk;
+		RacingKart *rk;
 		Quad q;
 	} crk[kartCount];
 
@@ -531,7 +523,7 @@ bool Level::levelFinishedByAKart() {
 	if (mPlayerKart.currentLap > RACE_LAP_COUNT)
 		return true;
 
-    for (std::vector<LevelNS::RacingKart>::iterator aiIter = mAIKarts.begin();
+    for (std::vector<RacingKart>::iterator aiIter = mAIKarts.begin();
         aiIter != mAIKarts.end();
         aiIter++)
 		if ((*aiIter).currentLap > RACE_LAP_COUNT)
@@ -540,8 +532,8 @@ bool Level::levelFinishedByAKart() {
 	return false;
 }
 
-LevelNS::RacingKart Level::initialRacingKart(Kart *k) {
-	LevelNS::RacingKart rk;
+RacingKart Level::initialRacingKart(Kart *k) {
+	RacingKart rk;
 	rk.kart = k;
 	rk.currentLap = 0;
 	rk.q1Finished = rk.q2Finished = rk.q3Finished = true;
@@ -584,7 +576,7 @@ void Level::fadeOutFinished() {
 	}
 }
 
-sf::Text * Level::optionText(const char *title) {
+sf::Text * Level::initializedOptionText(const char *title) {
 	sf::Text *optionText = new sf::Text();
 	optionText->setFont(FontFactory::font(FontFactory::FontType::Plain));
 	optionText->setCharacterSize(MENU_OPTION_FONT_SIZE);

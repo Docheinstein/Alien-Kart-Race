@@ -76,7 +76,7 @@ public:
     static sf::Sprite *pickerSprite(KartType type);
 
     /**
-     * Returns the name associated with the kart type.
+     * Returns the name associated with the given kart type.
      * This actually matches the string representation of the type.
      * @param  type the name associated with the kart type.
      * @return      the name of type.
@@ -87,7 +87,7 @@ public:
      * Creates and returns a player kart of the given kart type.
      * @param  level the level the newly player kart will be part of.
      * @param  type  the type of the kart to create.
-     * @return       the player kart.
+     * @return       the created player kart.
      */
     static Kart *playerKart(Level *level, KartType type);
 
@@ -103,7 +103,7 @@ private:
     /** Textures of the karts for the leaderboard. */
     static sf::Texture * sKartsLeadboardFacesTextures;
 
-    /** Textures of the karts forf the level picker. */
+    /** Textures of the karts for the level picker. */
     static sf::Texture * sKartsPickerTextures;
 
     /**

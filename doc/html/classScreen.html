@@ -93,16 +93,19 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 
+<p>Base class representing a screen of the game.  
+ <a href="classScreen.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="screen_8h_source.html">screen.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for Screen:</div>
 <div class="dyncontent">
 <div class="center"><img src="classScreen__inherit__graph.png" border="0" usemap="#Screen_inherit__map" alt="Inheritance graph"/></div>
 <map name="Screen_inherit__map" id="Screen_inherit__map">
-<area shape="rect" id="node2" href="classFadeScreen.html" title="FadeScreen" alt="" coords="85,80,177,107"/>
-<area shape="rect" id="node3" href="classLauncher.html" title="Launcher" alt="" coords="5,155,80,181"/>
-<area shape="rect" id="node4" href="classLevel.html" title="Level" alt="" coords="104,155,157,181"/>
-<area shape="rect" id="node5" href="classLevelPicker.html" title="LevelPicker" alt="" coords="181,155,272,181"/>
+<area shape="rect" id="node2" href="classFadeScreen.html" title="Base class representing a screen of the game that has the feauture of fade in and fade out with a van..." alt="" coords="85,80,177,107"/>
+<area shape="rect" id="node3" href="classLauncher.html" title="Launcher screen of the game, shown at the game&#39;s startup. " alt="" coords="5,155,80,181"/>
+<area shape="rect" id="node4" href="classLevel.html" title="Handles the karts, the map and eventually every other object in the level. " alt="" coords="104,155,157,181"/>
+<area shape="rect" id="node5" href="classLevelPicker.html" title="Screen responsible for choose the player kart and the map to use for the level. " alt="" coords="181,155,272,181"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <div class="dynheader">
@@ -110,33 +113,43 @@ Collaboration diagram for Screen:</div>
 <div class="dyncontent">
 <div class="center"><img src="classScreen__coll__graph.png" border="0" usemap="#Screen_coll__map" alt="Collaboration graph"/></div>
 <map name="Screen_coll__map" id="Screen_coll__map">
-<area shape="rect" id="node2" href="classKeyboardManager.html" title="KeyboardManager" alt="" coords="5,5,132,32"/>
+<area shape="rect" id="node2" href="classKeyboardManager.html" title="Responsible for handle the pressure of the keys by notifying listeners about new pressed key..." alt="" coords="5,5,132,32"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a6f1771501631b084e94b20f63688405d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classScreen.html#a6f1771501631b084e94b20f63688405d">Screen</a> (sf::RenderWindow *window, <a class="el" href="classKeyboardManager.html">KeyboardManager</a> *keysManager=NULL)</td></tr>
+<tr class="memdesc:a6f1771501631b084e94b20f63688405d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new screen.  <a href="#a6f1771501631b084e94b20f63688405d">More...</a><br /></td></tr>
 <tr class="separator:a6f1771501631b084e94b20f63688405d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4243bc17596af96415b09ac48205676d"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classScreen.html#a4243bc17596af96415b09ac48205676d">~Screen</a> ()</td></tr>
 <tr class="separator:a4243bc17596af96415b09ac48205676d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9cea8804adadbf9ee3ede5d9d2d58671"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classScreen.html#a9cea8804adadbf9ee3ede5d9d2d58671">update</a> ()=0</td></tr>
+<tr class="memdesc:a9cea8804adadbf9ee3ede5d9d2d58671"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the logic of the screen.  <a href="#a9cea8804adadbf9ee3ede5d9d2d58671">More...</a><br /></td></tr>
 <tr class="separator:a9cea8804adadbf9ee3ede5d9d2d58671"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1b42df84ff23324c05b63decad5a8846"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classScreen.html#a1b42df84ff23324c05b63decad5a8846">render</a> ()=0</td></tr>
+<tr class="memdesc:a1b42df84ff23324c05b63decad5a8846"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws the screen on the window.  <a href="#a1b42df84ff23324c05b63decad5a8846">More...</a><br /></td></tr>
 <tr class="separator:a1b42df84ff23324c05b63decad5a8846"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac9a53ef90e59adfb63b4b0d6be7aa87f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classScreen.html">Screen</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classScreen.html#ac9a53ef90e59adfb63b4b0d6be7aa87f">segue</a> ()</td></tr>
+<tr class="memdesc:ac9a53ef90e59adfb63b4b0d6be7aa87f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the screen that should be shown on the window.  <a href="#ac9a53ef90e59adfb63b4b0d6be7aa87f">More...</a><br /></td></tr>
 <tr class="separator:ac9a53ef90e59adfb63b4b0d6be7aa87f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
 <tr class="memitem:afc96d715f1f1b7005b60d0ffce88fbf4"><td class="memItemLeft" align="right" valign="top">sf::RenderWindow *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classScreen.html#afc96d715f1f1b7005b60d0ffce88fbf4">mWindow</a></td></tr>
+<tr class="memdesc:afc96d715f1f1b7005b60d0ffce88fbf4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Window this screen is encapsulated in.  <a href="#afc96d715f1f1b7005b60d0ffce88fbf4">More...</a><br /></td></tr>
 <tr class="separator:afc96d715f1f1b7005b60d0ffce88fbf4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a139b7280d584a282887c9731bdbc926d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classKeyboardManager.html">KeyboardManager</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classScreen.html#a139b7280d584a282887c9731bdbc926d">mKeysManager</a></td></tr>
+<tr class="memdesc:a139b7280d584a282887c9731bdbc926d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Keyboard manager that will notify this screen about async key pressure.  <a href="#a139b7280d584a282887c9731bdbc926d">More...</a><br /></td></tr>
 <tr class="separator:a139b7280d584a282887c9731bdbc926d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7f657a49c46dbe653a95cc82c4d0673f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classScreen.html">Screen</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classScreen.html#a7f657a49c46dbe653a95cc82c4d0673f">mSegue</a></td></tr>
+<tr class="memdesc:a7f657a49c46dbe653a95cc82c4d0673f"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classScreen.html" title="Base class representing a screen of the game. ">Screen</a> that will segue this screen for next update.  <a href="#a7f657a49c46dbe653a95cc82c4d0673f">More...</a><br /></td></tr>
 <tr class="separator:a7f657a49c46dbe653a95cc82c4d0673f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Base class representing a screen of the game. </p>
+<p>A screen is associated with a single function of the game; so it can be a level, a menu, a setting screen... </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a6f1771501631b084e94b20f63688405d"></a>
 <div class="memitem">
 <div class="memproto">
@@ -160,6 +173,15 @@ Protected Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Creates a new screen. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">window</td><td>the window this screen is encapsulated in. </td></tr>
+    <tr><td class="paramname">keysManager</td><td>the optional keyboard manager that will notify this screen about async key pressure. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -208,7 +230,9 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="classLevel.html#a4ce1e8089977edfb4a02a7d5b94225c2">Level</a>, <a class="el" href="classLevelPicker.html#ac1bb97d8be438877ab38f846f42aa702">LevelPicker</a>, <a class="el" href="classFadeScreen.html#a804aebaa6c7374eb32192e303e8cf7f1">FadeScreen</a>, and <a class="el" href="classLauncher.html#a04e79682ee9b4d05f498b7d3d2602bdd">Launcher</a>.</p>
+<p>Draws the screen on the window. </p>
+
+<p>Implemented in <a class="el" href="classLevel.html#a4ce1e8089977edfb4a02a7d5b94225c2">Level</a>, <a class="el" href="classFadeScreen.html#a804aebaa6c7374eb32192e303e8cf7f1">FadeScreen</a>, <a class="el" href="classLevelPicker.html#ac1bb97d8be438877ab38f846f42aa702">LevelPicker</a>, and <a class="el" href="classLauncher.html#a04e79682ee9b4d05f498b7d3d2602bdd">Launcher</a>.</p>
 
 </div>
 </div>
@@ -224,6 +248,9 @@ Protected Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns the screen that should be shown on the window. </p>
+<p>for the next updates. The default return value is the screen itself. Entities inheriting from this base classe should change the returned segue for starts a new screen. </p><dl class="section return"><dt>Returns</dt><dd>the screen that should segue this screen. </dd></dl>
 
 </div>
 </div>
@@ -248,7 +275,10 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="classLevel.html#a62e412eaad753d2baa2f94239cb80e41">Level</a>, <a class="el" href="classLevelPicker.html#a6bddee6d6fce0c8cf2fba820fbe8b12c">LevelPicker</a>, <a class="el" href="classFadeScreen.html#ad78397dfdbd6b6405418fad8b8dafec3">FadeScreen</a>, and <a class="el" href="classLauncher.html#ae3632506c813d389ae86793e5ef92da9">Launcher</a>.</p>
+<p>Updates the logic of the screen. </p>
+<p>This method should not be used for draw on the window, instead use <a class="el" href="classScreen.html#a1b42df84ff23324c05b63decad5a8846" title="Draws the screen on the window. ">render</a> </p>
+
+<p>Implemented in <a class="el" href="classLevel.html#a62e412eaad753d2baa2f94239cb80e41">Level</a>, <a class="el" href="classFadeScreen.html#ad78397dfdbd6b6405418fad8b8dafec3">FadeScreen</a>, <a class="el" href="classLevelPicker.html#a6bddee6d6fce0c8cf2fba820fbe8b12c">LevelPicker</a>, and <a class="el" href="classLauncher.html#ae3632506c813d389ae86793e5ef92da9">Launcher</a>.</p>
 
 </div>
 </div>
@@ -271,6 +301,8 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Keyboard manager that will notify this screen about async key pressure. </p>
+
 </div>
 </div>
 <a class="anchor" id="a7f657a49c46dbe653a95cc82c4d0673f"></a>
@@ -291,6 +323,8 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p><a class="el" href="classScreen.html" title="Base class representing a screen of the game. ">Screen</a> that will segue this screen for next update. </p>
+
 </div>
 </div>
 <a class="anchor" id="afc96d715f1f1b7005b60d0ffce88fbf4"></a>
@@ -310,6 +344,8 @@ Protected Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Window this screen is encapsulated in. </p>
 
 </div>
 </div>

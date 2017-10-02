@@ -93,6 +93,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 
+<p>Factory class responsible for share the font of the game between the game's sf::Text.  
+ <a href="classFontFactory.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="fontfactory_8h_source.html">fontfactory.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
@@ -101,15 +104,19 @@ Public Types</h2></td></tr>
 <a class="el" href="classFontFactory.html#a291e3788004f8b0cfdac6779a00ce5bba3fabbd859bca28ea732ebe212478dbd0">Semibold</a>, 
 <a class="el" href="classFontFactory.html#a291e3788004f8b0cfdac6779a00ce5bbab81edebbfc2b7452390483a9a83b4557">Fancy</a>, 
 <a class="el" href="classFontFactory.html#a291e3788004f8b0cfdac6779a00ce5bba4003ba807c1b705595fd465e7b1b8814">_FontTypeCount</a>
- }</td></tr>
+ }<tr class="memdesc:a291e3788004f8b0cfdac6779a00ce5bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type of font.  <a href="classFontFactory.html#a291e3788004f8b0cfdac6779a00ce5bb">More...</a><br /></td></tr>
+</td></tr>
 <tr class="separator:a291e3788004f8b0cfdac6779a00ce5bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a8925a5632b3de2b43981ee5b05e1b729"><td class="memItemLeft" align="right" valign="top">static sf::Font &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFontFactory.html#a8925a5632b3de2b43981ee5b05e1b729">font</a> (<a class="el" href="classFontFactory.html#a291e3788004f8b0cfdac6779a00ce5bb">FontType</a> type)</td></tr>
+<tr class="memdesc:a8925a5632b3de2b43981ee5b05e1b729"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a reference to the shared font of the given type.  <a href="#a8925a5632b3de2b43981ee5b05e1b729">More...</a><br /></td></tr>
 <tr class="separator:a8925a5632b3de2b43981ee5b05e1b729"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Enumeration Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Factory class responsible for share the font of the game between the game's sf::Text. </p>
+</div><h2 class="groupheader">Member Enumeration Documentation</h2>
 <a class="anchor" id="a291e3788004f8b0cfdac6779a00ce5bb"></a>
 <div class="memitem">
 <div class="memproto">
@@ -119,14 +126,20 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Type of font. </p>
 <table class="fieldtable">
 <tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a class="anchor" id="a291e3788004f8b0cfdac6779a00ce5bba5e6d9387638dbdda2f0114b3b1928302"></a>Plain&#160;</td><td class="fielddoc">
+<p>Plain font. </p>
 </td></tr>
 <tr><td class="fieldname"><a class="anchor" id="a291e3788004f8b0cfdac6779a00ce5bba3fabbd859bca28ea732ebe212478dbd0"></a>Semibold&#160;</td><td class="fielddoc">
+<p>Semibold font. </p>
 </td></tr>
 <tr><td class="fieldname"><a class="anchor" id="a291e3788004f8b0cfdac6779a00ce5bbab81edebbfc2b7452390483a9a83b4557"></a>Fancy&#160;</td><td class="fielddoc">
+<p>Bold and fancy font. </p>
 </td></tr>
 <tr><td class="fieldname"><a class="anchor" id="a291e3788004f8b0cfdac6779a00ce5bba4003ba807c1b705595fd465e7b1b8814"></a>_FontTypeCount&#160;</td><td class="fielddoc">
+<p>Number of fonts. </p>
 </td></tr>
 </table>
 
@@ -154,6 +167,15 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Returns a reference to the shared font of the given type. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">type</td><td>the type of the font. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the shared font. </dd></dl>
 
 </div>
 </div>

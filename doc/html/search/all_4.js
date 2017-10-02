@@ -5,11 +5,8 @@ var searchData=
   ['d2',['d2',['../classLoggerInterface.html#ab2b05c5c566965cc37a906d145b20cec',1,'LoggerInterface']]],
   ['d_5flevel',['d_level',['../classLoggerInterface.html#aca9f8dc7ea5ea76ad8390b52f2561a15',1,'LoggerInterface']]],
   ['dbg',['DBG',['../perspectiveutil_8cc.html#a49606be7356624568932ec81c0d429f4',1,'perspectiveutil.cc']]],
-  ['debug',['debug',['../logger_8h.html#a351bccfbfe2cabd2dcb2f405e60b6df2',1,'logger.h']]],
-  ['debug_5finternal',['debug_internal',['../logger_8h.html#aca4d493eeb887ca548e46ff6702c451a',1,'debug_internal():&#160;logger.h'],['../logger_8h.html#a135633669e23876a543536375c7419d9',1,'debug_internal(FirstType &amp;&amp;first, OtherTypes &amp;&amp;...other):&#160;logger.h']]],
-  ['debug_5foutput_5fenabled',['DEBUG_OUTPUT_ENABLED',['../logger_8h.html#af995a69d407976a4c42b7d3f9a8285f8',1,'logger.h']]],
-  ['debug_5foutput_5flevel_5fmask',['DEBUG_OUTPUT_LEVEL_MASK',['../logger_8h.html#afa298694895a3c88ce4dd64755c9d4e5',1,'logger.h']]],
-  ['debug_5ftag',['DEBUG_TAG',['../logger_8cc.html#a35d51ad8b76008b4cad6c3fd78937a90',1,'DEBUG_TAG():&#160;logger.cc'],['../logger_8h.html#a35d51ad8b76008b4cad6c3fd78937a90',1,'DEBUG_TAG():&#160;logger.cc']]],
+  ['debug',['debug',['../logger_8h.html#a84cb2aca866834cfb87745143d53a025',1,'logger.h']]],
+  ['debug_5finternal',['debug_internal',['../logger_8h.html#a135633669e23876a543536375c7419d9',1,'debug_internal(FirstType &amp;&amp;first, OtherTypes &amp;&amp;...other):&#160;logger.h'],['../logger_8h.html#aca4d493eeb887ca548e46ff6702c451a',1,'debug_internal():&#160;logger.h']]],
   ['decelerationfactor',['decelerationFactor',['../structKart_1_1KartParams.html#af2f89faf1776a98ddd763b937a62b3c4',1,'Kart::KartParams']]],
   ['defaultarrayfillfunction',['defaultArrayFillFunction',['../classFileUtil.html#ac7cff4a38c2afbcab6db5eef2e7750b9',1,'FileUtil']]],
   ['defaultmatrixfillfunction',['defaultMatrixFillFunction',['../classFileUtil.html#aa7d0a563924155ff6aad73c70a645340',1,'FileUtil']]],
@@ -25,7 +22,7 @@ var searchData=
   ['downright',['DownRight',['../classMap.html#abd420aa9ad08bbadb79cf83ee2999383a713f19bafde392927acbd5dbd197d8ac',1,'Map']]],
   ['dr',['dr',['../structQuad.html#a403d9aac9212bb7480d2a6eeded157eb',1,'Quad']]],
   ['draw',['draw',['../classAIKart.html#a08145aec67703ca7fada18319f726af5',1,'AIKart::draw()'],['../classKart.html#a93df5ddadf2dae5b1a89f1a3deeb9c85',1,'Kart::draw()'],['../classPlayerKart.html#a310511c131b5d5cd89fa97ba9f567581',1,'PlayerKart::draw()'],['../classPlayerVenusian.html#a838f75e9c0757c16cfa349b2018a6950',1,'PlayerVenusian::draw()'],['../classLeaderboard.html#a82f6bc9a6c0a5256839e8b3e779e1207',1,'Leaderboard::draw()'],['../classMap.html#a6a40755f8541eece2fa48e9e24a588f8',1,'Map::draw()'],['../classMinimap.html#a38b33c78bf3e033a32207f7412bce3b0',1,'Minimap::draw()']]],
-  ['drawpoint',['drawPoint',['../classMinimap.html#ac3aecca18a5c7cb2b9cf315392b13066',1,'Minimap']]],
+  ['drawpoint',['drawPoint',['../classMinimap.html#a34784dd8dd642e434034ce575b7aecdc',1,'Minimap']]],
   ['drx',['DRx',['../map_8cc.html#a05ef5cd8a008d480455db73dcd125b32a75735d2163b1639ba0507b53d092cd94',1,'map.cc']]],
   ['dry',['DRy',['../map_8cc.html#a05ef5cd8a008d480455db73dcd125b32acad643b84707dd26fbd3bd2ab09cc631',1,'map.cc']]]
 ];

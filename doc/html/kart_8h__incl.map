@@ -1,7 +1,7 @@
 <map id="src/entity/kart/base/kart.h" name="src/entity/kart/base/kart.h">
 <area shape="rect" id="node3" href="$mapmovingentity_8h.html" title="mapmovingentity.h" alt="" coords="68,95,200,121"/>
-<area shape="rect" id="node7" href="$loggerinterface_8h.html" title="loggerinterface.h" alt="" coords="197,169,316,196"/>
-<area shape="rect" id="node4" href="$mapentity_8h.html" title="mapentity.h" alt="" coords="82,169,173,196"/>
-<area shape="rect" id="node5" href="$geometryentities_8h.html" title="geometryentities.h" alt="" coords="65,244,195,271"/>
-<area shape="rect" id="node8" href="$logger_8h.html" title="logger.h" alt="" coords="220,244,288,271"/>
+<area shape="rect" id="node7" href="$loggerinterface_8h.html" title="loggerinterface.h" alt="" coords="224,95,343,121"/>
+<area shape="rect" id="node4" href="$mapentity_8h.html" title="mapentity.h" alt="" coords="89,169,179,196"/>
+<area shape="rect" id="node5" href="$geometryentities_8h.html" title="geometryentities.h" alt="" coords="69,244,199,271"/>
+<area shape="rect" id="node8" href="$logger_8h.html" title="logger.h" alt="" coords="227,169,295,196"/>
 </map>

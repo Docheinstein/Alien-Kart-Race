@@ -1,6 +1,6 @@
 <map id="Launcher" name="Launcher">
-<area shape="rect" id="node2" href="$classFadeScreen.html" title="FadeScreen" alt="" coords="191,199,283,225"/>
-<area shape="rect" id="node3" href="$classScreen.html" title="Screen" alt="" coords="37,95,100,121"/>
-<area shape="rect" id="node4" href="$classKeyboardManager.html" title="KeyboardManager" alt="" coords="5,5,132,32"/>
+<area shape="rect" id="node2" href="$classFadeScreen.html" title="Base class representing a screen of the game that has the feauture of fade in and fade out with a van..." alt="" coords="191,199,283,225"/>
+<area shape="rect" id="node3" href="$classScreen.html" title="Base class representing a screen of the game. " alt="" coords="37,95,100,121"/>
+<area shape="rect" id="node4" href="$classKeyboardManager.html" title="Responsible for handle the pressure of the keys by notifying listeners about new pressed key..." alt="" coords="5,5,132,32"/>
 <area shape="rect" id="node5" href="$classGameTimer.html" title="GameTimer\&lt; FadeScreen \&gt;" alt="" coords="202,95,386,121"/>
 </map>

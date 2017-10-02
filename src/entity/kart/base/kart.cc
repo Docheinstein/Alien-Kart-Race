@@ -239,28 +239,9 @@ void Kart::update() {
 void Kart::crash(Kart *k) {
 	DirectionalPoint kartsDirPoint(k->position(), position());
 
-	bool notCrashingWithThatKart = true;
-
-    for (std::list<CollisionVector>::iterator i = mCollisionForces.begin();
-        i != mCollisionForces.end() && notCrashingWithThatKart;
-		i++) {
-		notCrashingWithThatKart &= ((*i).k != k);
-	}
-
-	if (notCrashingWithThatKart)
-		mCollisionForces.push_back(
-			CollisionVector {
-				Crash,
-				k,
-			 	Vector  {k->direction(), k->mSpeed * k->mParams.weight *
-										COLLISION_CRASH_FACTOR / mParams.weight}
-			}
-		);
-
 	mCollisionForces.push_back(
 		CollisionVector {
 			Crash,
-			k,
 		 	Vector  {kartsDirPoint.direction, k->mSpeed * k->mParams.weight  *
 											COLLISION_CRASH_FACTOR / mParams.weight}
 		}
@@ -279,13 +260,7 @@ void Kart::bounce() {
 			mDirectionalPoint.advance(oppositeVector);
 
 		mSpeed = 0;
-		mCollisionForces.push_back(
-			CollisionVector {
-				Bounce,
-				NULL,
-			 	oppositeVector
-			}
-		);
+		mCollisionForces.push_back(CollisionVector { Bounce, oppositeVector });
 	}
 }
 

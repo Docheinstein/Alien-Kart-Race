@@ -183,12 +183,10 @@ protected:
 
 	/**
 	 * Wrapper of vector that represents a collision force.
-	 * This encapsulates information about the type of collision,
-	 * and eventually the object that caused the collision.
+	 * This encapsulates information about the type of collision.
 	 */
 	struct CollisionVector {
 		CollisionType type;
-		Kart *k;
 		Vector v;
 	} typedef CollisionVector;
 

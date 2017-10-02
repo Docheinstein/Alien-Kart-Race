@@ -8,6 +8,6 @@ var searchData=
   ['collision_5fcrash_5freduction_5ffactor',['COLLISION_CRASH_REDUCTION_FACTOR',['../kart_8cc.html#a65ba24ffd82254e10b6dec826e562873',1,'kart.cc']]],
   ['color_5fempty',['COLOR_EMPTY',['../minimap_8cc.html#aac14890d5a4cc3ac7727fb138521fb3c',1,'minimap.cc']]],
   ['color_5ffull',['COLOR_FULL',['../minimap_8cc.html#a63cabc0ca532bfd8d9863b76ce9794ca',1,'minimap.cc']]],
-  ['currentlap',['currentLap',['../structLevelNS_1_1RacingKart.html#a39da475ccf6cbdd6ff8c8098bd92469f',1,'LevelNS::RacingKart']]],
-  ['currentsector',['currentSector',['../structLevelNS_1_1RacingKart.html#a2a5a1f1baea6c35737155718af77e05d',1,'LevelNS::RacingKart']]]
+  ['currentlap',['currentLap',['../structRacingKart.html#a86e4ef033cf01c68c076c4d39bdb5a32',1,'RacingKart']]],
+  ['currentsector',['currentSector',['../structRacingKart.html#a9819bd9a42bbb6950e3c4704a7896b26',1,'RacingKart']]]
 ];

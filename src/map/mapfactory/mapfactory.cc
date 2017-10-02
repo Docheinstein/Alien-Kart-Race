@@ -1,8 +1,5 @@
-#include <SFML/Graphics.hpp>
-#include "mapfactory.h"
 #include "resourceutil.h"
 #include "earth.h"
-#include "level.h"
 
 sf::Texture *  MapFactory::sMapsPickerTextures = pickerTextures();
 

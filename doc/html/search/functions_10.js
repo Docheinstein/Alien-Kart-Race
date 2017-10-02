@@ -3,7 +3,7 @@ var searchData=
   ['scalefactor',['scaleFactor',['../classKartFactory.html#a7e3814ef03f757c31e5a8a9bd3b98763',1,'KartFactory']]],
   ['scaleforperspectivepoint',['scaleForPerspectivePoint',['../classPerspectiveUtil.html#a614c33690ecd8914de8250acdcfafa94',1,'PerspectiveUtil']]],
   ['screen',['Screen',['../classScreen.html#a6f1771501631b084e94b20f63688405d',1,'Screen']]],
-  ['screenmanager',['ScreenManager',['../classScreenManager.html#a5c7245e028f80f68e123d8b2f33bcfd7',1,'ScreenManager']]],
+  ['screenmanager',['ScreenManager',['../classScreenManager.html#ab397f82b180ee7d50cc1e305c19ed733',1,'ScreenManager']]],
   ['sector',['sector',['../classMap.html#a57ce9c8d8d8a0a03543422bc16ac6076',1,'Map']]],
   ['sectorcount',['sectorCount',['../classMap.html#a90d425b60e68f243009e2f59882e4035',1,'Map']]],
   ['segue',['segue',['../classScreen.html#ac9a53ef90e59adfb63b4b0d6be7aa87f',1,'Screen']]],

@@ -18,7 +18,6 @@ var searchData=
   ['fileutil',['FileUtil',['../classFileUtil.html',1,'']]],
   ['fileutil_2eh',['fileutil.h',['../fileutil_8h.html',1,'']]],
   ['flight_5fmode',['FLIGHT_MODE',['../kart_8cc.html#a80bbd95a50bfb90e017945a610e39837',1,'kart.cc']]],
-  ['flush_5fon_5foutput',['FLUSH_ON_OUTPUT',['../logger_8h.html#a741afef97d8335416ae8f016c6333ca3',1,'logger.h']]],
   ['font',['font',['../classFontFactory.html#a8925a5632b3de2b43981ee5b05e1b729',1,'FontFactory::font()'],['../classResourceUtil.html#afef3f7023511d9e68b2c525d1395d420',1,'ResourceUtil::font()']]],
   ['font_5fname_5ffancy',['FONT_NAME_FANCY',['../fontfactory_8cc.html#a0228a781891a4ccdec57d8dedd9529a8',1,'fontfactory.cc']]],
   ['font_5fname_5fplain',['FONT_NAME_PLAIN',['../fontfactory_8cc.html#a11f3cde7afd328efd32842df46214a19',1,'fontfactory.cc']]],

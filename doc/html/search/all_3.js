@@ -26,7 +26,7 @@ var searchData=
   ['const_2eh',['const.h',['../const_8h.html',1,'']]],
   ['contains',['contains',['../structQuad.html#abfe27cfa64855e1b3e9b3721f2fbc101',1,'Quad']]],
   ['crash',['Crash',['../classKart.html#ac26a12dfc9f4bbead1a706f0622bd066a616cd6f874206c53885afadd6a0a8472',1,'Kart::Crash()'],['../classKart.html#a333e6bd940e62ac43f967db4a9025d0d',1,'Kart::crash(Kart *k)']]],
-  ['currentlap',['currentLap',['../structLevelNS_1_1RacingKart.html#a39da475ccf6cbdd6ff8c8098bd92469f',1,'LevelNS::RacingKart']]],
-  ['currentsector',['currentSector',['../structLevelNS_1_1RacingKart.html#a2a5a1f1baea6c35737155718af77e05d',1,'LevelNS::RacingKart']]],
+  ['currentlap',['currentLap',['../structRacingKart.html#a86e4ef033cf01c68c076c4d39bdb5a32',1,'RacingKart']]],
+  ['currentsector',['currentSector',['../structRacingKart.html#a9819bd9a42bbb6950e3c4704a7896b26',1,'RacingKart']]],
   ['currentticks',['currentTicks',['../classGameTimer.html#a4aaad27c44eb943adf35c427244c734c',1,'GameTimer']]]
 ];

@@ -68,8 +68,8 @@ Leaderboard::~Leaderboard() {
 	delete mRankingHeaderText;
 }
 
-void Leaderboard::addKart(LevelNS::RacingKart *rk) {
-	mKarts.push_back(LeaderboardKart {rk, kartText(rk)});
+void Leaderboard::addKart(RacingKart *rk) {
+	mKarts.push_back(LeaderboardKart {rk, initializedKartText(rk)});
 }
 
 void Leaderboard::clearKarts() {
@@ -136,7 +136,7 @@ void Leaderboard::draw(bool levelRunning) {
     }
 }
 
-sf::Text *Leaderboard::kartText(LevelNS::RacingKart *rk) {
+sf::Text *Leaderboard::initializedKartText(RacingKart *rk) {
 	sf::Text *kartText = new sf::Text();
 	kartText->setFont((FontFactory::font(FontFactory::FontType::Plain)));
 	kartText->setCharacterSize(LEADERBOARD_FONT_SIZE);
@@ -148,8 +148,8 @@ sf::Text *Leaderboard::kartText(LevelNS::RacingKart *rk) {
 }
 
 bool Leaderboard::racingKartCompareFunction(LeaderboardKart &lk1, LeaderboardKart &lk2) {
-	LevelNS::RacingKart *k1 = lk1.rk;
-	LevelNS::RacingKart *k2 = lk2.rk;
+	RacingKart *k1 = lk1.rk;
+	RacingKart *k2 = lk2.rk;
 
 	// bool verbose = (strcmp(k1->name(), "Me") == 0 || strcmp(k1->name(), "Me") == 0)
 

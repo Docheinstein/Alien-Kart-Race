@@ -12,8 +12,6 @@ var searchData=
   ['levelpicker_2ecc',['levelpicker.cc',['../levelpicker_8cc.html',1,'']]],
   ['levelpicker_2ed',['levelpicker.d',['../levelpicker_8d.html',1,'']]],
   ['levelpicker_2eh',['levelpicker.h',['../levelpicker_8h.html',1,'']]],
-  ['logger_2ecc',['logger.cc',['../logger_8cc.html',1,'']]],
-  ['logger_2ed',['logger.d',['../logger_8d.html',1,'']]],
   ['logger_2eh',['logger.h',['../logger_8h.html',1,'']]],
   ['loggerinterface_2eh',['loggerinterface.h',['../loggerinterface_8h.html',1,'']]]
 ];

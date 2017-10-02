@@ -1,6 +1,4 @@
-#include <SFML/Graphics.hpp>
 #include "screen.h"
-#include "keyboardmanager.h"
 
 Screen::Screen(sf::RenderWindow *window, KeyboardManager *keysManager) {
     mWindow = window;

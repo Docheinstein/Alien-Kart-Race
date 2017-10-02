@@ -1,10 +1,7 @@
 #include "screenmanager.h"
-#include "game.h"
 #include "screen.h"
-#include <iostream>
 
-ScreenManager::ScreenManager(Game *g) {
-    mGame = g;
+ScreenManager::ScreenManager() {
 }
 
 void ScreenManager::setScreen(Screen *s) {

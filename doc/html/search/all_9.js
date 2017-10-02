@@ -7,6 +7,7 @@ var searchData=
   ['initialize',['initialize',['../classGameTimer.html#a4196abe5862a0aa6165044f1743fc88f',1,'GameTimer']]],
   ['initmatrix',['initMatrix',['../classMatrixUtil.html#aee18a036ad8bf423ca6bca4979000606',1,'MatrixUtil']]],
   ['initparameters',['initParameters',['../classAIVenusian.html#a429bb606a96d6c5220808d084d7d50f1',1,'AIVenusian::initParameters()'],['../classPlayerVenusian.html#a5c45e4b18c474f7d44baac59f8b6adc5',1,'PlayerVenusian::initParameters()']]],
+  ['initrandomizer',['initRandomizer',['../main_8cc.html#aaf573c04e0c84aa861944b70090ce3d4',1,'main.cc']]],
   ['initrenderturningranges',['initRenderTurningRanges',['../classPlayerKart.html#a773d4503bbb59e83cfc108262465a215',1,'PlayerKart']]],
   ['initsprites',['initSprites',['../classAIVenusian.html#a0ac6d6a0cb095701fd1a5ee45299735b',1,'AIVenusian::initSprites()'],['../classPlayerKart.html#a273239b6b1e330a28f8145f2936fcb80',1,'PlayerKart::initSprites()'],['../classPlayerVenusian.html#a70ab0be86839306cfa75e7f07d7ecc07',1,'PlayerVenusian::initSprites()']]],
   ['intersectionfortwolines',['intersectionForTwoLines',['../classGeometryUtil.html#a76d32b9f24e0d687f01238e22e4d5228',1,'GeometryUtil']]],

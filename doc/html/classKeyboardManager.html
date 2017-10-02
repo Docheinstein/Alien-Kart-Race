@@ -92,20 +92,29 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 
+<p>Responsible for handle the pressure of the keys by notifying listeners about new pressed key.  
+ <a href="classKeyboardManager.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="keyboardmanager_8h_source.html">keyboardmanager.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a0aaf2801dbf2337111a5221b9acd6078"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classKeyboardManager.html#a0aaf2801dbf2337111a5221b9acd6078">KeyboardManager</a> ()</td></tr>
+<tr class="memdesc:a0aaf2801dbf2337111a5221b9acd6078"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new keyboard manager.  <a href="#a0aaf2801dbf2337111a5221b9acd6078">More...</a><br /></td></tr>
 <tr class="separator:a0aaf2801dbf2337111a5221b9acd6078"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6fb799d15c619a82baaba9f364b852fb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classKeyboardManager.html#a6fb799d15c619a82baaba9f364b852fb">addListener</a> (<a class="el" href="classKeyboardListener.html">KeyboardListener</a> *listener)</td></tr>
+<tr class="memdesc:a6fb799d15c619a82baaba9f364b852fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a listener that will be notified about keys pressure.  <a href="#a6fb799d15c619a82baaba9f364b852fb">More...</a><br /></td></tr>
 <tr class="separator:a6fb799d15c619a82baaba9f364b852fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae00b6fefd9ae07cefdb37cfeb9c6ef1d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classKeyboardManager.html#ae00b6fefd9ae07cefdb37cfeb9c6ef1d">removeListener</a> (<a class="el" href="classKeyboardListener.html">KeyboardListener</a> *listener)</td></tr>
+<tr class="memdesc:ae00b6fefd9ae07cefdb37cfeb9c6ef1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes a listener from the listeners set.  <a href="#ae00b6fefd9ae07cefdb37cfeb9c6ef1d">More...</a><br /></td></tr>
 <tr class="separator:ae00b6fefd9ae07cefdb37cfeb9c6ef1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a399983f7bbcc370bcd6fdf17f8f84254"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classKeyboardManager.html#a399983f7bbcc370bcd6fdf17f8f84254">notifyKeyPressed</a> (int keyCode)</td></tr>
+<tr class="memdesc:a399983f7bbcc370bcd6fdf17f8f84254"><td class="mdescLeft">&#160;</td><td class="mdescRight">Notifies this manager that a new key has been pressed.  <a href="#a399983f7bbcc370bcd6fdf17f8f84254">More...</a><br /></td></tr>
 <tr class="separator:a399983f7bbcc370bcd6fdf17f8f84254"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Responsible for handle the pressure of the keys by notifying listeners about new pressed key. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a0aaf2801dbf2337111a5221b9acd6078"></a>
 <div class="memitem">
 <div class="memproto">
@@ -118,6 +127,8 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Creates a new keyboard manager. </p>
 
 </div>
 </div>
@@ -136,6 +147,14 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Adds a listener that will be notified about keys pressure. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">listener</td><td>the listener that will be notified when a key is pressed. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a class="anchor" id="a399983f7bbcc370bcd6fdf17f8f84254"></a>
@@ -152,6 +171,14 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Notifies this manager that a new key has been pressed. </p>
+<p>This manager is not active since doesn't poll the key events from the system, so the game is reponsible for call this method when a new key event has been polled. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">keyCode</td><td>the int code of the pressed key. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a class="anchor" id="ae00b6fefd9ae07cefdb37cfeb9c6ef1d"></a>
@@ -167,6 +194,14 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Removes a listener from the listeners set. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">listener</td><td>the listener that won't be notified anymore about pressed keys. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

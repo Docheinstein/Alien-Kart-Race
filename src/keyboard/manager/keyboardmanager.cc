@@ -1,10 +1,7 @@
 #include "keyboardmanager.h"
 #include "keyboardlistener.h"
-#include <iostream>
 
-KeyboardManager::KeyboardManager() {
-
-}
+KeyboardManager::KeyboardManager() {}
 
 void KeyboardManager::notifyKeyPressed(int keyCode) {
     for (std::list<KeyboardListener *>::iterator l = mListeners.begin();
