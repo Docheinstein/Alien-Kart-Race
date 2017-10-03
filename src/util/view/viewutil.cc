@@ -2,8 +2,8 @@
 #include "viewutil.h"
 #include "const.h"
 
-const Point ViewUtil::BASE_POINT = { Const::WINDOW_WIDTH / 2, Const::WINDOW_HEIGHT + Const::WINDOW_WIDTH / 12};
-const double ViewUtil::HORIZON_LINE_Y = Const::WINDOW_HEIGHT / 2 + Const::WINDOW_HEIGHT / 12;
+const Point ViewUtil::BASE_POINT = { (double)Const::WINDOW_WIDTH / 2, Const::WINDOW_HEIGHT + (double)Const::WINDOW_WIDTH / 12};
+const double ViewUtil::HORIZON_LINE_Y = (double)Const::WINDOW_HEIGHT / 2 + (double)Const::WINDOW_HEIGHT / 12;
 const double ViewUtil::RENDERED_TILE_SIZE = 75 * Const::WINDOW_WIDTH / 320;
 const double ViewUtil::TILE_SIZE = 15;
 const double ViewUtil::CAMERA_TILE_BEHIND_PLAYER_COUNT = 1;

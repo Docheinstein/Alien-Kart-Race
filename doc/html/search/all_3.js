@@ -1,15 +1,14 @@
 var searchData=
 [
-  ['calculatevanishpointsforangle',['calculateVanishPointsForAngle',['../classPerspectiveUtil.html#a33de9f53c6e63ec82335e16e644e260f',1,'PerspectiveUtil']]],
+  ['calculatevanishpointsforangle',['calculateVanishPointsForAngle',['../classPerspectiveUtil.html#ab5b344a8b4aaf2cfe31f69e8fa6d6b2c',1,'PerspectiveUtil']]],
   ['camera_5ftile_5fbehind_5fplayer_5fcount',['CAMERA_TILE_BEHIND_PLAYER_COUNT',['../classViewUtil.html#a4e24e612da0962a6794af35cefa87a94',1,'ViewUtil']]],
-  ['cameradirectionalpoint',['cameraDirectionalPoint',['../classViewUtil.html#ac4cc39904402ff2fea1b5b05140b4a67',1,'ViewUtil']]],
-  ['camerapoint',['cameraPoint',['../classViewUtil.html#a665cc77e9504c617f7a07c8399903013',1,'ViewUtil']]],
+  ['cameradirectionalpoint',['cameraDirectionalPoint',['../classViewUtil.html#a54e9776f731522c64f96520570ad8ddb',1,'ViewUtil']]],
+  ['camerapoint',['cameraPoint',['../classViewUtil.html#ab3487c1930d195df84b0d42cbb7cc9bc',1,'ViewUtil']]],
   ['can_5flog',['CAN_LOG',['../aikart_8cc.html#a6c246ba8a74c9eec1935db200b192ac4',1,'CAN_LOG():&#160;aikart.cc'],['../kart_8cc.html#a6c246ba8a74c9eec1935db200b192ac4',1,'CAN_LOG():&#160;kart.cc'],['../game_8cc.html#a6c246ba8a74c9eec1935db200b192ac4',1,'CAN_LOG():&#160;game.cc'],['../leaderboard_8cc.html#a6c246ba8a74c9eec1935db200b192ac4',1,'CAN_LOG():&#160;leaderboard.cc'],['../level_8cc.html#a6c246ba8a74c9eec1935db200b192ac4',1,'CAN_LOG():&#160;level.cc'],['../levelpicker_8cc.html#a6c246ba8a74c9eec1935db200b192ac4',1,'CAN_LOG():&#160;levelpicker.cc'],['../map_8cc.html#a6c246ba8a74c9eec1935db200b192ac4',1,'CAN_LOG():&#160;map.cc']]],
   ['canlog',['canLog',['../classAIKart.html#acfd345c1b285316c70dd23990076152a',1,'AIKart::canLog()'],['../classKart.html#a8ad9de82ad871b4271a7277af89b24cc',1,'Kart::canLog()'],['../classLoggerInterface.html#a6c2067b4ef79177f27c254300cf04404',1,'LoggerInterface::canLog()']]],
   ['changerange',['changeRange',['../classMathUtil.html#acc85a2d1be11c4f040afcf69bab12a32',1,'MathUtil']]],
   ['changerangetoint',['changeRangeToInt',['../classMathUtil.html#a8a85b4a3025a2c39cb2a00191649e799',1,'MathUtil']]],
   ['clearkarts',['clearKarts',['../classLeaderboard.html#adac3895f528212a2b408d18165e43b19',1,'Leaderboard']]],
-  ['col',['col',['../structMatrixUtil_1_1MatrixCoordinate.html#a33e6d37252c50f637e04bbf331d810ca',1,'MatrixUtil::MatrixCoordinate']]],
   ['colcount',['colCount',['../classMap.html#ac3a2f5b5e6faa910b80ef1f3c1bac00b',1,'Map']]],
   ['collision_5fbounce_5ffactor',['COLLISION_BOUNCE_FACTOR',['../kart_8cc.html#a4788de201534e450b34137c4fc7dc095',1,'kart.cc']]],
   ['collision_5fbounce_5freduction_5ffactor',['COLLISION_BOUNCE_REDUCTION_FACTOR',['../kart_8cc.html#ace5dc4ab105eec15b42fec1f4fb912e8',1,'kart.cc']]],

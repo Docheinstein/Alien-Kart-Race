@@ -5,7 +5,8 @@ src/entity/kart/aikart/base/aikart.o: \
  src/util/geometry/geometryentities.h \
  src/log/loggerinterface/loggerinterface.h src/log/logger/logger.h \
  src/log/logger/logger.tpp src/log/loggerinterface/loggerinterface.tpp \
- src/util/file/fileutil.h src/util/matrix/matrixutil.h \
+ src/util/file/fileutil.h src/util/file/fileutil.tpp \
+ src/util/matrix/matrixutil.h src/util/matrix/matrix.tpp \
  src/util/geometry/geometryutil.h src/util/geometry/geometryentities.h \
  src/util/math/mathutil.h src/util/math/mathentities.h \
  src/util/resources/resourceutil.h src/util/perspective/perspectiveutil.h \

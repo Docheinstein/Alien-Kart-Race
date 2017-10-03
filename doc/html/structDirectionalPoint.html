@@ -93,30 +93,39 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 
+<p><a class="el" href="structPoint.html" title="Point with x and y coordinates. ">Point</a> which have a direction.  
+ <a href="structDirectionalPoint.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="geometryentities_8h_source.html">geometryentities.h</a>&gt;</code></p>
 <div class="dynheader">
 Collaboration diagram for DirectionalPoint:</div>
 <div class="dyncontent">
 <div class="center"><img src="structDirectionalPoint__coll__graph.png" border="0" usemap="#DirectionalPoint_coll__map" alt="Collaboration graph"/></div>
 <map name="DirectionalPoint_coll__map" id="DirectionalPoint_coll__map">
-<area shape="rect" id="node2" href="structAngle.html" title="Angle" alt="" coords="5,5,60,32"/>
-<area shape="rect" id="node3" href="structPoint.html" title="Point" alt="" coords="91,5,143,32"/>
+<area shape="rect" id="node2" href="structAngle.html" title="Represents an angle expressed in radians. " alt="" coords="5,5,60,32"/>
+<area shape="rect" id="node3" href="structPoint.html" title="Point with x and y coordinates. " alt="" coords="91,5,143,32"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a344dee498d82babc5699aa8c586843c6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structDirectionalPoint.html#a344dee498d82babc5699aa8c586843c6">DirectionalPoint</a> ()</td></tr>
+<tr class="memdesc:a344dee498d82babc5699aa8c586843c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a directional point.  <a href="#a344dee498d82babc5699aa8c586843c6">More...</a><br /></td></tr>
 <tr class="separator:a344dee498d82babc5699aa8c586843c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4f0815b50f09d11d58a5e19cc110bf22"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structDirectionalPoint.html#a4f0815b50f09d11d58a5e19cc110bf22">DirectionalPoint</a> (const <a class="el" href="structPoint.html">Point</a> &amp;pStart, const <a class="el" href="structPoint.html">Point</a> &amp;pEnd)</td></tr>
+<tr class="memdesc:a4f0815b50f09d11d58a5e19cc110bf22"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a direction point by giving the start and the end point.  <a href="#a4f0815b50f09d11d58a5e19cc110bf22">More...</a><br /></td></tr>
 <tr class="separator:a4f0815b50f09d11d58a5e19cc110bf22"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a78be8da93c3fe3db4bd9e394e5684619"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structDirectionalPoint.html#a78be8da93c3fe3db4bd9e394e5684619">DirectionalPoint</a> (const <a class="el" href="structPoint.html">Point</a> &amp;p, const <a class="el" href="structAngle.html">Angle</a> &amp;a)</td></tr>
+<tr class="memdesc:a78be8da93c3fe3db4bd9e394e5684619"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a directional point.  <a href="#a78be8da93c3fe3db4bd9e394e5684619">More...</a><br /></td></tr>
 <tr class="separator:a78be8da93c3fe3db4bd9e394e5684619"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7885c85061b2e67b46190ff3f27cbbbf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structDirectionalPoint.html#a7885c85061b2e67b46190ff3f27cbbbf">advance</a> (double magnitude)</td></tr>
+<tr class="memdesc:a7885c85061b2e67b46190ff3f27cbbbf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moves the point forward in the current direction for the given magnitude.  <a href="#a7885c85061b2e67b46190ff3f27cbbbf">More...</a><br /></td></tr>
 <tr class="separator:a7885c85061b2e67b46190ff3f27cbbbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0140686c032db1d0d2be5a805f74829e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structDirectionalPoint.html#a0140686c032db1d0d2be5a805f74829e">advance</a> (const <a class="el" href="structVector.html">Vector</a> &amp;v)</td></tr>
+<tr class="memdesc:a0140686c032db1d0d2be5a805f74829e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moves the point in the direction of the vector, using its magnitude.  <a href="#a0140686c032db1d0d2be5a805f74829e">More...</a><br /></td></tr>
 <tr class="separator:a0140686c032db1d0d2be5a805f74829e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9cdaeb43befa685a3b52c6ad664c1108"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structDirectionalPoint.html#a9cdaeb43befa685a3b52c6ad664c1108">advance</a> (double ang, double magnitude)</td></tr>
+<tr class="memdesc:a9cdaeb43befa685a3b52c6ad664c1108"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moves the point in the given direction with the given magnited.  <a href="#a9cdaeb43befa685a3b52c6ad664c1108">More...</a><br /></td></tr>
 <tr class="separator:a9cdaeb43befa685a3b52c6ad664c1108"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afc2a28d44200bcd976bee29574e6a4c2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structDirectionalPoint.html">DirectionalPoint</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structDirectionalPoint.html#afc2a28d44200bcd976bee29574e6a4c2">operator+=</a> (const <a class="el" href="structAngle.html">Angle</a> &amp;a)</td></tr>
 <tr class="separator:afc2a28d44200bcd976bee29574e6a4c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -130,11 +139,16 @@ Public Member Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a8e159bd8f6c5cefe2213151d3156fee6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structPoint.html">Point</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structDirectionalPoint.html#a8e159bd8f6c5cefe2213151d3156fee6">position</a></td></tr>
+<tr class="memdesc:a8e159bd8f6c5cefe2213151d3156fee6"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="structPoint.html" title="Point with x and y coordinates. ">Point</a>.  <a href="#a8e159bd8f6c5cefe2213151d3156fee6">More...</a><br /></td></tr>
 <tr class="separator:a8e159bd8f6c5cefe2213151d3156fee6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8a6b1a466ba109b34e14b46ffdceebfb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structAngle.html">Angle</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structDirectionalPoint.html#a8a6b1a466ba109b34e14b46ffdceebfb">direction</a></td></tr>
+<tr class="memdesc:a8a6b1a466ba109b34e14b46ffdceebfb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Direction.  <a href="#a8a6b1a466ba109b34e14b46ffdceebfb">More...</a><br /></td></tr>
 <tr class="separator:a8a6b1a466ba109b34e14b46ffdceebfb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p><a class="el" href="structPoint.html" title="Point with x and y coordinates. ">Point</a> which have a direction. </p>
+<p>This actually doesn't exist as geometry entity, but is useful for different uses when doing calc with points and angles. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a344dee498d82babc5699aa8c586843c6"></a>
 <div class="memitem">
 <div class="memproto">
@@ -155,6 +169,8 @@ Public Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Creates a directional point. </p>
 
 </div>
 </div>
@@ -182,6 +198,15 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Creates a direction point by giving the start and the end point. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pStart</td><td>a point. </td></tr>
+    <tr><td class="paramname">pEnd</td><td>a point. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a class="anchor" id="a78be8da93c3fe3db4bd9e394e5684619"></a>
@@ -208,6 +233,15 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Creates a directional point. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>the point. </td></tr>
+    <tr><td class="paramname">a</td><td>the angle. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -225,6 +259,14 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Moves the point forward in the current direction for the given magnitude. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">magnitude</td><td>the magnitude of the point movement. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a class="anchor" id="a0140686c032db1d0d2be5a805f74829e"></a>
@@ -240,6 +282,14 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Moves the point in the direction of the vector, using its magnitude. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">v</td><td>the movement vector. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -266,6 +316,15 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Moves the point in the given direction with the given magnited. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ang</td><td>the angle of the movement. </td></tr>
+    <tr><td class="paramname">magnitude</td><td>the magnitude of the movement. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -344,6 +403,8 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Direction. </p>
+
 </div>
 </div>
 <a class="anchor" id="a8e159bd8f6c5cefe2213151d3156fee6"></a>
@@ -355,6 +416,8 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p><a class="el" href="structPoint.html" title="Point with x and y coordinates. ">Point</a>. </p>
 
 </div>
 </div>

@@ -10,6 +10,5 @@ var searchData=
   ['earth_5fsectors_5ffilename',['EARTH_SECTORS_FILENAME',['../earth_8cc.html#ae9d0f2dd2d7489286a8f8bbc62613205',1,'earth.cc']]],
   ['earth_5ftileset_5ffilename',['EARTH_TILESET_FILENAME',['../earth_8cc.html#a99a67e0801f3ce12fb42eed99f749d85',1,'earth.cc']]],
   ['earthtype',['EarthType',['../classMapFactory.html#ac50308e4dff450ae228176c2c076c936a87f732ffb502f3b5728871bf1b7e1202',1,'MapFactory']]],
-  ['empty',['Empty',['../classEmpty.html',1,'']]],
   ['event_5fon_5ftimer_5ffinish',['EVENT_ON_TIMER_FINISH',['../gametimer_8h.html#a2cb9de58e670578e41329e62fd096445',1,'gametimer.h']]]
 ];

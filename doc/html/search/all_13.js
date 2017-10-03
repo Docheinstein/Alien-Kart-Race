@@ -2,7 +2,7 @@ var searchData=
 [
   ['target_5fupdates_5fper_5fsecond',['TARGET_UPDATES_PER_SECOND',['../namespaceConst.html#af42e6fb48fafee1b607e5d0b68014efc',1,'Const']]],
   ['tile_5fsize',['TILE_SIZE',['../classViewUtil.html#ae3d58c1c7e621b7baebb4732caac2988',1,'ViewUtil']]],
-  ['tileevent',['TileEvent',['../classMap.html#a7b5cf31600224c078f4393dbeccccdad',1,'Map::TileEvent()'],['../classMap.html#a638bc2068d611eb95924c6d4a22fc8d3',1,'Map::tileEvent(const Point &amp;p)']]],
+  ['tileevent',['tileEvent',['../classMap.html#a638bc2068d611eb95924c6d4a22fc8d3',1,'Map::tileEvent(const Point &amp;p)'],['../classMap.html#a7b5cf31600224c078f4393dbeccccdad',1,'Map::TileEvent()']]],
   ['timeutil',['TimeUtil',['../classTimeUtil.html',1,'']]],
   ['timeutil_2ecc',['timeutil.cc',['../timeutil_8cc.html',1,'']]],
   ['timeutil_2ed',['timeutil.d',['../timeutil_8d.html',1,'']]],

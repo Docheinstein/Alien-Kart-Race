@@ -14,7 +14,7 @@ bool MathUtil::isInRange(const Range &r, double val) {
     return (val >= r.low && val < r.high);
 }
 
-double MathUtil::rangeBelongingTo(const BoundRange ranges[], int rangeCount, double val) {
+int MathUtil::rangeBelongingTo(const BoundRange ranges[], int rangeCount, double val) {
     for (int i = 0; i < rangeCount; i++) {
         if (val >= ranges[i].low && val < ranges[i].high)
             return ranges[i].associatedValue;

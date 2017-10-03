@@ -1,4 +1,4 @@
 <map id="Map" name="Map">
-<area shape="rect" id="node3" href="$classEarth.html" title="Earth" alt="" coords="35,155,88,181"/>
+<area shape="rect" id="node3" href="$classEarth.html" title="Concrete implementation of the map of earth planet. " alt="" coords="35,155,88,181"/>
 <area shape="rect" id="node2" href="$classLoggerInterface.html" title="Interface usable by entities that need to print on the output stream. " alt="" coords="5,5,117,32"/>
 </map>

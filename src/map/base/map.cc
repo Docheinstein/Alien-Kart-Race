@@ -364,12 +364,12 @@ void Map::updateRenderedTiles() {
 
 	// d("In screen tiles:", inScreenTiles);
 }
-void Map::drawPoint(sf::Image * map, const Point &p, sf::Color color, int size = 7) {
+void Map::drawPoint(sf::Image * map, const Point &p, sf::Color *color, int size = 7) {
 	if (p.x < 0 + size / 2 || p.x >= Const::WINDOW_WIDTH - size / 2 || p.y < 0 + size / 2 || p.y >= Const::WINDOW_HEIGHT - size / 2)
 		return;
 	for (int x = - size / 2; x <= size / 2; x++) {
 		for (int y = - size / 2; y <= size / 2; y++) {
-			map->setPixel(p.x + x, p.y + y, color);
+			map->setPixel(p.x + x, p.y + y, *color);
 
 		}
 	}

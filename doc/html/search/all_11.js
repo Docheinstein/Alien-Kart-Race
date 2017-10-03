@@ -8,10 +8,10 @@ var searchData=
   ['random',['random',['../classMathUtil.html#a5ede4cf4df523d4cbd550c6299665795',1,'MathUtil']]],
   ['randomaipath',['randomAIPath',['../classMap.html#af22bbddff7e2af26f9b5fa6111dc6329',1,'Map']]],
   ['range',['Range',['../structRange.html',1,'']]],
-  ['rangebelongingto',['rangeBelongingTo',['../classMathUtil.html#a1978082cf74423e09c646977c26b3203',1,'MathUtil']]],
+  ['rangebelongingto',['rangeBelongingTo',['../classMathUtil.html#a9e2a89ba9e31c332cd9b282ebf933730',1,'MathUtil']]],
   ['ranking_5fheader',['RANKING_HEADER',['../leaderboard_8cc.html#aa2b6b903384f0155969acb7cb054c932',1,'leaderboard.cc']]],
   ['raw',['raw',['../classResourceUtil.html#a90344ae729a7db2ef080153c8b00b06d',1,'ResourceUtil']]],
-  ['raw_5fpath',['RAW_PATH',['../classResourceUtil.html#ae0f8ea78b1b84fe2beac7bede0312f05',1,'ResourceUtil']]],
+  ['raw_5fpath',['RAW_PATH',['../resourceutil_8cc.html#a4e4eb43d57606ef2e7664d738a195f36',1,'resourceutil.cc']]],
   ['removelistener',['removeListener',['../classKeyboardManager.html#ae00b6fefd9ae07cefdb37cfeb9c6ef1d',1,'KeyboardManager']]],
   ['render',['render',['../classLauncher.html#a04e79682ee9b4d05f498b7d3d2602bdd',1,'Launcher::render()'],['../classLevel.html#a4ce1e8089977edfb4a02a7d5b94225c2',1,'Level::render()'],['../classLevelPicker.html#ac1bb97d8be438877ab38f846f42aa702',1,'LevelPicker::render()'],['../classScreen.html#a1b42df84ff23324c05b63decad5a8846',1,'Screen::render()'],['../classFadeScreen.html#a804aebaa6c7374eb32192e303e8cf7f1',1,'FadeScreen::render()'],['../classScreenManager.html#a0e5382d48c63d55b9ec1d63615640f8d',1,'ScreenManager::render()']]],
   ['rendered_5ftile_5fsize',['RENDERED_TILE_SIZE',['../classViewUtil.html#a250a55c4f63f0ffde06b50c37803c782',1,'ViewUtil']]],
@@ -23,6 +23,5 @@ var searchData=
   ['restart',['restart',['../classGameTimer.html#af646ee2b7822194a103c57dcff3a39be',1,'GameTimer']]],
   ['rightdown',['RightDown',['../classMap.html#abd420aa9ad08bbadb79cf83ee2999383a8f4807e04a78249ef45906e57b88dd7f',1,'Map']]],
   ['rightup',['RightUp',['../classMap.html#abd420aa9ad08bbadb79cf83ee2999383af7db30365c413c0585a0b599a420cc24',1,'Map']]],
-  ['row',['row',['../structMatrixUtil_1_1MatrixCoordinate.html#ae0bd38e2d5be0e0368e7b0131076892a',1,'MatrixUtil::MatrixCoordinate']]],
   ['rowcount',['rowCount',['../classMap.html#a292737d780fbba4df5f77ea16998119b',1,'Map']]]
 ];

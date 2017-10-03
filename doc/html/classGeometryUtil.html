@@ -92,22 +92,32 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 
+<p>Provides utility methods for geometry entities.  
+ <a href="classGeometryUtil.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="geometryutil_8h_source.html">geometryutil.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:afd5cd54a66f4b3ba65a7def532271af6"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structLine.html">Line</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGeometryUtil.html#afd5cd54a66f4b3ba65a7def532271af6">lineForTwoPoints</a> (const <a class="el" href="structPoint.html">Point</a> &amp;p1, const <a class="el" href="structPoint.html">Point</a> &amp;p2)</td></tr>
+<tr class="memdesc:afd5cd54a66f4b3ba65a7def532271af6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the line that link two points.  <a href="#afd5cd54a66f4b3ba65a7def532271af6">More...</a><br /></td></tr>
 <tr class="separator:afd5cd54a66f4b3ba65a7def532271af6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a76d32b9f24e0d687f01238e22e4d5228"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structPoint.html">Point</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGeometryUtil.html#a76d32b9f24e0d687f01238e22e4d5228">intersectionForTwoLines</a> (const <a class="el" href="structLine.html">Line</a> &amp;l1, const <a class="el" href="structLine.html">Line</a> &amp;l2)</td></tr>
+<tr class="memdesc:a76d32b9f24e0d687f01238e22e4d5228"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the unique point which is intersection of the given lines.  <a href="#a76d32b9f24e0d687f01238e22e4d5228">More...</a><br /></td></tr>
 <tr class="separator:a76d32b9f24e0d687f01238e22e4d5228"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9594939132a0d2a2974bf6482de7568d"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGeometryUtil.html#a9594939132a0d2a2974bf6482de7568d">distanceBetweenTwoPoints</a> (const <a class="el" href="structPoint.html">Point</a> &amp;p1, const <a class="el" href="structPoint.html">Point</a> &amp;p2)</td></tr>
+<tr class="memdesc:a9594939132a0d2a2974bf6482de7568d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the distance between two points (always &gt; 0).  <a href="#a9594939132a0d2a2974bf6482de7568d">More...</a><br /></td></tr>
 <tr class="separator:a9594939132a0d2a2974bf6482de7568d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4ce80d3697a42eef08415c8297087022"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGeometryUtil.html#a4ce80d3697a42eef08415c8297087022">hypot</a> (const double d1, const double d2)</td></tr>
+<tr class="memdesc:a4ce80d3697a42eef08415c8297087022"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the hypotenuse of a triangle with the given edges.  <a href="#a4ce80d3697a42eef08415c8297087022">More...</a><br /></td></tr>
 <tr class="separator:a4ce80d3697a42eef08415c8297087022"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a32528e7f76c3569eacaa94cf6fc83633"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structIPoint.html">IPoint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGeometryUtil.html#a32528e7f76c3569eacaa94cf6fc83633">toIPoint</a> (const <a class="el" href="structPoint.html">Point</a> &amp;p)</td></tr>
+<tr class="memdesc:a32528e7f76c3569eacaa94cf6fc83633"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the point approssimated to integer coordinates.  <a href="#a32528e7f76c3569eacaa94cf6fc83633">More...</a><br /></td></tr>
 <tr class="separator:a32528e7f76c3569eacaa94cf6fc83633"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Provides utility methods for geometry entities. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="a9594939132a0d2a2974bf6482de7568d"></a>
 <div class="memitem">
 <div class="memproto">
@@ -139,6 +149,16 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Returns the distance between two points (always &gt; 0). </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p1</td><td>a point. </td></tr>
+    <tr><td class="paramname">p2</td><td>a point. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the distance between two points. </dd></dl>
 
 </div>
 </div>
@@ -174,6 +194,16 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Returns the hypotenuse of a triangle with the given edges. </p>
+<p>Actually sqrt(d1 * d1 + d2 *d2). </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">d1</td><td>an edge measure. </td></tr>
+    <tr><td class="paramname">d2</td><td>an edge measure. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the hypotenus of the triangle. </dd></dl>
+
 </div>
 </div>
 <a class="anchor" id="a76d32b9f24e0d687f01238e22e4d5228"></a>
@@ -207,6 +237,16 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Returns the unique point which is intersection of the given lines. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">l1</td><td>a line. </td></tr>
+    <tr><td class="paramname">l2</td><td>a line. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the intersection point. </dd></dl>
 
 </div>
 </div>
@@ -242,6 +282,16 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Returns the line that link two points. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p1</td><td>a point. </td></tr>
+    <tr><td class="paramname">p2</td><td>a point. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the line between two points. </dd></dl>
+
 </div>
 </div>
 <a class="anchor" id="a32528e7f76c3569eacaa94cf6fc83633"></a>
@@ -265,6 +315,15 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Returns the point approssimated to integer coordinates. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>the point. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the integer point. </dd></dl>
 
 </div>
 </div>

@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['game_5ftitle_5ffont_5fsize',['GAME_TITLE_FONT_SIZE',['../launcher_8cc.html#aeaab08cf3035831a7784d8687c8931d2',1,'launcher.cc']]]
+  ['high',['high',['../structRange.html#a7b60ce4e834b076a0ab64d54c3c5ca44',1,'Range::high()'],['../structBoundRange.html#ac20a52ee6d99bcd365bbc9d703bac396',1,'BoundRange::high()']]],
+  ['horizon_5fline_5fy',['HORIZON_LINE_Y',['../classViewUtil.html#ab4e182dbde54a9f4e5ad331749de4a23',1,'ViewUtil']]]
 ];

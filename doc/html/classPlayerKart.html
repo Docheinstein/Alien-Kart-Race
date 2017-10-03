@@ -128,10 +128,10 @@ Collaboration diagram for PlayerKart:</div>
 <area shape="rect" id="node10" href="classKeyboardManager.html" title="Responsible for handle the pressure of the keys by notifying listeners about new pressed key..." alt="" coords="73,5,199,32"/>
 <area shape="rect" id="node11" href="classGameTimer.html" title="GameTimer\&lt; FadeScreen \&gt;" alt="" coords="269,95,453,121"/>
 <area shape="rect" id="node12" href="classKeyboardListener.html" title="Intarface usable for listen to keys pressed on the keyboard. " alt="" coords="375,199,497,225"/>
-<area shape="rect" id="node13" href="structDirectionalPoint.html" title="DirectionalPoint" alt="" coords="495,288,609,315"/>
-<area shape="rect" id="node14" href="structAngle.html" title="Angle" alt="" coords="522,199,577,225"/>
-<area shape="rect" id="node15" href="structPoint.html" title="Point" alt="" coords="642,199,694,225"/>
-<area shape="rect" id="node16" href="structBoundRange.html" title="BoundRange" alt="" coords="741,377,838,404"/>
+<area shape="rect" id="node13" href="structDirectionalPoint.html" title="Point which have a direction. " alt="" coords="495,288,609,315"/>
+<area shape="rect" id="node14" href="structAngle.html" title="Represents an angle expressed in radians. " alt="" coords="522,199,577,225"/>
+<area shape="rect" id="node15" href="structPoint.html" title="Point with x and y coordinates. " alt="" coords="642,199,694,225"/>
+<area shape="rect" id="node16" href="structBoundRange.html" title="Range with an associated value. " alt="" coords="741,377,838,404"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
@@ -191,7 +191,7 @@ Public Member Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
 <tr class="memitem:a4a8be16e11a140f2042ddd8239a1a9b8"><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="structPoint.html">Point</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayerKart.html#a4a8be16e11a140f2042ddd8239a1a9b8">PERSPECTIVE_POINT</a></td></tr>
-<tr class="memdesc:a4a8be16e11a140f2042ddd8239a1a9b8"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="structPoint.html">Point</a> on the screen in which the player kart is rendered (depends on the camera point).  <a href="#a4a8be16e11a140f2042ddd8239a1a9b8">More...</a><br /></td></tr>
+<tr class="memdesc:a4a8be16e11a140f2042ddd8239a1a9b8"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="structPoint.html" title="Point with x and y coordinates. ">Point</a> on the screen in which the player kart is rendered (depends on the camera point).  <a href="#a4a8be16e11a140f2042ddd8239a1a9b8">More...</a><br /></td></tr>
 <tr class="separator:a4a8be16e11a140f2042ddd8239a1a9b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab16f7c6b26cd42961980f7c38a071717"><td class="memItemLeft" align="right" valign="top">static const float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayerKart.html#ab16f7c6b26cd42961980f7c38a071717">PERSPECTIVE_SCALE</a></td></tr>
 <tr class="memdesc:ab16f7c6b26cd42961980f7c38a071717"><td class="mdescLeft">&#160;</td><td class="mdescRight">Scale of the player kart in relation to its perspective point.  <a href="#ab16f7c6b26cd42961980f7c38a071717">More...</a><br /></td></tr>
@@ -565,8 +565,8 @@ Additional Inherited Members</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">= <a class="code" href="classPerspectiveUtil.html#a0e499800b70217190123b232b935f688">PerspectiveUtil::perspectivePoint</a>(</div><div class="line">    <a class="code" href="classViewUtil.html#abe282bcdfd1d1bddf14e11542e66a467">ViewUtil::BASE_POINT</a>,</div><div class="line">    <a class="code" href="classViewUtil.html#a665cc77e9504c617f7a07c8399903013">ViewUtil::cameraPoint</a>(<a class="code" href="structDirectionalPoint.html">DirectionalPoint</a> {<a class="code" href="classViewUtil.html#abe282bcdfd1d1bddf14e11542e66a467">ViewUtil::BASE_POINT</a>, <a class="code" href="structAngle.html">Angle</a> {(double) 1 / (1 &lt;&lt; 8)}}),</div><div class="line">    <a class="code" href="classViewUtil.html#abe282bcdfd1d1bddf14e11542e66a467">ViewUtil::BASE_POINT</a>,</div><div class="line">    <a class="code" href="structAngle.html">Angle</a> {(double) 1 / (1 &lt;&lt; 8)},</div><div class="line">    <a class="code" href="classViewUtil.html#ab4e182dbde54a9f4e5ad331749de4a23">ViewUtil::HORIZON_LINE_Y</a>,</div><div class="line">    <a class="code" href="classViewUtil.html#a250a55c4f63f0ffde06b50c37803c782">ViewUtil::RENDERED_TILE_SIZE</a></div><div class="line">)</div></div><!-- fragment -->
-<p><a class="el" href="structPoint.html">Point</a> on the screen in which the player kart is rendered (depends on the camera point). </p>
+<b>Initial value:</b><div class="fragment"><div class="line">= <a class="code" href="classPerspectiveUtil.html#aae7a995b37a84a2cadcbb5b6106cd155">PerspectiveUtil::perspectivePoint</a>(</div><div class="line">    <a class="code" href="classViewUtil.html#abe282bcdfd1d1bddf14e11542e66a467">ViewUtil::BASE_POINT</a>,</div><div class="line">    <a class="code" href="classViewUtil.html#ab3487c1930d195df84b0d42cbb7cc9bc">ViewUtil::cameraPoint</a>(<a class="code" href="structDirectionalPoint.html">DirectionalPoint</a> {<a class="code" href="classViewUtil.html#abe282bcdfd1d1bddf14e11542e66a467">ViewUtil::BASE_POINT</a>, <a class="code" href="structAngle.html">Angle</a> {(double) 1 / (1 &lt;&lt; 8)}}),</div><div class="line">    <a class="code" href="classViewUtil.html#abe282bcdfd1d1bddf14e11542e66a467">ViewUtil::BASE_POINT</a>,</div><div class="line">    <a class="code" href="structAngle.html">Angle</a> {(double) 1 / (1 &lt;&lt; 8)},</div><div class="line">    <a class="code" href="classViewUtil.html#ab4e182dbde54a9f4e5ad331749de4a23">ViewUtil::HORIZON_LINE_Y</a>,</div><div class="line">    <a class="code" href="classViewUtil.html#a250a55c4f63f0ffde06b50c37803c782">ViewUtil::RENDERED_TILE_SIZE</a></div><div class="line">)</div></div><!-- fragment -->
+<p><a class="el" href="structPoint.html" title="Point with x and y coordinates. ">Point</a> on the screen in which the player kart is rendered (depends on the camera point). </p>
 
 </div>
 </div>

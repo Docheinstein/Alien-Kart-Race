@@ -93,44 +93,59 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 
+<p>Provides utility functions and constants for perspective view not depending from perspective calculation.  
+ <a href="classViewUtil.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="viewutil_8h_source.html">viewutil.h</a>&gt;</code></p>
 <div class="dynheader">
 Collaboration diagram for ViewUtil:</div>
 <div class="dyncontent">
 <div class="center"><img src="classViewUtil__coll__graph.png" border="0" usemap="#ViewUtil_coll__map" alt="Collaboration graph"/></div>
 <map name="ViewUtil_coll__map" id="ViewUtil_coll__map">
-<area shape="rect" id="node2" href="structPoint.html" title="Point" alt="" coords="15,5,67,32"/>
+<area shape="rect" id="node2" href="structPoint.html" title="Point with x and y coordinates. " alt="" coords="15,5,67,32"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:ac4cc39904402ff2fea1b5b05140b4a67"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structDirectionalPoint.html">DirectionalPoint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classViewUtil.html#ac4cc39904402ff2fea1b5b05140b4a67">cameraDirectionalPoint</a> (const <a class="el" href="structDirectionalPoint.html">DirectionalPoint</a> &amp;v)</td></tr>
-<tr class="separator:ac4cc39904402ff2fea1b5b05140b4a67"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a665cc77e9504c617f7a07c8399903013"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structPoint.html">Point</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classViewUtil.html#a665cc77e9504c617f7a07c8399903013">cameraPoint</a> (const <a class="el" href="structDirectionalPoint.html">DirectionalPoint</a> &amp;v)</td></tr>
-<tr class="separator:a665cc77e9504c617f7a07c8399903013"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a54e9776f731522c64f96520570ad8ddb"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structDirectionalPoint.html">DirectionalPoint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classViewUtil.html#a54e9776f731522c64f96520570ad8ddb">cameraDirectionalPoint</a> (const <a class="el" href="structDirectionalPoint.html">DirectionalPoint</a> &amp;kartDirectionalPoint)</td></tr>
+<tr class="memdesc:a54e9776f731522c64f96520570ad8ddb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the directional point of the camera for the given kart direction point.  <a href="#a54e9776f731522c64f96520570ad8ddb">More...</a><br /></td></tr>
+<tr class="separator:a54e9776f731522c64f96520570ad8ddb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab3487c1930d195df84b0d42cbb7cc9bc"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structPoint.html">Point</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classViewUtil.html#ab3487c1930d195df84b0d42cbb7cc9bc">cameraPoint</a> (const <a class="el" href="structDirectionalPoint.html">DirectionalPoint</a> &amp;kartDirectionalPoint)</td></tr>
+<tr class="memdesc:ab3487c1930d195df84b0d42cbb7cc9bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the point of the camera for the given kart direction point.  <a href="#ab3487c1930d195df84b0d42cbb7cc9bc">More...</a><br /></td></tr>
+<tr class="separator:ab3487c1930d195df84b0d42cbb7cc9bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa06e4454a67cabe7828e870bf1697997"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classViewUtil.html#aa06e4454a67cabe7828e870bf1697997">isOnScreen</a> (const <a class="el" href="structPoint.html">Point</a> &amp;p)</td></tr>
+<tr class="memdesc:aa06e4454a67cabe7828e870bf1697997"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns whether the given point is within the screen.  <a href="#aa06e4454a67cabe7828e870bf1697997">More...</a><br /></td></tr>
 <tr class="separator:aa06e4454a67cabe7828e870bf1697997"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a409a1c3ceb0dd2e620fc82788b22d19e"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classViewUtil.html#a409a1c3ceb0dd2e620fc82788b22d19e">isUnderHorizon</a> (const <a class="el" href="structPoint.html">Point</a> &amp;p)</td></tr>
+<tr class="memdesc:a409a1c3ceb0dd2e620fc82788b22d19e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns whether the given point is under the horizon line.  <a href="#a409a1c3ceb0dd2e620fc82788b22d19e">More...</a><br /></td></tr>
 <tr class="separator:a409a1c3ceb0dd2e620fc82788b22d19e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a13b0249eb8535071a24685ec04b2b9d3"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classViewUtil.html#a13b0249eb8535071a24685ec04b2b9d3">isOnScreenUnderHorizon</a> (const <a class="el" href="structPoint.html">Point</a> &amp;p)</td></tr>
+<tr class="memdesc:a13b0249eb8535071a24685ec04b2b9d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns whether the given point is withing the screen AND under the horizon line.  <a href="#a13b0249eb8535071a24685ec04b2b9d3">More...</a><br /></td></tr>
 <tr class="separator:a13b0249eb8535071a24685ec04b2b9d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
 <tr class="memitem:abe282bcdfd1d1bddf14e11542e66a467"><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="structPoint.html">Point</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classViewUtil.html#abe282bcdfd1d1bddf14e11542e66a467">BASE_POINT</a> = { <a class="el" href="namespaceConst.html#a0f892779e17d50eef67516b177d4e248">Const::WINDOW_WIDTH</a> / 2, <a class="el" href="namespaceConst.html#a6c2cf30f3bb9c07716c330a82293889f">Const::WINDOW_HEIGHT</a> + <a class="el" href="namespaceConst.html#a0f892779e17d50eef67516b177d4e248">Const::WINDOW_WIDTH</a> / 12}</td></tr>
+<tr class="memdesc:abe282bcdfd1d1bddf14e11542e66a467"><td class="mdescLeft">&#160;</td><td class="mdescRight">Base point of the perspective system.  <a href="#abe282bcdfd1d1bddf14e11542e66a467">More...</a><br /></td></tr>
 <tr class="separator:abe282bcdfd1d1bddf14e11542e66a467"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab4e182dbde54a9f4e5ad331749de4a23"><td class="memItemLeft" align="right" valign="top">static const double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classViewUtil.html#ab4e182dbde54a9f4e5ad331749de4a23">HORIZON_LINE_Y</a> = <a class="el" href="namespaceConst.html#a6c2cf30f3bb9c07716c330a82293889f">Const::WINDOW_HEIGHT</a> / 2 + <a class="el" href="namespaceConst.html#a6c2cf30f3bb9c07716c330a82293889f">Const::WINDOW_HEIGHT</a> / 12</td></tr>
+<tr class="memdesc:ab4e182dbde54a9f4e5ad331749de4a23"><td class="mdescLeft">&#160;</td><td class="mdescRight">Horizon line of the perspective system.  <a href="#ab4e182dbde54a9f4e5ad331749de4a23">More...</a><br /></td></tr>
 <tr class="separator:ab4e182dbde54a9f4e5ad331749de4a23"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a250a55c4f63f0ffde06b50c37803c782"><td class="memItemLeft" align="right" valign="top">static const double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classViewUtil.html#a250a55c4f63f0ffde06b50c37803c782">RENDERED_TILE_SIZE</a> = 75 * <a class="el" href="namespaceConst.html#a0f892779e17d50eef67516b177d4e248">Const::WINDOW_WIDTH</a> / 320</td></tr>
+<tr class="memdesc:a250a55c4f63f0ffde06b50c37803c782"><td class="mdescLeft">&#160;</td><td class="mdescRight">Size that will be used for render a single tile.  <a href="#a250a55c4f63f0ffde06b50c37803c782">More...</a><br /></td></tr>
 <tr class="separator:a250a55c4f63f0ffde06b50c37803c782"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae3d58c1c7e621b7baebb4732caac2988"><td class="memItemLeft" align="right" valign="top">static const double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classViewUtil.html#ae3d58c1c7e621b7baebb4732caac2988">TILE_SIZE</a> = 15</td></tr>
+<tr class="memdesc:ae3d58c1c7e621b7baebb4732caac2988"><td class="mdescLeft">&#160;</td><td class="mdescRight">Actual tile size in the tileset.  <a href="#ae3d58c1c7e621b7baebb4732caac2988">More...</a><br /></td></tr>
 <tr class="separator:ae3d58c1c7e621b7baebb4732caac2988"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4e24e612da0962a6794af35cefa87a94"><td class="memItemLeft" align="right" valign="top">static const double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classViewUtil.html#a4e24e612da0962a6794af35cefa87a94">CAMERA_TILE_BEHIND_PLAYER_COUNT</a> = 1</td></tr>
+<tr class="memdesc:a4e24e612da0962a6794af35cefa87a94"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unit of distance between the camera and the player kart.  <a href="#a4e24e612da0962a6794af35cefa87a94">More...</a><br /></td></tr>
 <tr class="separator:a4e24e612da0962a6794af35cefa87a94"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="ac4cc39904402ff2fea1b5b05140b4a67"></a>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Provides utility functions and constants for perspective view not depending from perspective calculation. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a54e9776f731522c64f96520570ad8ddb"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -141,7 +156,7 @@ Static Public Attributes</h2></td></tr>
           <td class="memname"><a class="el" href="structDirectionalPoint.html">DirectionalPoint</a> ViewUtil::cameraDirectionalPoint </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="structDirectionalPoint.html">DirectionalPoint</a> &amp;&#160;</td>
-          <td class="paramname"><em>v</em></td><td>)</td>
+          <td class="paramname"><em>kartDirectionalPoint</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -152,9 +167,18 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Returns the directional point of the camera for the given kart direction point. </p>
+<p>The returned directional point will have the same direction but a different position depending on <a class="el" href="classViewUtil.html#a4e24e612da0962a6794af35cefa87a94" title="Unit of distance between the camera and the player kart. ">CAMERA_TILE_BEHIND_PLAYER_COUNT</a>. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">kartDirectionalPoint</td><td>the directional point of the player kart. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the direction point of the camera. </dd></dl>
+
 </div>
 </div>
-<a class="anchor" id="a665cc77e9504c617f7a07c8399903013"></a>
+<a class="anchor" id="ab3487c1930d195df84b0d42cbb7cc9bc"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -165,7 +189,7 @@ Static Public Attributes</h2></td></tr>
           <td class="memname"><a class="el" href="structPoint.html">Point</a> ViewUtil::cameraPoint </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="structDirectionalPoint.html">DirectionalPoint</a> &amp;&#160;</td>
-          <td class="paramname"><em>v</em></td><td>)</td>
+          <td class="paramname"><em>kartDirectionalPoint</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -175,6 +199,15 @@ Static Public Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Returns the point of the camera for the given kart direction point. </p>
+<p>The returned point depends on <a class="el" href="classViewUtil.html#a4e24e612da0962a6794af35cefa87a94" title="Unit of distance between the camera and the player kart. ">CAMERA_TILE_BEHIND_PLAYER_COUNT</a>. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">kartDirectionalPoint</td><td>the directional point of the player kart. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the point of the camera. </dd></dl>
 
 </div>
 </div>
@@ -200,6 +233,15 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Returns whether the given point is within the screen. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>the point. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>whether the point is within the screen. </dd></dl>
+
 </div>
 </div>
 <a class="anchor" id="a13b0249eb8535071a24685ec04b2b9d3"></a>
@@ -223,6 +265,15 @@ Static Public Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Returns whether the given point is withing the screen AND under the horizon line. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>the point </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>whether the point is under the horizon line. </dd></dl>
 
 </div>
 </div>
@@ -248,6 +299,15 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Returns whether the given point is under the horizon line. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>the point </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>whether the point is under the horizon line. </dd></dl>
+
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
@@ -269,6 +329,8 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Base point of the perspective system. </p>
+
 </div>
 </div>
 <a class="anchor" id="a4e24e612da0962a6794af35cefa87a94"></a>
@@ -288,6 +350,8 @@ Static Public Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Unit of distance between the camera and the player kart. </p>
 
 </div>
 </div>
@@ -309,6 +373,8 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Horizon line of the perspective system. </p>
+
 </div>
 </div>
 <a class="anchor" id="a250a55c4f63f0ffde06b50c37803c782"></a>
@@ -329,6 +395,8 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Size that will be used for render a single tile. </p>
+
 </div>
 </div>
 <a class="anchor" id="ae3d58c1c7e621b7baebb4732caac2988"></a>
@@ -348,6 +416,8 @@ Static Public Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Actual tile size in the tileset. </p>
 
 </div>
 </div>

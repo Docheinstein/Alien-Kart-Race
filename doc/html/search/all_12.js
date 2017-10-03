@@ -26,7 +26,6 @@ var searchData=
   ['slownessfactor',['slownessFactor',['../structKart_1_1KartParams.html#ac1e517eae3db05aa88dffd770c678a8c',1,'Kart::KartParams']]],
   ['sprites',['sprites',['../classKartFactory.html#aaff8bff4b620ccca024fd608aad07452',1,'KartFactory']]],
   ['start',['start',['../classGame.html#a3d9b98f7c4a96ecf578f75b96c9f0e90',1,'Game::start()'],['../classGameTimer.html#abd196414a608e72ee6dd2f78b34e7cec',1,'GameTimer::start()']]],
-  ['starting_5fblock_5fcount',['STARTING_BLOCK_COUNT',['../classEarth.html#a9ae79cf17e43867a93d631d32ab8ea2a',1,'Earth']]],
   ['startingpointforraceposition',['startingPointForRacePosition',['../classMap.html#ac4709d0bf0ea0e1cd7fef016464fbf7a',1,'Map::startingPointForRacePosition()'],['../classEarth.html#a4ababa809abaf2cb86ca2096fe88567d',1,'Earth::startingPointForRacePosition()']]],
   ['stdutil',['STDUtil',['../classSTDUtil.html',1,'']]],
   ['stdutil_2eh',['stdutil.h',['../stdutil_8h.html',1,'']]],

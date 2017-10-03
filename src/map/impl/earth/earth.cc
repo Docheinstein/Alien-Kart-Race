@@ -6,6 +6,7 @@
 #include "logger.h"
 
 static const Point POLE_POSITION {55, 96.5};
+static const int STARTING_BLOCK_COUNT = 8;
 
 #define EARTH_MAP_FILENAME "earth.txt"
 #define EARTH_EVENTS_FILENAME "earth_events.txt"
@@ -29,9 +30,9 @@ void Earth::loadMap() {
 }
 
 Point Earth::startingPointForRacePosition(int racePosition) {
-    if (racePosition < 1 || racePosition > STARTING_BLOCK_COUNT) {
+    if (racePosition < 1 || racePosition > lastRacePosition()) {
         w("Earth doesn't provide starting point for position, ", racePosition);
-        return Point { 0, 0 };
+        return startingPointForRacePosition(lastRacePosition());
     }
 
     bool even = racePosition % 2 == 0;

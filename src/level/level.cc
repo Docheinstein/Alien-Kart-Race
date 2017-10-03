@@ -258,7 +258,7 @@ void Level::render() {
         aiIter++) {
 			(*aiIter).kart->draw();
 			mMinimap->drawPoint(
-				(*aiIter).kart->position().,
+				(*aiIter).kart->position(),
 				(*aiIter).kart->minimapSize(),
 				(*aiIter).kart->color()
 			);

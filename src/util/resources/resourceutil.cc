@@ -1,10 +1,8 @@
 #include "resourceutil.h"
-#include "logger.h"
-#include <string>
 
-const std::string ResourceUtil::IMG_PATH = "./res/img/";
-const std::string ResourceUtil::RAW_PATH = "./res/raw/";
-const std::string ResourceUtil::FONT_PATH = "./res/font/";
+#define IMG_PATH "./res/img/"
+#define RAW_PATH "./res/raw/"
+#define FONT_PATH "./res/font/"
 
 std::string ResourceUtil::image(const char * imageName) {
 	return (IMG_PATH + std::string(imageName));

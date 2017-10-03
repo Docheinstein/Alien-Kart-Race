@@ -86,34 +86,32 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="header">
   <div class="summary">
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
-<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
 <a href="classResourceUtil-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">ResourceUtil Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
+<p>Provides utility functions for retrieve game's resources.  
+ <a href="classResourceUtil.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="resourceutil_8h_source.html">resourceutil.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a13280311f138dd65e96e39cfe59f85d4"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classResourceUtil.html#a13280311f138dd65e96e39cfe59f85d4">image</a> (const char *imageName)</td></tr>
+<tr class="memdesc:a13280311f138dd65e96e39cfe59f85d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the complete relative path of an image with the given filename.  <a href="#a13280311f138dd65e96e39cfe59f85d4">More...</a><br /></td></tr>
 <tr class="separator:a13280311f138dd65e96e39cfe59f85d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a90344ae729a7db2ef080153c8b00b06d"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classResourceUtil.html#a90344ae729a7db2ef080153c8b00b06d">raw</a> (const char *rawName)</td></tr>
+<tr class="memdesc:a90344ae729a7db2ef080153c8b00b06d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the complete relative path of a raw file (txt) with the given filename.  <a href="#a90344ae729a7db2ef080153c8b00b06d">More...</a><br /></td></tr>
 <tr class="separator:a90344ae729a7db2ef080153c8b00b06d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afef3f7023511d9e68b2c525d1395d420"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classResourceUtil.html#afef3f7023511d9e68b2c525d1395d420">font</a> (const char *fontName)</td></tr>
+<tr class="memdesc:afef3f7023511d9e68b2c525d1395d420"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the complete relative path of a font with the given filename.  <a href="#afef3f7023511d9e68b2c525d1395d420">More...</a><br /></td></tr>
 <tr class="separator:afef3f7023511d9e68b2c525d1395d420"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
-Static Public Attributes</h2></td></tr>
-<tr class="memitem:a2e59683ea527b720057dd140972af959"><td class="memItemLeft" align="right" valign="top">static const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classResourceUtil.html#a2e59683ea527b720057dd140972af959">IMG_PATH</a> = &quot;./res/img/&quot;</td></tr>
-<tr class="separator:a2e59683ea527b720057dd140972af959"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae0f8ea78b1b84fe2beac7bede0312f05"><td class="memItemLeft" align="right" valign="top">static const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classResourceUtil.html#ae0f8ea78b1b84fe2beac7bede0312f05">RAW_PATH</a> = &quot;./res/<a class="el" href="classResourceUtil.html#a90344ae729a7db2ef080153c8b00b06d">raw</a>/&quot;</td></tr>
-<tr class="separator:ae0f8ea78b1b84fe2beac7bede0312f05"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4d5c7a002339a4eacd2af0fac81e3b1b"><td class="memItemLeft" align="right" valign="top">static const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classResourceUtil.html#a4d5c7a002339a4eacd2af0fac81e3b1b">FONT_PATH</a> = &quot;./res/<a class="el" href="classResourceUtil.html#afef3f7023511d9e68b2c525d1395d420">font</a>/&quot;</td></tr>
-<tr class="separator:a4d5c7a002339a4eacd2af0fac81e3b1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Provides utility functions for retrieve game's resources. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="afef3f7023511d9e68b2c525d1395d420"></a>
 <div class="memitem">
 <div class="memproto">
@@ -135,6 +133,15 @@ Static Public Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Returns the complete relative path of a font with the given filename. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">imageName</td><td>the filename of the image. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the complete relative path of the font . </dd></dl>
 
 </div>
 </div>
@@ -160,6 +167,15 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Returns the complete relative path of an image with the given filename. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">imageName</td><td>the filename of the image. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the complete relative path of the image. </dd></dl>
+
 </div>
 </div>
 <a class="anchor" id="a90344ae729a7db2ef080153c8b00b06d"></a>
@@ -184,66 +200,14 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-</div>
-</div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="a4d5c7a002339a4eacd2af0fac81e3b1b"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const std::string ResourceUtil::FONT_PATH = &quot;./res/<a class="el" href="classResourceUtil.html#afef3f7023511d9e68b2c525d1395d420">font</a>/&quot;</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a2e59683ea527b720057dd140972af959"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const std::string ResourceUtil::IMG_PATH = &quot;./res/img/&quot;</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="ae0f8ea78b1b84fe2beac7bede0312f05"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const std::string ResourceUtil::RAW_PATH = &quot;./res/<a class="el" href="classResourceUtil.html#a90344ae729a7db2ef080153c8b00b06d">raw</a>/&quot;</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
+<p>Returns the complete relative path of a raw file (txt) with the given filename. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">imageName</td><td>the filename of the image. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the complete relative path of the raw file. </dd></dl>
 
 </div>
 </div>

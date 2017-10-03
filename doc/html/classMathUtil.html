@@ -92,24 +92,35 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 
+<p>Provides utility methods for math (and logic).  
+ <a href="classMathUtil.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="mathutil_8h_source.html">mathutil.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:acc85a2d1be11c4f040afcf69bab12a32"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMathUtil.html#acc85a2d1be11c4f040afcf69bab12a32">changeRange</a> (const <a class="el" href="structRange.html">Range</a> &amp;r1, const <a class="el" href="structRange.html">Range</a> &amp;r2, double r1Val)</td></tr>
+<tr class="memdesc:acc85a2d1be11c4f040afcf69bab12a32"><td class="mdescLeft">&#160;</td><td class="mdescRight">Changes the range of a given value from the range 1 to the range 2.  <a href="#acc85a2d1be11c4f040afcf69bab12a32">More...</a><br /></td></tr>
 <tr class="separator:acc85a2d1be11c4f040afcf69bab12a32"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8a85b4a3025a2c39cb2a00191649e799"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMathUtil.html#a8a85b4a3025a2c39cb2a00191649e799">changeRangeToInt</a> (const <a class="el" href="structRange.html">Range</a> &amp;r1, const <a class="el" href="structRange.html">Range</a> &amp;r2, double r1Val)</td></tr>
+<tr class="memdesc:a8a85b4a3025a2c39cb2a00191649e799"><td class="mdescLeft">&#160;</td><td class="mdescRight">Changes the range of a given value from the range 1 to the range 2, approssimating to the nearest integer value.  <a href="#a8a85b4a3025a2c39cb2a00191649e799">More...</a><br /></td></tr>
 <tr class="separator:a8a85b4a3025a2c39cb2a00191649e799"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac9efbf0adccb2843c1ee6bfed1128ced"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMathUtil.html#ac9efbf0adccb2843c1ee6bfed1128ced">isInRange</a> (const <a class="el" href="structRange.html">Range</a> &amp;r, double d)</td></tr>
+<tr class="memdesc:ac9efbf0adccb2843c1ee6bfed1128ced"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns whether the given value is withing the given range.  <a href="#ac9efbf0adccb2843c1ee6bfed1128ced">More...</a><br /></td></tr>
 <tr class="separator:ac9efbf0adccb2843c1ee6bfed1128ced"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7add9101344b57fd85cde5898801cdbf"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMathUtil.html#a7add9101344b57fd85cde5898801cdbf">mod</a> (double d1, double d2)</td></tr>
+<tr class="memdesc:a7add9101344b57fd85cde5898801cdbf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the modulo of d1 % d2.  <a href="#a7add9101344b57fd85cde5898801cdbf">More...</a><br /></td></tr>
 <tr class="separator:a7add9101344b57fd85cde5898801cdbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5ede4cf4df523d4cbd550c6299665795"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMathUtil.html#a5ede4cf4df523d4cbd550c6299665795">random</a> (const <a class="el" href="structRange.html">Range</a> &amp;r)</td></tr>
+<tr class="memdesc:a5ede4cf4df523d4cbd550c6299665795"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a random range within the given range.  <a href="#a5ede4cf4df523d4cbd550c6299665795">More...</a><br /></td></tr>
 <tr class="separator:a5ede4cf4df523d4cbd550c6299665795"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1978082cf74423e09c646977c26b3203"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMathUtil.html#a1978082cf74423e09c646977c26b3203">rangeBelongingTo</a> (const <a class="el" href="structBoundRange.html">BoundRange</a> ranges[], int rangeCount, double val)</td></tr>
-<tr class="separator:a1978082cf74423e09c646977c26b3203"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e2a89ba9e31c332cd9b282ebf933730"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMathUtil.html#a9e2a89ba9e31c332cd9b282ebf933730">rangeBelongingTo</a> (const <a class="el" href="structBoundRange.html">BoundRange</a> ranges[], int rangeCount, double val)</td></tr>
+<tr class="memdesc:a9e2a89ba9e31c332cd9b282ebf933730"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the value associated with the range the contains the given value.  <a href="#a9e2a89ba9e31c332cd9b282ebf933730">More...</a><br /></td></tr>
+<tr class="separator:a9e2a89ba9e31c332cd9b282ebf933730"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Provides utility methods for math (and logic). </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="acc85a2d1be11c4f040afcf69bab12a32"></a>
 <div class="memitem">
 <div class="memproto">
@@ -147,6 +158,17 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Changes the range of a given value from the range 1 to the range 2. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">r1</td><td>the range that contains the given value. </td></tr>
+    <tr><td class="paramname">r2</td><td>the new range in which the value will be expressed. </td></tr>
+    <tr><td class="paramname">r1Val</td><td>the value of the first range. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the new value that the given value have within the second range. </dd></dl>
 
 </div>
 </div>
@@ -188,6 +210,17 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Changes the range of a given value from the range 1 to the range 2, approssimating to the nearest integer value. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">r1</td><td>the range that contains the given value. </td></tr>
+    <tr><td class="paramname">r2</td><td>the new range in which the value will be expressed. </td></tr>
+    <tr><td class="paramname">r1Val</td><td>the value of the first range. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the new value that the given value have within the second range. </dd></dl>
+
 </div>
 </div>
 <a class="anchor" id="ac9efbf0adccb2843c1ee6bfed1128ced"></a>
@@ -221,6 +254,16 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Returns whether the given value is withing the given range. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">r</td><td>the range. </td></tr>
+    <tr><td class="paramname">d</td><td>the value. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>whether the given value is withing the given range. </dd></dl>
 
 </div>
 </div>
@@ -256,6 +299,16 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Returns the modulo of d1 % d2. </p>
+<p>This is differente from the default % operator since this operates on either decimal or negative numbers. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">d1</td><td>the first operand of the modulo. </td></tr>
+    <tr><td class="paramname">d2</td><td>the first operand of the modulo. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the modulo result. </dd></dl>
+
 </div>
 </div>
 <a class="anchor" id="a5ede4cf4df523d4cbd550c6299665795"></a>
@@ -280,9 +333,18 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Returns a random range within the given range. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">r</td><td>the range. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the random decimal number within the range. </dd></dl>
+
 </div>
 </div>
-<a class="anchor" id="a1978082cf74423e09c646977c26b3203"></a>
+<a class="anchor" id="a9e2a89ba9e31c332cd9b282ebf933730"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -290,7 +352,7 @@ Static Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">double MathUtil::rangeBelongingTo </td>
+          <td class="memname">int MathUtil::rangeBelongingTo </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="structBoundRange.html">BoundRange</a>&#160;</td>
           <td class="paramname"><em>ranges</em>[], </td>
@@ -319,6 +381,17 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Returns the value associated with the range the contains the given value. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ranges</td><td>an array of range with an associated value. </td></tr>
+    <tr><td class="paramname">rangeCount</td><td>the count of the range in the array. </td></tr>
+    <tr><td class="paramname">val</td><td>the value. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the value associated with the range the contains the given value. </dd></dl>
 
 </div>
 </div>

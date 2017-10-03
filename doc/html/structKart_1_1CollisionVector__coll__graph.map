@@ -1,4 +1,4 @@
 <map id="Kart::CollisionVector" name="Kart::CollisionVector">
-<area shape="rect" id="node2" href="$structVector.html" title="Vector" alt="" coords="47,95,107,121"/>
-<area shape="rect" id="node3" href="$structAngle.html" title="Angle" alt="" coords="49,5,104,32"/>
+<area shape="rect" id="node2" href="$structVector.html" title="Vector identified by a direction and a magnitude. " alt="" coords="47,95,107,121"/>
+<area shape="rect" id="node3" href="$structAngle.html" title="Represents an angle expressed in radians. " alt="" coords="49,5,104,32"/>
 </map>

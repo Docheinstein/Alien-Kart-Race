@@ -6,7 +6,12 @@
 #include "geometryentities.h"
 
 namespace sf {
+	class Image;
+	class Color;
 	class RenderWindow;
+	class Texture;
+	class Sprite;
+	class VertexArray;
 }
 
 class Level;
@@ -284,7 +289,7 @@ private:
 	 * @param color the color.
 	 * @param size  the size.
 	 */
-	void drawPoint(sf::Image * map, const Point &p, sf::Color color, int size);
+	void drawPoint(sf::Image * map, const Point &p, sf::Color *color, int size);
 
 	/**
 	 * Draws a line on the map for the given coordinates and thickness.

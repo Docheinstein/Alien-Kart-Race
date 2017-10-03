@@ -1,4 +1,4 @@
 <map id="Map::Sector" name="Map::Sector">
-<area shape="rect" id="node2" href="$structQuad.html" title="Quad" alt="" coords="25,139,79,165"/>
-<area shape="rect" id="node3" href="$structPoint.html" title="Point" alt="" coords="26,5,78,32"/>
+<area shape="rect" id="node2" href="$structQuad.html" title="Quad with four corners. " alt="" coords="25,139,79,165"/>
+<area shape="rect" id="node3" href="$structPoint.html" title="Point with x and y coordinates. " alt="" coords="26,5,78,32"/>
 </map>

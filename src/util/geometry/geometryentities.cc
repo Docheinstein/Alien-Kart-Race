@@ -131,6 +131,7 @@ Vector & Vector::operator+=(const Vector &v) {
 	DirectionalPoint dirPoint {Point {0, 0}, headTailPointSum};
 	magnitude = hypot(headTailPointSum.x, headTailPointSum.y);
 	direction = dirPoint.direction;
+	return *this;
 }
 
 Vector operator +(Vector v1, const Vector &v2) {

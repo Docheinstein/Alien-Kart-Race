@@ -92,15 +92,21 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 
+<p>Provides utility function for std stuff.  
+ <a href="classSTDUtil.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="stdutil_8h_source.html">stdutil.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:abc6d1c98b9d0dc3206e82fb3e812d5dc"><td class="memTemplParams" colspan="2">template&lt;typename PtrIter &gt; </td></tr>
 <tr class="memitem:abc6d1c98b9d0dc3206e82fb3e812d5dc"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classSTDUtil.html#abc6d1c98b9d0dc3206e82fb3e812d5dc">deleteContainerPtr</a> (PtrIter from, PtrIter to)</td></tr>
+<tr class="memdesc:abc6d1c98b9d0dc3206e82fb3e812d5dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deallocates the given container from the specified iterators assuming that its content its a simple pointer (not array or other structures that need to be recursively deleted).  <a href="#abc6d1c98b9d0dc3206e82fb3e812d5dc">More...</a><br /></td></tr>
 <tr class="separator:abc6d1c98b9d0dc3206e82fb3e812d5dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Provides utility function for std stuff. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="abc6d1c98b9d0dc3206e82fb3e812d5dc"></a>
 <div class="memitem">
 <div class="memproto">
@@ -130,10 +136,19 @@ template&lt;typename PtrIter &gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Deallocates the given container from the specified iterators assuming that its content its a simple pointer (not array or other structures that need to be recursively deleted). </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">from</td><td>the iterator from which the deletion will begin. </td></tr>
+    <tr><td class="paramname">to</td><td>the iterator at which the deletion will finish. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

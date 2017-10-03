@@ -1,3 +1,5 @@
+#include <SFML/Graphics.hpp>
+#include "mapfactory.h"
 #include "resourceutil.h"
 #include "earth.h"
 

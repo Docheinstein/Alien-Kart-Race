@@ -92,27 +92,39 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 
+<p>Provides utility functions for perspective view (points and scales).  
+ <a href="classPerspectiveUtil.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="perspectiveutil_8h_source.html">perspectiveutil.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a0e499800b70217190123b232b935f688"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structPoint.html">Point</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPerspectiveUtil.html#a0e499800b70217190123b232b935f688">perspectivePoint</a> (const <a class="el" href="structPoint.html">Point</a> &amp;mapPoint, const <a class="el" href="structPoint.html">Point</a> &amp;cameraPoint, const <a class="el" href="structPoint.html">Point</a> &amp;basePoint, const <a class="el" href="structAngle.html">Angle</a> &amp;cameraAngle, double horizonY, double mapTileSize, <a class="el" href="structAngle.html">Angle</a> objectRotation=0)</td></tr>
-<tr class="separator:a0e499800b70217190123b232b935f688"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2213fab0bcfd2318a98643db6331f99c"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structPoint.html">Point</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPerspectiveUtil.html#a2213fab0bcfd2318a98643db6331f99c">perspectivePoint</a> (const <a class="el" href="structPoint.html">Point</a> &amp;mapPoint, const <a class="el" href="structPoint.html">Point</a> &amp;cameraPoint, const <a class="el" href="structPoint.html">Point</a> &amp;basePoint, const <a class="el" href="structAngle.html">Angle</a> &amp;cameraAngle, double horizonY, double mapTileSize, <a class="el" href="structPoint.html">Point</a> &amp;out_pc, <a class="el" href="structPoint.html">Point</a> &amp;out_pr, <a class="el" href="structPoint.html">Point</a> &amp;out_vp1, <a class="el" href="structPoint.html">Point</a> &amp;out_vp2, <a class="el" href="structAngle.html">Angle</a> objectRotation=0)</td></tr>
-<tr class="separator:a2213fab0bcfd2318a98643db6331f99c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1a17754c73c59442a15b4489be62d615"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structPoint.html">Point</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPerspectiveUtil.html#a1a17754c73c59442a15b4489be62d615">perspectivePoint</a> (const <a class="el" href="structPoint.html">Point</a> &amp;mapPoint, const <a class="el" href="structPoint.html">Point</a> &amp;cameraPoint, const <a class="el" href="structPoint.html">Point</a> &amp;basePoint, const <a class="el" href="structAngle.html">Angle</a> &amp;cameraAngle, double horizonY, double mapTileSize, const <a class="el" href="structPoint.html">Point</a> &amp;vp1, const <a class="el" href="structPoint.html">Point</a> &amp;vp2, <a class="el" href="structAngle.html">Angle</a> objectRotation=0)</td></tr>
-<tr class="separator:a1a17754c73c59442a15b4489be62d615"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a33de9f53c6e63ec82335e16e644e260f"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPerspectiveUtil.html#a33de9f53c6e63ec82335e16e644e260f">calculateVanishPointsForAngle</a> (const <a class="el" href="structAngle.html">Angle</a> &amp;cameraAngle, double horizonY, const <a class="el" href="structPoint.html">Point</a> &amp;basePoint, <a class="el" href="structPoint.html">Point</a> &amp;out_vp1, <a class="el" href="structPoint.html">Point</a> &amp;out_vp2, <a class="el" href="structAngle.html">Angle</a> objectRotation=0)</td></tr>
-<tr class="separator:a33de9f53c6e63ec82335e16e644e260f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a603b96c24ea2913ce8b1215493c784a2"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPerspectiveUtil.html#a603b96c24ea2913ce8b1215493c784a2">perspectiveHeight</a> (const <a class="el" href="structPoint.html">Point</a> &amp;<a class="el" href="classPerspectiveUtil.html#a0e499800b70217190123b232b935f688">perspectivePoint</a>, const <a class="el" href="structPoint.html">Point</a> &amp;vanishPoint, const <a class="el" href="structPoint.html">Point</a> &amp;constructionPoint, double nonPerspectiveHeight)</td></tr>
+<tr class="memitem:aae7a995b37a84a2cadcbb5b6106cd155"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structPoint.html">Point</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPerspectiveUtil.html#aae7a995b37a84a2cadcbb5b6106cd155">perspectivePoint</a> (const <a class="el" href="structPoint.html">Point</a> &amp;mapPoint, const <a class="el" href="structPoint.html">Point</a> &amp;cameraPoint, const <a class="el" href="structPoint.html">Point</a> &amp;basePoint, const <a class="el" href="structAngle.html">Angle</a> &amp;cameraAngle, double horizonY, double mapTileSize)</td></tr>
+<tr class="memdesc:aae7a995b37a84a2cadcbb5b6106cd155"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the point coordinate on the screen for the given parameters.  <a href="#aae7a995b37a84a2cadcbb5b6106cd155">More...</a><br /></td></tr>
+<tr class="separator:aae7a995b37a84a2cadcbb5b6106cd155"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a787265fc38c223dac45eb88dc74e6afc"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structPoint.html">Point</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPerspectiveUtil.html#a787265fc38c223dac45eb88dc74e6afc">perspectivePoint</a> (const <a class="el" href="structPoint.html">Point</a> &amp;mapPoint, const <a class="el" href="structPoint.html">Point</a> &amp;cameraPoint, const <a class="el" href="structPoint.html">Point</a> &amp;basePoint, const <a class="el" href="structAngle.html">Angle</a> &amp;cameraAngle, double horizonY, double mapTileSize, <a class="el" href="structPoint.html">Point</a> &amp;out_pc, <a class="el" href="structPoint.html">Point</a> &amp;out_pr, <a class="el" href="structPoint.html">Point</a> &amp;out_vp1, <a class="el" href="structPoint.html">Point</a> &amp;out_vp2)</td></tr>
+<tr class="memdesc:a787265fc38c223dac45eb88dc74e6afc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the point coordinate on the screen for the given parameters.  <a href="#a787265fc38c223dac45eb88dc74e6afc">More...</a><br /></td></tr>
+<tr class="separator:a787265fc38c223dac45eb88dc74e6afc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5bb42e56b169fe4594be24d016525d54"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structPoint.html">Point</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPerspectiveUtil.html#a5bb42e56b169fe4594be24d016525d54">perspectivePoint</a> (const <a class="el" href="structPoint.html">Point</a> &amp;mapPoint, const <a class="el" href="structPoint.html">Point</a> &amp;cameraPoint, const <a class="el" href="structPoint.html">Point</a> &amp;basePoint, const <a class="el" href="structAngle.html">Angle</a> &amp;cameraAngle, double horizonY, double mapTileSize, const <a class="el" href="structPoint.html">Point</a> &amp;vp1, const <a class="el" href="structPoint.html">Point</a> &amp;vp2)</td></tr>
+<tr class="memdesc:a5bb42e56b169fe4594be24d016525d54"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the point coordinate on the screen for the given parameters.  <a href="#a5bb42e56b169fe4594be24d016525d54">More...</a><br /></td></tr>
+<tr class="separator:a5bb42e56b169fe4594be24d016525d54"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab5b344a8b4aaf2cfe31f69e8fa6d6b2c"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPerspectiveUtil.html#ab5b344a8b4aaf2cfe31f69e8fa6d6b2c">calculateVanishPointsForAngle</a> (const <a class="el" href="structAngle.html">Angle</a> &amp;cameraAngle, double horizonY, const <a class="el" href="structPoint.html">Point</a> &amp;basePoint, <a class="el" href="structPoint.html">Point</a> &amp;out_vp1, <a class="el" href="structPoint.html">Point</a> &amp;out_vp2)</td></tr>
+<tr class="memdesc:ab5b344a8b4aaf2cfe31f69e8fa6d6b2c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the vanish points for the given parameters.  <a href="#ab5b344a8b4aaf2cfe31f69e8fa6d6b2c">More...</a><br /></td></tr>
+<tr class="separator:ab5b344a8b4aaf2cfe31f69e8fa6d6b2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a603b96c24ea2913ce8b1215493c784a2"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPerspectiveUtil.html#a603b96c24ea2913ce8b1215493c784a2">perspectiveHeight</a> (const <a class="el" href="structPoint.html">Point</a> &amp;<a class="el" href="classPerspectiveUtil.html#aae7a995b37a84a2cadcbb5b6106cd155">perspectivePoint</a>, const <a class="el" href="structPoint.html">Point</a> &amp;vanishPoint, const <a class="el" href="structPoint.html">Point</a> &amp;constructionPoint, double nonPerspectiveHeight)</td></tr>
+<tr class="memdesc:a603b96c24ea2913ce8b1215493c784a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the height that an object situated on the baseline (which "is in contact" with the screen) will have if situated on the given perspective point with the given vanish and construction point (which must have already been calculated).  <a href="#a603b96c24ea2913ce8b1215493c784a2">More...</a><br /></td></tr>
 <tr class="separator:a603b96c24ea2913ce8b1215493c784a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a614c33690ecd8914de8250acdcfafa94"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPerspectiveUtil.html#a614c33690ecd8914de8250acdcfafa94">scaleForPerspectivePoint</a> (const <a class="el" href="structPoint.html">Point</a> &amp;<a class="el" href="classPerspectiveUtil.html#a0e499800b70217190123b232b935f688">perspectivePoint</a>, const <a class="el" href="structPoint.html">Point</a> &amp;vanishPoint, const <a class="el" href="structPoint.html">Point</a> &amp;constructionPoint)</td></tr>
+<tr class="memitem:a614c33690ecd8914de8250acdcfafa94"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPerspectiveUtil.html#a614c33690ecd8914de8250acdcfafa94">scaleForPerspectivePoint</a> (const <a class="el" href="structPoint.html">Point</a> &amp;<a class="el" href="classPerspectiveUtil.html#aae7a995b37a84a2cadcbb5b6106cd155">perspectivePoint</a>, const <a class="el" href="structPoint.html">Point</a> &amp;vanishPoint, const <a class="el" href="structPoint.html">Point</a> &amp;constructionPoint)</td></tr>
+<tr class="memdesc:a614c33690ecd8914de8250acdcfafa94"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the scale that an object situated on the baseline (which "is in contact" with the screen) will have if situated on the given perspective point with the given vanish and construction point (which must have already been calculated).  <a href="#a614c33690ecd8914de8250acdcfafa94">More...</a><br /></td></tr>
 <tr class="separator:a614c33690ecd8914de8250acdcfafa94"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acad54e7155497173f201ad19b7cf37b5"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPerspectiveUtil.html#acad54e7155497173f201ad19b7cf37b5">angleAdjustmentForPerspectivePoint</a> (double xLeft, double xRight, double yTop, double yBottom, const <a class="el" href="structPoint.html">Point</a> &amp;p)</td></tr>
-<tr class="separator:acad54e7155497173f201ad19b7cf37b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e41cbc21cf5e65634976718c4ed9a98"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPerspectiveUtil.html#a6e41cbc21cf5e65634976718c4ed9a98">angleAdjustmentForPerspectivePoint</a> (const <a class="el" href="structPoint.html">Point</a> &amp;<a class="el" href="classPerspectiveUtil.html#aae7a995b37a84a2cadcbb5b6106cd155">perspectivePoint</a>, const <a class="el" href="structPoint.html">Point</a> &amp;basePoint, double horizonY, double screenWidth)</td></tr>
+<tr class="memdesc:a6e41cbc21cf5e65634976718c4ed9a98"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns an estimated adjustment angle for a perspective point.  <a href="#a6e41cbc21cf5e65634976718c4ed9a98">More...</a><br /></td></tr>
+<tr class="separator:a6e41cbc21cf5e65634976718c4ed9a98"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="acad54e7155497173f201ad19b7cf37b5"></a>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Provides utility functions for perspective view (points and scales). </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a6e41cbc21cf5e65634976718c4ed9a98"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -122,32 +134,26 @@ Static Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">double PerspectiveUtil::angleAdjustmentForPerspectivePoint </td>
           <td>(</td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>xLeft</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>xRight</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>yTop</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>yBottom</em>, </td>
+          <td class="paramtype">const <a class="el" href="structPoint.html">Point</a> &amp;&#160;</td>
+          <td class="paramname"><em>perspectivePoint</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const <a class="el" href="structPoint.html">Point</a> &amp;&#160;</td>
-          <td class="paramname"><em>p</em>&#160;</td>
+          <td class="paramname"><em>basePoint</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>horizonY</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>screenWidth</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -162,9 +168,21 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Returns an estimated adjustment angle for a perspective point. </p>
+<p>In details: an object that rely on a perspective point on the screen should be seen with different angles depending on the position on the screen; this method returns an estimated value for that adjustment. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">perspectivePoint</td><td>the the point on the screen perspective view. </td></tr>
+    <tr><td class="paramname">basePoint</td><td>the baseline point on the screen. </td></tr>
+    <tr><td class="paramname">horizonY</td><td>the y-coordinate of the horizon line on the screen. </td></tr>
+    <tr><td class="paramname">screenWidth</td><td>the width of the screen. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the angle adjustment in rad for the given perspective point. </dd></dl>
+
 </div>
 </div>
-<a class="anchor" id="a33de9f53c6e63ec82335e16e644e260f"></a>
+<a class="anchor" id="ab5b344a8b4aaf2cfe31f69e8fa6d6b2c"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -199,13 +217,7 @@ Static Public Member Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="structPoint.html">Point</a> &amp;&#160;</td>
-          <td class="paramname"><em>out_vp2</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="structAngle.html">Angle</a>&#160;</td>
-          <td class="paramname"><em>objectRotation</em> = <code>0</code>&#160;</td>
+          <td class="paramname"><em>out_vp2</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -219,6 +231,18 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Calculates the vanish points for the given parameters. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir"></td><td class="paramname">cameraAngle</td><td>the angle of the observer. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">horizonY</td><td>the y-coordinate of the horizon line on the screen. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">basePoint</td><td>the baseline point on the screen. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">out_vp1</td><td>the vanish point on the horizon line opposite to the column point usable for build the perspective point. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">out_vp2</td><td>the vanish point on the horizon line opposite to the row point usable for build the perspective point. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -266,9 +290,21 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Returns the height that an object situated on the baseline (which "is in contact" with the screen) will have if situated on the given perspective point with the given vanish and construction point (which must have already been calculated). </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">perspectivePoint</td><td>the point on the screen perspective view. </td></tr>
+    <tr><td class="paramname">vanishPoint</td><td>a vanish point used for build the perspective point. </td></tr>
+    <tr><td class="paramname">constructionPoint</td><td>the construction point opposite to the given vanish point. </td></tr>
+    <tr><td class="paramname">nonPerspectiveHeight</td><td>the height the object will have if in contact with the screen in a non-perspective view. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the height of an object situated on the perspective point. </dd></dl>
+
 </div>
 </div>
-<a class="anchor" id="a0e499800b70217190123b232b935f688"></a>
+<a class="anchor" id="aae7a995b37a84a2cadcbb5b6106cd155"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -309,13 +345,7 @@ Static Public Member Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>mapTileSize</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="structAngle.html">Angle</a>&#160;</td>
-          <td class="paramname"><em>objectRotation</em> = <code>0</code>&#160;</td>
+          <td class="paramname"><em>mapTileSize</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -330,9 +360,23 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Returns the point coordinate on the screen for the given parameters. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">mapPoint</td><td>the point representing the coordinate in the map (2D). </td></tr>
+    <tr><td class="paramname">cameraPoint</td><td>the camera point (observer) in the map (2D). </td></tr>
+    <tr><td class="paramname">basePoint</td><td>the baseline point on the screen. </td></tr>
+    <tr><td class="paramname">cameraAngle</td><td>the angle of observation from the camera to the map point. </td></tr>
+    <tr><td class="paramname">horizonY</td><td>the y-coordinate of the horizon line on the screen. </td></tr>
+    <tr><td class="paramname">mapTileSize</td><td>the size that will be used for the tiles. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the point with screen coordinates in perspective view. </dd></dl>
+
 </div>
 </div>
-<a class="anchor" id="a2213fab0bcfd2318a98643db6331f99c"></a>
+<a class="anchor" id="a787265fc38c223dac45eb88dc74e6afc"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -397,13 +441,7 @@ Static Public Member Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="structPoint.html">Point</a> &amp;&#160;</td>
-          <td class="paramname"><em>out_vp2</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="structAngle.html">Angle</a>&#160;</td>
-          <td class="paramname"><em>objectRotation</em> = <code>0</code>&#160;</td>
+          <td class="paramname"><em>out_vp2</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -418,9 +456,27 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Returns the point coordinate on the screen for the given parameters. </p>
+<p>This method gives out the perspective points used for build the final point (pc, pr, vp1, vp2). </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir"></td><td class="paramname">mapPoint</td><td>the point representing the coordinate in the map (2D). </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">cameraPoint</td><td>the camera point (observer) in the map (2D). </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">basePoint</td><td>the baseline point on the screen. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">cameraAngle</td><td>the angle of observation from the camera to the map point. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">horizonY</td><td>the y-coordinate of the horizon line on the screen. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">mapTileSize</td><td>the size that will be used for the tiles. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">out_pc</td><td>the column point on the baseline used for build the perspective point. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">out_pr</td><td>the row point on the baseline used for build the perspective point. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">out_vp1</td><td>the vanish point on the horizon line opposite to the column point used for build the perspective point. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">out_vp2</td><td>the vanish point on the horizon line opposite to the row point used for build the perspective point. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the point with screen coordinates in perspective view. </dd></dl>
+
 </div>
 </div>
-<a class="anchor" id="a1a17754c73c59442a15b4489be62d615"></a>
+<a class="anchor" id="a5bb42e56b169fe4594be24d016525d54"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -473,13 +529,7 @@ Static Public Member Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const <a class="el" href="structPoint.html">Point</a> &amp;&#160;</td>
-          <td class="paramname"><em>vp2</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="structAngle.html">Angle</a>&#160;</td>
-          <td class="paramname"><em>objectRotation</em> = <code>0</code>&#160;</td>
+          <td class="paramname"><em>vp2</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -493,6 +543,22 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Returns the point coordinate on the screen for the given parameters. </p>
+<p>This method call suppose that the caller already knows the vanish points (those can be calculated from a previous call of <a class="el" href="classPerspectiveUtil.html#aae7a995b37a84a2cadcbb5b6106cd155" title="Returns the point coordinate on the screen for the given parameters. ">perspectivePoint</a> or <a class="el" href="classPerspectiveUtil.html#ab5b344a8b4aaf2cfe31f69e8fa6d6b2c" title="Calculates the vanish points for the given parameters. ">calculateVanishPointsForAngle</a>). This method is faster than the other since doesn't need to recalculate the vanish points. Use this if there are many points to estimate (i.e. map rendering). </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir"></td><td class="paramname">mapPoint</td><td>the point representing the coordinate in the map (2D). </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">cameraPoint</td><td>the camera point (observer) in the map (2D). </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">basePoint</td><td>the baseline point on the screen. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">cameraAngle</td><td>the angle of observation from the camera to the map point. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">horizonY</td><td>the y-coordinate of the horizon line on the screen. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">mapTileSize</td><td>the size that will be used for the tiles. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">vp1</td><td>the vanish point on the horizon line opposite to the column point used for build the perspective point. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">vp2</td><td>the vanish point on the horizon line opposite to the row point used for build the perspective point. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the point with screen coordinates in perspective view. </dd></dl>
 
 </div>
 </div>
@@ -533,6 +599,17 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Returns the scale that an object situated on the baseline (which "is in contact" with the screen) will have if situated on the given perspective point with the given vanish and construction point (which must have already been calculated). </p>
+<p>If the perspective point is over the baseline (as it ought to be) the scale factor will be &lt;= 1.0 (a further object is seen little). </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">perspectivePoint</td><td>the point on the screen perspective view. </td></tr>
+    <tr><td class="paramname">vanishPoint</td><td>a vanish point used for build the perspective point. </td></tr>
+    <tr><td class="paramname">constructionPoint</td><td>the construction point opposite to the given vanish point. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the height of an object situated on the perspective point. </dd></dl>
 
 </div>
 </div>

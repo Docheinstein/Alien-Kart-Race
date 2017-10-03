@@ -40,8 +40,8 @@ void PlayerKart::update() {
 }
 
 void PlayerKart::draw() {
-    int renderedSpriteIndex = static_cast<int>(MathUtil::rangeBelongingTo(
-        mRenderTurningRanges, TURNING_RANGE_COUNT, mWheelTurning));
+    int renderedSpriteIndex = MathUtil::rangeBelongingTo(
+        mRenderTurningRanges, TURNING_RANGE_COUNT, mWheelTurning);
 
     mLevel->pushSprite(&mSprites[renderedSpriteIndex]);
 }

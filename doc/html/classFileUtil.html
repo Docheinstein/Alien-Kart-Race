@@ -92,36 +92,49 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 
+<p>Provides utility functions for obtain information or data from a a raw txt file.  
+ <a href="classFileUtil.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="fileutil_8h_source.html">fileutil.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a4201b73772052f79acef2e88d8ad1e56"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a4201b73772052f79acef2e88d8ad1e56"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classFileUtil.html#a4201b73772052f79acef2e88d8ad1e56">getMatrixSize</a> (const char *fileName, int &amp;rowCount, int &amp;colCount)</td></tr>
+<tr class="memdesc:a4201b73772052f79acef2e88d8ad1e56"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the size of the matrix loaded at the given filename.  <a href="#a4201b73772052f79acef2e88d8ad1e56">More...</a><br /></td></tr>
 <tr class="separator:a4201b73772052f79acef2e88d8ad1e56"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6b95cb8d4c7d7b1618b1181de4469533"><td class="memTemplParams" colspan="2">template&lt;typename FileT , typename FuncOwner &gt; </td></tr>
 <tr class="memitem:a6b95cb8d4c7d7b1618b1181de4469533"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classFileUtil.html#a6b95cb8d4c7d7b1618b1181de4469533">loadStructureFromFileKnowningSize</a> (const char *fileName, int knownRowCount, int knownColCount, FuncOwner *instance, void(FuncOwner::*fillFunc)(FileT readValue, int row, int col), void *structure=NULL, void(*defaultFillFunc)(FileT readValue, void *structure, int row, int col)=NULL)</td></tr>
+<tr class="memdesc:a6b95cb8d4c7d7b1618b1181de4469533"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads any type of structure from a matrix in a file with the given col and row count.  <a href="#a6b95cb8d4c7d7b1618b1181de4469533">More...</a><br /></td></tr>
 <tr class="separator:a6b95cb8d4c7d7b1618b1181de4469533"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa7d0a563924155ff6aad73c70a645340"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:aa7d0a563924155ff6aad73c70a645340"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classFileUtil.html#aa7d0a563924155ff6aad73c70a645340">defaultMatrixFillFunction</a> (T readValue, void *matrix, int row, int col)</td></tr>
+<tr class="memdesc:aa7d0a563924155ff6aad73c70a645340"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the read value as matrix's value for the given row and column.  <a href="#aa7d0a563924155ff6aad73c70a645340">More...</a><br /></td></tr>
 <tr class="separator:aa7d0a563924155ff6aad73c70a645340"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a27eb5c844fd0929f18df94952c813870"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a27eb5c844fd0929f18df94952c813870"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classFileUtil.html#a27eb5c844fd0929f18df94952c813870">loadMatrixFromFileKnowningSize</a> (const char *filename, T **matrix, int knownRowCount, int knownColCount)</td></tr>
+<tr class="memdesc:a27eb5c844fd0929f18df94952c813870"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads the given matrix from a file using the default fill function.  <a href="#a27eb5c844fd0929f18df94952c813870">More...</a><br /></td></tr>
 <tr class="separator:a27eb5c844fd0929f18df94952c813870"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3ec0f330d698aa5003c51e242da85fad"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a3ec0f330d698aa5003c51e242da85fad"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classFileUtil.html#a3ec0f330d698aa5003c51e242da85fad">loadMatrix</a> (const char *fileName, T **&amp;matrix, int &amp;rowCount, int &amp;colCount)</td></tr>
+<tr class="memdesc:a3ec0f330d698aa5003c51e242da85fad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads the given matrix from a file using the default fill function.  <a href="#a3ec0f330d698aa5003c51e242da85fad">More...</a><br /></td></tr>
 <tr class="separator:a3ec0f330d698aa5003c51e242da85fad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac7cff4a38c2afbcab6db5eef2e7750b9"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:ac7cff4a38c2afbcab6db5eef2e7750b9"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classFileUtil.html#ac7cff4a38c2afbcab6db5eef2e7750b9">defaultArrayFillFunction</a> (T readValue, void *array, int row, int col)</td></tr>
+<tr class="memdesc:ac7cff4a38c2afbcab6db5eef2e7750b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the read value as array's value for the given row and column.  <a href="#ac7cff4a38c2afbcab6db5eef2e7750b9">More...</a><br /></td></tr>
 <tr class="separator:ac7cff4a38c2afbcab6db5eef2e7750b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acfcf88575878cde4394b47cf2bb514df"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:acfcf88575878cde4394b47cf2bb514df"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classFileUtil.html#acfcf88575878cde4394b47cf2bb514df">loadArrayFromFileKnowningSize</a> (const char *filename, T *array, int knownRowCount, int knownColCount)</td></tr>
+<tr class="memdesc:acfcf88575878cde4394b47cf2bb514df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads the given array from a file using the default fill function.  <a href="#acfcf88575878cde4394b47cf2bb514df">More...</a><br /></td></tr>
 <tr class="separator:acfcf88575878cde4394b47cf2bb514df"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9e193f625dbda46ad4b390c08fa2571f"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a9e193f625dbda46ad4b390c08fa2571f"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classFileUtil.html#a9e193f625dbda46ad4b390c08fa2571f">loadArray</a> (const char *fileName, T *&amp;array, int &amp;count)</td></tr>
+<tr class="memdesc:a9e193f625dbda46ad4b390c08fa2571f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads the given array from a file using the default fill function.  <a href="#a9e193f625dbda46ad4b390c08fa2571f">More...</a><br /></td></tr>
 <tr class="separator:a9e193f625dbda46ad4b390c08fa2571f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Provides utility functions for obtain information or data from a a raw txt file. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="ac7cff4a38c2afbcab6db5eef2e7750b9"></a>
 <div class="memitem">
 <div class="memproto">
@@ -163,10 +176,21 @@ template&lt;typename T &gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Sets the read value as array's value for the given row and column. </p>
+<p>The default implementation just ignore the row count and write to the array index equals to the file's column. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">readValue</td><td>the value read from the file. </td></tr>
+    <tr><td class="paramname">array</td><td>the array that will be filled. </td></tr>
+    <tr><td class="paramname">row</td><td>the row of the read value. </td></tr>
+    <tr><td class="paramname">col</td><td>the column of the read value. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -211,10 +235,21 @@ template&lt;typename T &gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Sets the read value as matrix's value for the given row and column. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">readValue</td><td>the value read from the file. </td></tr>
+    <tr><td class="paramname">matrix</td><td>the matrix that will be filled. </td></tr>
+    <tr><td class="paramname">row</td><td>the row of the read value. </td></tr>
+    <tr><td class="paramname">col</td><td>the column of the read value. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -253,10 +288,20 @@ template&lt;typename T &gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Returns the size of the matrix loaded at the given filename. </p>
+<p>For the considered file, the space are considered as columns seperator and the newline is considered as rows seperator. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir"></td><td class="paramname">fileName</td><td>the filename of the file. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">rowCount</td><td>the row count of the file's matrix. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">colCount</td><td>the column count of the file's matrix. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -295,10 +340,21 @@ template&lt;typename T &gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Loads the given array from a file using the default fill function. </p>
+<p>Each file's value will be put at the array index equals to the file's column. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="classFileUtil.html#a3ec0f330d698aa5003c51e242da85fad" title="Loads the given matrix from a file using the default fill function. ">loadMatrix</a> for load multidimensional files. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">filename</td><td>the filename of the file to load. </td></tr>
+    <tr><td class="paramname">array</td><td>the matrix that will be filled. </td></tr>
+    <tr><td class="paramname"></td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -343,10 +399,22 @@ template&lt;typename T &gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Loads the given array from a file using the default fill function. </p>
+<p>Each file's value will be put at the array index equals to the file's column, overwriting any value previosuly written in that position (so in case a the file contains more row, thhe given array will be filled with the last row). </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="classFileUtil.html#a27eb5c844fd0929f18df94952c813870" title="Loads the given matrix from a file using the default fill function. ">loadMatrixFromFileKnowningSize</a> for load multidimensional files. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">filename</td><td>the filename of the file to load. </td></tr>
+    <tr><td class="paramname">array</td><td>the matrix that will be filled. </td></tr>
+    <tr><td class="paramname">knownRowCount</td><td>the row count of both the file's matrix and the matrix structure. </td></tr>
+    <tr><td class="paramname">knownColCount</td><td>the column count of both the file's matrix and the matrix structure. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -391,10 +459,21 @@ template&lt;typename T &gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Loads the given matrix from a file using the default fill function. </p>
+<p>Each file's value will be put at the respective row and col index in the matrix. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir"></td><td class="paramname">filename</td><td>the filename of the file to load. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">matrix</td><td>the matrix that will be filled. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">rowCount</td><td>the row count of both the file's matrix and the matrix structure. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">colCount</td><td>the column count of both the file's matrix and the matrix structure. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -439,10 +518,21 @@ template&lt;typename T &gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Loads the given matrix from a file using the default fill function. </p>
+<p>Each file's value will be put at the respective row and col index in the matrix. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">filename</td><td>the filename of the file to load. </td></tr>
+    <tr><td class="paramname">matrix</td><td>the matrix that will be filled. </td></tr>
+    <tr><td class="paramname">knownRowCount</td><td>the row count of both the file's matrix and the matrix structure. </td></tr>
+    <tr><td class="paramname">knownColCount</td><td>the column count of both the file's matrix and the matrix structure. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -505,10 +595,25 @@ template&lt;typename FileT , typename FuncOwner &gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Loads any type of structure from a matrix in a file with the given col and row count. </p>
+<p>This methods offers two types of used: The first is pass a member function pointer and an instance; in this case the function will be called for each value loaded from the matrix and the function is responsible for fill the structure by itself. In that case there is no need to pass the structure to this function since the function owner is responsible for fill the structure. The second is pass a structure and eventually a function pointer to the fill function: in that case the structure is filled by the function which will receive the structure to fill as parameter.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir"></td><td class="paramname">fileName</td><td>the file name of the file to load. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">knownRowCount</td><td>the row count of the matrix to load (must be valid). </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">knownColCount</td><td>the column count of the matrix to load (must be valid). </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">instance</td><td>the instance that owns the fill function pointer. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">fillFunc</td><td>the function that is called for each read value. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">structure</td><td>the structure that will be filled. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">defaultFillFunc</td><td>default fill function for the given structure. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

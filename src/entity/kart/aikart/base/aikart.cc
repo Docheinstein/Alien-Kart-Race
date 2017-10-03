@@ -54,7 +54,7 @@ void AIKart::draw() {
     double scaleFactor = kartScaleFactor * perspectiveScaleFactor;
 
     double adjustmentAngleDiff = PerspectiveUtil::angleAdjustmentForPerspectivePoint(
-        0, Const::WINDOW_WIDTH, ViewUtil::HORIZON_LINE_Y, ViewUtil::BASE_POINT.y, pp);
+        pp, ViewUtil::BASE_POINT, ViewUtil::HORIZON_LINE_Y, Const::WINDOW_WIDTH);
 
     double angleDiff = (direction() - playerKart->direction() - adjustmentAngleDiff).rad;
 

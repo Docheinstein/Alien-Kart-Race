@@ -25,7 +25,6 @@ var searchData=
   ['mathutil_2eh',['mathutil.h',['../mathutil_8h.html',1,'']]],
   ['matrix_5frendered_5ftiles_5fdiameter',['MATRIX_RENDERED_TILES_DIAMETER',['../map_8cc.html#a486d4932f5635175f018e8a8437256b0',1,'map.cc']]],
   ['matrix_5frendered_5ftiles_5fradius',['MATRIX_RENDERED_TILES_RADIUS',['../map_8cc.html#a59967443e2669307c54f908980cb25ab',1,'map.cc']]],
-  ['matrixcoordinate',['MatrixCoordinate',['../structMatrixUtil_1_1MatrixCoordinate.html',1,'MatrixUtil']]],
   ['matrixutil',['MatrixUtil',['../classMatrixUtil.html',1,'']]],
   ['matrixutil_2eh',['matrixutil.h',['../matrixutil_8h.html',1,'']]],
   ['maxspeed',['maxSpeed',['../structKart_1_1KartParams.html#a5ac75fda66088e1150dda6af2acd424c',1,'Kart::KartParams']]],
