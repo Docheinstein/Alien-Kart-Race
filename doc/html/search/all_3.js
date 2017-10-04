@@ -22,8 +22,6 @@ var searchData=
   ['color_5fempty',['COLOR_EMPTY',['../minimap_8cc.html#aac14890d5a4cc3ac7727fb138521fb3c',1,'minimap.cc']]],
   ['color_5ffull',['COLOR_FULL',['../minimap_8cc.html#a63cabc0ca532bfd8d9863b76ce9794ca',1,'minimap.cc']]],
   ['config',['Config',['../namespaceConfig.html',1,'']]],
-  ['config_2ecc',['config.cc',['../config_8cc.html',1,'']]],
-  ['config_2ed',['config.d',['../config_8d.html',1,'']]],
   ['config_2eh',['config.h',['../config_8h.html',1,'']]],
   ['contains',['contains',['../structQuad.html#abfe27cfa64855e1b3e9b3721f2fbc101',1,'Quad']]],
   ['crash',['Crash',['../classKart.html#ac26a12dfc9f4bbead1a706f0622bd066a616cd6f874206c53885afadd6a0a8472',1,'Kart::Crash()'],['../classKart.html#a333e6bd940e62ac43f967db4a9025d0d',1,'Kart::crash(Kart *k)']]],

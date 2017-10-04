@@ -12,7 +12,7 @@ static const int EARTH_STARTING_BLOCK_Y_DIFF = 2;
 #define EARTH_TILESET_FILENAME "earth_tileset.png"
 #define EARTH_AI_PATH_FILENAME(X) "earth_ai_path_"#X".txt"
 
-#define EARTH_SKY_RGB 146, 241, 255
+#define EARTH_SKY_RGB 142, 238, 255
 
 Earth::Earth(sf::RenderWindow *window, Level *level) : Map(window, level) {}
 

@@ -3,7 +3,7 @@
 #include "logger.h"
 #include "game.h"
 
-#define CAN_LOG 0
+#define CAN_LOG 1
 #define LOG_TAG "{PerspectiveUtil} "
 
 Point PerspectiveUtil::perspectivePoint(
@@ -145,8 +145,8 @@ void PerspectiveUtil::calculateConstructionPoints(
 
 #if CAN_LOG
     debug(2, LOG_TAG, "Calculating construction points for angle: ", cameraAngle,
-            "\n\PC: ", out_pc,
-            "\n\PR: ", out_pr
+            "\n\tPC: ", out_pc,
+            "\n\tPR: ", out_pr
     );
 #endif
 }

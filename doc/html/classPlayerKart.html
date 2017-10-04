@@ -86,8 +86,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
 <a href="#pro-methods">Protected Member Functions</a> &#124;
+<a href="#pro-static-methods">Static Protected Member Functions</a> &#124;
 <a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="#pro-static-attribs">Static Protected Attributes</a> &#124;
 <a href="classPlayerKart-members.html">List of all members</a>  </div>
@@ -117,21 +117,21 @@ Collaboration diagram for PlayerKart:</div>
 <div class="dyncontent">
 <div class="center"><img src="classPlayerKart__coll__graph.png" border="0" usemap="#PlayerKart_coll__map" alt="Collaboration graph"/></div>
 <map name="PlayerKart_coll__map" id="PlayerKart_coll__map">
-<area shape="rect" id="node2" href="classKart.html" title="Base entity representing a kart. " alt="" coords="338,377,385,404"/>
+<area shape="rect" id="node2" href="classKart.html" title="Base entity representing a kart. " alt="" coords="242,377,289,404"/>
 <area shape="rect" id="node3" href="classMapMovingEntity.html" title="Represents an abstract entity placed into a map that have a direction. " alt="" coords="5,288,128,315"/>
 <area shape="rect" id="node4" href="classMapEntity.html" title="Represents an abstract entity placed into a map. " alt="" coords="15,199,97,225"/>
 <area shape="rect" id="node5" href="classLoggerInterface.html" title="Interface usable by entities that need to print on the output stream. " alt="" coords="121,199,233,225"/>
-<area shape="rect" id="node7" href="classLevel.html" title="Handles the karts, the map and eventually every other object in the level. " alt="" coords="271,288,324,315"/>
-<area shape="rect" id="node6" href="structKart_1_1KartParams.html" title="Encapsulates the parameters of the karts. " alt="" coords="348,288,471,315"/>
+<area shape="rect" id="node7" href="classLevel.html" title="Handles the karts, the map and eventually every other object in the level. " alt="" coords="239,288,292,315"/>
+<area shape="rect" id="node6" href="structKart_1_1KartParams.html" title="Encapsulates the parameters of the karts. " alt="" coords="316,288,439,315"/>
 <area shape="rect" id="node8" href="classFadeScreen.html" title="Base class representing a screen of the game that has the feauture of fade in and fade out with a van..." alt="" coords="258,199,350,225"/>
 <area shape="rect" id="node9" href="classScreen.html" title="Base class representing a screen of the game. " alt="" coords="105,95,167,121"/>
 <area shape="rect" id="node10" href="classKeyboardManager.html" title="Responsible for handle the pressure of the keys by notifying listeners about new pressed key..." alt="" coords="73,5,199,32"/>
 <area shape="rect" id="node11" href="classGameTimer.html" title="GameTimer\&lt; FadeScreen \&gt;" alt="" coords="269,95,453,121"/>
 <area shape="rect" id="node12" href="classKeyboardListener.html" title="Intarface usable for listen to keys pressed on the keyboard. " alt="" coords="375,199,497,225"/>
-<area shape="rect" id="node13" href="structDirectionalPoint.html" title="Point which have a direction. " alt="" coords="495,288,609,315"/>
+<area shape="rect" id="node13" href="structDirectionalPoint.html" title="Point which have a direction. " alt="" coords="492,288,607,315"/>
 <area shape="rect" id="node14" href="structAngle.html" title="Represents an angle expressed in radians. " alt="" coords="522,199,577,225"/>
-<area shape="rect" id="node15" href="structPoint.html" title="Point with x and y coordinates. " alt="" coords="642,199,694,225"/>
-<area shape="rect" id="node16" href="structBoundRange.html" title="Range with an associated value. " alt="" coords="741,377,838,404"/>
+<area shape="rect" id="node15" href="structPoint.html" title="Point with x and y coordinates. " alt="" coords="607,199,659,225"/>
+<area shape="rect" id="node16" href="structBoundRange.html" title="Range with an associated value. " alt="" coords="313,377,410,404"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
@@ -188,15 +188,6 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a70c3e450fcc106112ac7bae9133b5068 inherit pub_methods_classLoggerInterface"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLoggerInterface.html#a70c3e450fcc106112ac7bae9133b5068">~LoggerInterface</a> ()</td></tr>
 <tr class="separator:a70c3e450fcc106112ac7bae9133b5068 inherit pub_methods_classLoggerInterface"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
-Static Public Attributes</h2></td></tr>
-<tr class="memitem:a4a8be16e11a140f2042ddd8239a1a9b8"><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="structPoint.html">Point</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayerKart.html#a4a8be16e11a140f2042ddd8239a1a9b8">PERSPECTIVE_POINT</a></td></tr>
-<tr class="memdesc:a4a8be16e11a140f2042ddd8239a1a9b8"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="structPoint.html" title="Point with x and y coordinates. ">Point</a> on the screen in which the player kart is rendered (depends on the camera point).  <a href="#a4a8be16e11a140f2042ddd8239a1a9b8">More...</a><br /></td></tr>
-<tr class="separator:a4a8be16e11a140f2042ddd8239a1a9b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab16f7c6b26cd42961980f7c38a071717"><td class="memItemLeft" align="right" valign="top">static const float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayerKart.html#ab16f7c6b26cd42961980f7c38a071717">PERSPECTIVE_SCALE</a></td></tr>
-<tr class="memdesc:ab16f7c6b26cd42961980f7c38a071717"><td class="mdescLeft">&#160;</td><td class="mdescRight">Scale of the player kart in relation to its perspective point.  <a href="#ab16f7c6b26cd42961980f7c38a071717">More...</a><br /></td></tr>
-<tr class="separator:ab16f7c6b26cd42961980f7c38a071717"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
 <tr class="memitem:a773d4503bbb59e83cfc108262465a215"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayerKart.html#a773d4503bbb59e83cfc108262465a215">initRenderTurningRanges</a> ()</td></tr>
@@ -249,6 +240,15 @@ Protected Member Functions</h2></td></tr>
 <tr class="memitem:afb381df73e55b1423be07e8f09ee0123 inherit pro_methods_classLoggerInterface"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classLoggerInterface.html#afb381df73e55b1423be07e8f09ee0123">bench</a> (FirstType &amp;&amp;first, OtherTypes &amp;&amp;...other)</td></tr>
 <tr class="memdesc:afb381df73e55b1423be07e8f09ee0123 inherit pro_methods_classLoggerInterface"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints a bench message.  <a href="#afb381df73e55b1423be07e8f09ee0123">More...</a><br /></td></tr>
 <tr class="separator:afb381df73e55b1423be07e8f09ee0123 inherit pro_methods_classLoggerInterface"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-static-methods"></a>
+Static Protected Member Functions</h2></td></tr>
+<tr class="memitem:ae3596174e06ae33b8437b5ee0a781208"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structPoint.html">Point</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayerKart.html#ae3596174e06ae33b8437b5ee0a781208">perspectivePoint</a> ()</td></tr>
+<tr class="memdesc:ae3596174e06ae33b8437b5ee0a781208"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the point the player kart relies on.  <a href="#ae3596174e06ae33b8437b5ee0a781208">More...</a><br /></td></tr>
+<tr class="separator:ae3596174e06ae33b8437b5ee0a781208"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a07dbb737db33d06214095394672b07fd"><td class="memItemLeft" align="right" valign="top">static float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayerKart.html#a07dbb737db33d06214095394672b07fd">perspectiveScale</a> ()</td></tr>
+<tr class="memdesc:a07dbb737db33d06214095394672b07fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the scale of the player kart relative to its perspective point.  <a href="#a07dbb737db33d06214095394672b07fd">More...</a><br /></td></tr>
+<tr class="separator:a07dbb737db33d06214095394672b07fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
@@ -510,6 +510,58 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="ae3596174e06ae33b8437b5ee0a781208"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structPoint.html">Point</a> PlayerKart::perspectivePoint </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the point the player kart relies on. </p>
+<dl class="section return"><dt>Returns</dt><dd>the perspective point of the player kart. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a07dbb737db33d06214095394672b07fd"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float PlayerKart::perspectiveScale </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the scale of the player kart relative to its perspective point. </p>
+<dl class="section return"><dt>Returns</dt><dd>the scale of the the player kart. </dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="a1d1ccfedc19ab30118268a04bfe068f0"></a>
 <div class="memitem">
 <div class="memproto">
@@ -601,50 +653,6 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Sprites used for the skid effect. </p>
-
-</div>
-</div>
-<a class="anchor" id="a4a8be16e11a140f2042ddd8239a1a9b8"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const <a class="el" href="structPoint.html">Point</a> PlayerKart::PERSPECTIVE_POINT</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">= <a class="code" href="classPerspectiveUtil.html#aae7a995b37a84a2cadcbb5b6106cd155">PerspectiveUtil::perspectivePoint</a>(</div><div class="line">    <a class="code" href="classViewUtil.html#abe282bcdfd1d1bddf14e11542e66a467">ViewUtil::BASE_POINT</a>,</div><div class="line">    <a class="code" href="classViewUtil.html#ab3487c1930d195df84b0d42cbb7cc9bc">ViewUtil::cameraPoint</a>(<a class="code" href="structDirectionalPoint.html">DirectionalPoint</a> {<a class="code" href="classViewUtil.html#abe282bcdfd1d1bddf14e11542e66a467">ViewUtil::BASE_POINT</a>, <a class="code" href="structAngle.html">Angle</a> {(double) 1 / (1 &lt;&lt; 8)}}),</div><div class="line">    <a class="code" href="classViewUtil.html#abe282bcdfd1d1bddf14e11542e66a467">ViewUtil::BASE_POINT</a>,</div><div class="line">    <a class="code" href="structAngle.html">Angle</a> {(double) 1 / (1 &lt;&lt; 8)},</div><div class="line">    <a class="code" href="classViewUtil.html#ab4e182dbde54a9f4e5ad331749de4a23">ViewUtil::HORIZON_LINE_Y</a>,</div><div class="line">    <a class="code" href="classViewUtil.html#a250a55c4f63f0ffde06b50c37803c782">ViewUtil::RENDERED_TILE_SIZE</a></div><div class="line">)</div></div><!-- fragment -->
-<p><a class="el" href="structPoint.html" title="Point with x and y coordinates. ">Point</a> on the screen in which the player kart is rendered (depends on the camera point). </p>
-
-</div>
-</div>
-<a class="anchor" id="ab16f7c6b26cd42961980f7c38a071717"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const float PlayerKart::PERSPECTIVE_SCALE</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">= <a class="code" href="classPerspectiveUtil.html#a614c33690ecd8914de8250acdcfafa94">PerspectiveUtil::scaleForPerspectivePoint</a>(</div><div class="line">    <a class="code" href="structPoint.html">Point</a> {<a class="code" href="classViewUtil.html#abe282bcdfd1d1bddf14e11542e66a467">ViewUtil::BASE_POINT</a>.<a class="code" href="structPoint.html#ab99c56589bc8ad5fa5071387110a5bc7">x</a>, <a class="code" href="classPlayerKart.html#a4a8be16e11a140f2042ddd8239a1a9b8">PERSPECTIVE_POINT</a>.<a class="code" href="structPoint.html#afa38be143ae800e6ad69ce8ed4df62d8">y</a> },</div><div class="line">    <a class="code" href="structPoint.html">Point</a> {<a class="code" href="classViewUtil.html#abe282bcdfd1d1bddf14e11542e66a467">ViewUtil::BASE_POINT</a>.<a class="code" href="structPoint.html#ab99c56589bc8ad5fa5071387110a5bc7">x</a>, <a class="code" href="classViewUtil.html#ab4e182dbde54a9f4e5ad331749de4a23">ViewUtil::HORIZON_LINE_Y</a>},</div><div class="line">    <a class="code" href="classViewUtil.html#abe282bcdfd1d1bddf14e11542e66a467">ViewUtil::BASE_POINT</a></div><div class="line">)</div></div><!-- fragment -->
-<p>Scale of the player kart in relation to its perspective point. </p>
 
 </div>
 </div>

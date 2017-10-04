@@ -36,7 +36,7 @@ void PlayerVenusian::initSprites() {
         KartFactory::KartType::VenusianType, mSkidGasSprites);
 
     float kartScaleFactor = KartFactory::scaleFactor();
-    float scaleFactor  = PERSPECTIVE_SCALE * kartScaleFactor;
+    float scaleFactor  = perspectiveScale() * kartScaleFactor;
     for (int i = 0; i < mSpriteCount; i ++)
         mSprites[i].setScale(scaleFactor, scaleFactor);
 

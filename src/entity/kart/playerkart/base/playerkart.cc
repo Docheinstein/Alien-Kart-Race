@@ -12,21 +12,6 @@
 #define LOG_TAG "{PlayerKart} "
 #define CAN_LOG 1
 
-const Point PlayerKart::PERSPECTIVE_POINT = PerspectiveUtil::perspectivePoint(
-    ViewUtil::BASE_POINT,
-    ViewUtil::cameraPoint(DirectionalPoint {ViewUtil::BASE_POINT, Angle {(double) 1 / (1 << 8)}}),
-    ViewUtil::BASE_POINT,
-    Angle {(double) 1 / (1 << 8)},
-    ViewUtil::HORIZON_LINE_Y,
-    ViewUtil::RENDERED_TILE_SIZE
-);
-
-const float PlayerKart::PERSPECTIVE_SCALE = PerspectiveUtil::scaleForPerspectivePoint(
-    Point {ViewUtil::BASE_POINT.x, PERSPECTIVE_POINT.y },
-    Point {ViewUtil::BASE_POINT.x, ViewUtil::HORIZON_LINE_Y},
-    ViewUtil::BASE_POINT
-);
-
 PlayerKart::PlayerKart(Level * level, const char *kartName, sf::Color *kartColor)
             : Kart(level, kartName, kartColor) {}
 
@@ -59,6 +44,34 @@ int PlayerKart::minimapSize() {
 // ------------------------
 // PROTECTED --------------
 // ------------------------
+
+// Note that perspectivePoint() and perspectiveScale() are implemented as functions
+// that wrap a static constant since this way is guaranteed that when the function is called
+// the static constant those relies upon are initialized.
+// Otherwise the initialization order of the static constants is undefined and might
+// happen that the perspective point initialization is prior to another essential
+// initialization (e.g. ViewUtil::BASE_POINT), that will cause wrong initialization.
+
+Point PlayerKart::perspectivePoint() {
+    static Point PERSPECTIVE_POINT = PerspectiveUtil::perspectivePoint(
+        ViewUtil::BASE_POINT,
+        ViewUtil::cameraPoint(DirectionalPoint {ViewUtil::BASE_POINT, Angle {(double) 1 / (1 << 8)}}),
+        ViewUtil::BASE_POINT,
+        Angle {(double) 1 / (1 << 8)},
+        ViewUtil::HORIZON_LINE_Y,
+        ViewUtil::RENDERED_TILE_SIZE
+    );
+    return PERSPECTIVE_POINT;
+}
+
+float PlayerKart::perspectiveScale() {
+    static float PERSPECTIVE_SCALE = PerspectiveUtil::scaleForPerspectivePoint(
+        Point {ViewUtil::BASE_POINT.x, perspectivePoint().y },
+        Point {ViewUtil::BASE_POINT.x, ViewUtil::HORIZON_LINE_Y},
+        ViewUtil::BASE_POINT
+    );
+    return PERSPECTIVE_SCALE;
+}
 
 void PlayerKart::initRenderTurningRanges() {
     int i = 0;
@@ -126,13 +139,13 @@ void PlayerKart::initRenderTurningRanges() {
 void PlayerKart::initSprites() {
     for (int i = 0; i < mSpriteCount; i ++) {
         mSprites[i].setPosition(
-            PERSPECTIVE_POINT.x,
-            PERSPECTIVE_POINT.y);
+            perspectivePoint().x,
+            perspectivePoint().y);
     }
     for (int i = 0; i < mSkidGasSpriteCount; i ++) {
         mSkidGasSprites[i].setPosition(
-            PERSPECTIVE_POINT.x,
-            PERSPECTIVE_POINT.y
+            perspectivePoint().x,
+            perspectivePoint().y
         );
     }
 }

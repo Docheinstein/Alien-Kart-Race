@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['perspective_5fpoint',['PERSPECTIVE_POINT',['../classPlayerKart.html#a4a8be16e11a140f2042ddd8239a1a9b8',1,'PlayerKart']]],
-  ['perspective_5fscale',['PERSPECTIVE_SCALE',['../classPlayerKart.html#ab16f7c6b26cd42961980f7c38a071717',1,'PlayerKart']]],
   ['picker_5felement_5ffont_5fsize',['PICKER_ELEMENT_FONT_SIZE',['../levelpicker_8cc.html#a5cee78a972e1280432e1dbf19d8608b4',1,'levelpicker.cc']]],
   ['picker_5felement_5ffrom_5fsecion_5fheader_5fmargin_5ftop',['PICKER_ELEMENT_FROM_SECION_HEADER_MARGIN_TOP',['../levelpicker_8cc.html#a96a7c7a47bb26728c4e81071be8ac25c',1,'levelpicker.cc']]],
   ['picker_5fframe_5fpadding_5ftop',['PICKER_FRAME_PADDING_TOP',['../levelpicker_8cc.html#ad792ba0bb16bdec729463e16f0831445',1,'levelpicker.cc']]],

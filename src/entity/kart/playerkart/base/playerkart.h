@@ -8,15 +8,6 @@
 /** Base entity representing a kart controller by the player. */
 class PlayerKart : public Kart {
 public:
-	/**
-	  * Point on the screen in which the player kart is
-	  * rendered (depends on the camera point).
-	 */
-	static const Point PERSPECTIVE_POINT;
-
-	/** Scale of the player kart in relation to its perspective point. */
-	static const float PERSPECTIVE_SCALE;
-
 	PlayerKart(Level * level, const char *kartName, sf::Color *kartColor);
 
     virtual void update();
@@ -39,6 +30,18 @@ protected:
 
 	/** Ranges representing the different sprite shown when turning. */
 	BoundRange mRenderTurningRanges[TURNING_RANGE_COUNT];
+
+	/**
+	 * Returns the point the player kart relies on.
+	 * @return the perspective point of the player kart.
+	 */
+	static Point perspectivePoint();
+
+	/**
+	 * Returns the scale of the player kart relative to its perspective point.
+	 * @return the scale of the the player kart.
+	 */
+	static float perspectiveScale();
 
 	/** Initializes the ranges used for the turning render. */
 	void initRenderTurningRanges();
