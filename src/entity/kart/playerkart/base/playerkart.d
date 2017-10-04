@@ -11,6 +11,6 @@ src/entity/kart/playerkart/base/playerkart.o: \
  src/util/view/viewutil.h src/minimap/minimap.h \
  src/map/mapfactory/mapfactory.h src/level/level.h src/map/base/map.h \
  src/screen/fade/fadescreen.h src/screen/base/screen.h \
- src/gametimer/gametimer.h src/util/timeutil/timeutil.h \
- src/gametimer/gametimer.tpp src/keyboard/listener/keyboardlistener.h \
- src/entity/kart/kartfactory/kartfactory.h
+ src/gametimer/gametimer.h src/gametimer/gametimer.tpp \
+ src/util/timeutil/timeutil.h src/keyboard/listener/keyboardlistener.h \
+ src/entity/kart/kartfactory/kartfactory.h src/config/config.h

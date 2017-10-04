@@ -3,28 +3,26 @@
 #include "fontfactory.h"
 #include "resourceutil.h"
 #include "kart.h"
+#include "config.h"
 #include "level.h"
-#include "const.h"
-
-#include <cstring>
 
 #define LOG_TAG "{Leaderboard} ";
-#define CAN_LOG 0
+#define CAN_LOG 1
 
 #define RANKING_HEADER "Ranking"
 
-const float LEADERBOARD_MARGIN_LEFT = Const::WINDOW_WIDTH / 18;
-const float LEADERBOARD_MARGIN_TOP = Const::WINDOW_HEIGHT / 12;
-const float LEADERBOARD_FONT_SIZE = Const::WINDOW_HEIGHT / 24;
-const float LEADERBOARD_MARGIN_BETWEEN_KARTS = Const::WINDOW_HEIGHT / 16;
-const float LEADERBOARD_MARGIN_FROM_FACE_TO_TEXT = Const::WINDOW_WIDTH / 18;
+const float LEADERBOARD_MARGIN_LEFT = Config::WINDOW_WIDTH / 18;
+const float LEADERBOARD_MARGIN_TOP = Config::WINDOW_HEIGHT / 12;
+const float LEADERBOARD_FONT_SIZE = Config::WINDOW_HEIGHT / 24;
+const float LEADERBOARD_MARGIN_BETWEEN_KARTS = Config::WINDOW_HEIGHT / 16;
+const float LEADERBOARD_MARGIN_FROM_FACE_TO_TEXT = Config::WINDOW_WIDTH / 18;
 
-const float LEADERBOARD_RANKING_PADDING_TOP = Const::WINDOW_HEIGHT / 14;
-const float LEADERBOARD_RANKING_PADDING_LEFT = Const::WINDOW_HEIGHT / 24;
+const float LEADERBOARD_RANKING_PADDING_TOP = Config::WINDOW_HEIGHT / 14;
+const float LEADERBOARD_RANKING_PADDING_LEFT = Config::WINDOW_HEIGHT / 24;
 
-const float LEADERBOARD_RANKING_HEADER_MARGIN_TOP = Const::WINDOW_HEIGHT / 28;
-const float LEADERBOARD_RANKING_FONT_SIZE = Const::WINDOW_HEIGHT / 18;
-const float LEADERBOARD_RANKING_FRAME_SIZE = 12 * Const::WINDOW_WIDTH / 640.0;
+const float LEADERBOARD_RANKING_HEADER_MARGIN_TOP = Config::WINDOW_HEIGHT / 28;
+const float LEADERBOARD_RANKING_FONT_SIZE = Config::WINDOW_HEIGHT / 18;
+const float LEADERBOARD_RANKING_FRAME_SIZE = 12 * Config::WINDOW_WIDTH / 640.0;
 
 Leaderboard::Leaderboard(sf::RenderWindow *window) {
 	mWindow = window;
@@ -35,12 +33,11 @@ Leaderboard::Leaderboard(sf::RenderWindow *window) {
 	mRankingFrameSprite = new sf::Sprite();
 	mRankingFrameSprite->setTexture(*mRankingFrameTexture);
 
-	mRankingFrameSprite->setScale(Const::WINDOW_WIDTH / 640.0, Const::WINDOW_HEIGHT / 480.0);
+	mRankingFrameSprite->setScale(Config::WINDOW_WIDTH / 640.0, Config::WINDOW_HEIGHT / 480.0);
 	mRankingFrameSprite->setPosition(
-		Const::WINDOW_WIDTH / 4 - mRankingFrameSprite->getLocalBounds().width / 2,
-		Const::WINDOW_HEIGHT / 2 - mRankingFrameSprite->getLocalBounds().height / 2
+		Config::WINDOW_WIDTH / 4 - mRankingFrameSprite->getLocalBounds().width / 2,
+		Config::WINDOW_HEIGHT / 2 - mRankingFrameSprite->getLocalBounds().height / 2
 	);
-
 
 	mRankingHeaderText = new sf::Text();
 
@@ -57,7 +54,7 @@ Leaderboard::Leaderboard(sf::RenderWindow *window) {
 	);
 
 	mRankingHeaderText->setPosition(
-		Const::WINDOW_WIDTH / 4,
+		Config::WINDOW_WIDTH / 4,
 		mRankingFrameSprite->getPosition().y + LEADERBOARD_RANKING_HEADER_MARGIN_TOP
 	);
 }
@@ -67,6 +64,10 @@ Leaderboard::~Leaderboard() {
 	delete mRankingFrameTexture;
 	delete mRankingHeaderText;
 }
+
+// ------------------------
+// PUBLIC -----------------
+// ------------------------
 
 void Leaderboard::addKart(RacingKart *rk) {
 	mKarts.push_back(LeaderboardKart {rk, initializedKartText(rk)});
@@ -78,20 +79,23 @@ void Leaderboard::clearKarts() {
 
 void Leaderboard::update() {
 	int kartPosition = 1;
+	d2("Current leaderboard-------");
     for (std::vector<LeaderboardKart>::iterator lkIter = mKarts.begin();
         lkIter != mKarts.end();
         lkIter++, kartPosition++) {
-		d2(kartPosition, "° ", (*lkIter).rk->kart->name(),
+		d2("Kart [", (*lkIter).rk->kart->name(), "] position: ", kartPosition, "°",
 			"; Lap: ", (*lkIter).rk->currentLap,
 			"; Sector: ", (*lkIter).rk->currentSector.index);
 	}
-	d2("---------");
+	d2("--------------------------");
+
 	std::sort(mKarts.begin(), mKarts.end(), racingKartCompareFunction);
 }
 
 void Leaderboard::draw(bool levelRunning) {
 	int xOffset = 0;
 	int yOffset = 0;
+	// Draw the ranking frame if the game is not running
 	if (!levelRunning) {
 		xOffset = mRankingFrameSprite->getPosition().x + LEADERBOARD_RANKING_PADDING_LEFT;
 		yOffset = mRankingFrameSprite->getPosition().y + LEADERBOARD_RANKING_PADDING_TOP;
@@ -117,7 +121,7 @@ void Leaderboard::draw(bool levelRunning) {
 		// Face on the Left
 		sf::Sprite *kartFace = (*lkIter).rk->kart->leadeboardSprite();
 		kartFace->setPosition(rowMarginLeft, rowMarginTop - 2);
-		kartFace->setScale(Const::WINDOW_WIDTH / 640.0, Const::WINDOW_HEIGHT / 480.0);
+		kartFace->setScale(Config::WINDOW_WIDTH / 640.0, Config::WINDOW_HEIGHT / 480.0);
 
 		std::string leaderboardNameStr = std::to_string(kartPosition) + ". ";
 		leaderboardNameStr += (*lkIter).rk->kart->name();
@@ -130,11 +134,14 @@ void Leaderboard::draw(bool levelRunning) {
 			rowMarginTop
 		);
 
-
         mWindow->draw(*kartFace);
         mWindow->draw(*kartText);
     }
 }
+
+// ------------------------
+// PRIVATE -----------------
+// ------------------------
 
 sf::Text *Leaderboard::initializedKartText(RacingKart *rk) {
 	sf::Text *kartText = new sf::Text();
@@ -151,8 +158,6 @@ bool Leaderboard::racingKartCompareFunction(LeaderboardKart &lk1, LeaderboardKar
 	RacingKart *k1 = lk1.rk;
 	RacingKart *k2 = lk2.rk;
 
-	// bool verbose = (strcmp(k1->name(), "Me") == 0 || strcmp(k1->name(), "Me") == 0)
-
 	// Check if a kart is ahead of a lap
 	if (k1->currentLap != k2->currentLap) {
 		return k1->currentLap > k2->currentLap;
@@ -162,7 +167,9 @@ bool Leaderboard::racingKartCompareFunction(LeaderboardKart &lk1, LeaderboardKar
 	if (k1->currentSector.index != k2->currentSector.index)
 		return k1->currentSector.index > k2->currentSector.index;
 
-	// Check within the same sector
+
+	// The karts have the same lap count and sector, check within the same sector
+	// according to the sector's direction type.
 
 	switch(k1->currentSector.type /* same as k2->currentSector.type */) {
 		case Map::SectorDirectionType::UpLeft:
@@ -201,7 +208,7 @@ bool Leaderboard::racingKartCompareFunction(LeaderboardKart &lk1, LeaderboardKar
 				return k1->kart->position().x < k2->kart->position().x;
 			return k1->kart->position().y > k2->kart->position().y;
 	}
-	return false;
+	return false; // Should not happen
 }
 
 bool Leaderboard::canLog() {

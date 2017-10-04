@@ -66,7 +66,6 @@ public:
      * @param  cameraPoint    the camera point (observer) in the map (2D).
      * @param  basePoint      the baseline point on the screen.
      * @param  cameraAngle    the angle of observation from the camera to the map point.
-     * @param  horizonY       the y-coordinate of the horizon line on the screen.
      * @param  mapTileSize    the size that will be used for the tiles.
      * @param[in]  vp1        the vanish point on the horizon line opposite to the column point
      *                        used for build the perspective point.
@@ -79,10 +78,27 @@ public:
                             const Point &cameraPoint,
                             const Point &basePoint,
                             const Angle &cameraAngle,
-                            double horizonY,
                             double mapTileSize,
                             const Point &vp1,
                             const Point &vp2
+    );
+
+
+    /**
+     * Returns the point coordinate on the screen for the given parameters.
+     * @param[in]  vp1        the vanish point on the horizon line opposite to the column point
+     *                        used for build the perspective point.
+     * @param[in]  vp1        the vanish point on the horizon line opposite to the row point
+     *                        used for build the perspective point.
+     * @param[in]  pc         the column point on the baseline used for build the perspective point.
+     * @param[in]  pr         the row point on the baseline used for build the perspective point.
+     * @return                the point with screen coordinates in perspective view.
+     */
+    static Point perspectivePoint(
+                            const Point &vp1,
+                            const Point &vp2,
+                            const Point &pc,
+                            const Point &pr
     );
 
     /**
@@ -101,6 +117,32 @@ public:
         const Point &basePoint,
         Point &out_vp1,
         Point &out_vp2
+    );
+
+    /**
+     * Calculates the construction points for the given parameters.
+     * @param  mapPoint       the point representing the coordinate in the map (2D).
+     * @param  cameraPoint    the camera point (observer) in the map (2D).
+     * @param  basePoint      the baseline point on the screen.
+     * @param  cameraAngle    the angle of observation from the camera to the map point.
+     * @param  mapTileSize    the size that will be used for the tiles.
+     * @param[in]  vp1        the vanish point on the horizon line opposite to the column point
+     *                        used for build the perspective point.
+     * @param[in]  vp1        the vanish point on the horizon line opposite to the row point
+     *                        used for build the perspective point.
+     * @param[out]  out_pc    the column point on the baseline used for build the perspective point.
+     * @param[out]  out_pr    the row point on the baseline used for build the perspective point.
+     */
+    static void calculateConstructionPoints(
+        const Point &mapPoint,
+        const Point &cameraPoint,
+        const Point &basePoint,
+        const Angle &cameraAngle,
+        double mapTileSize,
+        const Point &vp1,
+        const Point &vp2,
+        Point &out_pc,
+        Point &out_pr
     );
 
     /**
@@ -156,38 +198,6 @@ public:
         const Point &basePoint,
         double horizonY,
         double screenWidth
-    );
-
-private:
-
-    /**
-     * Returns the point coordinate on the screen for the given parameters.
-     * This method gives out the perspective points used for build the final point (pc, pr, vp1, vp2).
-     * @param  mapPoint       the point representing the coordinate in the map (2D).
-     * @param  cameraPoint    the camera point (observer) in the map (2D).
-     * @param  basePoint      the baseline point on the screen.
-     * @param  cameraAngle    the angle of observation from the camera to the map point.
-     * @param  horizonY       the y-coordinate of the horizon line on the screen.
-     * @param  mapTileSize    the size that will be used for the tiles.
-     * @param[in]  vp1        the vanish point on the horizon line opposite to the column point
-     *                        used for build the perspective point.
-     * @param[in]  vp1        the vanish point on the horizon line opposite to the row point
-     *                        used for build the perspective point.
-     * @param[out]  out_pc    the column point on the baseline used for build the perspective point.
-     * @param[out]  out_pr    the row point on the baseline used for build the perspective point.
-     * @return                the point with screen coordinates in perspective view.
-     */
-    static Point perspectivePointInternal(
-                            const Point &mapPoint,
-                            const Point &cameraPoint,
-                            const Point &basePoint,
-                            const Angle &cameraAngle,
-                            double horizonY,
-                            double mapTileSize,
-                            const Point &vp1,
-                            const Point &vp2,
-                            Point &out_pc,
-                            Point &out_pr
     );
 };
 

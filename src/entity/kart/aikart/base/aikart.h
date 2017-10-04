@@ -3,14 +3,7 @@
 
 #include "kart.h"
 
-namespace sf {
-	class Texture;
-	class Sprite;
-	class Color;
-}
-
 class Point;
-class Level;
 
 /** Base entity representing a kart controller by the CPU. */
 class AIKart : public Kart {
@@ -31,7 +24,7 @@ public:
 
     virtual void update();
     virtual void draw();
-	
+
     int minimapSize();
 
 protected:

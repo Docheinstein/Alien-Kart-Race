@@ -19,6 +19,7 @@ public:
      *                    screen about async key pressure.
      */
     Launcher(sf::RenderWindow *window, KeyboardManager *keysManager);
+    ~Launcher();
 
     void update();
     void render();

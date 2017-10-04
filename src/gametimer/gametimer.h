@@ -1,8 +1,6 @@
 #ifndef GAME_TIMER_H
 #define GAME_TIMER_H
 
-#include "timeutil.h"
-
 #define EVENT_ON_TIMER_FINISH -1
 
 /**

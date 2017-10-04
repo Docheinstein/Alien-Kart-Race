@@ -1,6 +1,5 @@
 <map id="src/launcher/launcher.h" name="src/launcher/launcher.h">
-<area shape="rect" id="node2" href="$fadescreen_8h.html" title="fadescreen.h" alt="" coords="46,80,143,107"/>
+<area shape="rect" id="node2" href="$fadescreen_8h.html" title="fadescreen.h" alt="" coords="47,80,145,107"/>
 <area shape="rect" id="node3" href="$screen_8h.html" title="screen.h" alt="" coords="5,155,77,181"/>
-<area shape="rect" id="node5" href="$gametimer_8h.html" title="gametimer.h" alt="" coords="102,155,197,181"/>
-<area shape="rect" id="node6" href="$timeutil_8h.html" title="timeutil.h" alt="" coords="105,229,180,256"/>
+<area shape="rect" id="node5" href="$gametimer_8h.html" title="gametimer.h" alt="" coords="103,155,198,181"/>
 </map>

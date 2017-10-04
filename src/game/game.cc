@@ -3,7 +3,8 @@
 #include "keyboardmanager.h"
 #include "screenmanager.h"
 #include "launcher.h"
-#include "const.h"
+#include "timeutil.h"
+#include "config.h"
 
 #define LOG_TAG "{Game} "
 #define CAN_LOG 1
@@ -20,15 +21,19 @@ Game::~Game() {
 	delete mWindow;
 }
 
-// PUBLIC
+// ------------------------
+// PUBLIC -----------------
+// ------------------------
 
 void Game::start() {
-	const int TARGET_UPDATE_MS = 1000 / Const::TARGET_UPDATES_PER_SECOND;
+	const int TARGET_UPDATE_MS = 1000 / Config::TARGET_UPDATES_PER_SECOND;
 
 	// Represents the cycles between benchmarks.
-	const int CYCLE_TO_PERFORM_FOR_NOTIFY_AVG_TIME = 300;
+	const int MILLIS_BETWEEN_BENCHMARK_NOTIFICATION = 5000;
+	const int UPDATES_BETWEEN_BENCHMARK_NOTIFICATION =
+		TimeUtil::millisToUpdates(MILLIS_BETWEEN_BENCHMARK_NOTIFICATION);
 
-	int performedCycles = 0;
+	int performedCyclesFromLastBenchNotification = 0;
 	long cyclesMillisSum = 0;
 
 	// Game loop
@@ -48,7 +53,7 @@ void Game::start() {
 		// benchmark("Cycle is taking ", cycleMillis, "ms; ", cycleConsumedMillisPercentage,
 		// 			 "% of the available time.");
 
-		// There is enough time to sleep (in order not to consume CPU)
+		// There is enough time to sleep, do so (in order not to consume CPU)
 		if (cycleMillis <= TARGET_UPDATE_MS)
 			sleep(sf::milliseconds(TARGET_UPDATE_MS - cycleMillis));
 		else {
@@ -65,15 +70,15 @@ void Game::start() {
 			bench("Skipped ", skippedFrames, " frames");
 		}
 
-		performedCycles++;
-		if (performedCycles >= CYCLE_TO_PERFORM_FOR_NOTIFY_AVG_TIME) {
-			const double avgMillis = cyclesMillisSum / (double) performedCycles;
+		performedCyclesFromLastBenchNotification++;
+		if (performedCyclesFromLastBenchNotification >= UPDATES_BETWEEN_BENCHMARK_NOTIFICATION) {
+			const double avgMillis = cyclesMillisSum / (double) performedCyclesFromLastBenchNotification;
 			double avgMillisPercentage = (double) avgMillis / TARGET_UPDATE_MS * 100;
 			bench(
-			 "Avarage ms taken by lasts ", CYCLE_TO_PERFORM_FOR_NOTIFY_AVG_TIME,
-			 " cycles: ", avgMillis,
-			 "ms; ", avgMillisPercentage, "% of the available time.");
-			performedCycles = 0;
+			 "Avarage ms taken for the game cycles within the last ",
+			  MILLIS_BETWEEN_BENCHMARK_NOTIFICATION, "ms: ", avgMillis,
+			 "ms (", avgMillisPercentage, "% of the available time).");
+			performedCyclesFromLastBenchNotification = 0;
 			cyclesMillisSum = 0;
 		}
     }
@@ -87,11 +92,14 @@ KeyboardManager * Game::keysManager() {
 	return mAsyncKeyboardManager;
 }
 
-// PRIVATE
+// ------------------------
+// PRIVATE ----------------
+// ------------------------
+
 
 void Game::init() {
     mWindow = new sf::RenderWindow(sf::VideoMode(
-		Const::WINDOW_WIDTH, Const::WINDOW_HEIGHT), GAME_TITLE);
+		Config::WINDOW_WIDTH, Config::WINDOW_HEIGHT), GAME_TITLE);
 	mAsyncKeyboardManager = new KeyboardManager();
 	mScreenManager = new ScreenManager();
 	mScreenManager->setScreen(new Launcher(mWindow, mAsyncKeyboardManager));

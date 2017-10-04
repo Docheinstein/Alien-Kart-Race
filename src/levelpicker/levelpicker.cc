@@ -1,10 +1,11 @@
 #include <SFML/Graphics.hpp>
 #include "keyboardmanager.h"
 #include "levelpicker.h"
-#include "const.h"
+#include "config.h"
 #include "fontfactory.h"
 #include "resourceutil.h"
 #include "level.h"
+#include "sfmlutil.h"
 
 #define LOG_TAG "{LevelPicker} "
 #define CAN_LOG 1
@@ -19,18 +20,18 @@
 #define PICKER_SELECTED_ELEMENT_ALPHA_LOW  128
 #define PICKER_SELECTED_ELEMENT_ALPHA_INCREMENT 3
 
-const float PICKER_SECTION_HEADER_FONT_SIZE = Const::WINDOW_HEIGHT / 18;
-const float PICKER_ELEMENT_FONT_SIZE = Const::WINDOW_HEIGHT / 20;
+const float PICKER_SECTION_HEADER_FONT_SIZE = Config::WINDOW_HEIGHT / 18;
+const float PICKER_ELEMENT_FONT_SIZE = Config::WINDOW_HEIGHT / 20;
 
-const float PICKER_FRAME_PADDING_TOP = Const::WINDOW_HEIGHT / 12;
+const float PICKER_FRAME_PADDING_TOP = Config::WINDOW_HEIGHT / 12;
 
-const float PICKER_ELEMENT_FROM_SECION_HEADER_MARGIN_TOP = Const::WINDOW_HEIGHT / 6;
-const float PICKER_NAME_FROM_ELEMENT_MARGIN_TOP = Const::WINDOW_HEIGHT / 30;
+const float PICKER_ELEMENT_FROM_SECION_HEADER_MARGIN_TOP = Config::WINDOW_HEIGHT / 6;
+const float PICKER_NAME_FROM_ELEMENT_MARGIN_TOP = Config::WINDOW_HEIGHT / 28;
 
 LevelPicker::LevelPicker(sf::RenderWindow *w, KeyboardManager *km) : FadeScreen(w, km) {
     // Background
     sf::Image backgroundImage;
-    backgroundImage.create( Const::WINDOW_WIDTH, Const::WINDOW_HEIGHT,
+    backgroundImage.create( Config::WINDOW_WIDTH, Config::WINDOW_HEIGHT,
                             sf::Color(BACKGROUND_COLOR_RGB));
 
     mBackgroundTexture = new sf::Texture();
@@ -45,26 +46,23 @@ LevelPicker::LevelPicker(sf::RenderWindow *w, KeyboardManager *km) : FadeScreen(
 
 	mFrameSprite = new sf::Sprite();
 	mFrameSprite->setTexture(*mFrameTexture);
-	mFrameSprite->setOrigin(
-		mFrameSprite->getLocalBounds().width / 2,
-		mFrameSprite->getLocalBounds().height / 2
-	);
-	mFrameSprite->setScale(Const::WINDOW_WIDTH / 640.0, Const::WINDOW_HEIGHT / 480.0);
+    SFMLUtil::centerOrigin(mFrameSprite);
+	mFrameSprite->setScale(Config::WINDOW_WIDTH / 640.0, Config::WINDOW_HEIGHT / 480.0);
 	mFrameSprite->setPosition(
-		Const::WINDOW_WIDTH / 2,
-		Const::WINDOW_HEIGHT / 2
+		Config::WINDOW_WIDTH / 2,
+		Config::WINDOW_HEIGHT / 2
 	);
 
     // Sections header
     mKartHeaderText = initializedPickerSectionText("Select Kart");
     mKartHeaderText->setPosition(
-        Const::WINDOW_WIDTH / 2,
+        Config::WINDOW_WIDTH / 2,
         mFrameSprite->getPosition().y - mFrameSprite->getGlobalBounds().height / 2
             + PICKER_FRAME_PADDING_TOP
     );
     mMapHeaderText  = initializedPickerSectionText("Select Map");
     mMapHeaderText->setPosition(
-        Const::WINDOW_WIDTH / 2,
+        Config::WINDOW_WIDTH / 2,
         mKartHeaderText->getPosition().y +  mFrameSprite->getGlobalBounds().height / 2
             - PICKER_FRAME_PADDING_TOP / 2
     );
@@ -115,6 +113,10 @@ LevelPicker::~LevelPicker() {
     mKeysManager->removeListener(this);
 }
 
+// ------------------------
+// PUBLIC -----------------
+// ------------------------
+
 void LevelPicker::update() {
     FadeScreen::update();
     if (mCurrentPickerSection == Karts) {
@@ -151,7 +153,7 @@ void LevelPicker::render() {
         int iterIndex = i - mKarts.elements.begin();
 
         float marginLeft =
-            mFrameSprite->getPosition().x - mFrameSprite->getOrigin().x +
+            mFrameSprite->getPosition().x - mFrameSprite->getGlobalBounds().width / 2 +
             mFrameSprite->getGlobalBounds().width *
                 (iterIndex + 1) / (mKarts.elements.size() + 1);
 
@@ -162,17 +164,20 @@ void LevelPicker::render() {
 
         (*i).name->setPosition(
             marginLeft,
-            (*i).sprite->getPosition().y - (*i).sprite->getOrigin().y +
+            (*i).sprite->getPosition().y - (*i).sprite->getOrigin().y * (*i).sprite->getScale().y +
                 (*i).sprite->getGlobalBounds().height + PICKER_NAME_FROM_ELEMENT_MARGIN_TOP
         );
 
         if (mKarts.currentSelectedIndex == iterIndex) {
+            // Cursor over this option and this section => ighlighted and blinking text
             if (mCurrentPickerSection == Karts)
                 (*i).name->setFillColor(sf::Color(  PICKER_ELEMENT_HIGHLIGHTED_COLOR_RGB,
                                                     mKarts.currentSelectedAlpha));
+            // This is the selected option, but the cursor is not over this section
             else
                 (*i).name->setFillColor(sf::Color(PICKER_ELEMENT_SELECTED_COLOR_RGB));
         }
+        // Cursor in a different section and this option is unselected
         else
             (*i).name->setFillColor(sf::Color(PICKER_ELEMENT_UNSELECTED_COLOR_RGB));
 
@@ -188,7 +193,7 @@ void LevelPicker::render() {
         int iterIndex = i - mMaps.elements.begin();
 
         float marginLeft =
-            mFrameSprite->getPosition().x - mFrameSprite->getOrigin().x +
+            mFrameSprite->getPosition().x - mFrameSprite->getGlobalBounds().width / 2 +
             mFrameSprite->getGlobalBounds().width *
                 (iterIndex + 1) / (mMaps.elements.size() + 1);
 
@@ -199,17 +204,20 @@ void LevelPicker::render() {
 
         (*i).name->setPosition(
             marginLeft,
-            (*i).sprite->getPosition().y - (*i).sprite->getOrigin().y +
+            (*i).sprite->getPosition().y - (*i).sprite->getOrigin().y * (*i).sprite->getScale().y +
                 (*i).sprite->getGlobalBounds().height + PICKER_NAME_FROM_ELEMENT_MARGIN_TOP
         );
 
         if (mMaps.currentSelectedIndex == iterIndex) {
             if (mCurrentPickerSection == Maps)
+                // Cursor over this option and this section => ighlighted and blinking text
                 (*i).name->setFillColor(sf::Color(  PICKER_ELEMENT_HIGHLIGHTED_COLOR_RGB,
                                                     mMaps.currentSelectedAlpha));
+            // This is the selected option, but the cursor is not over this section
             else
                 (*i).name->setFillColor(sf::Color(PICKER_ELEMENT_SELECTED_COLOR_RGB));
         }
+        // Cursor in a different section and this option is unselected
         else
             (*i).name->setFillColor(sf::Color(PICKER_ELEMENT_UNSELECTED_COLOR_RGB));
 
@@ -223,6 +231,8 @@ void LevelPicker::render() {
 void LevelPicker::onKeyPressed(int keyCode) {
     if (!mInPicking)
         return;
+
+    // Change the section
     if (keyCode == sf::Keyboard::Key::Up ||
         keyCode == sf::Keyboard::Key::Down) {
 
@@ -238,6 +248,8 @@ void LevelPicker::onKeyPressed(int keyCode) {
                     % static_cast<int>(_PickerSectionCount)
             );
     }
+
+    // Change the option within the sector
     if (keyCode == sf::Keyboard::Key::Left ||
         keyCode == sf::Keyboard::Key::Right) {
 
@@ -267,11 +279,35 @@ void LevelPicker::onKeyPressed(int keyCode) {
             mMaps.currentSelectedIndex = newIndex;
     }
 
+    // The level will be started with the selected options
 	else if (keyCode == sf::Keyboard::Key::Return) {
         mInPicking = false;
         fadeOut();
 	}
 }
+
+// ------------------------
+// PROTECTED --------------
+// ------------------------
+
+void LevelPicker::fadeInFinished() {
+
+}
+
+void LevelPicker::fadeOutFinished() {
+    d("Starting level",
+        "\n\tSelected kart type : ", mKarts.elements[mKarts.currentSelectedIndex].type,
+        "\n\tSelected map type  : ",  mMaps.elements[mKarts.currentSelectedIndex].type
+    );
+    mSegue = new Level( mWindow, mKeysManager,
+                        mKarts.elements[mKarts.currentSelectedIndex].type,
+                        mMaps.elements[mMaps.currentSelectedIndex].type);
+}
+
+
+// ------------------------
+// PRIVATE ----------------
+// ------------------------
 
 sf::Text *LevelPicker::initializedPickerSectionText(const char *str) {
     sf::Text *text = new sf::Text();
@@ -279,14 +315,11 @@ sf::Text *LevelPicker::initializedPickerSectionText(const char *str) {
 	text->setCharacterSize(PICKER_SECTION_HEADER_FONT_SIZE);
 	text->setFillColor(sf::Color(PICKER_SECTION_HEADER_COLOR_RGB));
 	text->setOutlineColor(sf::Color::White);
-	text->setOutlineThickness((float)Const::WINDOW_HEIGHT / 240) ;
+	text->setOutlineThickness((float)Config::WINDOW_HEIGHT / 240) ;
 
     text->setString(str);
 
-	text->setOrigin(
-        text->getLocalBounds().width / 2,
-        text->getLocalBounds().height / 2
-    );
+    SFMLUtil::centerOrigin(text);
 
     return text;
 }
@@ -296,23 +329,18 @@ void LevelPicker::addPickableKart(KartFactory::KartType type) {
     pickerKart.type = type;
 
     pickerKart.sprite = KartFactory::pickerSprite(type);
-	pickerKart.sprite->setScale(Const::WINDOW_WIDTH / 640.0, Const::WINDOW_HEIGHT / 480.0);
-    pickerKart.sprite->setOrigin(
-        pickerKart.sprite->getLocalBounds().width / 2,
-        pickerKart.sprite->getLocalBounds().height / 2
-    );
+	pickerKart.sprite->setScale(Config::WINDOW_WIDTH / 640.0, Config::WINDOW_HEIGHT / 480.0);
+    SFMLUtil::centerOrigin(pickerKart.sprite);
 
     pickerKart.name = new sf::Text();
     pickerKart.name->setFont((FontFactory::font(FontFactory::FontType::Semibold)));
 	pickerKart.name->setCharacterSize(PICKER_ELEMENT_FONT_SIZE);
 	// pickerKart.name->setFillColor(sf::Color(PICKER_ELEMENT_UNSELECTED_COLOR_RGB));
 	pickerKart.name->setOutlineColor(sf::Color::White);
-	pickerKart.name->setOutlineThickness(Const::WINDOW_WIDTH / 320.0) ;
+	pickerKart.name->setOutlineThickness(Config::WINDOW_WIDTH / 320.0) ;
     pickerKart.name->setString(KartFactory::name(type));
-    pickerKart.name->setOrigin(
-        pickerKart.name->getLocalBounds().width / 2,
-        pickerKart.name->getLocalBounds().height / 2
-    );
+    SFMLUtil::centerOrigin(pickerKart.name);
+
     mKarts.elements.push_back(pickerKart);
 }
 
@@ -322,34 +350,18 @@ void LevelPicker::addPickableMap(MapFactory::MapType type) {
     pickerMap.type = type;
 
     pickerMap.sprite = MapFactory::pickerSprite(type);
-	pickerMap.sprite->setScale(Const::WINDOW_WIDTH / 640.0, Const::WINDOW_HEIGHT / 480.0);
-    pickerMap.sprite->setOrigin(
-        pickerMap.sprite->getLocalBounds().width / 2,
-        pickerMap.sprite->getLocalBounds().height / 2
-    );
+	pickerMap.sprite->setScale(Config::WINDOW_WIDTH / 640.0, Config::WINDOW_HEIGHT / 480.0);
+    SFMLUtil::centerOrigin(pickerMap.sprite);
 
     pickerMap.name = new sf::Text();
     pickerMap.name->setFont((FontFactory::font(FontFactory::FontType::Semibold)));
 	pickerMap.name->setCharacterSize(PICKER_ELEMENT_FONT_SIZE);
 	// pickerMap.name->setFillColor(sf::Color(PICKER_ELEMENT_UNSELECTED_COLOR_RGB));
 	pickerMap.name->setOutlineColor(sf::Color::White);
-	pickerMap.name->setOutlineThickness(Const::WINDOW_WIDTH / 320.0) ;
+	pickerMap.name->setOutlineThickness(Config::WINDOW_WIDTH / 320.0) ;
     pickerMap.name->setString(MapFactory::name(type));
-    pickerMap.name->setOrigin(
-        pickerMap.name->getLocalBounds().width / 2,
-        pickerMap.name->getLocalBounds().height / 2
-    );
+    SFMLUtil::centerOrigin(pickerMap.name);
     mMaps.elements.push_back(pickerMap);
-}
-
-void LevelPicker::fadeInFinished() {
-
-}
-
-void LevelPicker::fadeOutFinished() {
-    mSegue = new Level( mWindow, mKeysManager,
-                        mKarts.elements[mKarts.currentSelectedIndex].type,
-                        mMaps.elements[mMaps.currentSelectedIndex].type);
 }
 
 const char * LevelPicker::logTag() {

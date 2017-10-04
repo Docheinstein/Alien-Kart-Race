@@ -1,4 +1,6 @@
 <map id="src/screen/manager/screenmanager.cc" name="src/screen/manager/screenmanager.cc">
-<area shape="rect" id="node2" href="$screenmanager_8h.html" title="screenmanager.h" alt="" coords="5,95,128,121"/>
-<area shape="rect" id="node3" href="$screen_8h.html" title="screen.h" alt="" coords="152,95,224,121"/>
+<area shape="rect" id="node2" href="$screenmanager_8h.html" title="screenmanager.h" alt="" coords="94,95,217,121"/>
+<area shape="rect" id="node8" href="$screen_8h.html" title="screen.h" alt="" coords="241,95,313,121"/>
+<area shape="rect" id="node3" href="$loggerinterface_8h.html" title="loggerinterface.h" alt="" coords="96,169,215,196"/>
+<area shape="rect" id="node4" href="$logger_8h.html" title="logger.h" alt="" coords="60,244,128,271"/>
 </map>

@@ -1,7 +1,6 @@
 <map id="src/util/perspective/perspectiveutil.h" name="src/util/perspective/perspectiveutil.h">
 <area shape="rect" id="node2" href="$aikart_8cc.html" title="src/entity/kart/aikart\l/base/aikart.cc" alt="" coords="5,95,144,136"/>
-<area shape="rect" id="node3" href="$kartfactory_8cc.html" title="src/entity/kart/kartfactory\l/kartfactory.cc" alt="" coords="168,95,336,136"/>
-<area shape="rect" id="node4" href="$playerkart_8cc.html" title="src/entity/kart/playerkart\l/base/playerkart.cc" alt="" coords="360,95,523,136"/>
-<area shape="rect" id="node5" href="$map_8cc.html" title="src/map/base/map.cc" alt="" coords="547,102,695,129"/>
-<area shape="rect" id="node6" href="$perspectiveutil_8cc.html" title="src/util/perspective\l/perspectiveutil.cc" alt="" coords="719,95,851,136"/>
+<area shape="rect" id="node3" href="$playerkart_8cc.html" title="src/entity/kart/playerkart\l/base/playerkart.cc" alt="" coords="168,95,331,136"/>
+<area shape="rect" id="node4" href="$map_8cc.html" title="src/map/base/map.cc" alt="" coords="355,102,503,129"/>
+<area shape="rect" id="node5" href="$perspectiveutil_8cc.html" title="src/util/perspective\l/perspectiveutil.cc" alt="" coords="527,95,659,136"/>
 </map>

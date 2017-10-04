@@ -45,6 +45,9 @@ protected:
 
 	/** Initializes the sprites used for the turning render. */
 	void initSprites();
+
+	const char *logTag();
+	bool canLog();
 };
 
 #endif // PLAYER_KART_H

@@ -1,24 +1,37 @@
 #include <SFML/Graphics.hpp>
-#include <cmath>
-#include <iostream>
-#include "game.h"
+#include "kart.h"
 #include "level.h"
 #include "map.h"
-#include "kart.h"
-#include "logger.h"
+#include "mathutil.h"
 
-#define LOG_TAG "{Kart} "
-#define CAN_LOG 1
-
+// Enable the flight mode for moving through the map without
+// slowness or bounds, at constant speed in the pressed direction.
 #define FLIGHT_MODE 0
 
+// Little angle (just to be sure that angles don't
+// assume the 0 value (awful things might happen...))
+const double ANGLE_RAD_EPSILON = (double)1 / (1 << 9);
+
+// Factor of impact when bouncing with a wall
 const double COLLISION_BOUNCE_FACTOR = 0.7;
+
+// How much faster does the bouce force reduce its magnitude
 const double COLLISION_BOUNCE_REDUCTION_FACTOR = (double)1 / 120;
 
+// Factor of impact wheh crashing with a kart
 const double COLLISION_CRASH_FACTOR = 0.2;
+
+// How much faster does the crash force reduce its magnitude
 const double COLLISION_CRASH_REDUCTION_FACTOR = (double)1 / (1 << 9);
 
-const int MINI_MAP_KART_SIZE = 2;
+// How much does the angular increment decrease while skidding.
+const double SKID_ANGULAR_INCREMENT_DECREASE_FACTOR = 0.45;
+
+// The speed factor the kart assumes when skid at the maximum turning angle.
+const double SKID_SPEED_BOUND_LOWEST = 0.8;
+
+// The speed factor the kart assumes when skid at the minimum turning angle.
+const double SKID_SPEED_BOUND_HIGHEST = 1.0;
 
 Kart::Kart(Level * level, const char *kartName, sf::Color *kartColor) {
 	mLevel = level;
@@ -26,7 +39,7 @@ Kart::Kart(Level * level, const char *kartName, sf::Color *kartColor) {
 	mColor = kartColor;
 
 	mDirectionalPoint.position = Point {0, 0};
-	mDirectionalPoint.direction = Angle {(double)1 / (1 << 5)};
+	mDirectionalPoint.direction = Angle {ANGLE_RAD_EPSILON};
 	mSpeed = 0;
 	mWheelTurning = 0;
 }
@@ -37,7 +50,9 @@ Kart::~Kart() {
 	delete mColor;
 }
 
-// PUBLIC
+// ------------------------
+// PUBLIC -----------------
+// ------------------------
 
 Point Kart::position() {
 	return mDirectionalPoint.position;
@@ -73,6 +88,8 @@ void Kart::setDirection(const Angle a) {
 
 void Kart::update(bool goForward, bool goBackward, bool goLeft, bool goRight) {
 #if FLIGHT_MODE
+	// When in flight mode the kart goes directly
+	// to the wanted direction, ignoring any obstacle.
 	double turning = 0;
 	double speed = 0;
 
@@ -89,7 +106,7 @@ void Kart::update(bool goForward, bool goBackward, bool goLeft, bool goRight) {
 	mDirectionalPoint.direction += turning;
 	mDirectionalPoint.advance(speed);
 #else
-	Map::TileEvent nextTileEvent = mLevel->map()->tileEvent(position());
+	Map::TileEvent currentTileEvent = mLevel->map()->tileEvent(position());
 	bool skidding = isSkidding();
 
 	double maxWheelTurning = mParams.maxWheelTurning;
@@ -102,7 +119,8 @@ void Kart::update(bool goForward, bool goBackward, bool goLeft, bool goRight) {
 		mParams.steeringWheelTurningFactor;
 	double returnFactor = mParams.steeringWheelReturnFactor;
 
-	if (nextTileEvent == Map::TileEvent::Slow) {
+	// Reduces the parameters if on a slow type tile
+	if (currentTileEvent == Map::TileEvent::Slow) {
 		maxWheelTurning *= mParams.slownessFactor;
 		maxSpeed *= mParams.slownessFactor;
 		minSpeed *= mParams.slownessFactor;
@@ -113,7 +131,7 @@ void Kart::update(bool goForward, bool goBackward, bool goLeft, bool goRight) {
 	}
 
 	// Left / Right
-	// Ensure the wheer angle is under the maximum
+	// Ensures the wheel angle is under the maximum
 	if (goRight) {
 		mWheelTurning += turningFactor;
 		mWheelTurning = std::min(mWheelTurning, maxWheelTurning);
@@ -123,6 +141,8 @@ void Kart::update(bool goForward, bool goBackward, bool goLeft, bool goRight) {
 		mWheelTurning = std::max(mWheelTurning, -maxWheelTurning);
 	}
 	else {
+		// If neither left nor right is pressed, let the steering wheel
+		// return to its natural assets (epsilon degrees)
 		if (mWheelTurning != 0) {
 			if (mWheelTurning > 0) {
 				mWheelTurning -= returnFactor;
@@ -133,16 +153,13 @@ void Kart::update(bool goForward, bool goBackward, bool goLeft, bool goRight) {
 				mWheelTurning = std::min(mWheelTurning, (double) 0);
 			}
 		}
-		// else {
-		// 	d("Steering wheel on its natural asset");
-		// }
 	}
 
-	// Forward / Backward
 	double previousSpeed = mSpeed;
 	double previousRow = mDirectionalPoint.position.y;
 	double previousCol = mDirectionalPoint.position.x;
 
+	// Forward / Backward
 	if (goForward) {
 		// Accellerating
 
@@ -169,8 +186,9 @@ void Kart::update(bool goForward, bool goBackward, bool goLeft, bool goRight) {
 				mSpeed -= backAccelerationFactor;
 		}
 	}
+	// Neither forward nor backward is requested => decellerate in the direction
+	// opposite to the current one
 	else {
-		// Decellerating
 		// Was going forward => decrease speed
 		if (mSpeed > 0) {
 			mSpeed -= mParams.decelerationFactor;
@@ -185,58 +203,58 @@ void Kart::update(bool goForward, bool goBackward, bool goLeft, bool goRight) {
 		}
 	}
 
+	// Calculates the angular speed that depends on the current
+	// angle of the steering wheel and add it to the direction
+
 	double turningRadius = 1 / sin(mWheelTurning);
 	double turningPerimeter = 2 * M_PI * turningRadius;
 	double angularSpeed = mSpeed / turningPerimeter;
 	double angularIncrement = angularSpeed * 2 * M_PI;
 
 	if (skidding)
-		angularIncrement *= 0.45;
+		angularIncrement *= SKID_ANGULAR_INCREMENT_DECREASE_FACTOR;
 
 	mDirectionalPoint += angularIncrement;
 
 	advanceInCurrentDirection();
 
-	if (nextTileEvent == Map::TileEvent::Unpassable) {
+	// If we are traversing an unpassable object, discard any
+	// calc about direction and speed and starts a bounce
+	if (currentTileEvent == Map::TileEvent::Unpassable) {
 		mSpeed = previousSpeed;
 		mDirectionalPoint.position.y = previousRow;
 		mDirectionalPoint.position.x = previousCol;
 		bounce();
 	}
 
-	// Ensure direction is not 0, just in case (not a good number for division and
-	// trigonometric function)
+	// Ensure direction is not 0, just in case (not a good number
+	//  for division and trigonometric function)
 	if (mDirectionalPoint.direction.rad == 0)
-		mDirectionalPoint.direction.rad = 1 / (1 << 8); // Little value > 0
+		mDirectionalPoint.direction.rad = ANGLE_RAD_EPSILON; // Little value > 0
 
-/*
-	std::cout << "COL\t: " << mDirectionalPoint.position.x << std::endl;
-	std::cout << "ROW\t: " << mDirectionalPoint.position.y << std::endl;
-	std::cout << "Dir\t: " << mDirection << std::endl << std::endl;
-*/
-	// d("Kart [ROW: ", mPosition.y, ", COL: ", mPosition.x, "]");
-	// Map *m = Game::instance().level()->map();
-	// if (m->getTile(mPosition.y, mPosition.x) == 4) {
-	// 	d("Over an event tile");
-	// }
+	// d2("Updating kart [", name(), "] ",
+	// 	"\n---- Requested movement ----",
+	// 	"\n\tForward            : ", goForward,
+	// 	"\n\tBackward           : ", goBackward,
+	// 	"\n\tLeft               : ", goLeft,
+	// 	"\n\tRight              : ", goRight,
+	// 	"\n---- Kart details ----",
+	// 	"\n\tPosition:          :", position(),
+	// 	"\n\tDirection:         :", direction(),
+	// 	"\n\tSpeed:             :", mSpeed,
+	// 	"\n\tWheel Turning:     :", mWheelTurning,
+	// 	"\n---- Kart extra details ----",
+	// 	"\n\tIs skidding        :", isSkidding(),
+	// 	"\n\tIs bouncing        :", isBouncing(),
+	// 	"\n\tOn Slow tile       :", (currentTileEvent == Map::TileEvent::Slow),
+	// 	"\n\tOn Unpassable tile :", (currentTileEvent == Map::TileEvent::Unpassable)
+	// );
 #endif
-
-	// d("\n");
-	// d("Direction: \t", direction().rad * 180 / M_PI, " deg");
-	// d("Speed:\t\t", mSpeed);
-	// d("MAX SPEED\t", mMaxSpeed);
-	// d("Wheel turning:\t", mWheelTurning);
-	// d("turningRadius:\t", turningRadius);
-	// d("turningPerimeter:", turningPerimeter);
-	// d("angularSpeed:\t", angularSpeed);
-	// d("angularIncrement:", angularIncrement);
-}
-
-void Kart::update() {
-
 }
 
 void Kart::crash(Kart *k) {
+	// Calculate the crash force by taking the angle betweeen the
+	// coordinate of the two karts.
 	DirectionalPoint kartsDirPoint(k->position(), position());
 
 	mCollisionForces.push_back(
@@ -248,10 +266,15 @@ void Kart::crash(Kart *k) {
 	);
 }
 
-void Kart::bounce() {
-	if (!isBouncing()) {
-		d2("New bounce!");
+// ------------------------
+// PROTECTED --------------
+// ------------------------
 
+void Kart::bounce() {
+	// Do not bounce if its already bouncing.
+	if (!isBouncing()) {
+		// Add a bounce force that goes to the opposite direction to
+		// the current one
 		DirectionalPoint oppositeDirPoint(position(), Angle {(direction().rad + M_PI) });
 		double bounceMagnitude = mSpeed * COLLISION_BOUNCE_FACTOR / mParams.weight;
 		Vector oppositeVector {oppositeDirPoint.direction, bounceMagnitude};
@@ -259,8 +282,11 @@ void Kart::bounce() {
 		while (mLevel->map()->tileEvent(position()) == Map::TileEvent::Unpassable)
 			mDirectionalPoint.advance(oppositeVector);
 
+		// Reduce the current speed to 0: only the bounce force will act on this kart
 		mSpeed = 0;
 		mCollisionForces.push_back(CollisionVector { Bounce, oppositeVector });
+
+		d("Kart [", name(), "] started a bounce: ", oppositeVector);
 	}
 }
 
@@ -282,35 +308,30 @@ void Kart::advanceInCurrentDirection() {
 	double realSpeed = mSpeed;
 
 	if (isSkidding()) {
-		// d2("Is Skidding!");
-		double maxDeSkid = mParams.maxWheelTurning - mParams.wheelTurningSkidPoint;
-		double deSkid = fabs(mWheelTurning) - mParams.wheelTurningSkidPoint;
-		double skidPercentage = deSkid / maxDeSkid;
+		// While skidding the speed is reduced to a number between
+		// the lowest and the highest bound, that depends on the current skid ratio.
+		double speedBoundWhileSkidding = MathUtil::changeRange(
+			Range {mParams.maxWheelTurning, mParams.wheelTurningSkidPoint},
+			Range {SKID_SPEED_BOUND_LOWEST, SKID_SPEED_BOUND_HIGHEST},
+			fabs(mWheelTurning)
+		);
 
-		double lowestSpeedBoundDueSkid = 0.8;
-		double highestSpeedBoundDueSkid = 1.0;
+		d2("Kart [", name(), "] reduces its speed because of the skid by a factor of: ",
+			speedBoundWhileSkidding);
 
-		double maxDeSpeedBoundForSKid = highestSpeedBoundDueSkid - lowestSpeedBoundDueSkid;
-		double speedBoundForSkid = lowestSpeedBoundDueSkid + maxDeSpeedBoundForSKid * (1 - skidPercentage);
-
-		realSpeed *= speedBoundForSkid;
-		// d2("mSpeed", mSpeed);
-		// d2("maxDeSkid", maxDeSkid);
-		// d2("deSkid", deSkid);
-		// d2("skidPercentage", skidPercentage);
-		// d2("speedBoundForSkid", speedBoundForSkid);
-		// d2("realSpeed", realSpeed);
+		realSpeed *= speedBoundWhileSkidding;
 	}
 
 	Vector finalForce;
 	finalForce.direction = direction();
 	finalForce.magnitude = realSpeed;
 
+	// Determinate the final force by sum every force acting on the kart
     for (std::list<CollisionVector>::iterator collisionIter = mCollisionForces.begin();
         collisionIter != mCollisionForces.end();
 		/* Do not increment by default */) {
-
-		// d2("Force: ", (*collisionIter).v, " will contribuite to final force");
+		d2("Kart [", name(), "]; Force ", (*collisionIter).v,
+			" will contribuite to final force vector");
 		finalForce += (*collisionIter).v;
 
 		double forceDecrement = mParams.weight;
@@ -326,7 +347,7 @@ void Kart::advanceInCurrentDirection() {
 		bool newSign = (*collisionIter).v.magnitude > 0;
 
 		if (sign != newSign || (*collisionIter).v.magnitude == 0) {
-			// d2("Erasing force: ", (*collisionIter).v);
+			d2("Kart [", name(), "]; Force ", (*collisionIter).v, " finished its lifetime");
 			collisionIter = mCollisionForces.erase(collisionIter);
 		}
 		else {
@@ -335,12 +356,4 @@ void Kart::advanceInCurrentDirection() {
 	}
 
 	mDirectionalPoint.advance(finalForce);
-}
-
-const char * Kart::logTag() {
-	return LOG_TAG;
-}
-
-bool Kart::canLog() {
-	return CAN_LOG;
 }

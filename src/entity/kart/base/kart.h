@@ -139,17 +139,6 @@ public:
 	void setDirection(Angle a);
 
 	/**
-	 * Updates the kart for the given choice.
-	 * This methods handles changes of speed, direction and collision with
-	 * objects in the map (bounds) but not with other karts.
-	 * @param goForward  whether go forward.
-	 * @param goBackward whether go backward.
-	 * @param goLeft     whether go left.
-	 * @param goRight    whether go right.
-	 */
-	void update(bool goForward, bool goBackward, bool goLeft, bool goRight);
-
-	/**
 	 * Handles the crash with the given kart.
 	 * If this kart is already crashing with the given kart, the crash will
 	 * be ignored, otherwise a collision force of a magnitute depending on
@@ -159,6 +148,17 @@ public:
 	 * @param k the kart this instance of kart is crashing with.
 	 */
 	void crash(Kart *k);
+
+	/**
+	 * Updates the kart for the given choice.
+	 * This methods handles changes of speed, direction and collision with
+	 * objects in the map (bounds) but not with other karts.
+	 * @param goForward  whether go forward.
+	 * @param goBackward whether go backward.
+	 * @param goLeft     whether go left.
+	 * @param goRight    whether go right.
+	 */
+	void update(bool goForward, bool goBackward, bool goLeft, bool goRight);
 
 	/** Updates the state of this kart */
 	virtual void update() = 0;
@@ -251,9 +251,6 @@ protected:
 	 * going to the current direction (i.e. while bouncing or crashing)-
 	 */
 	void advanceInCurrentDirection();
-
-    const char *logTag();
-    bool canLog();
 };
 
 #endif // KART_H

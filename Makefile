@@ -72,8 +72,8 @@ CXXFLAGS = $(STD_11_FLAG) $(INCLUDE_PARAMS) $(WARNING_FLAG)
 release: CXXFLAGS += -D$(DEBUG_OUTPUT_DEFINE_NAME)=0
 release: main
 
-# Compiles in debug mode with maximum verbosity (2)
-debug: debug2
+# Compiles in debug mode with default verbosity (1)
+debug: debug1
 
 # Compiles in debug mode with verbosity set to 1
 debug1: CXXFLAGS += -D$(DEBUG_OUTPUT_DEFINE_NAME)=1 $(DEBUG_FLAG)

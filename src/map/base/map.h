@@ -152,13 +152,6 @@ public:
 	int rowCount();
 
 	/**
-	 * Returns the event associated with the tile at the given point.
-	 * @param  p a point on the map.
-	 * @return  the event associated with tile that contains the given point.
-	 */
-	TileEvent tileEvent(const Point &p);
-
-	/**
 	 * Returns the sector associated with the given point.
 	 * @param  p a point on the map.
 	 * @return  the sector associated with the given point.
@@ -170,6 +163,14 @@ public:
 	 * @return the sector count for the currently loaded map.
 	 */
 	int sectorCount();
+
+	/**
+	 * Returns the event associated with the tile at the given point.
+	 * @param  p a point on the map.
+	 * @return  the event associated with tile that contains the given point.
+	 */
+	TileEvent tileEvent(const Point &p);
+
 
 	/**
 	 * Returns the filename of the AI path with the given index.
@@ -192,6 +193,9 @@ public:
 	int aiPathCount();
 
 protected:
+	/** Color used for the background. */
+	sf::Color 	*mBackgroundFillColor;
+
 	/**
 	 * Loads the map from the raw file with the given name.
 	 * @param mapFilename the name of the raw file containing the map.
@@ -215,6 +219,9 @@ protected:
 	 * @param sectorsFilename the name of the raw file containing the sectors.
 	 */
 	void loadSectors(const char *sectorsFilename);
+
+	/** Loads the background sprite for the given background fill color. */
+	void loadBackground(sf::Color *backgroundFillColor);
 
 	/**
 	 * Adds an AI path to the collection of paths available for AI.
@@ -275,31 +282,18 @@ private:
 	/** Sprite used for draw the perspective points (debug purpose) */
 	sf::Sprite 	*mDebugGridSprite;
 
+	/** Texture used for draw the background of the map. */
+	sf::Texture *mBackgroundFillColorTexture;
+
+	/** Sprite used for draw the background of the map. */
+	sf::Sprite 	*mBackgroundFillColorSprite;
+
 	/**
 	 * Updates the rendered tiles by filling the vertex array
 	 * with the appropriate coordinate and tiles.
 	 * The tiles are drawn once in order to optimaze the impact on the GPU.
 	 */
 	void updateRenderedTiles();
-
-	/**
-	 * Draws a point on the map with the given color and size.
-	 * @param map   the map's image.
-	 * @param p     the point.
-	 * @param color the color.
-	 * @param size  the size.
-	 */
-	void drawPoint(sf::Image * map, const Point &p, sf::Color *color, int size);
-
-	/**
-	 * Draws a line on the map for the given coordinates and thickness.
-	 * @param x1        the left coordinate.
-	 * @param y1        the top coordinate.
-	 * @param x2        the right coordinate.
-	 * @param y2        the bottom coordinate.
-	 * @param thickness the thickness of the line.
-	 */
-	void drawLine(double x1, double y1, double x2, double y2, double thickness);
 
 	/**
 	 * Function used for fill the matrix with the tiles loaded from the file.
@@ -324,6 +318,29 @@ private:
 	 * @param fileCol the column of the read value.
 	 */
 	void sectorsFillFunction(int readVal, int fileRow, int fileCol);
+
+	// DEBUG METHODS
+
+	/**
+	 * Draws a point on the map with the given color and size.
+	 * @param map   the map's image.
+	 * @param p     the point.
+	 * @param color the color.
+	 * @param size  the size.
+	 */
+	void drawPoint(sf::Image * map, const Point &p, int size);
+
+	/**
+	 * Draws a line on the map for the given coordinates and thickness.
+	 * @param x1        the left coordinate.
+	 * @param y1        the top coordinate.
+	 * @param x2        the right coordinate.
+	 * @param y2        the bottom coordinate.
+	 * @param thickness the thickness of the line.
+	 */
+	void drawLine(double x1, double y1, double x2, double y2, double thickness);
+
+	// END DEBUG METHODS
 
     const char *logTag();
     bool canLog();

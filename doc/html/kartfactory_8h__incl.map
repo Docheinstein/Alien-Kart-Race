@@ -1,11 +1,8 @@
 <map id="src/entity/kart/kartfactory/kartfactory.h" name="src/entity/kart/kartfactory/kartfactory.h">
-<area shape="rect" id="node3" href="$kart_8h.html" title="kart.h" alt="" coords="315,95,369,121"/>
-<area shape="rect" id="node13" href="$geometryutil_8h.html" title="geometryutil.h" alt="" coords="383,244,487,271"/>
-<area shape="rect" id="node5" href="$mapmovingentity_8h.html" title="mapmovingentity.h" alt="" coords="225,169,357,196"/>
-<area shape="rect" id="node9" href="$loggerinterface_8h.html" title="loggerinterface.h" alt="" coords="83,169,201,196"/>
-<area shape="rect" id="node6" href="$mapentity_8h.html" title="mapentity.h" alt="" coords="257,244,347,271"/>
-<area shape="rect" id="node7" href="$geometryentities_8h.html" title="geometryentities.h" alt="" coords="237,319,367,345"/>
-<area shape="rect" id="node10" href="$logger_8h.html" title="logger.h" alt="" coords="11,244,79,271"/>
-<area shape="rect" id="node14" href="$mathutil_8h.html" title="mathutil.h" alt="" coords="443,319,521,345"/>
-<area shape="rect" id="node15" href="$mathentities_8h.html" title="mathentities.h" alt="" coords="430,393,534,420"/>
+<area shape="rect" id="node3" href="$kart_8h.html" title="kart.h" alt="" coords="229,95,284,121"/>
+<area shape="rect" id="node7" href="$geometryentities_8h.html" title="geometryentities.h" alt="" coords="127,319,256,345"/>
+<area shape="rect" id="node5" href="$mapmovingentity_8h.html" title="mapmovingentity.h" alt="" coords="136,169,268,196"/>
+<area shape="rect" id="node9" href="$loggerinterface_8h.html" title="loggerinterface.h" alt="" coords="355,169,473,196"/>
+<area shape="rect" id="node6" href="$mapentity_8h.html" title="mapentity.h" alt="" coords="146,244,237,271"/>
+<area shape="rect" id="node10" href="$logger_8h.html" title="logger.h" alt="" coords="415,244,483,271"/>
 </map>

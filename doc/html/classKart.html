@@ -175,15 +175,15 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aeedeb3834921aa8eb8d13330a3d42e30"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classKart.html#aeedeb3834921aa8eb8d13330a3d42e30">setDirection</a> (<a class="el" href="structAngle.html">Angle</a> a)</td></tr>
 <tr class="memdesc:aeedeb3834921aa8eb8d13330a3d42e30"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the direction of this kart.  <a href="#aeedeb3834921aa8eb8d13330a3d42e30">More...</a><br /></td></tr>
 <tr class="separator:aeedeb3834921aa8eb8d13330a3d42e30"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8c28957d7d755b623ac7d733615c452e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classKart.html#a8c28957d7d755b623ac7d733615c452e">update</a> (bool goForward, bool goBackward, bool goLeft, bool goRight)</td></tr>
-<tr class="memdesc:a8c28957d7d755b623ac7d733615c452e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the kart for the given choice.  <a href="#a8c28957d7d755b623ac7d733615c452e">More...</a><br /></td></tr>
-<tr class="separator:a8c28957d7d755b623ac7d733615c452e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a333e6bd940e62ac43f967db4a9025d0d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classKart.html#a333e6bd940e62ac43f967db4a9025d0d">crash</a> (<a class="el" href="classKart.html">Kart</a> *k)</td></tr>
 <tr class="memdesc:a333e6bd940e62ac43f967db4a9025d0d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles the crash with the given kart.  <a href="#a333e6bd940e62ac43f967db4a9025d0d">More...</a><br /></td></tr>
 <tr class="separator:a333e6bd940e62ac43f967db4a9025d0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:accc60feadc1d08817034922e10acec4e"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classKart.html#accc60feadc1d08817034922e10acec4e">update</a> ()=0</td></tr>
-<tr class="memdesc:accc60feadc1d08817034922e10acec4e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the state of this kart.  <a href="#accc60feadc1d08817034922e10acec4e">More...</a><br /></td></tr>
-<tr class="separator:accc60feadc1d08817034922e10acec4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c28957d7d755b623ac7d733615c452e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classKart.html#a8c28957d7d755b623ac7d733615c452e">update</a> (bool goForward, bool goBackward, bool goLeft, bool goRight)</td></tr>
+<tr class="memdesc:a8c28957d7d755b623ac7d733615c452e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the kart for the given choice.  <a href="#a8c28957d7d755b623ac7d733615c452e">More...</a><br /></td></tr>
+<tr class="separator:a8c28957d7d755b623ac7d733615c452e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a51ff636bc72666e963892db011873a20"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classKart.html#a51ff636bc72666e963892db011873a20">update</a> ()=0</td></tr>
+<tr class="memdesc:a51ff636bc72666e963892db011873a20"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the state of this kart.  <a href="#a51ff636bc72666e963892db011873a20">More...</a><br /></td></tr>
+<tr class="separator:a51ff636bc72666e963892db011873a20"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a93df5ddadf2dae5b1a89f1a3deeb9c85"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classKart.html#a93df5ddadf2dae5b1a89f1a3deeb9c85">draw</a> ()=0</td></tr>
 <tr class="memdesc:a93df5ddadf2dae5b1a89f1a3deeb9c85"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws on the game window.  <a href="#a93df5ddadf2dae5b1a89f1a3deeb9c85">More...</a><br /></td></tr>
 <tr class="separator:a93df5ddadf2dae5b1a89f1a3deeb9c85"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -216,12 +216,6 @@ Protected Member Functions</h2></td></tr>
 <tr class="memitem:a58a18a29af9477c916b8d64a162c3ff5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classKart.html#a58a18a29af9477c916b8d64a162c3ff5">advanceInCurrentDirection</a> ()</td></tr>
 <tr class="memdesc:a58a18a29af9477c916b8d64a162c3ff5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Advance the kart in the current direction, This evaluates the collision forces applied to the object, so might happen that the final force doesn't make this kart going to the current direction (i.e.  <a href="#a58a18a29af9477c916b8d64a162c3ff5">More...</a><br /></td></tr>
 <tr class="separator:a58a18a29af9477c916b8d64a162c3ff5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2dfb740be06cc77641ad237d8157f4eb"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classKart.html#a2dfb740be06cc77641ad237d8157f4eb">logTag</a> ()</td></tr>
-<tr class="memdesc:a2dfb740be06cc77641ad237d8157f4eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a tag that identifies the entity in the output stream (the tag should possibilty be unique in order to easily identifies the entities).  <a href="#a2dfb740be06cc77641ad237d8157f4eb">More...</a><br /></td></tr>
-<tr class="separator:a2dfb740be06cc77641ad237d8157f4eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8ad9de82ad871b4271a7277af89b24cc"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classKart.html#a8ad9de82ad871b4271a7277af89b24cc">canLog</a> ()</td></tr>
-<tr class="memdesc:a8ad9de82ad871b4271a7277af89b24cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns whether this entity is able to print message to the output stream.  <a href="#a8ad9de82ad871b4271a7277af89b24cc">More...</a><br /></td></tr>
-<tr class="separator:a8ad9de82ad871b4271a7277af89b24cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_methods_classLoggerInterface"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_classLoggerInterface')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="classLoggerInterface.html">LoggerInterface</a></td></tr>
 <tr class="memitem:a34dc1c7975aa06f977707bf4bacc1a9d inherit pro_methods_classLoggerInterface"><td class="memTemplParams" colspan="2">template&lt;typename FirstType , typename... OtherTypes&gt; </td></tr>
 <tr class="memitem:a34dc1c7975aa06f977707bf4bacc1a9d inherit pro_methods_classLoggerInterface"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classLoggerInterface.html#a34dc1c7975aa06f977707bf4bacc1a9d">d</a> (FirstType &amp;&amp;first, OtherTypes &amp;&amp;...other)</td></tr>
@@ -247,6 +241,12 @@ Protected Member Functions</h2></td></tr>
 <tr class="memitem:afb381df73e55b1423be07e8f09ee0123 inherit pro_methods_classLoggerInterface"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classLoggerInterface.html#afb381df73e55b1423be07e8f09ee0123">bench</a> (FirstType &amp;&amp;first, OtherTypes &amp;&amp;...other)</td></tr>
 <tr class="memdesc:afb381df73e55b1423be07e8f09ee0123 inherit pro_methods_classLoggerInterface"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints a bench message.  <a href="#afb381df73e55b1423be07e8f09ee0123">More...</a><br /></td></tr>
 <tr class="separator:afb381df73e55b1423be07e8f09ee0123 inherit pro_methods_classLoggerInterface"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac69df306478c55c68aa14a0fbb78f05e inherit pro_methods_classLoggerInterface"><td class="memItemLeft" align="right" valign="top">virtual const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLoggerInterface.html#ac69df306478c55c68aa14a0fbb78f05e">logTag</a> ()=0</td></tr>
+<tr class="memdesc:ac69df306478c55c68aa14a0fbb78f05e inherit pro_methods_classLoggerInterface"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a tag that identifies the entity in the output stream (the tag should possibilty be unique in order to easily identifies the entities).  <a href="#ac69df306478c55c68aa14a0fbb78f05e">More...</a><br /></td></tr>
+<tr class="separator:ac69df306478c55c68aa14a0fbb78f05e inherit pro_methods_classLoggerInterface"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c2067b4ef79177f27c254300cf04404 inherit pro_methods_classLoggerInterface"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLoggerInterface.html#a6c2067b4ef79177f27c254300cf04404">canLog</a> ()=0</td></tr>
+<tr class="memdesc:a6c2067b4ef79177f27c254300cf04404 inherit pro_methods_classLoggerInterface"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns whether this entity is able to print message to the output stream.  <a href="#a6c2067b4ef79177f27c254300cf04404">More...</a><br /></td></tr>
+<tr class="separator:a6c2067b4ef79177f27c254300cf04404 inherit pro_methods_classLoggerInterface"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
@@ -437,34 +437,6 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a8ad9de82ad871b4271a7277af89b24cc"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool Kart::canLog </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Returns whether this entity is able to print message to the output stream. </p>
-<p>If this method return false, every message won't be printed to the output stream. </p><dl class="section return"><dt>Returns</dt><dd>whether this entity can log. </dd></dl>
-
-<p>Implements <a class="el" href="classLoggerInterface.html#a6c2067b4ef79177f27c254300cf04404">LoggerInterface</a>.</p>
-
-</div>
-</div>
 <a class="anchor" id="a2d1fe9aca7ab64cdb1f2877c6551bd4d"></a>
 <div class="memitem">
 <div class="memproto">
@@ -650,34 +622,6 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a2dfb740be06cc77641ad237d8157f4eb"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const char * Kart::logTag </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Returns a tag that identifies the entity in the output stream (the tag should possibilty be unique in order to easily identifies the entities). </p>
-<dl class="section return"><dt>Returns</dt><dd>the tag used for identify this entity in the log. </dd></dl>
-
-<p>Implements <a class="el" href="classLoggerInterface.html#ac69df306478c55c68aa14a0fbb78f05e">LoggerInterface</a>.</p>
-
-</div>
-</div>
 <a class="anchor" id="af0593b78fb2b96c57c7ccee1335faef1"></a>
 <div class="memitem">
 <div class="memproto">
@@ -849,7 +793,7 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="accc60feadc1d08817034922e10acec4e"></a>
+<a class="anchor" id="a51ff636bc72666e963892db011873a20"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -857,7 +801,7 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void Kart::update </td>
+          <td class="memname">virtual void Kart::update </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>

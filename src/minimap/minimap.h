@@ -13,8 +13,6 @@ namespace sf {
 /** Represents a simplified map shown on a corner of the screen. */
 class Minimap {
 public:
-    /** Size of the minimap. */
-    static const int MINIMAP_SIZE;
 
     /**
      * Creates a new minimap.

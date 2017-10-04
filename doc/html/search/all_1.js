@@ -25,6 +25,7 @@ var searchData=
   ['aivenusian_2ed',['aivenusian.d',['../aivenusian_8d.html',1,'']]],
   ['aivenusian_2eh',['aivenusian.h',['../aivenusian_8h.html',1,'']]],
   ['angle',['Angle',['../structAngle.html',1,'Angle'],['../structAngle.html#aca3c6e1519b40835d31736430ca082a9',1,'Angle::Angle()'],['../structAngle.html#a6ad99dc7f979e4e38cd5d139c411a4d5',1,'Angle::Angle(double rad)']]],
+  ['angle_5frad_5fepsilon',['ANGLE_RAD_EPSILON',['../aikart_8cc.html#a95628a91495d0f5dd7c8293cd2d4b9e8',1,'ANGLE_RAD_EPSILON():&#160;aikart.cc'],['../kart_8cc.html#a95628a91495d0f5dd7c8293cd2d4b9e8',1,'ANGLE_RAD_EPSILON():&#160;kart.cc']]],
   ['angleadjustmentforperspectivepoint',['angleAdjustmentForPerspectivePoint',['../classPerspectiveUtil.html#a6e41cbc21cf5e65634976718c4ed9a98',1,'PerspectiveUtil']]],
   ['associatedvalue',['associatedValue',['../structBoundRange.html#a5e2f631c62e789dcaaed02f81ffbb6bb',1,'BoundRange']]]
 ];

@@ -1,17 +1,22 @@
 #include <SFML/Graphics.hpp>
 #include "kartfactory.h"
-#include "const.h"
+#include "config.h"
 #include "viewutil.h"
 #include "mathutil.h"
-#include "perspectiveutil.h"
 #include "resourceutil.h"
 #include "playervenusian.h"
-#include "level.h"
+#include "logger.h"
+
+#define LOG_TAG "{KartFactory} "
 
 sf::Texture ** KartFactory::sKartsTextures = textures();
 sf::Texture ** KartFactory::sKartsSkidGasTextures = skidGasTextures();
 sf::Texture *  KartFactory::sKartsLeadboardFacesTextures = leadeboardFacesTextures();
 sf::Texture *  KartFactory::sKartsPickerTextures = pickerTextures();
+
+// ------------------------
+// PUBLIC -----------------
+// ------------------------
 
 Kart::KartParams KartFactory::params(KartType type, double randomnessFactor) {
     Kart::KartParams params;
@@ -33,11 +38,15 @@ Kart::KartParams KartFactory::params(KartType type, double randomnessFactor) {
         params.slownessFactor = 0.5;
 
         params.weight = 0.5;
+        break;
     }
     default:
+        warn(LOG_TAG, "Asking params for invalid kart type. Returning un-initialized params.");
         break;
     }
 
+    // For each parameters generate a random number in the range and add
+    // it to the default parameter.
     if (randomnessFactor != 0) {
         Range randRange {-randomnessFactor, randomnessFactor};
         params.maxSpeed +=
@@ -102,8 +111,10 @@ int KartFactory::skidGasSprites(KartType type, sf::Sprite *&sprites) {
     return spriteCountForType;
 }
 
-float KartFactory::scaleFactor(/* KartType type*/ ) {
-    return 1.8 * Const::WINDOW_WIDTH / 320;
+// Not parametrized since i thing that any karts will have the same
+// scale factor in the future.
+float KartFactory::scaleFactor(/* KartType type*/) {
+    return 1.8 * Config::WINDOW_WIDTH / 320;
 }
 
 sf::Sprite * KartFactory::leadeboardFaceSprite(KartType type) {
@@ -123,6 +134,7 @@ const char * KartFactory::name(KartType type) {
     case VenusianType:
         return "Venusian";
     default:
+        warn(LOG_TAG, "Asking name for invalid kart type. Returning empty string.");
         return "";
     }
 }
@@ -134,9 +146,14 @@ Kart * KartFactory::playerKart(Level *level, KartType type) {
     case VenusianType:
         return new PlayerVenusian(level, playerName, new sf::Color(sf::Color::Green));
     default:
+        warn(LOG_TAG, "Asking player kart creation for invalid type. Returning NULL.");
         return NULL;
     }
 }
+
+// ------------------------
+// PRIVATE ----------------
+// ------------------------
 
 sf::Texture ** KartFactory::textures() {
     sf::Texture **textures;
@@ -196,9 +213,6 @@ sf::Texture * KartFactory::pickerTextures() {
     return textures;
 }
 
-
-
-
 // Kart sprites
 
 int KartFactory::spriteCount(KartType type) {
@@ -206,6 +220,7 @@ int KartFactory::spriteCount(KartType type) {
     case VenusianType:
         return 72;
     default:
+        warn(LOG_TAG, "Asking sprite count for invalid kart type. Returning 0.");
         return 0;
     }
 }
@@ -217,6 +232,7 @@ std::string KartFactory::spriteFilename(KartType type, int index) {
         return filename;
     }
     default:
+        warn(LOG_TAG, "Asking sprite filename for invalid type kart type. Returning empty string.");
         return "";
     }
 }
@@ -226,6 +242,7 @@ Point KartFactory::spriteOrigin(KartType type, int index) {
     case VenusianType:
         return Point { 24, 36 };
     default:
+        warn(LOG_TAG, "Asking origin for invalid kart type sprite. Returning {0, 0}.");
         return Point { 0, 0 };
     }
 }
@@ -249,6 +266,7 @@ std::string KartFactory::spriteSkidGasFilename(KartType type, int index) {
         return filename;
     }
     default:
+        warn(LOG_TAG, "Asking gas sprite filename for invalid type kart type. Returning empty string.");
         return "";
     }
 }
@@ -260,6 +278,7 @@ Point KartFactory::spriteSkidGasOrigin(KartType type, int index) {
     case VenusianType:
         return Point { 26, -6 };
     default:
+        warn(LOG_TAG, "Asking origin for invalid kart type sprite. Returning {0, 0}.");
         return Point { 0, 0 };
     }
 }
@@ -270,6 +289,7 @@ std::string KartFactory::spriteLeadeboardFaceFilename(KartType type) {
         return "venusian_leaderboard_face_framed.png";
     }
     default:
+        warn(LOG_TAG, "Asking leaderboard sprite filename for invalid type kart type. Returning empty string.");
         return "";
     }
 }
@@ -281,6 +301,7 @@ std::string KartFactory::spritePickerFilename(KartType type) {
         return "venusian_level_picker.png";
     }
     default:
+        warn(LOG_TAG, "Asking picker sprite filename for invalid type kart type. Returning empty string.");
         return "";
     }
 }

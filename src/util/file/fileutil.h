@@ -1,8 +1,6 @@
 #ifndef FILE_UTIL_H
 #define FILE_UTIL_H
 
-using namespace std;
-
 /**
  * Provides utility functions for obtain information
  * or data from a a raw txt file

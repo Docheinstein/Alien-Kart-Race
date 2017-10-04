@@ -1,3 +1,5 @@
+#include "timeutil.h"
+
 template<typename FuncOwner>
 GameTimer<FuncOwner>::GameTimer() {
     mTotalTicks = mEventTicks = -1;
@@ -11,6 +13,9 @@ GameTimer<FuncOwner>::GameTimer(
     initialize(totalTimeMS, instance, eventFunc, eventTimeMS);
 }
 
+// ------------------------
+// PUBLIC -----------------
+// ------------------------
 
 template<typename FuncOwner>
 void GameTimer<FuncOwner>::initialize(
@@ -19,6 +24,8 @@ void GameTimer<FuncOwner>::initialize(
     // Converts millis to game updates
     mTotalTicks = TimeUtil::millisToUpdates(totalTimeMS);
 
+    // If the event time is not provided, notify at the of the
+    // the timer count (if the function is provided).
     if (eventTimeMS == EVENT_ON_TIMER_FINISH)
         mEventTicks = mTotalTicks;
     else
@@ -57,6 +64,7 @@ int GameTimer<FuncOwner>::update() {
     if (isRunning()) {
         if (mCurrentTotalTicks < mTotalTicks) {
             mCurrentTotalTicks++;
+            // Notify the event by calling the function pointer
             if (mCurrentTotalTicks % mEventTicks == 0 &&
                 mEventFuncOwnerInstance != NULL &&
                 mEventFunc != NULL) {

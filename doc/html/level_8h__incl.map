@@ -1,19 +1,15 @@
 <map id="src/level/level.h" name="src/level/level.h">
-<area shape="rect" id="node3" href="$map_8h.html" title="map.h" alt="" coords="125,80,183,107"/>
-<area shape="rect" id="node10" href="$fadescreen_8h.html" title="fadescreen.h" alt="" coords="529,80,627,107"/>
-<area shape="rect" id="node16" href="$keyboardlistener_8h.html" title="keyboardlistener.h" alt="" coords="651,80,779,107"/>
-<area shape="rect" id="node17" href="$kartfactory_8h.html" title="kartfactory.h" alt="" coords="411,80,505,107"/>
-<area shape="rect" id="node26" href="$mapfactory_8h.html" title="mapfactory.h" alt="" coords="803,80,902,107"/>
-<area shape="rect" id="node4" href="$loggerinterface_8h.html" title="loggerinterface.h" alt="" coords="155,229,273,256"/>
-<area shape="rect" id="node9" href="$geometryentities_8h.html" title="geometryentities.h" alt="" coords="276,379,405,405"/>
-<area shape="rect" id="node5" href="$logger_8h.html" title="logger.h" alt="" coords="11,304,79,331"/>
-<area shape="rect" id="node11" href="$screen_8h.html" title="screen.h" alt="" coords="567,155,639,181"/>
-<area shape="rect" id="node13" href="$gametimer_8h.html" title="gametimer.h" alt="" coords="664,155,759,181"/>
-<area shape="rect" id="node14" href="$timeutil_8h.html" title="timeutil.h" alt="" coords="667,229,742,256"/>
-<area shape="rect" id="node19" href="$kart_8h.html" title="kart.h" alt="" coords="341,155,396,181"/>
-<area shape="rect" id="node23" href="$geometryutil_8h.html" title="geometryutil.h" alt="" coords="453,304,557,331"/>
-<area shape="rect" id="node21" href="$mapmovingentity_8h.html" title="mapmovingentity.h" alt="" coords="297,229,429,256"/>
-<area shape="rect" id="node22" href="$mapentity_8h.html" title="mapentity.h" alt="" coords="313,304,403,331"/>
-<area shape="rect" id="node24" href="$mathutil_8h.html" title="mathutil.h" alt="" coords="481,379,560,405"/>
-<area shape="rect" id="node25" href="$mathentities_8h.html" title="mathentities.h" alt="" coords="469,453,573,480"/>
+<area shape="rect" id="node3" href="$map_8h.html" title="map.h" alt="" coords="190,80,249,107"/>
+<area shape="rect" id="node10" href="$fadescreen_8h.html" title="fadescreen.h" alt="" coords="499,80,596,107"/>
+<area shape="rect" id="node16" href="$keyboardlistener_8h.html" title="keyboardlistener.h" alt="" coords="621,80,749,107"/>
+<area shape="rect" id="node17" href="$kartfactory_8h.html" title="kartfactory.h" alt="" coords="380,80,475,107"/>
+<area shape="rect" id="node23" href="$mapfactory_8h.html" title="mapfactory.h" alt="" coords="773,80,871,107"/>
+<area shape="rect" id="node4" href="$loggerinterface_8h.html" title="loggerinterface.h" alt="" coords="149,229,268,256"/>
+<area shape="rect" id="node9" href="$geometryentities_8h.html" title="geometryentities.h" alt="" coords="249,379,379,405"/>
+<area shape="rect" id="node5" href="$logger_8h.html" title="logger.h" alt="" coords="5,304,73,331"/>
+<area shape="rect" id="node11" href="$screen_8h.html" title="screen.h" alt="" coords="562,155,634,181"/>
+<area shape="rect" id="node13" href="$gametimer_8h.html" title="gametimer.h" alt="" coords="659,155,753,181"/>
+<area shape="rect" id="node19" href="$kart_8h.html" title="kart.h" alt="" coords="400,155,455,181"/>
+<area shape="rect" id="node21" href="$mapmovingentity_8h.html" title="mapmovingentity.h" alt="" coords="355,229,487,256"/>
+<area shape="rect" id="node22" href="$mapentity_8h.html" title="mapentity.h" alt="" coords="339,304,430,331"/>
 </map>

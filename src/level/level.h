@@ -14,9 +14,7 @@ class Kart;
 class PlayerKart;
 
 namespace sf {
-	class Sprite;
 	class Text;
-	class Texture;
 }
 
 /**
@@ -213,18 +211,6 @@ private:
 	int mMenuSelectedOptionCurrentAlphaIncrementSign;
 
 	/**
-	 * Returns the menu used while in race.
-	 * @return the menu used while in race.
-	 */
-	static Menu inGameMenu();
-
-	/**
-	 * Returns the menu used while out of race.
-	 * @return the menu used while out of race.
-	 */
-	static Menu levelFinishedMenu();
-
-	/**
 	 * Returns an initialized racing kart for the initial position
 	 * that wraps the given kart.
 	 * @param  k the Underlying kart.
@@ -270,6 +256,26 @@ private:
 	void handleKartsCrash();
 
 	/**
+	 * Updates the given menu for the given key pressed.
+	 * @param m       the menu to update.
+	 * @param keyCode the key pressed by the user.
+	 */
+	void updateMenu(Menu &m, int keyCode);
+
+	/** Update the player kart lap. */
+	void updateLapText();
+
+	/** Updates the start-up timer. */
+	void updateStartTimeText();
+
+
+	/**
+	 * Returns whether the level has been finished by a kart.
+	 * @return whether a kart finished the level.
+	 */
+	bool levelFinishedByAKart();
+
+	/**
 	 * Draws the given menu at the given position.
 	 * @param m            the menu that will be drawn.
 	 * @param frameCenterX the position of the center of the frame in the x-axis.
@@ -283,25 +289,6 @@ private:
 
 	/** Draws the menu for the finished level. */
 	void drawLevelFinishedMenu();
-
-	/**
-	 * Returns whether the level has been finished by a kart.
-	 * @return whether a kart finished the level.
-	 */
-	bool levelFinishedByAKart();
-
-	/**
-	 * Updates the given menu for the given key pressed.
-	 * @param m       the menu to update.
-	 * @param keyCode the key pressed by the user.
-	 */
-	void updateMenu(Menu &m, int keyCode);
-
-	/** Update the player kart lap. */
-	void updateLapText();
-
-	/** Updates the start-up timer. */
-	void updateStartTimeText();
 
 	/** Function called when the continue option is selected. */
 	void continueFunc();

@@ -5,6 +5,7 @@
 <area shape="rect" id="node9" href="$classLevel.html" title="Handles the karts, the map and eventually every other object in the level. " alt="" coords="278,80,331,107"/>
 <area shape="rect" id="node10" href="$classLevelPicker.html" title="Screen responsible for choose the player kart and the map to use for the level. " alt="" coords="355,80,446,107"/>
 <area shape="rect" id="node11" href="$classMap.html" title="Base class for the level&#39;s map. " alt="" coords="471,80,517,107"/>
+<area shape="rect" id="node13" href="$classScreenManager.html" title="Responsible for handle the current shown Screen. " alt="" coords="541,80,655,107"/>
 <area shape="rect" id="node4" href="$classAIKart.html" title="Base entity representing a kart controller by the CPU. " alt="" coords="29,155,87,181"/>
 <area shape="rect" id="node6" href="$classPlayerKart.html" title="Base entity representing a kart controller by the player. " alt="" coords="126,155,209,181"/>
 <area shape="rect" id="node5" href="$classAIVenusian.html" title="Implementation of an AI kart of type Venusian. " alt="" coords="5,229,95,256"/>

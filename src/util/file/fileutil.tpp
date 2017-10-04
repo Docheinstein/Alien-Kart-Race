@@ -5,19 +5,18 @@
 #include "matrixutil.h"
 #include "logger.h"
 
-using namespace std;
-
 template<typename T>
 void FileUtil::getMatrixSize(const char *fileName, int &rowCount, int &colCount) {
-	ifstream inFile(fileName);
+	std::ifstream inFile(fileName);
 	if (!inFile)
 		return;
 
 	int rows = -1;
 	int maximumColCount = 0;
-	string str;
+	std::string str;
 
 	do {
+		// Read the next line
 		getline(inFile, str);
 		rows++;
 
@@ -35,8 +34,8 @@ void FileUtil::getMatrixSize(const char *fileName, int &rowCount, int &colCount)
 			maximumColCount = occurrences;
 		}
 		else if (occurrences < maximumColCount) {
-			// w("Found a row with less occurrences than the others. Found: ", occurrences,
-			 // ", expected: ", maximumColCount);
+			warn("{FileUtil} ", "Found a row with less occurrences than the others. (found: ",
+			  occurrences, ", expected: ", maximumColCount, ")");
 		}
 	} while (inFile);
 
@@ -71,13 +70,15 @@ void FileUtil::loadStructureFromFileKnowningSize(
 			r++;
 
 		}
+		// There is still row to read
 		if (r < knownRowCount) {
+			// Read the next object
 			inFile >> anObject;
 
-			// Call default if provided
+			// Call default fill function if provided
 			if (defaultFillFunc != NULL)
 				defaultFillFunc(anObject, structure, r, c);
-			else // Call the given callback
+			else // Call the given callback otherwise
 				(instance->*fillFunc)(anObject, r, c);
 
 			c++;
@@ -137,4 +138,3 @@ void FileUtil::loadArray(const char *fileName, T *&array, int &count) {
 	array = new T[count];
 	loadArrayFromFileKnowningSize<T>(fileName, array, rowCount, colCount);
 }
-

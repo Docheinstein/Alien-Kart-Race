@@ -1,29 +1,29 @@
 #include <SFML/Graphics.hpp>
 #include <string>
 #include "level.h"
-#include "const.h"
+#include "config.h"
 #include "minimap.h"
 #include "leaderboard.h"
 #include "aivenusian.h"
-#include "resourceutil.h"
-#include "stdutil.h"
 #include "fontfactory.h"
 #include "keyboardmanager.h"
 #include "levelpicker.h"
+#include "sfmlutil.h"
+#include "mathutil.h"
+#include "resourceutil.h"
 
 #define LOG_TAG "{Level} "
 #define CAN_LOG 1
 
 #define GO_TEXT "Go!"
 
-#define FADE_STARTING_ALPHA 200
-#define FADE_ENDING_ALPHA 1
-
-#define FADE_TIMER_COUNTDOWN_MS 800
-
+// Time of the countdown
 #define RACE_START_TIMER_COUNTDOWN_SEC 3
+
+// Millis between the countdown end and the race start
 #define RACE_START_TIMER_GO_MS 300
 
+// Laps to do for the race
 #define RACE_LAP_COUNT 3
 
 #define LAP_Q1_PERCENTAGE 0.25
@@ -31,6 +31,7 @@
 #define LAP_Q3_PERCENTAGE 0.75
 #define LAP_Q4_PERCENTAGE 1.00
 
+// AI karts color
 #define AI_KART_RGB_BLUE 	23, 	147, 	243
 #define AI_KART_RGB_YELLOW 	237, 	230, 	44
 #define AI_KART_RGB_VIOLET 	119, 	10, 	210
@@ -39,6 +40,7 @@
 #define AI_KART_RGB_BROWN	133, 	74, 	4
 #define AI_KART_RGB_AZURE 	0, 		216, 	235
 
+// Radius in which two kart are considered in collision.
 #define KART_CRASH_RADIUS 0.3
 
 #define MENU_OPTION_UNSELECTED_RGB 		71,		71,		71
@@ -48,7 +50,7 @@
 #define MENU_OPTION_SELECTED_ALPHA_HIGH 		255
 #define MENU_OPTION_SELECTED_INCREMENT 			3
 
-const float MENU_OPTION_FONT_SIZE = Const::WINDOW_HEIGHT / 18;
+const float MENU_OPTION_FONT_SIZE = Config::WINDOW_HEIGHT / 18;
 
 Level::Level(	sf::RenderWindow *window, KeyboardManager *keysManager,
 				KartFactory::KartType kartType, MapFactory::MapType mapType)
@@ -69,21 +71,21 @@ Level::Level(	sf::RenderWindow *window, KeyboardManager *keysManager,
 								RACE_START_TIMER_GO_MS);
 	mRaceStartTimerText = new sf::Text();
 	mRaceStartTimerText->setFont((FontFactory::font(FontFactory::FontType::Fancy)));
-	mRaceStartTimerText->setCharacterSize(Const::WINDOW_HEIGHT / 4);
+	mRaceStartTimerText->setCharacterSize(Config::WINDOW_HEIGHT / 4);
 	mRaceStartTimerText->setFillColor(sf::Color::Red);
 	mRaceStartTimerText->setOutlineColor(sf::Color::Black);
-	mRaceStartTimerText->setOutlineThickness(Const::WINDOW_HEIGHT / 120.0);
+	mRaceStartTimerText->setOutlineThickness(Config::WINDOW_HEIGHT / 120.0);
 
 	mLapText = new sf::Text();
 	updateLapText();
 	mLapText->setFont((FontFactory::font(FontFactory::FontType::Fancy)));
-	mLapText->setCharacterSize(Const::WINDOW_HEIGHT / 24);
+	mLapText->setCharacterSize(Config::WINDOW_HEIGHT / 24);
 	mLapText->setFillColor(sf::Color::Black);
 	mLapText->setOutlineColor(sf::Color::White);
-	mLapText->setOutlineThickness(Const::WINDOW_HEIGHT / 240.0);
+	mLapText->setOutlineThickness(Config::WINDOW_HEIGHT / 240.0);
 	mLapText->setPosition(
-		Const::WINDOW_WIDTH - mLapText->getGlobalBounds().width - Const::WINDOW_WIDTH / 18,
-		Const::WINDOW_WIDTH / 18
+		Config::WINDOW_WIDTH - mLapText->getGlobalBounds().width - Config::WINDOW_WIDTH / 18,
+		Config::WINDOW_WIDTH / 18
 	);
 
 	// Menus frame
@@ -97,28 +99,22 @@ Level::Level(	sf::RenderWindow *window, KeyboardManager *keysManager,
 
 	mLevelFinishedMenuFrameSprite = new sf::Sprite();
 	mLevelFinishedMenuFrameSprite->setTexture(*mLevelFinishedMenuFrameTexture);
-	mLevelFinishedMenuFrameSprite->setOrigin(
-		mLevelFinishedMenuFrameSprite->getLocalBounds().width / 2,
-		mLevelFinishedMenuFrameSprite->getLocalBounds().height / 2
-	);
-	mLevelFinishedMenuFrameSprite->setScale(Const::WINDOW_WIDTH / 640.0,
-											Const::WINDOW_HEIGHT / 480.0);
+	SFMLUtil::centerOrigin(mLevelFinishedMenuFrameSprite);
+	mLevelFinishedMenuFrameSprite->setScale(Config::WINDOW_WIDTH / 640.0,
+											Config::WINDOW_HEIGHT / 480.0);
 	mLevelFinishedMenuFrameSprite->setPosition(
-		Const::WINDOW_WIDTH * 3 / 4,
-		Const::WINDOW_HEIGHT / 2
+		Config::WINDOW_WIDTH * 3 / 4,
+		Config::WINDOW_HEIGHT / 2
 	);
 
 	mLevelRunningMenuFrameSprite = new sf::Sprite();
 	mLevelRunningMenuFrameSprite->setTexture(*mLevelRunningMenuFrameTexture);
-	mLevelRunningMenuFrameSprite->setOrigin(
-		mLevelRunningMenuFrameSprite->getLocalBounds().width / 2,
-		mLevelRunningMenuFrameSprite->getLocalBounds().height / 2
-	);
-	mLevelRunningMenuFrameSprite->setScale(	Const::WINDOW_WIDTH / 640.0,
-											Const::WINDOW_HEIGHT / 480.0);
+	SFMLUtil::centerOrigin(mLevelRunningMenuFrameSprite);
+	mLevelRunningMenuFrameSprite->setScale(	Config::WINDOW_WIDTH / 640.0,
+											Config::WINDOW_HEIGHT / 480.0);
 	mLevelRunningMenuFrameSprite->setPosition(
-		Const::WINDOW_WIDTH / 2,
-		Const::WINDOW_HEIGHT / 2
+		Config::WINDOW_WIDTH / 2,
+		Config::WINDOW_HEIGHT / 2
 	);
 
 	// Menus
@@ -145,7 +141,10 @@ Level::Level(	sf::RenderWindow *window, KeyboardManager *keysManager,
 	mMenuSelectedOptionCurrentAlpha = MENU_OPTION_SELECTED_ALPHA_HIGH;
 	mMenuSelectedOptionCurrentAlphaIncrementSign = -1;
 
+	// Updates the progress and the leadboard so that they are rendered
+	// properly even if the race is not started yet
 	updateKartsLapProgress();
+
 	mLeaderboard->update();
 
 	mLevelState = Running;
@@ -160,8 +159,17 @@ Level::~Level() {
 
 	delete mRaceStartTimerText;
 	delete mLapText;
-	delete mLevelFinishedMenuFrameTexture;
+
 	delete mLevelFinishedMenuFrameSprite;
+	delete mLevelFinishedMenuFrameTexture;
+
+	delete mLevelRunningMenuFrameSprite;
+	delete mLevelRunningMenuFrameTexture;
+
+
+	delete mOptionContinue.text;
+	delete mOptionRetry.text;
+	delete mOptionQuit.text;
 
 	deleteKarts();
 
@@ -170,45 +178,29 @@ Level::~Level() {
 	mKeysManager->removeListener(this);
 }
 
-Kart * Level::playerKart() {
-	return mPlayerKart.kart;
-}
-
-Map * Level::map() {
-	return mMap;
-}
-
-void Level::onKeyPressed(int keyCode) {
-	if (keyCode == sf::Keyboard::Key::Return &&
-		mLevelState == Running &&
-		!mMenuInGame.opened)
-		mMenuInGame.opened = true;
-	else if (mMenuInGame.opened)
-		updateMenu(mMenuInGame, keyCode);
-	else if (mMenuLevelFinished.opened)
-		updateMenu(mMenuLevelFinished, keyCode);
-
-}
+// ------------------------
+// PUBLIC -----------------
+// ------------------------
 
 void Level::update() {
 
 	FadeScreen::update();
-	// Level should fade in
+	// Level should fade in, do not update the logic
 	if (isFading())
 		return;
 
+	// Level is in pause, do not update the logic
 	if (mMenuInGame.opened)
 		return;
 
 	if (mLevelState == Running) {
-
 		// Race is not started => update start timer
 		if (mRaceStartTimer.isRunning()) {
 			updateStartTimeText();
 		}
 		// Race is already started => updates the level.
 		else  {
-			// mMap->update();
+			mMap->update();
 
 			mPlayerKart.kart->update();
 
@@ -280,8 +272,84 @@ void Level::render() {
 	FadeScreen::render();
 }
 
+void Level::onKeyPressed(int keyCode) {
+	if (keyCode == sf::Keyboard::Key::Return &&
+		mLevelState == Running &&
+		!mMenuInGame.opened) {
+		d("Opening in-game menu");
+		mMenuInGame.opened = true;
+	}
+	else if (mMenuInGame.opened)
+		updateMenu(mMenuInGame, keyCode);
+	else if (mMenuLevelFinished.opened)
+		updateMenu(mMenuLevelFinished, keyCode);
+
+}
+
+Kart * Level::playerKart() {
+	return mPlayerKart.kart;
+}
+
+Map * Level::map() {
+	return mMap;
+}
+
 void Level::pushSprite(sf::Sprite *sprite) {
 	mDepthSprites.push_back(sprite);
+}
+
+// ------------------------
+// PROTECTED --------------
+// ------------------------
+
+void Level::fadeInFinished() {
+	mLevelState = Running;
+	mRaceStartTimer.start();
+}
+
+void Level::fadeOutFinished() {
+	if (mLevelState == Retrying) {
+		mLevelState = Running;
+		mRaceStartTimer.restart();
+		deleteKarts();
+		initKarts();
+		updateStartTimeText();
+		updateLapText();
+		updateKartsLapProgress();
+		mLeaderboard->update();
+		fadeIn();
+	}
+	else if (mLevelState == Quitting) {
+		mSegue = new LevelPicker(mWindow, mKeysManager);
+	}
+}
+
+// ------------------------
+// PRIVATE ----------------
+// ------------------------
+
+
+RacingKart Level::initialRacingKart(Kart *k) {
+	RacingKart rk;
+	rk.kart = k;
+	rk.currentLap = 0;
+	rk.q1Finished = rk.q2Finished = rk.q3Finished = true;
+	return rk;
+}
+
+sf::Text * Level::initializedOptionText(const char *title) {
+	sf::Text *optionText = new sf::Text();
+	optionText->setFont(FontFactory::font(FontFactory::FontType::Plain));
+	optionText->setCharacterSize(MENU_OPTION_FONT_SIZE);
+	optionText->setOutlineThickness(1);
+	optionText->setString(title);
+	optionText->setOrigin(	optionText->getLocalBounds().width / 2,
+							optionText->getLocalBounds().height * 3 / 5);
+	return optionText;
+}
+
+bool Level::spriteDepthCompareFunction(sf::Sprite *s1, sf::Sprite *s2) {
+	return s1->getPosition().y < s2->getPosition().y;
 }
 
 void Level::deleteKarts() {
@@ -323,12 +391,7 @@ void Level::initKarts() {
         aiIter++, racePosition ++) {
 			(*aiIter).kart->setPosition(mMap->startingPointForRacePosition(racePosition));
 			mLeaderboard->addKart(&(*aiIter));
-		}
-
-}
-
-bool Level::spriteDepthCompareFunction(sf::Sprite *s1, sf::Sprite *s2) {
-	return s1->getPosition().y < s2->getPosition().y;
+	}
 }
 
 void Level::renderSpritesForDepth() {
@@ -356,22 +419,20 @@ void Level::updateKartLapProgress(RacingKart &rk) {
 	int currentSectorIndex = rk.currentSector.index;
 	double lapPercentage = (double) currentSectorIndex / sectorCount;
 
-	// d2("Sector count for kart: ", rk.kart->name(), ": ", sectorCount);
-	// d2("Current sector for kart: ", rk.kart->name(), ": ", currentSectorIndex);
-	// d2("At position: ", rk.kart->position());
-	// d2("Current lap sector percentage for kart: ", rk.kart->name(), ": ", lapPercentage);
+	d2("Kart [", rk.kart->name(), "] is at sector ", currentSectorIndex,
+		". Global lap percentage: ", lapPercentage * 100, "%");
 
 	if (MathUtil::isInRange(Range {LAP_Q1_PERCENTAGE, LAP_Q2_PERCENTAGE},
 							lapPercentage) &&
 		!rk.q1Finished) {
-		d(rk.kart->name(), " has finished Q1");
+		d2("Kart [", rk.kart->name(), "] has finished Q1");
 		rk.q1Finished = true;
 	}
 	else if (MathUtil::isInRange(Range {LAP_Q2_PERCENTAGE, LAP_Q3_PERCENTAGE},
 								 lapPercentage) &&
 			 !rk.q2Finished &&
 			 rk.q1Finished) {
-		d(rk.kart->name(), " has finished Q2");
+		d2("Kart [", rk.kart->name(), "] has finished Q2");
 		rk.q2Finished = true;
 	}
 	else if (MathUtil::isInRange(Range {LAP_Q3_PERCENTAGE, LAP_Q4_PERCENTAGE},
@@ -379,13 +440,13 @@ void Level::updateKartLapProgress(RacingKart &rk) {
 			 !rk.q3Finished &&
 			 rk.q1Finished &&
 		 	 rk.q2Finished) {
-		d(rk.kart->name(), " has finished Q3");
+		d2("Kart [", rk.kart->name(), "] has finished Q3");
 		rk.q3Finished = true;
 	}
 
 	if (rk.q1Finished && rk.q2Finished && rk.q3Finished &&
 		mMap->tileEvent(rk.kart->position()) == Map::TileEvent::LapFinished) {
-			d(rk.kart->name(), " has finished ", rk.currentLap, "° lap");
+			d2("Kart [", rk.kart->name(), "] has finished ", rk.currentLap, "° lap");
 			rk.q1Finished = rk.q2Finished = rk.q3Finished = false;
 			rk.currentLap++;
 	}
@@ -421,10 +482,12 @@ void Level::handleKartsCrash() {
 		crk[i].q.dl.y = crk[i].rk->kart->position().y + KART_CRASH_RADIUS;
 	}
 
+	// Check if the karts' quad intersects each other
 	for (int i = 0; i < kartCount - 1; i++) {
 		for (int j = i + 1; j < kartCount; j++) {
 			if (crk[i].q.intersects(crk[j].q)) {
-				d2("Crashing between: ", crk[i].rk->kart->name() , " and ", crk[j].rk->kart->name());
+				d("Crash between [", crk[i].rk->kart->name(),
+					"] and [[", crk[i].rk->kart->name(), "]");
 				crk[i].rk->kart->crash(crk[j].rk->kart);
 				crk[j].rk->kart->crash(crk[i].rk->kart);
 			}
@@ -439,6 +502,7 @@ void Level::updateMenu(Menu &m, int keyCode) {
 	else if (keyCode == sf::Keyboard::Key::Down)
 		indexIncrement = 1;
 	else if (keyCode == sf::Keyboard::Key::Return) {
+		d("Closing menu and doing the selected action");
 		(this->*(m.options[m.currentOptionIndex].func))();
 		m.opened = false;
 	}
@@ -456,7 +520,7 @@ void Level::updateStartTimeText() {
 	int currentTicks = mRaceStartTimer.update();
 
 	int remainingSec = 	RACE_START_TIMER_COUNTDOWN_SEC -
-	 	(currentTicks / Const::TARGET_UPDATES_PER_SECOND);
+	 	(currentTicks / Config::TARGET_UPDATES_PER_SECOND);
 
 	sf::String timerStr = (
 		remainingSec <= 0 ?
@@ -466,27 +530,22 @@ void Level::updateStartTimeText() {
 
 	mRaceStartTimerText->setString(timerStr);
 	mRaceStartTimerText->setPosition(
-		(Const::WINDOW_WIDTH - mRaceStartTimerText->getGlobalBounds().width) / 2,
-		(Const::WINDOW_HEIGHT - mRaceStartTimerText->getGlobalBounds().height) / 2
+		(Config::WINDOW_WIDTH - mRaceStartTimerText->getGlobalBounds().width) / 2,
+		(Config::WINDOW_HEIGHT - mRaceStartTimerText->getGlobalBounds().height) / 2
 	);
 }
 
-void Level::drawInGameMenu() {
-	mWindow->draw(*mLevelRunningMenuFrameSprite);
-	drawMenuOptions(mMenuInGame,
-					mLevelRunningMenuFrameSprite->getPosition().x,
-					mLevelRunningMenuFrameSprite->getGlobalBounds().top,
-					mLevelRunningMenuFrameSprite->getGlobalBounds().top +
-						mLevelRunningMenuFrameSprite->getGlobalBounds().height);
-}
+bool Level::levelFinishedByAKart() {
+	if (mPlayerKart.currentLap > RACE_LAP_COUNT)
+		return true;
 
-void Level::drawLevelFinishedMenu() {
-	mWindow->draw(*mLevelFinishedMenuFrameSprite);
-	drawMenuOptions(mMenuLevelFinished,
-					mLevelFinishedMenuFrameSprite->getPosition().x,
-					mLevelFinishedMenuFrameSprite->getGlobalBounds().top,
-					mLevelFinishedMenuFrameSprite->getGlobalBounds().top +
-						mLevelFinishedMenuFrameSprite->getGlobalBounds().height);
+    for (std::vector<RacingKart>::iterator aiIter = mAIKarts.begin();
+        aiIter != mAIKarts.end();
+        aiIter++)
+		if ((*aiIter).currentLap > RACE_LAP_COUNT)
+			return true;
+
+	return false;
 }
 
 void Level::drawMenuOptions(Menu &m, int frameCenterX, int frameTopY, int frameBottomY) {
@@ -508,6 +567,8 @@ void Level::drawMenuOptions(Menu &m, int frameCenterX, int frameTopY, int frameB
 
 		mWindow->draw(*t);
 	}
+	// Updates the alpha value so that it goes from the lowest to the highest
+	// value and changes increment sign when reach one of those (blink effect).
 	mMenuSelectedOptionCurrentAlpha +=
 		mMenuSelectedOptionCurrentAlphaIncrementSign * MENU_OPTION_SELECTED_INCREMENT;
 	if (mMenuSelectedOptionCurrentAlpha > MENU_OPTION_SELECTED_ALPHA_HIGH ||
@@ -518,26 +579,22 @@ void Level::drawMenuOptions(Menu &m, int frameCenterX, int frameTopY, int frameB
 	}
 }
 
-
-bool Level::levelFinishedByAKart() {
-	if (mPlayerKart.currentLap > RACE_LAP_COUNT)
-		return true;
-
-    for (std::vector<RacingKart>::iterator aiIter = mAIKarts.begin();
-        aiIter != mAIKarts.end();
-        aiIter++)
-		if ((*aiIter).currentLap > RACE_LAP_COUNT)
-			return true;
-
-	return false;
+void Level::drawInGameMenu() {
+	mWindow->draw(*mLevelRunningMenuFrameSprite);
+	drawMenuOptions(mMenuInGame,
+					mLevelRunningMenuFrameSprite->getPosition().x,
+					mLevelRunningMenuFrameSprite->getGlobalBounds().top,
+					mLevelRunningMenuFrameSprite->getGlobalBounds().top +
+						mLevelRunningMenuFrameSprite->getGlobalBounds().height);
 }
 
-RacingKart Level::initialRacingKart(Kart *k) {
-	RacingKart rk;
-	rk.kart = k;
-	rk.currentLap = 0;
-	rk.q1Finished = rk.q2Finished = rk.q3Finished = true;
-	return rk;
+void Level::drawLevelFinishedMenu() {
+	mWindow->draw(*mLevelFinishedMenuFrameSprite);
+	drawMenuOptions(mMenuLevelFinished,
+					mLevelFinishedMenuFrameSprite->getPosition().x,
+					mLevelFinishedMenuFrameSprite->getGlobalBounds().top,
+					mLevelFinishedMenuFrameSprite->getGlobalBounds().top +
+						mLevelFinishedMenuFrameSprite->getGlobalBounds().height);
 }
 
 void Level::retryFunc() {
@@ -552,39 +609,6 @@ void Level::continueFunc() {
 void Level::quitFunc() {
 	mLevelState = Quitting;
 	fadeOut();
-}
-
-void Level::fadeInFinished() {
-	mLevelState = Running;
-	mRaceStartTimer.start();
-}
-
-void Level::fadeOutFinished() {
-	if (mLevelState == Retrying) {
-		mLevelState = Running;
-		mRaceStartTimer.restart();
-		deleteKarts();
-		initKarts();
-		updateStartTimeText();
-		updateLapText();
-		updateKartsLapProgress();
-		mLeaderboard->update();
-		fadeIn();
-	}
-	else if (mLevelState == Quitting) {
-		mSegue = new LevelPicker(mWindow, mKeysManager);
-	}
-}
-
-sf::Text * Level::initializedOptionText(const char *title) {
-	sf::Text *optionText = new sf::Text();
-	optionText->setFont(FontFactory::font(FontFactory::FontType::Plain));
-	optionText->setCharacterSize(MENU_OPTION_FONT_SIZE);
-	optionText->setOutlineThickness(1);
-	optionText->setString(title);
-	optionText->setOrigin(	optionText->getLocalBounds().width / 2,
-							optionText->getLocalBounds().height * 3 / 5);
-	return optionText;
 }
 
 const char * Level::logTag() {

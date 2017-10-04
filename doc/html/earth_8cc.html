@@ -93,36 +93,17 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &lt;SFML/Graphics.hpp&gt;</code><br />
-<code>#include &lt;string&gt;</code><br />
-<code>#include &quot;<a class="el" href="level_8h_source.html">level.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="resourceutil_8h_source.html">resourceutil.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="earth_8h_source.html">earth.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="logger_8h_source.html">logger.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for earth.cc:</div>
 <div class="dyncontent">
 <div class="center"><img src="earth_8cc__incl.png" border="0" usemap="#src_2map_2impl_2earth_2earth_8cc" alt=""/></div>
 <map name="src_2map_2impl_2earth_2earth_8cc" id="src_2map_2impl_2earth_2earth_8cc">
-<area shape="rect" id="node4" href="level_8h.html" title="level.h" alt="" coords="566,95,626,121"/>
-<area shape="rect" id="node8" href="logger_8h.html" title="logger.h" alt="" coords="689,393,757,420"/>
-<area shape="rect" id="node29" href="resourceutil_8h.html" title="resourceutil.h" alt="" coords="169,95,269,121"/>
-<area shape="rect" id="node30" href="earth_8h.html" title="earth.h" alt="" coords="415,95,478,121"/>
-<area shape="rect" id="node6" href="map_8h.html" title="map.h" alt="" coords="464,169,523,196"/>
-<area shape="rect" id="node13" href="fadescreen_8h.html" title="fadescreen.h" alt="" coords="721,169,818,196"/>
-<area shape="rect" id="node19" href="keyboardlistener_8h.html" title="keyboardlistener.h" alt="" coords="843,169,971,196"/>
-<area shape="rect" id="node20" href="kartfactory_8h.html" title="kartfactory.h" alt="" coords="345,169,439,196"/>
-<area shape="rect" id="node28" href="mapfactory_8h.html" title="mapfactory.h" alt="" coords="547,169,645,196"/>
-<area shape="rect" id="node7" href="loggerinterface_8h.html" title="loggerinterface.h" alt="" coords="535,319,654,345"/>
-<area shape="rect" id="node12" href="geometryentities_8h.html" title="geometryentities.h" alt="" coords="346,468,475,495"/>
-<area shape="rect" id="node14" href="screen_8h.html" title="screen.h" alt="" coords="871,244,943,271"/>
-<area shape="rect" id="node16" href="gametimer_8h.html" title="gametimer.h" alt="" coords="722,244,817,271"/>
-<area shape="rect" id="node17" href="timeutil_8h.html" title="timeutil.h" alt="" coords="677,319,752,345"/>
-<area shape="rect" id="node21" href="kart_8h.html" title="kart.h" alt="" coords="385,244,439,271"/>
-<area shape="rect" id="node25" href="geometryutil_8h.html" title="geometryutil.h" alt="" coords="193,393,297,420"/>
-<area shape="rect" id="node23" href="mapmovingentity_8h.html" title="mapmovingentity.h" alt="" coords="265,319,397,345"/>
-<area shape="rect" id="node24" href="mapentity_8h.html" title="mapentity.h" alt="" coords="351,393,441,420"/>
-<area shape="rect" id="node26" href="mathutil_8h.html" title="mathutil.h" alt="" coords="191,468,270,495"/>
-<area shape="rect" id="node27" href="mathentities_8h.html" title="mathentities.h" alt="" coords="179,543,283,569"/>
+<area shape="rect" id="node3" href="earth_8h.html" title="earth.h" alt="" coords="169,95,231,121"/>
+<area shape="rect" id="node4" href="map_8h.html" title="map.h" alt="" coords="171,169,229,196"/>
+<area shape="rect" id="node6" href="loggerinterface_8h.html" title="loggerinterface.h" alt="" coords="141,244,259,271"/>
+<area shape="rect" id="node11" href="geometryentities_8h.html" title="geometryentities.h" alt="" coords="289,319,418,345"/>
+<area shape="rect" id="node7" href="logger_8h.html" title="logger.h" alt="" coords="43,319,111,345"/>
 </map>
 </div>
 </div><table class="memberdecls">
@@ -138,6 +119,8 @@ Macros</h2></td></tr>
 <tr class="separator:a99a67e0801f3ce12fb42eed99f749d85"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9ebde7cc079f7f6a283247fba375338e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="earth_8cc.html#a9ebde7cc079f7f6a283247fba375338e">EARTH_AI_PATH_FILENAME</a>(X)&#160;&#160;&#160;&quot;earth_ai_path_&quot;#X&quot;.txt&quot;</td></tr>
 <tr class="separator:a9ebde7cc079f7f6a283247fba375338e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5d50811d1b51ba01f936544f99235a51"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="earth_8cc.html#a5d50811d1b51ba01f936544f99235a51">EARTH_SKY_RGB</a>&#160;&#160;&#160;146, 241, 255</td></tr>
+<tr class="separator:a5d50811d1b51ba01f936544f99235a51"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
 <a class="anchor" id="a9ebde7cc079f7f6a283247fba375338e"></a>
@@ -186,6 +169,18 @@ Macros</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">#define EARTH_SECTORS_FILENAME&#160;&#160;&#160;&quot;earth_sectors.txt&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a5d50811d1b51ba01f936544f99235a51"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define EARTH_SKY_RGB&#160;&#160;&#160;146, 241, 255</td>
         </tr>
       </table>
 </div><div class="memdoc">

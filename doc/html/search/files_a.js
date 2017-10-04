@@ -6,5 +6,8 @@ var searchData=
   ['screenmanager_2ecc',['screenmanager.cc',['../screenmanager_8cc.html',1,'']]],
   ['screenmanager_2ed',['screenmanager.d',['../screenmanager_8d.html',1,'']]],
   ['screenmanager_2eh',['screenmanager.h',['../screenmanager_8h.html',1,'']]],
+  ['sfmlutil_2ecc',['sfmlutil.cc',['../sfmlutil_8cc.html',1,'']]],
+  ['sfmlutil_2ed',['sfmlutil.d',['../sfmlutil_8d.html',1,'']]],
+  ['sfmlutil_2eh',['sfmlutil.h',['../sfmlutil_8h.html',1,'']]],
   ['stdutil_2eh',['stdutil.h',['../stdutil_8h.html',1,'']]]
 ];

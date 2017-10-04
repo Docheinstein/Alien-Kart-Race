@@ -49,12 +49,14 @@ bool Quad::contains(const Point &p) const {
 		p.y >= ul.y && p.x >= ul.x && // Check UL
 		p.y >= ur.y && p.x <= ur.x && // Check UR
 		p.y <= dl.y && p.x >= dl.x && // Check DL
-		p.y <= dr.y && p.x <= dr.x
+		p.y <= dr.y && p.x <= dr.x    // Check DR
 	);
 }
 
 
 bool Quad::intersects(const Quad &q) const {
+	// Checks whether this quad contains at least a
+	// point of the given quad, or vice-versa
 	return (
 		contains(q.ul) ||
 		contains(q.ur) ||
@@ -71,7 +73,9 @@ bool Quad::intersects(const Quad &q) const {
 
 // Angle
 
-Angle::Angle(double angleRad) : rad(MathUtil::mod(angleRad, 2 * M_PI)) {}
+Angle::Angle(double angleRad) : rad(MathUtil::mod(angleRad, 2 * M_PI)) {
+	// Always keep the angle between 0 and 2PI
+}
 
 Angle & Angle::operator+=(const Angle &a) {
     rad = MathUtil::mod(rad + a.rad, 2 * M_PI);
@@ -121,6 +125,7 @@ Angle operator -(Angle a1, double rad) {
 // Vector
 
 Vector & Vector::operator+=(const Vector &v) {
+	// Add vector to vector with the head tail method
     Point headTailPointSum;
 	headTailPointSum.x = sin(direction.rad) * magnitude;
 	headTailPointSum.y = -cos(direction.rad) * magnitude;

@@ -3,7 +3,7 @@
 
 #include <string>
 #include "kart.h"
-#include "geometryutil.h"
+#include "geometryentities.h"
 
 namespace sf {
     class Texture;

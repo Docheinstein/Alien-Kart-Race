@@ -1,6 +1,6 @@
 #include <SFML/Graphics.hpp>
 #include "fadescreen.h"
-#include "const.h"
+#include "config.h"
 #include "mathutil.h"
 
 #define FADE_ALPHA_HIGH 255
@@ -16,7 +16,7 @@ FadeScreen::FadeScreen( sf::RenderWindow *window, KeyboardManager *keysManager,
     mFadeInTimer.start();
 
 	sf::Image overlayImage;
-	overlayImage.create(Const::WINDOW_WIDTH, Const::WINDOW_HEIGHT, sf::Color::Black);
+	overlayImage.create(Config::WINDOW_WIDTH, Config::WINDOW_HEIGHT, sf::Color::Black);
 	mOverlayTexture = new sf::Texture();
 	mOverlayTexture->loadFromImage(overlayImage);
 
@@ -28,6 +28,10 @@ FadeScreen::~FadeScreen() {
 	delete mOverlaySprite;
 	delete mOverlayTexture;
 }
+
+// ------------------------
+// PUBLIC -----------------
+// ------------------------
 
 void FadeScreen::update() {
 	if (mFadeInTimer.isRunning())
@@ -78,6 +82,10 @@ void FadeScreen::fadeOut() {
     mFadeOutTimer.start();
 }
 
+// ------------------------
+// PROTECTED --------------
+// ------------------------
+
 bool FadeScreen::isFadingIn() {
     return mFadeInTimer.isRunning();
 }
@@ -91,9 +99,9 @@ bool FadeScreen::isFading() {
 }
 
 void FadeScreen::fadeInFinished() {
-
+    // Do nothing by default.
 }
 
 void FadeScreen::fadeOutFinished() {
-
+    // Do nothing by default.
 }

@@ -138,6 +138,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>AI_KART_RGB_YELLOW
 : <a class="el" href="level_8cc.html#a72756325c267d49d963c675b1dc720e1">level.cc</a>
 </li>
+<li>ANGLE_RAD_EPSILON
+: <a class="el" href="aikart_8cc.html#a95628a91495d0f5dd7c8293cd2d4b9e8">aikart.cc</a>
+, <a class="el" href="kart_8cc.html#a95628a91495d0f5dd7c8293cd2d4b9e8">kart.cc</a>
+</li>
 </ul>
 
 
@@ -158,12 +162,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <h3><a class="anchor" id="index_c"></a>- c -</h3><ul>
 <li>CAN_LOG
 : <a class="el" href="aikart_8cc.html#a6c246ba8a74c9eec1935db200b192ac4">aikart.cc</a>
-, <a class="el" href="kart_8cc.html#a6c246ba8a74c9eec1935db200b192ac4">kart.cc</a>
-, <a class="el" href="game_8cc.html#a6c246ba8a74c9eec1935db200b192ac4">game.cc</a>
-, <a class="el" href="leaderboard_8cc.html#a6c246ba8a74c9eec1935db200b192ac4">leaderboard.cc</a>
+, <a class="el" href="playerkart_8cc.html#a6c246ba8a74c9eec1935db200b192ac4">playerkart.cc</a>
 , <a class="el" href="level_8cc.html#a6c246ba8a74c9eec1935db200b192ac4">level.cc</a>
+, <a class="el" href="perspectiveutil_8cc.html#a6c246ba8a74c9eec1935db200b192ac4">perspectiveutil.cc</a>
+, <a class="el" href="leaderboard_8cc.html#a6c246ba8a74c9eec1935db200b192ac4">leaderboard.cc</a>
+, <a class="el" href="game_8cc.html#a6c246ba8a74c9eec1935db200b192ac4">game.cc</a>
 , <a class="el" href="levelpicker_8cc.html#a6c246ba8a74c9eec1935db200b192ac4">levelpicker.cc</a>
 , <a class="el" href="map_8cc.html#a6c246ba8a74c9eec1935db200b192ac4">map.cc</a>
+, <a class="el" href="screenmanager_8cc.html#a6c246ba8a74c9eec1935db200b192ac4">screenmanager.cc</a>
 </li>
 <li>COLLISION_BOUNCE_FACTOR
 : <a class="el" href="kart_8cc.html#a4788de201534e450b34137c4fc7dc095">kart.cc</a>
@@ -187,14 +193,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 
 <h3><a class="anchor" id="index_d"></a>- d -</h3><ul>
-<li>DBG
-: <a class="el" href="perspectiveutil_8cc.html#a49606be7356624568932ec81c0d429f4">perspectiveutil.cc</a>
-</li>
 <li>debug()
 : <a class="el" href="logger_8h.html#a84cb2aca866834cfb87745143d53a025">logger.h</a>
 </li>
 <li>debug_internal()
 : <a class="el" href="logger_8h.html#a135633669e23876a543536375c7419d9">logger.h</a>
+</li>
+<li>DEBUG_PERSPECTIVE_GRID_POINTS
+: <a class="el" href="map_8cc.html#aef970e87a4b1d105e51ae765cfd0ad3f">map.cc</a>
 </li>
 <li>DLx
 : <a class="el" href="map_8cc.html#a05ef5cd8a008d480455db73dcd125b32a382908bcbc1fa771dbbc94a3f79c44f7">map.cc</a>
@@ -224,6 +230,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>EARTH_SECTORS_FILENAME
 : <a class="el" href="earth_8cc.html#ae9d0f2dd2d7489286a8f8bbc62613205">earth.cc</a>
 </li>
+<li>EARTH_SKY_RGB
+: <a class="el" href="earth_8cc.html#a5d50811d1b51ba01f936544f99235a51">earth.cc</a>
+</li>
 <li>EARTH_TILESET_FILENAME
 : <a class="el" href="earth_8cc.html#a99a67e0801f3ce12fb42eed99f749d85">earth.cc</a>
 </li>
@@ -242,15 +251,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </li>
 <li>FADE_DEFAULT_DURATION
 : <a class="el" href="fadescreen_8h.html#ab719dfabf21d9758134d1f6cf1f43580">fadescreen.h</a>
-</li>
-<li>FADE_ENDING_ALPHA
-: <a class="el" href="level_8cc.html#abfcf1381626623a7d812c5a89254d203">level.cc</a>
-</li>
-<li>FADE_STARTING_ALPHA
-: <a class="el" href="level_8cc.html#acc65fe0a637cb4af53004b03a47a682d">level.cc</a>
-</li>
-<li>FADE_TIMER_COUNTDOWN_MS
-: <a class="el" href="level_8cc.html#aa856b4686d0aead6b1de75288f9364f6">level.cc</a>
 </li>
 <li>FLIGHT_MODE
 : <a class="el" href="kart_8cc.html#a80bbd95a50bfb90e017945a610e39837">kart.cc</a>
@@ -356,14 +356,19 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 : <a class="el" href="leaderboard_8cc.html#aecb9bd77d52aa3d3354fc48bc8152a16">leaderboard.cc</a>
 </li>
 <li>LOG_TAG
-: <a class="el" href="perspectiveutil_8cc.html#a7ce0df38eb467e59f209470c8f5ac4e6">perspectiveutil.cc</a>
+: <a class="el" href="game_8cc.html#a7ce0df38eb467e59f209470c8f5ac4e6">game.cc</a>
+, <a class="el" href="mathtutil_8cc.html#a7ce0df38eb467e59f209470c8f5ac4e6">mathtutil.cc</a>
+, <a class="el" href="screenmanager_8cc.html#a7ce0df38eb467e59f209470c8f5ac4e6">screenmanager.cc</a>
+, <a class="el" href="perspectiveutil_8cc.html#a7ce0df38eb467e59f209470c8f5ac4e6">perspectiveutil.cc</a>
 , <a class="el" href="aikart_8cc.html#a7ce0df38eb467e59f209470c8f5ac4e6">aikart.cc</a>
-, <a class="el" href="game_8cc.html#a7ce0df38eb467e59f209470c8f5ac4e6">game.cc</a>
-, <a class="el" href="leaderboard_8cc.html#a7ce0df38eb467e59f209470c8f5ac4e6">leaderboard.cc</a>
+, <a class="el" href="kartfactory_8cc.html#a7ce0df38eb467e59f209470c8f5ac4e6">kartfactory.cc</a>
+, <a class="el" href="geometryutil_8cc.html#a7ce0df38eb467e59f209470c8f5ac4e6">geometryutil.cc</a>
 , <a class="el" href="levelpicker_8cc.html#a7ce0df38eb467e59f209470c8f5ac4e6">levelpicker.cc</a>
-, <a class="el" href="kart_8cc.html#a7ce0df38eb467e59f209470c8f5ac4e6">kart.cc</a>
-, <a class="el" href="map_8cc.html#a7ce0df38eb467e59f209470c8f5ac4e6">map.cc</a>
 , <a class="el" href="level_8cc.html#a7ce0df38eb467e59f209470c8f5ac4e6">level.cc</a>
+, <a class="el" href="map_8cc.html#a7ce0df38eb467e59f209470c8f5ac4e6">map.cc</a>
+, <a class="el" href="mapfactory_8cc.html#a7ce0df38eb467e59f209470c8f5ac4e6">mapfactory.cc</a>
+, <a class="el" href="leaderboard_8cc.html#a7ce0df38eb467e59f209470c8f5ac4e6">leaderboard.cc</a>
+, <a class="el" href="playerkart_8cc.html#a7ce0df38eb467e59f209470c8f5ac4e6">playerkart.cc</a>
 </li>
 </ul>
 
@@ -395,9 +400,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </li>
 <li>MENU_OPTION_UNSELECTED_RGB
 : <a class="el" href="level_8cc.html#a9586c3d4f4eb42d22b0487c91cd4c2b0">level.cc</a>
-</li>
-<li>MINI_MAP_KART_SIZE
-: <a class="el" href="kart_8cc.html#a52e244af89637ef4e89282a2aecdbd41">kart.cc</a>
 </li>
 <li>MINIMAP_X
 : <a class="el" href="minimap_8cc.html#a33b3e03eb6dc4c1e63b0056aab94544b">minimap.cc</a>
@@ -493,6 +495,15 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <h3><a class="anchor" id="index_s"></a>- s -</h3><ul>
 <li>SectorsFileFieldIndex
 : <a class="el" href="map_8cc.html#a05ef5cd8a008d480455db73dcd125b32">map.cc</a>
+</li>
+<li>SKID_ANGULAR_INCREMENT_DECREASE_FACTOR
+: <a class="el" href="kart_8cc.html#ae25f0ce93f5917ea8833e13a2f85c4cb">kart.cc</a>
+</li>
+<li>SKID_SPEED_BOUND_HIGHEST
+: <a class="el" href="kart_8cc.html#a49c029aa150984ae8a3b0bbb1d5244b5">kart.cc</a>
+</li>
+<li>SKID_SPEED_BOUND_LOWEST
+: <a class="el" href="kart_8cc.html#a4c190cc9b26348dbe6927e67d7e145f6">kart.cc</a>
 </li>
 </ul>
 

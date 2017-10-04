@@ -1,8 +1,8 @@
-#ifndef CONST_H
-#define CONST_H
+#ifndef CONFIG_H
+#define CONFIG_H
 
-/** Contains global constants shared between entities. */
-namespace Const {
+/** Contains global configuration constants shared between entities. */
+namespace Config {
     /** Width of the game window. */
     extern const int WINDOW_WIDTH;
 
@@ -11,6 +11,9 @@ namespace Const {
 
     /** Updates per second the game should run at. */
     extern const int TARGET_UPDATES_PER_SECOND;
+
+    /** Size of the minimap. */
+    extern const int MINIMAP_SIZE;
 }
 
-#endif // CONST_H
+#endif // CONFIG_H

@@ -1,6 +1,6 @@
 <map id="src/minimap/minimap.cc" name="src/minimap/minimap.cc">
 <area shape="rect" id="node4" href="$minimap_8h.html" title="minimap.h" alt="" coords="175,80,257,107"/>
-<area shape="rect" id="node8" href="$const_8h.html" title="const.h" alt="" coords="354,80,419,107"/>
+<area shape="rect" id="node8" href="$config_8h.html" title="config.h" alt="" coords="354,80,422,107"/>
 <area shape="rect" id="node9" href="$fileutil_8h.html" title="fileutil.h" alt="" coords="485,80,552,107"/>
 <area shape="rect" id="node15" href="$resourceutil_8h.html" title="resourceutil.h" alt="" coords="709,80,809,107"/>
 <area shape="rect" id="node5" href="$mapfactory_8h.html" title="mapfactory.h" alt="" coords="5,155,104,181"/>

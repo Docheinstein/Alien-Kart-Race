@@ -2,6 +2,8 @@
 #include "mathutil.h"
 #include "logger.h"
 
+#define LOG_TAG "{MathUtil} "
+
 double MathUtil::changeRange(const Range &r1, const Range &r2, double r1Val) {
     return (r1Val - r1.low) / (r1.high - r1.low) * (r2.high - r2.low) + r2.low;
 }
@@ -19,6 +21,7 @@ int MathUtil::rangeBelongingTo(const BoundRange ranges[], int rangeCount, double
         if (val >= ranges[i].low && val < ranges[i].high)
             return ranges[i].associatedValue;
     }
+    warn(LOG_TAG, "The given value doesn't belong to any range");
     return 0;
 }
 

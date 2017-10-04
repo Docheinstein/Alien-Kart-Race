@@ -10,28 +10,83 @@
 #include "kartfactory.h"
 #include "minimap.h"
 #include "playerkart.h"
-#include "const.h"
+#include "config.h"
 #include "level.h"
 
 #define LOG_TAG "{AIKart} "
 #define CAN_LOG 1
 
-int AIKart::minimapSize() {
-    return Minimap::MINIMAP_SIZE / 128;
-}
+// Little angle (just to be sure that angles don't
+// assume the 0 value (awful things might happen...))
+const double ANGLE_RAD_EPSILON = (double)1 / (1 << 9);
 
 AIKart::AIKart( Level * level, const char *kartName,
                 sf::Color *kartColor, const char *pathName)
                  : Kart(level, kartName, kartColor) {
      mPathFilename = pathName;
-     mDirectionalPoint.direction = Angle {(double)1 / (1 << 9)};
+     mDirectionalPoint.direction = Angle {ANGLE_RAD_EPSILON};
 }
 
 AIKart::~AIKart() {
-
+    delete [] mPath.points;
 }
 
+// ------------------------
+// PUBLIC -----------------
+// ------------------------
+
+void AIKart::update() {
+    // The AI update basically look for the next point and take
+    // the movmente decision based on the direction between the
+    // kart position and the next point position.
+    Point nextPoint = mPath.points[mNextPathPointIndex];
+
+    double remainingTurnAngleForNextPoint = (directionalPoint() - nextPoint).rad;
+
+    // When the direction of the kart is below this rad, the direction
+    // is considered ok. Making this value low ensure that the kart take
+    // exactly the right direction of the next point, but due other factor
+    // like skidding and wheel turning return, might happen that the kart
+    // never reaches the excpected direction and turn around the next point.
+	const double ALMOST_IN_RIGHT_DIRECTION_ANGLE_EPSILON = 0.4;
+
+    bool shouldGoBackward = false; // Never going backward
+    bool shouldGoForward = true; // Always go forward
+    bool shouldGoLeft;
+    bool shouldGoRight;
+
+    // Going in the right direction for the next point
+    if (remainingTurnAngleForNextPoint < ALMOST_IN_RIGHT_DIRECTION_ANGLE_EPSILON)  {
+        shouldGoLeft = shouldGoRight = false;
+    }
+    else {
+        shouldGoRight = (remainingTurnAngleForNextPoint >= ALMOST_IN_RIGHT_DIRECTION_ANGLE_EPSILON &&
+			 			remainingTurnAngleForNextPoint < M_PI);
+        shouldGoLeft = (remainingTurnAngleForNextPoint >= M_PI - ALMOST_IN_RIGHT_DIRECTION_ANGLE_EPSILON &&
+			 			 remainingTurnAngleForNextPoint <= M_PI * 2);
+    }
+
+    Kart::update(shouldGoForward, shouldGoBackward, shouldGoLeft, shouldGoRight);
+
+	const double POINT_REACHED_DISTANCE_EPSILON = 3.5;
+	const double distanceToNextPoint =
+        GeometryUtil::distanceBetweenTwoPoints(mDirectionalPoint.position, nextPoint);
+	if (distanceToNextPoint < POINT_REACHED_DISTANCE_EPSILON) {
+			mNextPathPointIndex = (mNextPathPointIndex + 1) % mPath.pointCount;
+		d(  "Kart [", name(), "] reached path point ",
+            mNextPathPointIndex, " at index [", nextPoint, "]");
+	}
+	else {
+		d2(  "Kart [", name(), "] Distance to next point ",
+           mNextPathPointIndex, " at index [", nextPoint, "]: ", distanceToNextPoint);
+	}
+}
+
+
 void AIKart::draw() {
+    // Draws the player in the appropriate perspective point
+    //  with the appropriate perspective scale.
+    //
     Kart *playerKart = mLevel->playerKart();
 
     Point pc, pr, vp1, vp2;
@@ -53,32 +108,31 @@ void AIKart::draw() {
     double perspectiveScaleFactor = PerspectiveUtil::scaleForPerspectivePoint(pp, vp2, pc);
     double scaleFactor = kartScaleFactor * perspectiveScaleFactor;
 
+    // Adjust the angle differece by the adjustment for a point on the
+    // screen position of this kart's perspective point
     double adjustmentAngleDiff = PerspectiveUtil::angleAdjustmentForPerspectivePoint(
-        pp, ViewUtil::BASE_POINT, ViewUtil::HORIZON_LINE_Y, Const::WINDOW_WIDTH);
+        pp, ViewUtil::BASE_POINT, ViewUtil::HORIZON_LINE_Y, Config::WINDOW_WIDTH);
 
     double angleDiff = (direction() - playerKart->direction() - adjustmentAngleDiff).rad;
 
+    // Estimate the sprite to use by looking at the angle difference
+    // between the camera and the ai kart
     int spriteIndexForCurrentDirection =
         MathUtil::changeRangeToInt(
             Range {0, 2 * M_PI },
             Range {0, static_cast<double>(mSpriteCount)},
             angleDiff) % mSpriteCount;
-    // d2("Choosing int index: ", spriteIndexForCurrentDirection);
 
 	mSprites[spriteIndexForCurrentDirection].setPosition(pp.x, pp.y);
-
 	mSprites[spriteIndexForCurrentDirection].setScale(scaleFactor, scaleFactor);
-    // d2("Venusian scale factor\t", kartScaleFactor);
-    // d2("perspectiveScaleFactor\t",  perspectiveScaleFactor);
-	// d2("perspectiveScale\t", scaleFactor);
-	// d2("PP\t", pp);
-	// d2("Current scaled AI sprite dim: ", mSprites[spriteIndexForCurrentDirection].getGlobalBounds().height);
 
     sf::FloatRect spriteRect = mSprites[spriteIndexForCurrentDirection].getGlobalBounds();
     Point spriteUL {spriteRect.left, spriteRect.top};
     Point spriteUR {spriteUL.x + spriteRect.width, spriteUL.y};
     Point spriteDR {spriteUR.x, spriteUL.y + spriteRect.height};
     Point spriteDL {spriteUR.x, spriteDR.y};
+
+    // Add the sprite to the sprites to render the next render phase only if visibile
     if (ViewUtil::isOnScreenUnderHorizon(spriteUL) ||
         ViewUtil::isOnScreenUnderHorizon(spriteUR) ||
         ViewUtil::isOnScreenUnderHorizon(spriteDR) ||
@@ -86,74 +140,14 @@ void AIKart::draw() {
             mLevel->pushSprite(&mSprites[spriteIndexForCurrentDirection]);
 }
 
-void AIKart::update() {
-    //return;
-    Point nextPoint = mPath.points[mNextPathPointIndex];
 
-    double remainingTurnAngleForNextPoint = (directionalPoint() - nextPoint).rad;
-
-	const double ALMOST_IN_RIGHT_DIRECTION_ANGLE_EPSILON = 0.4;
-
-    bool shouldGoBackward;
-    bool shouldGoForward;
-    bool shouldGoLeft;
-    bool shouldGoRight;
-
-    // Going in the right direction for the next point
-    if (remainingTurnAngleForNextPoint < ALMOST_IN_RIGHT_DIRECTION_ANGLE_EPSILON)  {
-        shouldGoLeft = shouldGoRight = false;
-        // d2("Going to the right direction, not turning");
-    }
-    else {
-        // d2("Going to the wrong direction, turning");
-        shouldGoRight = (remainingTurnAngleForNextPoint >= ALMOST_IN_RIGHT_DIRECTION_ANGLE_EPSILON &&
-			 			remainingTurnAngleForNextPoint < M_PI);
-        shouldGoLeft = (remainingTurnAngleForNextPoint >= M_PI - ALMOST_IN_RIGHT_DIRECTION_ANGLE_EPSILON &&
-			 			 remainingTurnAngleForNextPoint <= M_PI * 2);
-    }
-
-    // if (remainingTurnAngleForNextPoint > M_PI / 2 && remainingTurnAngleForNextPoint < M_PI * 3/2 ) {
-    //     shouldGoBackward = true;// Change this
-    //     shouldGoForward = false;
-    // }
-    // else {
-        shouldGoBackward = false;
-        shouldGoForward = true;
-    // }
-
-
-    // d2("AI Kart Decision: ",
-    //     "\n\tGo forward: ", shouldGoForward,
-    //     "\n\tGo backward: ", shouldGoBackward,
-    //     "\n\tGo left: ", shouldGoLeft,
-    //     "\n\tGo right: ", shouldGoRight
-    // );
-    Kart::update(shouldGoForward, shouldGoBackward, shouldGoLeft, shouldGoRight);
-
-	const double POINT_REACHED_DISTANCE_EPSILON = 3.5;
-	const double distanceToNextPoint = GeometryUtil::distanceBetweenTwoPoints(mDirectionalPoint.position, nextPoint);
-	if (distanceToNextPoint < POINT_REACHED_DISTANCE_EPSILON) {
-			mNextPathPointIndex = (mNextPathPointIndex + 1) % mPath.pointCount;
-
-			// d("Point reached, going to next at index: ", mNextPathPointIndex, ": [", nextPoint, "]");    // d2("AI Kart Decision: ",
-    //     "\n\tGo forward: ", shouldGoForward,
-    //     "\n\tGo backward: ", shouldGoBackward,
-    //     "\n\tGo left: ", shouldGoLeft,
-    //     "\n\tGo right: ", shouldGoRight
-    // );
-	}
-	else {
-		// d("Distance to next point: [", mNextPathPointIndex ,"]", distanceToNextPoint);
-	}
+int AIKart::minimapSize() {
+    return Config::MINIMAP_SIZE / 128;
 }
 
-void AIKart::pathArrayFillFunction(int readVal, int fileRow, int fileCol) {
-	int halfCol = fileCol / 2;
-	bool firstOfPair = (fileCol % 2 == 0);
-	firstOfPair ?
-		mPath.points[halfCol].y = readVal :
-        mPath.points[halfCol].x = readVal;
-}
+// ------------------------
+// PROTECTED --------------
+// ------------------------
 
 void AIKart::initAIPath() {
     int fileRowCount, fileColCount;
@@ -167,14 +161,20 @@ void AIKart::initAIPath() {
     FileUtil::loadStructureFromFileKnowningSize<int, AIKart>(
         pathFile.c_str(), fileRowCount, fileColCount, this, pathFillFunctionPtr);
 
-    d("Loaded AI path: ", pathFile, " of size: ", mPath.pointCount);
+    d("Kart [", name(), "] Loaded AI path: ", pathFile, " of size: ", mPath.pointCount);
 
-    for (int i = 0; i < mPath.pointCount; i++) {
-        d("Path point[", i, "]", mPath.points[i].y, ", ", mPath.points[i].x);
-    }
+    for (int i = 0; i < mPath.pointCount; i++)
+        d("Kart [", name(), "] Path point[", i, "]: ", mPath.points[i]);
 
-    // Set the current position to the first point
-    mNextPathPointIndex = /*0*/ 0;
+    mNextPathPointIndex = 0;
+}
+
+void AIKart::pathArrayFillFunction(int readVal, int fileRow, int fileCol) {
+	int halfCol = fileCol / 2;
+	bool firstOfPair = (fileCol % 2 == 0);
+	firstOfPair ?
+		mPath.points[halfCol].y = readVal :
+        mPath.points[halfCol].x = readVal;
 }
 
 const char * AIKart::logTag() {

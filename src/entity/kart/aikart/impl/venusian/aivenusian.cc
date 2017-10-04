@@ -1,10 +1,9 @@
 #include <SFML/Graphics.hpp>
 #include "aivenusian.h"
-#include "resourceutil.h"
-#include "mathutil.h"
 #include "kartfactory.h"
-#include "level.h"
 
+// The higher this value, the higher the possibility of get kart with random parameters
+// (which may lead to have more fun, or undefined behaviour).
 #define PARAM_RANDOMNESS_FACTOR (1.0 / 20)
 
 AIVenusian::AIVenusian( Level * level, const char *kartName,
@@ -15,7 +14,10 @@ AIVenusian::AIVenusian( Level * level, const char *kartName,
     initAIPath();
 }
 
-// PRIVATE
+// ------------------------
+// PROTECTED --------------
+// ------------------------
+
 void AIVenusian::initSprites() {
     mSpriteCount = KartFactory::sprites(KartFactory::KartType::VenusianType, mSprites);
     mLeaderboardSprite = KartFactory::leadeboardFaceSprite(KartFactory::KartType::VenusianType);
@@ -23,5 +25,4 @@ void AIVenusian::initSprites() {
 
 void AIVenusian::initParameters() {
     mParams = KartFactory::params(KartFactory::KartType::VenusianType, PARAM_RANDOMNESS_FACTOR);
-    // mParams.maxSpeed /=2;
 }
