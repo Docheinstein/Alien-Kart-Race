@@ -4,7 +4,7 @@
 ## Get me!
 Open a terminal in a directory and type
 ```
-git clone https://github.com/Docheinstein/Alien-Kart-Race
+git clone https://github.com/Docheinstein/alien-kart-race
 ```
 
 ## Requirements
