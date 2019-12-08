@@ -1,5 +1,6 @@
 # Path of the SFML library
-SFML_PATH = /usr/include/SFML/
+SFML_INCLUDE_PATH = ./sfml/include/
+SFML_LIB_PATH = ./sfml/lib/
 
 # Name of SFML components
 SFML_GRAPHICS_NAME = sfml-graphics
@@ -85,8 +86,9 @@ debug2: main
 
 # Main target
 main:	$(OBJS)
-	g++ $(CXXFLAGS) $(OBJS) -o $(BIN_PATH)main -L $(SFML_PATH)\
-	 -l$(SFML_GRAPHICS_NAME) -l$(SFML_WINDOW_NAME) -l$(SFML_SYSTEM_NAME)\
+	g++ $(CXXFLAGS) $(OBJS) -o $(BIN_PATH)main \
+	 	-I $(SFML_INCLUDE_PATH) \
+		-L $(SFML_LIB_PATH) -l$(SFML_GRAPHICS_NAME) -l$(SFML_WINDOW_NAME) -l$(SFML_SYSTEM_NAME)
 
 # For each object file takes includes the dependencies from its dependency file
 DEPENDENCIES = $(OBJS:.o=.d)
@@ -104,11 +106,11 @@ run: run-release
 
 # Runs the project in release mode
 run-release:
-	$(BIN_PATH)main
+	export LD_LIBRARY_PATH=LD_LIBRARY_PATH:$(SFML_LIB_PATH) && $(BIN_PATH)main
 
 # Runs the project using the specified debugger
 run-debug:
-	$(DEBUGGER) $(BIN_PATH)main
+	export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$(SFML_LIB_PATH) & $(DEBUGGER) $(BIN_PATH)main
 
 # --------------------------------------------
 # -----------UTILITY TARGETS -----------------

@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="Alien_Kart_Race"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/stefano/Develop/C++/Alien Kart Race/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/stefano/Develop/C++/Alien\ Kart\ Race/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/stefano/Develop/C++/Alien\ Kart\ Race/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/stefano/Develop/C++/Alien\ Kart\ Race/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/stefano/Develop/C++/Alien\ Kart\ Race/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/stefano/Develop/C++/Alien Kart Race/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/stefano/Develop/C++/Alien\ Kart\ Race/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/stefano/Develop/C++/Alien\ Kart\ Race/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/stefano/Develop/C++/Alien\ Kart\ Race/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/stefano/Develop/C++/Alien\ Kart\ Race/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Alien_Kart_Race">
+				<Option output="/home/stefano/Develop/C++/Alien Kart Race/cmake-build-debug/Alien_Kart_Race" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/stefano/Develop/C++/Alien Kart Race/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/../../../../include/c++/9.2.0"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/../../../../include/c++/9.2.0/x86_64-pc-linux-gnu"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/../../../../include/c++/9.2.0/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include-fixed"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/stefano/Develop/C++/Alien\ Kart\ Race/cmake-build-debug/Makefile&quot;  VERBOSE=1 Alien_Kart_Race"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/stefano/Develop/C++/Alien\ Kart\ Race/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/stefano/Develop/C++/Alien\ Kart\ Race/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/stefano/Develop/C++/Alien\ Kart\ Race/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Alien_Kart_Race/fast">
+				<Option output="/home/stefano/Develop/C++/Alien Kart Race/cmake-build-debug/Alien_Kart_Race" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/stefano/Develop/C++/Alien Kart Race/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/../../../../include/c++/9.2.0"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/../../../../include/c++/9.2.0/x86_64-pc-linux-gnu"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/../../../../include/c++/9.2.0/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include-fixed"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/stefano/Develop/C++/Alien\ Kart\ Race/cmake-build-debug/Makefile&quot;  VERBOSE=1 Alien_Kart_Race/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/stefano/Develop/C++/Alien\ Kart\ Race/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/stefano/Develop/C++/Alien\ Kart\ Race/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/stefano/Develop/C++/Alien\ Kart\ Race/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/stefano/Develop/C++/Alien Kart Race/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/stefano/Develop/C++/Alien\ Kart\ Race/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/stefano/Develop/C++/Alien\ Kart\ Race/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/stefano/Develop/C++/Alien\ Kart\ Race/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/stefano/Develop/C++/Alien\ Kart\ Race/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/stefano/Develop/C++/Alien Kart Race/Doxyfile">
+			<Option target="Alien_Kart_Race"/>
+		</Unit>
+		<Unit filename="/home/stefano/Develop/C++/Alien Kart Race/Makefile">
+			<Option target="Alien_Kart_Race"/>
+		</Unit>
+		<Unit filename="/home/stefano/Develop/C++/Alien Kart Race/README.MD">
+			<Option target="Alien_Kart_Race"/>
+		</Unit>
+		<Unit filename="/home/stefano/Develop/C++/Alien Kart Race/prebuildtools/AIPathGenerator/aipathgenerator.cc">
+			<Option target="Alien_Kart_Race"/>
+		</Unit>
+		<Unit filename="/home/stefano/Develop/C++/Alien Kart Race/prebuildtools/MapBinder/mapbinder.cc">
+			<Option target="Alien_Kart_Race"/>
+		</Unit>
+		<Unit filename="/home/stefano/Develop/C++/Alien Kart Race/prebuildtools/MapSectorsGenerator/mapsectorsgenerator.cc">
+			<Option target="Alien_Kart_Race"/>
+		</Unit>
+		<Unit filename="/home/stefano/Develop/C++/Alien Kart Race/prebuildtools/MapTilesetGenerator/maptilesetgenerator.cc">
+			<Option target="Alien_Kart_Race"/>
+		</Unit>
+		<Unit filename="/home/stefano/Develop/C++/Alien Kart Race/prebuildtools/MinimapGenerator/minimapgenerator.cc">
+			<Option target="Alien_Kart_Race"/>
+		</Unit>
+		<Unit filename="/home/stefano/Develop/C++/Alien Kart Race/src/config/config.h">
+			<Option target="Alien_Kart_Race"/>
+		</Unit>
+		<Unit filename="/home/stefano/Develop/C++/Alien Kart Race/src/entity/base/mapentity.h">
+			<Option target="Alien_Kart_Race"/>
+		</Unit>
+		<Unit filename="/home/stefano/Develop/C++/Alien Kart Race/src/entity/base/mapmovingentity.h">
+			<Option target="Alien_Kart_Race"/>
+		</Unit>
+		<Unit filename="/home/stefano/Develop/C++/Alien Kart Race/src/entity/kart/aikart/base/aikart.cc">
+			<Option target="Alien_Kart_Race"/>
+		</Unit>
+		<Unit filename="/home/stefano/Develop/C++/Alien Kart Race/src/entity/kart/aikart/base/aikart.h">
+			<Option target="Alien_Kart_Race"/>
+		</Unit>
+		<Unit filename="/home/stefano/Develop/C++/Alien Kart Race/src/entity/kart/aikart/impl/venusian/aivenusian.cc">
+			<Option target="Alien_Kart_Race"/>
+		</Unit>
+		<Unit filename="/home/stefano/Develop/C++/Alien Kart Race/src/entity/kart/aikart/impl/venusian/aivenusian.h">
+			<Option target="Alien_Kart_Race"/>
+		</Unit>
+		<Unit filename="/home/stefano/Develop/C++/Alien Kart Race/src/entity/kart/base/kart.cc">
+			<Option target="Alien_Kart_Race"/>
+		</Unit>
+		<Unit filename="/home/stefano/Develop/C++/Alien Kart Race/src/entity/kart/base/kart.h">
+			<Option target="Alien_Kart_Race"/>
+		</Unit>
+		<Unit filename="/home/stefano/Develop/C++/Alien Kart Race/src/entity/kart/kartfactory/kartfactory.cc">
+			<Option target="Alien_Kart_Race"/>
+		</Unit>
+		<Unit filename="/home/stefano/Develop/C++/Alien Kart Race/src/entity/kart/kartfactory/kartfactory.h">
+			<Option target="Alien_Kart_Race"/>
+		</Unit>
+		<Unit filename="/home/stefano/Develop/C++/Alien Kart Race/src/entity/kart/playerkart/base/playerkart.cc">
+			<Option target="Alien_Kart_Race"/>
+		</Unit>
+		<Unit filename="/home/stefano/Develop/C++/Alien Kart Race/src/entity/kart/playerkart/base/playerkart.h">
+			<Option target="Alien_Kart_Race"/>
+		</Unit>
+		<Unit filename="/home/stefano/Develop/C++/Alien Kart Race/src/entity/kart/playerkart/impl/venusian/playervenusian.cc">
+			<Option target="Alien_Kart_Race"/>
+		</Unit>
+		<Unit filename="/home/stefano/Develop/C++/Alien Kart Race/src/entity/kart/playerkart/impl/venusian/playervenusian.h">
+			<Option target="Alien_Kart_Race"/>
+		</Unit>
+		<Unit filename="/home/stefano/Develop/C++/Alien Kart Race/src/font/fontfactory.cc">
+			<Option target="Alien_Kart_Race"/>
+		</Unit>
+		<Unit filename="/home/stefano/Develop/C++/Alien Kart Race/src/font/fontfactory.h">
+			<Option target="Alien_Kart_Race"/>
+		</Unit>
+		<Unit filename="/home/stefano/Develop/C++/Alien Kart Race/src/game/game.cc">
+			<Option target="Alien_Kart_Race"/>
+		</Unit>
+		<Unit filename="/home/stefano/Develop/C++/Alien Kart Race/src/game/game.h">
+			<Option target="Alien_Kart_Race"/>
+		</Unit>
+		<Unit filename="/home/stefano/Develop/C++/Alien Kart Race/src/gametimer/gametimer.h">
+			<Option target="Alien_Kart_Race"/>
+		</Unit>
+		<Unit filename="/home/stefano/Develop/C++/Alien Kart Race/src/keyboard/listener/keyboardlistener.h">
+			<Option target="Alien_Kart_Race"/>
+		</Unit>
+		<Unit filename="/home/stefano/Develop/C++/Alien Kart Race/src/keyboard/manager/keyboardmanager.cc">
+			<Option target="Alien_Kart_Race"/>
+		</Unit>
+		<Unit filename="/home/stefano/Develop/C++/Alien Kart Race/src/keyboard/manager/keyboardmanager.h">
+			<Option target="Alien_Kart_Race"/>
+		</Unit>
+		<Unit filename="/home/stefano/Develop/C++/Alien Kart Race/src/launcher/launcher.cc">
+			<Option target="Alien_Kart_Race"/>
+		</Unit>
+		<Unit filename="/home/stefano/Develop/C++/Alien Kart Race/src/launcher/launcher.h">
+			<Option target="Alien_Kart_Race"/>
+		</Unit>
+		<Unit filename="/home/stefano/Develop/C++/Alien Kart Race/src/leaderboard/leaderboard.cc">
+			<Option target="Alien_Kart_Race"/>
+		</Unit>
+		<Unit filename="/home/stefano/Develop/C++/Alien Kart Race/src/leaderboard/leaderboard.h">
+			<Option target="Alien_Kart_Race"/>
+		</Unit>
+		<Unit filename="/home/stefano/Develop/C++/Alien Kart Race/src/level/level.cc">
+			<Option target="Alien_Kart_Race"/>
+		</Unit>
+		<Unit filename="/home/stefano/Develop/C++/Alien Kart Race/src/level/level.h">
+			<Option target="Alien_Kart_Race"/>
+		</Unit>
+		<Unit filename="/home/stefano/Develop/C++/Alien Kart Race/src/levelpicker/levelpicker.cc">
+			<Option target="Alien_Kart_Race"/>
+		</Unit>
+		<Unit filename="/home/stefano/Develop/C++/Alien Kart Race/src/levelpicker/levelpicker.h">
+			<Option target="Alien_Kart_Race"/>
+		</Unit>
+		<Unit filename="/home/stefano/Develop/C++/Alien Kart Race/src/log/logger/logger.h">
+			<Option target="Alien_Kart_Race"/>
+		</Unit>
+		<Unit filename="/home/stefano/Develop/C++/Alien Kart Race/src/log/loggerinterface/loggerinterface.h">
+			<Option target="Alien_Kart_Race"/>
+		</Unit>
+		<Unit filename="/home/stefano/Develop/C++/Alien Kart Race/src/main/main.cc">
+			<Option target="Alien_Kart_Race"/>
+		</Unit>
+		<Unit filename="/home/stefano/Develop/C++/Alien Kart Race/src/map/base/map.cc">
+			<Option target="Alien_Kart_Race"/>
+		</Unit>
+		<Unit filename="/home/stefano/Develop/C++/Alien Kart Race/src/map/base/map.h">
+			<Option target="Alien_Kart_Race"/>
+		</Unit>
+		<Unit filename="/home/stefano/Develop/C++/Alien Kart Race/src/map/impl/earth/earth.cc">
+			<Option target="Alien_Kart_Race"/>
+		</Unit>
+		<Unit filename="/home/stefano/Develop/C++/Alien Kart Race/src/map/impl/earth/earth.h">
+			<Option target="Alien_Kart_Race"/>
+		</Unit>
+		<Unit filename="/home/stefano/Develop/C++/Alien Kart Race/src/map/mapfactory/mapfactory.cc">
+			<Option target="Alien_Kart_Race"/>
+		</Unit>
+		<Unit filename="/home/stefano/Develop/C++/Alien Kart Race/src/map/mapfactory/mapfactory.h">
+			<Option target="Alien_Kart_Race"/>
+		</Unit>
+		<Unit filename="/home/stefano/Develop/C++/Alien Kart Race/src/minimap/minimap.cc">
+			<Option target="Alien_Kart_Race"/>
+		</Unit>
+		<Unit filename="/home/stefano/Develop/C++/Alien Kart Race/src/minimap/minimap.h">
+			<Option target="Alien_Kart_Race"/>
+		</Unit>
+		<Unit filename="/home/stefano/Develop/C++/Alien Kart Race/src/screen/base/screen.cc">
+			<Option target="Alien_Kart_Race"/>
+		</Unit>
+		<Unit filename="/home/stefano/Develop/C++/Alien Kart Race/src/screen/base/screen.h">
+			<Option target="Alien_Kart_Race"/>
+		</Unit>
+		<Unit filename="/home/stefano/Develop/C++/Alien Kart Race/src/screen/fade/fadescreen.cc">
+			<Option target="Alien_Kart_Race"/>
+		</Unit>
+		<Unit filename="/home/stefano/Develop/C++/Alien Kart Race/src/screen/fade/fadescreen.h">
+			<Option target="Alien_Kart_Race"/>
+		</Unit>
+		<Unit filename="/home/stefano/Develop/C++/Alien Kart Race/src/screen/manager/screenmanager.cc">
+			<Option target="Alien_Kart_Race"/>
+		</Unit>
+		<Unit filename="/home/stefano/Develop/C++/Alien Kart Race/src/screen/manager/screenmanager.h">
+			<Option target="Alien_Kart_Race"/>
+		</Unit>
+		<Unit filename="/home/stefano/Develop/C++/Alien Kart Race/src/util/file/fileutil.h">
+			<Option target="Alien_Kart_Race"/>
+		</Unit>
+		<Unit filename="/home/stefano/Develop/C++/Alien Kart Race/src/util/geometry/geometryentities.cc">
+			<Option target="Alien_Kart_Race"/>
+		</Unit>
+		<Unit filename="/home/stefano/Develop/C++/Alien Kart Race/src/util/geometry/geometryentities.h">
+			<Option target="Alien_Kart_Race"/>
+		</Unit>
+		<Unit filename="/home/stefano/Develop/C++/Alien Kart Race/src/util/geometry/geometryutil.cc">
+			<Option target="Alien_Kart_Race"/>
+		</Unit>
+		<Unit filename="/home/stefano/Develop/C++/Alien Kart Race/src/util/geometry/geometryutil.h">
+			<Option target="Alien_Kart_Race"/>
+		</Unit>
+		<Unit filename="/home/stefano/Develop/C++/Alien Kart Race/src/util/math/mathentities.h">
+			<Option target="Alien_Kart_Race"/>
+		</Unit>
+		<Unit filename="/home/stefano/Develop/C++/Alien Kart Race/src/util/math/mathtutil.cc">
+			<Option target="Alien_Kart_Race"/>
+		</Unit>
+		<Unit filename="/home/stefano/Develop/C++/Alien Kart Race/src/util/math/mathutil.h">
+			<Option target="Alien_Kart_Race"/>
+		</Unit>
+		<Unit filename="/home/stefano/Develop/C++/Alien Kart Race/src/util/matrix/matrixutil.h">
+			<Option target="Alien_Kart_Race"/>
+		</Unit>
+		<Unit filename="/home/stefano/Develop/C++/Alien Kart Race/src/util/perspective/perspectiveutil.cc">
+			<Option target="Alien_Kart_Race"/>
+		</Unit>
+		<Unit filename="/home/stefano/Develop/C++/Alien Kart Race/src/util/perspective/perspectiveutil.h">
+			<Option target="Alien_Kart_Race"/>
+		</Unit>
+		<Unit filename="/home/stefano/Develop/C++/Alien Kart Race/src/util/resources/resourceutil.cc">
+			<Option target="Alien_Kart_Race"/>
+		</Unit>
+		<Unit filename="/home/stefano/Develop/C++/Alien Kart Race/src/util/resources/resourceutil.h">
+			<Option target="Alien_Kart_Race"/>
+		</Unit>
+		<Unit filename="/home/stefano/Develop/C++/Alien Kart Race/src/util/sfml/sfmlutil.cc">
+			<Option target="Alien_Kart_Race"/>
+		</Unit>
+		<Unit filename="/home/stefano/Develop/C++/Alien Kart Race/src/util/sfml/sfmlutil.h">
+			<Option target="Alien_Kart_Race"/>
+		</Unit>
+		<Unit filename="/home/stefano/Develop/C++/Alien Kart Race/src/util/stdutil/stdutil.h">
+			<Option target="Alien_Kart_Race"/>
+		</Unit>
+		<Unit filename="/home/stefano/Develop/C++/Alien Kart Race/src/util/timeutil/timeutil.cc">
+			<Option target="Alien_Kart_Race"/>
+		</Unit>
+		<Unit filename="/home/stefano/Develop/C++/Alien Kart Race/src/util/timeutil/timeutil.h">
+			<Option target="Alien_Kart_Race"/>
+		</Unit>
+		<Unit filename="/home/stefano/Develop/C++/Alien Kart Race/src/util/view/viewutil.cc">
+			<Option target="Alien_Kart_Race"/>
+		</Unit>
+		<Unit filename="/home/stefano/Develop/C++/Alien Kart Race/src/util/view/viewutil.h">
+			<Option target="Alien_Kart_Race"/>
+		</Unit>
+		<Unit filename="/home/stefano/Develop/C++/Alien Kart Race/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

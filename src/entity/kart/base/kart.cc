@@ -1,3 +1,4 @@
+#include <cmath>
 #include <SFML/Graphics.hpp>
 #include "kart.h"
 #include "level.h"
@@ -291,7 +292,7 @@ void Kart::bounce() {
 }
 
 bool Kart::isSkidding() {
-	return fabs(mWheelTurning) > fabs(mParams.wheelTurningSkidPoint);
+	return abs(mWheelTurning) > abs(mParams.wheelTurningSkidPoint);
 }
 
 bool Kart::isBouncing() {
@@ -313,7 +314,7 @@ void Kart::advanceInCurrentDirection() {
 		double speedBoundWhileSkidding = MathUtil::changeRange(
 			Range {mParams.maxWheelTurning, mParams.wheelTurningSkidPoint},
 			Range {SKID_SPEED_BOUND_LOWEST, SKID_SPEED_BOUND_HIGHEST},
-			fabs(mWheelTurning)
+			abs(mWheelTurning)
 		);
 
 		d2("Kart [", name(), "] reduces its speed because of the skid by a factor of: ",
