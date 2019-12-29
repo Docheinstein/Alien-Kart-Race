@@ -40,7 +40,8 @@ else
 endif
 
 # Composes the include params by prepending -I to the retrieved subdirectories
-INCLUDE_PARAMS = $(foreach d, $(INCLUDE_DIRS), -I$d)
+# Include also the local SFML
+INCLUDE_PARAMS = $(foreach d, $(INCLUDE_DIRS), -I$d) -I$(SFML_INCLUDE_PATH) 
 
 # Retrieves the .cc files from the sources folder searching them recursively
 ifeq ($(OS),Windows_NT)
@@ -87,7 +88,6 @@ debug2: main
 # Main target
 main:	$(OBJS)
 	g++ $(CXXFLAGS) $(OBJS) -o $(BIN_PATH)main \
-	 	-I $(SFML_INCLUDE_PATH) \
 		-L $(SFML_LIB_PATH) -l$(SFML_GRAPHICS_NAME) -l$(SFML_WINDOW_NAME) -l$(SFML_SYSTEM_NAME)
 
 # For each object file takes includes the dependencies from its dependency file
